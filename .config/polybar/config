@@ -233,7 +233,7 @@ label-mode-background = #FFBB00
 label-focused = %icon% %name%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
-label-focused-underline = #AD69AF
+label-focused-underline = #00ffff
 label-focused-padding = 2
 
 ; Available tokens:
@@ -246,7 +246,7 @@ label-unfocused = %icon% %name%
 label-unfocused-padding = 2
 label-unfocused-background = ${colors.background}
 label-unfocused-foreground = ${colors.foreground}
-label-unfocused-underline =
+;label-unfocused-underline = ${label-focused-underline}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon% %name%
@@ -273,7 +273,7 @@ format-background = ${colors.background}
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #84598D
+content-foreground = #00BDBD
 content-background = #1D2330
 
 [module/arrow2]
@@ -281,32 +281,32 @@ content-background = #1D2330
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #4B5665
-content-background = #84598D
+content-foreground = #00FEB7
+content-background = #00BDBD
 
 [module/arrow3]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #92969D
-content-background = #4B5665
+content-foreground = #00834A
+content-background = #00FEB7
 
 [module/arrow4]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #645377
-content-background = #92969D
+content-foreground = #007979
+content-background = #00834A
 
 [module/arrow5]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #AD69AF
-content-background = #645377
+content-foreground = #00FFFF
+content-background = #007979
 
 [module/arrow6]
 ; grey to Blue
@@ -314,7 +314,7 @@ type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
 content-foreground = #1D2330
-content-background = #AD69AF
+content-background = #00FFFF
 
 
 
@@ -420,7 +420,7 @@ exec = acpi -t | awk '/^Thermal 1:/ {print $4}' | head -c 2
 interval = 2
 format-padding = 1
 format-foreground = #1D2330
-format-background = #645377
+format-background = #007979
 ;format-underline = #C1B93E
 format-prefix-foreground = ${colors.background}
 label =   %output%ºC
@@ -488,8 +488,8 @@ type = internal/cpu
 ; Seconds to sleep between updates
 ; Default: 1
 interval = 1
-format-foreground = #1D2330
-format-background = #92969D
+format-foreground = ${colors.background}
+format-background = #00834A
 format-prefix = " "
 format-prefix-foreground = ${colors.background}
 
@@ -523,9 +523,9 @@ date-alt = " %a %b %d, %Y"
 time = %l:%M%p
 time-alt = %l:%M%p
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-format-foreground = ${colors.foreground}
-format-background = #AD69AF
+format-prefix-foreground = ${colors.background}
+format-foreground = ${colors.background}
+format-background = #00FFFF
 label = "%date% %time% "
 
 #################################################################
@@ -672,9 +672,9 @@ label = %percentage_used%%
 
 format = Mem <label>
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-format-foreground = ${colors.foreground}
-format-background = #4B5665
+format-prefix-foreground = ${colors.background}
+format-foreground = ${colors.background}
+format-background = #00FEB7
 
 ################################################################################
 
@@ -734,9 +734,9 @@ interface = wlp3s0
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground}
-format-connected-foreground = ${colors.foreground}
-format-connected-background = #84598D
+format-connected-prefix-foreground = ${colors.background}
+format-connected-foreground = ${colors.background}
+format-connected-background = #00BDBD
 
 ################################################################################
 
@@ -747,9 +747,9 @@ interface = wlp3s0
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = "  "
-format-connected-prefix-foreground = ${colors.foreground}
-format-connected-foreground = ${colors.foreground}
-format-connected-background = #84598D
+format-connected-prefix-foreground = ${colors.background}
+format-connected-foreground = ${colors.background}
+format-connected-background = #00BDBD
 
 ################################################################################
 
@@ -878,17 +878,17 @@ type = internal/volume
 format-volume = "<label-volume>  <bar-volume>"
 
 label-volume = " "
-label-volume-foreground = #84598D
+label-volume-foreground = #00FFFF
 label-muted = muted
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #84598D 
-bar-volume-foreground-1 = #84598D
-bar-volume-foreground-2 = #84598D
-bar-volume-foreground-3 = #84598D
-bar-volume-foreground-4 = #84598D
-bar-volume-foreground-5 = #84598D
-bar-volume-foreground-6 = #84598D
+bar-volume-foreground-0 = #00FFFF 
+bar-volume-foreground-1 = #00FFFF
+bar-volume-foreground-2 = #00FFFF
+bar-volume-foreground-3 = #00FFFF
+bar-volume-foreground-4 = #00FFFF
+bar-volume-foreground-5 = #00FFFF
+bar-volume-foreground-6 = #00FFFF
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
