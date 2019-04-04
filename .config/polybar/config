@@ -27,8 +27,9 @@ format-offset =
 
 [colors]
 ; Nord theme ============
-background = #1D2330
+background = #001D2330
 foreground = #c0c5ce
+foreground2 = #1D2330
 alert = #bd2c40
 volume-min = #a3be8c
 volume-med = #ebcb8b
@@ -91,8 +92,8 @@ border-size = 0
 ;border-bottom-size = 25
 border-color = #000000
 
-padding-left = 1
-padding-right = 1
+padding-left = 0
+padding-right = 0
 
 module-margin-left = 0
 module-margin-right = 0
@@ -114,7 +115,7 @@ separator =
 tray-position = right
 tray-detached = false
 tray-maxsize = 20
-tray-background = ${colors.background}
+tray-background = 1D2330
 tray-offset-x = 0
 tray-offset-y = 0
 tray-padding = 4
@@ -274,7 +275,7 @@ type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
 content-foreground = #00BDBD
-content-background = #1D2330
+content-background = ${colors.background}
 
 [module/arrow2]
 ; grey to Blue
@@ -488,10 +489,10 @@ type = internal/cpu
 ; Seconds to sleep between updates
 ; Default: 1
 interval = 1
-format-foreground = ${colors.background}
+format-foreground = ${colors.foreground2}
 format-background = #00834A
 format-prefix = " "
-format-prefix-foreground = ${colors.background}
+format-prefix-foreground = ${colors.foreground2}
 
 label-font = 1
 
@@ -523,8 +524,8 @@ date-alt = " %a %b %d, %Y"
 time = %l:%M%p
 time-alt = %l:%M%p
 format-prefix = " "
-format-prefix-foreground = ${colors.background}
-format-foreground = ${colors.background}
+format-prefix-foreground = ${colors.foreground2}
+format-foreground = ${colors.foreground2}
 format-background = #00FFFF
 label = "%date% %time% "
 
@@ -672,8 +673,8 @@ label = %percentage_used%%
 
 format = Mem <label>
 format-prefix = " "
-format-prefix-foreground = ${colors.background}
-format-foreground = ${colors.background}
+format-prefix-foreground = ${colors.foreground2}
+format-foreground = ${colors.foreground2}
 format-background = #00FEB7
 
 ################################################################################
@@ -721,10 +722,10 @@ bar-progress-indicator = 
 bar-progress-fill = 
 bar-progress-empty = 
 bar-progress-fill-foreground = ${colors.foreground}
-bar-progress-fill-background = ${colors.background}
+bar-progress-fill-background = #1D2330
 bar-progress-indicator-foreground = ${colors.foreground}
 format-online-foreground = ${colors.foreground}
-format-online-background = ${colors.background}
+format-online-background = #1D2330
 ################################################################################
 
 [module/networkspeedup]
@@ -734,8 +735,8 @@ interface = wlp3s0
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.background}
-format-connected-foreground = ${colors.background}
+format-connected-prefix-foreground = ${colors.foreground2}
+format-connected-foreground = ${colors.foreground2}
 format-connected-background = #00BDBD
 
 ################################################################################
@@ -747,8 +748,8 @@ interface = wlp3s0
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = "  "
-format-connected-prefix-foreground = ${colors.background}
-format-connected-foreground = ${colors.background}
+format-connected-prefix-foreground = ${colors.foreground2}
+format-connected-foreground = ${colors.foreground2}
 format-connected-background = #00BDBD
 
 ################################################################################
@@ -899,11 +900,11 @@ bar-volume-empty = -
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground}
 format-volume-foreground = ${colors.foreground}
-format-volume-background = ${colors.background}
+format-volume-background = #1D2330
 format-muted-prefix = "  "
 format-muted-prefix-foreground = "#ff0000"
 format-muted-foreground = ${colors.foreground}
-format-muted-background = ${colors.background}
+format-muted-background = #1D2330
 
 ################################################################################
 
