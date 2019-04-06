@@ -1,0 +1,21 @@
+#!bin/sh
+
+alias ls='ls --color=auto' \
+	unlock='sudo rm -rf /var-lib/pacman/db.lck' \
+	free='free -mt' \
+	xr='xrdb ~/.Xresources' \
+	update='sudo pacman -Syu' \
+	updateaur='yay -Syu' \
+	cleanup='yay --noconfirm -Sc && yay -Rns $(pacman -Qtdq)' \
+	install='yay -S' \
+	lookup='pacman -Ss' \
+	lookupaur='yay -Ss' \
+	clone='git clone' \
+	add='git add' \
+	stat='git status' \
+	check='git checkout' \
+	commit='git commit -m' \
+	push='git push origin' \
+	fc='fc-cache -fv' \
+	ytmp3='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0' \
+	ytmp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"' \
