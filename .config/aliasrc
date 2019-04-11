@@ -23,5 +23,3 @@ alias ls='ls --color=auto' \
 	ytmp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"' \
 	patch='patch -p1 <' \
 	rm='rm -rf' \
-	mp='ncmpcpp' \
-	mx='alsamixer' \
