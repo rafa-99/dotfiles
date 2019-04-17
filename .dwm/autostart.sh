@@ -1,27 +1,38 @@
-compton &
-feh --bg-scale /home/rafael/Pictures/Wallpaper.png &
-setxkbmap pt &
-Memory(){
-	Memory=`free -h | awk '/^Mem:/ {print $3 "/" $2}'`
-	echo -e "Memory $Memory"
-}
-
-Time(){
-	Time=`date +'%F %H:%M %A'`
-	echo -e "$Time"
-}
-
-Temp(){
-	Temp=`sensors | awk '/^temp1:/ {print $2}' | head -1 | cut -b 2,3,6,7,8`
-	echo -e "$Temp"
+Date(){
+	Date=`date +'%F %A'`
+	echo -e ": $Date"
 }
 
 Kernel(){
 	Kernel=`uname -nro`
-	echo -e "$Kernel"
+	echo -e ": $Kernel"
+}
+
+Memory(){
+	Memory=`free -h | awk '/^Mem:/ {print $3 "/" $2}'`
+	echo -e ": $Memory"
+}
+
+Music(){
+	Music=`mpc status | grep -`
+	echo -e ": $Music"
+}
+
+Temp(){
+	Temp=`sensors | awk '/^temp1:/ {print $2}' | head -1 | cut -b 2,3,6,7,8`
+	echo -e ": $Temp"
+}
+
+Time(){
+	Time=`date +'%H:%M'`
+	echo -e ": $Time"
 }
 while true; do
-	xsetroot -name "$(Memory)   |   $(Temp)   |   $(Kernel)   |   $(Time)"
-	sleep 30s
+	xsetroot -name "$(Music)   |   $(Memory)   |   $(Temp)   |   $(Kernel)   |   $(Date)   |   $(Time)"
+	sleep 10s
 done &
-mpd
+feh --bg-scale /home/rafael/Pictures/Wallpaper.png &
+compton &
+setxkbmap pt &
+numlockx on &
+mpd &

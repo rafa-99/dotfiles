@@ -24,3 +24,4 @@ let color15 = "#a2e9d0"
 
 syntax on
 set number
+set ignorecase
