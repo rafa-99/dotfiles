@@ -35,4 +35,3 @@ feh --bg-scale /home/rafael/Pictures/Wallpaper.png &
 compton &
 setxkbmap pt &
 numlockx on &
-mpd &
