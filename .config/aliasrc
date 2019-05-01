@@ -23,3 +23,5 @@ alias ls='ls --color=auto' \
 	ytmp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"' \
 	patch='patch -p1 <' \
 	rm='rm -rf' \
+	encrypt='openssl aes-256-cbc -a -salt' \
+	decrypt='openssl aes-256-cbc -d -a' 
