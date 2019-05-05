@@ -27,11 +27,17 @@ Time(){
 	Time=`date +'%H:%M'`
 	echo -e ": $Time"
 }
+
+Weather(){
+	Weather=`curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo`
+	echo -e "滛: $Weather"
+}
+
 while true; do
-	xsetroot -name "$(Music)   |   $(Memory)   |   $(Temp)   |   $(Kernel)   |   $(Date)   |   $(Time)"
+	xsetroot -name "$(Music)   |   $(Memory)   |   $(Temp)   |   $(Weather)   |   $(Date)   |   $(Time)"
 	sleep 10s
 done &
-feh --bg-scale /home/rafael/Pictures/Wallpaper.png &
+feh --bg-scale /home/rafael/Pictures/Wallpaper.jpg &
 compton &
 setxkbmap pt &
 numlockx on &
