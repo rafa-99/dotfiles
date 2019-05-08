@@ -1,3 +1,9 @@
+#!/bin/bash
+feh --bg-scale /home/rafael/Pictures/Wallpaper.jpg &
+compton &
+setxkbmap pt &
+numlockx on &
+
 Date(){
 	Date=`date +'%F %A'`
 	echo -e ": $Date"
@@ -37,7 +43,3 @@ while true; do
 	xsetroot -name "$(Music)   |   $(Memory)   |   $(Temp)   |   $(Weather)   |   $(Date)   |   $(Time)"
 	sleep 10s
 done &
-feh --bg-scale /home/rafael/Pictures/Wallpaper.jpg &
-compton &
-setxkbmap pt &
-numlockx on &
