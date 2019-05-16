@@ -1,0 +1,13 @@
+auto-reload yes
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key l open
+bind-key u open-in-browser
+bind-key h quit
+bind-key q hard-quit
+browser "surf %u"
+color listfocus blue white standout 
+color listfocus_unread blue white standout bold
+color info white blue standout bold
