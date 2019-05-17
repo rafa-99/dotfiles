@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mpc playlist | dmenu -i -l 30 | awk -F"- "  '{print $NF}' | awk -F "'" '{print $NF}' | xargs -I {} mpc searchplay "{}"
+mpc playlist | nl | cut -c 4- | sed 's:\t: :g' | dmenu -i -l 30 | awk '{print $1}' | xargs -I {} mpc play "{}"
