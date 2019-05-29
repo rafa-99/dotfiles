@@ -1,10 +1,8 @@
 #!/bin/bash
 
-USERNAME=$(whoami)
-
-rm -rf /home/$USERNAME/.cache
-rm -rf /home/$USERNAME/.bash_history
-rm -rf /home/$USERNAME/.wget*
-rm -rf /home/$USERNAME/.Xsession-erro*
-rm -rf /home/$USERNAME/.local/share/nautilus
-rm -rf /home/$USERNAME/.local/share/qutebrowser
+rm -rf $HOME/.cache
+rm -rf $HOME/.bash_history
+rm -rf $HOME/.wget*
+rm -rf $HOME/.Xsession-erro*
+rm -rf $HOME/.local/share/nautilus
+rm -rf $HOME/.local/share/qutebrowser

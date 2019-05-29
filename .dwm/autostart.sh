@@ -1,6 +1,6 @@
 #!/bin/bash
 feh --bg-scale /home/rafael/Pictures/Wallpaper.jpg &
-compton &
+xcompmgr &
 setxkbmap pt &
 numlockx on &
 

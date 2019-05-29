@@ -1,27 +1,25 @@
 #!/bin/bash
 
-USERNAME=$(whoami)
-
-rm -rf /home/$USERNAME/.android
-rm -rf /home/$USERNAME/.cache
-rm -rf /home/$USERNAME/.mozilla
-rm -rf /home/$USERNAME/.minecraft
-rm -rf /home/$USERNAME/.bash_history
-rm -rf /home/$USERNAME/.gitconfig
-rm -rf /home/$USERNAME/.vim*
-rm -rf /home/$USERNAME/.wget*
-rm -rf /home/$USERNAME/.Xresources
-rm -rf /home/$USERNAME/.Xsession-erro*
-rm -rf /home/$USERNAME/.local/share/nautilus
-rm -rf /home/$USERNAME/.local/share/ranger
-rm -rf /home/$USERNAME/.local/share/Telegram*
-rm -rf /home/$USERNAME/.local/share/fonts
-rm -rf /home/$USERNAME/.local/share/qutebrowser
-rm -rf /home/$USERNAME/.local/share/ranger
-rm -rf /home/$USERNAME/.local/share/rofi
-rm -rf /home/$USERNAME/.local/share/sonic*
-rm -rf /home/$USERNAME/.local/share/Trash/files/*
-rm -rf /home/$USERNAME/.local/share/Trash/info/*
-rm -rf /home/$USERNAME/.local/share/vlc
-rm -rf /home/$USERNAME/.local/share/zathura
-rm -rf /home/$USERNAME/Downloads/*
+rm -rf $HOME/.android
+rm -rf $HOME/.cache
+rm -rf $HOME/.mozilla
+rm -rf $HOME/.minecraft
+rm -rf $HOME/.bash_history
+rm -rf $HOME/.gitconfig
+rm -rf $HOME/.vim*
+rm -rf $HOME/.wget*
+rm -rf $HOME/.Xresources
+rm -rf $HOME/.Xsession-erro*
+rm -rf $HOME/.local/share/nautilus
+rm -rf $HOME/.local/share/ranger
+rm -rf $HOME/.local/share/Telegram*
+rm -rf $HOME/.local/share/fonts
+rm -rf $HOME/.local/share/qutebrowser
+rm -rf $HOME/.local/share/ranger
+rm -rf $HOME/.local/share/rofi
+rm -rf $HOME/.local/share/sonic*
+rm -rf $HOME/.local/share/Trash/files/*
+rm -rf $HOME/.local/share/Trash/info/*
+rm -rf $HOME/.local/share/vlc
+rm -rf $HOME/.local/share/zathura
+rm -rf $HOME/Downloads/*
