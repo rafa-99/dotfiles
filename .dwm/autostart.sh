@@ -1,5 +1,5 @@
 #!/bin/bash
-feh --bg-scale /home/rafael/Pictures/Wallpaper.jpg &
+xwallpaper --stretch $Home/Pictures/Wallpaper.jpg &
 xcompmgr &
 setxkbmap pt &
 numlockx on &
