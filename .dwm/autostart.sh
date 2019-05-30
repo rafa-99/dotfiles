@@ -1,5 +1,5 @@
 #!/bin/bash
-xwallpaper --stretch $HOME/Pictures/Wallpaper.jpg &
+xwallpaper --stretch $HOME/Pictures/Sunset.jpg &
 xcompmgr &
 setxkbmap pt &
 numlockx on &
