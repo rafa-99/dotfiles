@@ -23,7 +23,9 @@ alias ls='ls --color=auto' \
 	ytmp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"' \
 	patch='patch -p1 <' \
 	del='rm -rf' \
+	copy='cp -rf' \
 	encrypt='openssl aes-256-cbc -a -salt' \
 	decrypt='openssl aes-256-cbc -d -a' \
 	wipe='bash $HOME/.config/custom_scripts/WipeAllData.sh' \
-	rcompile='bash $HOME/.config/custom_scripts/RCompile.sh'
+	rcompile='bash $HOME/.config/custom_scripts/RCompile.sh' \
+	clip='xclip -selection clipboard'
