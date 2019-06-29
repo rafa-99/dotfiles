@@ -11,3 +11,11 @@ cp -rf .* $HOME
 cp -rf Pictures/* $HOME/Pictures/
 rm -rf $HOME/.git
 xrdb $HOME/.Xresources
+mkdir ~/Mount
+mkdir ~/Mount/Drive
+mkdir ~/Mount/Drive2
+mkdir ~/Mount/Drive3
+mkdir ~/Mount/MTP
+mkdir ~/Mount/USB
+mkdir ~/Mount/USB2
+mkdir ~/Mount/USB3
