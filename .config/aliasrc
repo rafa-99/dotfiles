@@ -6,7 +6,7 @@ alias ls='ls --color=auto' \
 	update='sudo pacman -Syu' \
 	updateaur='yay -Syu' \
 	remove='yay -Rns' \
-	cleanup='yay --noconfirm -Sc && bash $HOME/.config/custom_scripts/cleanup && yay -Rns $(pacman -Qtdq)' \
+	cleanup='yay --noconfirm -Sc && bash $HOME/.config/scripts/cleanup && yay -Rns $(pacman -Qtdq)' \
 	install='yay -S' \
 	search='yay -Ss' \
 	clone='git clone' \
@@ -25,6 +25,6 @@ alias ls='ls --color=auto' \
 	copy='cp -rf' \
 	encrypt='openssl aes-256-cbc -a -salt' \
 	decrypt='openssl aes-256-cbc -d -a' \
-	rcompile='bash $HOME/.config/custom_scripts/rcompile' \
+	rcompile='bash $HOME/.config/scripts/rcompile' \
 	clip='xclip -selection clipboard' \
-	whoshere='bash $HOME/.config/custom_scripts/whoshere'
+	whoshere='bash $HOME/.config/scripts/whoshere'
