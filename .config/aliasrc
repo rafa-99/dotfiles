@@ -21,11 +21,12 @@ alias ls='ls --color=auto' \
 	ytmp3='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0' \
 	ytmp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"' \
 	patch='patch -p1 <' \
-	mkdf='diff -u' \
+	mkdiff='diff -u' \
 	del='rm -rf' \
 	copy='cp -rf' \
 	encrypt='openssl aes-256-cbc -a -salt' \
 	decrypt='openssl aes-256-cbc -d -a' \
 	rcompile='bash $HOME/.config/scripts/rcompile' \
 	clip='xclip -selection clipboard' \
-	whoshere='bash $HOME/.config/scripts/whoshere'
+	whoshere='bash $HOME/.config/scripts/whoshere' \
+	webget='wget --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla'
