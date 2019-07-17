@@ -1,3 +1,6 @@
 #!/bin/bash
 
+#A menu that selects emojis/glyphs and copies them to the clipboard
+
+#Reading glyphs folder     | Outputs menu 20| Grabs the emoji  | Redirects into an outp| Sends it to the clipboard
 cat $HOME/.config/glyphsrc | dmenu -i -l 20 | awk '{print $1}' | xargs -I {} printf {} | xclip -selection clipboard

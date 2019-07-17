@@ -1,3 +1,6 @@
 #!/bin/bash
 
-mpd & mpc playlist | nl | cut -c 4- | sed 's:\t:     :g' | dmenu -i -l 20 | awk '{print $1}' | xargs -I {} mpc play "{}"
+#A menu who selects a a song from mpc playlist
+
+#Listing Playlist  |# in| Replace Tab w/space| Outputs menu 20| prints the song #| Plays the song #
+mpd & mpc playlist | nl | sed 's:\t:     :g' | dmenu -i -l 20 | awk '{print $1}' | xargs -I {} mpc play "{}"
