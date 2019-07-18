@@ -30,4 +30,4 @@ alias ls='ls --color=auto' \
 	clip='xclip -selection clipboard' \
 	whoshere='bash $HOME/.config/scripts/whoshere' \
 	webget='wget --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla' \
-	organize='bash $HOME/.config/scripts/organize' 
+	organize='bash $HOME/.config/scripts/organizer' 
