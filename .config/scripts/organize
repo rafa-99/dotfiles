@@ -13,7 +13,7 @@ find ~ -type f -iname '*.xl*' | grep -vi Repositories | grep -vi ~/[.*] | xargs 
 find ~ -type f -iname '*.iso' | grep -vi Repositories | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Disks/ 2>/dev/null
 find ~ -type f -iname '*.img' | grep -vi Repositories | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Disks/ 2>/dev/null
 find ~ -type f -iname '*.jpeg' | grep -vi Repositories | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
-find ~ -type f -iname '*.png' | grep -vi Repositories | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
+find ~ -type f -iname '*.png' | grep -vi Repositories | grep -vi ~/[.*] | grep -vi screenshot | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
 find ~ -type f -iname '*.gif' | grep -vi Repositories | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
 find ~ -type f -iname '*.bmp' | grep -vi Repositories | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
 find ~ -type f -iname '*.ogg' | grep -vi Repositories | grep -vi ~/[.*] | grep -vi $HOME/Music | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Music/ 2>/dev/null
@@ -31,4 +31,5 @@ find ~ -type f -iname '*.rar' | grep -vi Repositories | grep -vi ~/[.*] | xargs 
 find ~ -type f -iname '*.gz*' | grep -vi Repositories | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
 find ~ -type f -iname '*.tar' | grep -vi Repositories | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
 find ~ -type f -iname '*.xz' | grep -vi Repositories | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
+find ~ -type f -iname 'screenshot*.png' | grep -vi Repositories | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/Screenshots/ 2>/dev/null
 rm -rf ~/tmp/

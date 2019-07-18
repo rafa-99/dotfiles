@@ -6,7 +6,7 @@ echo "######################"
 echo "    for Arch Linux    "
 echo "**********************"
 
-sudo pacman --needed -S youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xcompmgr xwallpaper xclip newsboat ranger zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good
+sudo pacman --needed -S youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xcompmgr xwallpaper xclip newsboat ranger zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim
 cp -rf .* $HOME
 cp -rf Pictures/* $HOME/Pictures/
 rm -rf $HOME/.git
@@ -27,3 +27,4 @@ mkdir ~/Documents/Word
 mkdir ~/Documents/Powerpoint
 mkdir ~/Documents/Excel
 mkdir ~/Repositories
+mkdir ~/Pictures/Screenshots
