@@ -30,3 +30,23 @@ mkdir ~/Documents/Excel
 mkdir ~/Repositories
 mkdir ~/Pictures/Screenshots
 mkdir ~/Pictures/GIMP
+
+### Install of Suckless tools
+
+CURDIR=$(pwd)
+mkdir suck
+cd suck && git clone https://gitlab.com/rafa_99/dwm && \
+	git clone https://gitlab.com/rafa_99/dmenu && \
+	git clone https://gitlab.com/rafa_99/st && \
+	git clone https://gitlab.com/rafa_99/surf && \
+	git clone https://gitlab.com/rafa_99/tabbed && \
+	git clone https://gitlab.com/rafa_99/farbfeld && \
+	git clone https://gitlab.com/rafa_99/sent
+cd $CURDIR/suck/dwm && sudo make clean install
+cd $CURDIR/suck/dmenu && sudo make clean install
+cd $CURDIR/suck/st && sudo make clean install
+cd $CURDIR/suck/surf && sudo make clean install
+cd $CURDIR/suck/tabbed && sudo make clean install
+cd $CURDIR/suck/farbfeld && sudo make clean install
+cd $CURDIR/suck/sent && sudo make clean install
+cd $CURDIR && sudo rm -rf suck/
