@@ -12,6 +12,7 @@ cp -rf .* $HOME
 cp -rf Pictures/* $HOME/Pictures/
 rm -rf $HOME/.git
 xrdb $HOME/.Xresources
+xset s 0
 mkdir ~/Mount
 mkdir ~/Mount/Drive
 mkdir ~/Mount/Drive2
@@ -41,7 +42,8 @@ cd suck && git clone https://gitlab.com/rafa_99/dwm && \
 	git clone https://gitlab.com/rafa_99/surf && \
 	git clone https://gitlab.com/rafa_99/tabbed && \
 	git clone https://gitlab.com/rafa_99/farbfeld && \
-	git clone https://gitlab.com/rafa_99/sent
+	git clone https://gitlab.com/rafa_99/sent && \
+	git clone httpss//gitlab.com/rafa_99/slock
 cd $CURDIR/suck/dwm && sudo make clean install
 cd $CURDIR/suck/dmenu && sudo make clean install
 cd $CURDIR/suck/st && sudo make clean install
@@ -49,4 +51,5 @@ cd $CURDIR/suck/surf && sudo make clean install
 cd $CURDIR/suck/tabbed && sudo make clean install
 cd $CURDIR/suck/farbfeld && sudo make clean install
 cd $CURDIR/suck/sent && sudo make clean install
+cd $CURDIR/suck/slock && sudo make clean install
 cd $CURDIR && sudo rm -rf suck/
