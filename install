@@ -12,7 +12,7 @@ cp -rf .* $HOME
 cp -rf Pictures/* $HOME/Pictures/
 rm -rf $HOME/.git
 xrdb $HOME/.Xresources
-xset s 0
+xset s off
 mkdir ~/Mount
 mkdir ~/Mount/Drive
 mkdir ~/Mount/Drive2
