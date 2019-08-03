@@ -2,11 +2,14 @@
 
 #Deletes unrequired files/folders
 
-#Deleting these files/folders
-rm -rf $HOME/.cache
-rm -rf $HOME/.bash_history
-rm -rf $HOME/.wget*
-rm -rf $HOME/.Xsession-erro*
-rm -rf $HOME/.local/share/nautilus
-rm -rf $HOME/.local/share/qutebrowser
-rm -rf $HOME/.viminfo
+#Deleting these files/folders and uneeded packages/dependencies
+echo 'Cleaning up...'
+yay --noconfirm -Sc >/dev/null
+rm -rf $HOME/.cache \
+	$HOME/.bash_history \
+	$HOME/.wget* \
+	$HOME/.Xsession-erro* \
+	$HOME/.local/share/nautilus \
+	$HOME/.local/share/qutebrowser \
+	$HOME/.viminfo
+yay -Rns $(pacman -Qtdq) 2>/dev/null >/dev/null

@@ -9,3 +9,6 @@ PS1='[\u@\h \W]\$ '
 
 #Load Aliases
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
+#Disable History
+set +o history
