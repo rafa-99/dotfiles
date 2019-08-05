@@ -4,8 +4,6 @@ xwallpaper --stretch $HOME/Pictures/Cyan_Francisco.png &
 xcompmgr &
 setxkbmap pt &
 numlockx on &
-xset s off &
-xset s noblank &
 
 Date(){
 	Date=`date +'%F %A'`
