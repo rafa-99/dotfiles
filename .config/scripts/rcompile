@@ -5,5 +5,5 @@
 curdir=$(pwd)
 cd $HOME/Documents/Markdown
 
-#Lists files inside Markdown| gets md | Outputs menu 20| Compiles the Markdown Document into PDF and sends it to PDF Folder| Go back to initial folder
-ls | grep md | dmenu -i -l 20 | xargs -I {} R -e "rmarkdown::render('"'{}'"', '"'pdf_document'"')" && mv *.pdf $HOME/Documents/PDF/ && cd $curdir
+#Lists files inside Markdown| gets md | Outputs menu   | Compiles the Markdown Document into PDF and sends it to PDF Folder| Go back to initial folder
+ls | grep md | dmenu -i -p "File to compile into PDF:" | xargs -I {} R -e "rmarkdown::render('"'{}'"', '"'pdf_document'"')" && mv *.pdf $HOME/Documents/PDF/ && cd $curdir

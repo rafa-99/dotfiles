@@ -2,11 +2,11 @@
 
 # A quick drive format utility
 
-#Listing Drives        |Grabbing 1st char | Remove header | Add /dev/ to ^  |Output a menu of 20
-formatdrive=$(lsblk -l | awk '{print $1}' | grep -vi NAME | sed s:^:/dev/:g | dmenu -i -p "Format:" -l 20)
+#Listing Drives        |Grabbing 1st char | Remove header | Add /dev/ to ^  |Output a Menu
+formatdrive=$(lsblk -l | awk '{print $1}' | grep -vi NAME | sed s:^:/dev/:g | dmenu -i -p "Format:")
 
-#Listing partition types               | Outputs a list of 20
-formatype=$(printf 'ext4\nfat32\nntfs' | dmenu -i -p "Type:" -l 20)
+#Listing partition types               | Outputs a Menu
+formatype=$(printf 'ext4\nfat32\nntfs' | dmenu -i -p "Type:")
 
 # Compairing the values of $formatype and $formatdrive and running it's desired formatation
 if [ $formatype == ext4 ]; then
