@@ -11,27 +11,29 @@ sudo sed -i s/'# %wheel ALL=(ALL) NOPASSWD: ALL'/'%wheel ALL=(ALL) NOPASSWD: ALL
 cp -rf .* $HOME
 cp -rf Pictures/* $HOME/Pictures/
 rm -rf $HOME/.git
+rm -rf $HOME/LICENSE \
+	$HOME/install \
+	$HOME/logo.png
 xrdb $HOME/.Xresources
-xset s off
-mkdir ~/Mount
-mkdir ~/Mount/Drive
-mkdir ~/Mount/Drive2
-mkdir ~/Mount/Drive3
-mkdir ~/Mount/MTP
-mkdir ~/Mount/USB
-mkdir ~/Mount/USB2
-mkdir ~/Mount/USB3
-mkdir ~/Documents/PDF
-mkdir ~/Documents/Markdown
-mkdir ~/Documents/Disks
-mkdir ~/Documents/Archives
-mkdir ~/Documents/Word
-mkdir ~/Documents/Powerpoint
-mkdir ~/Documents/Excel
-mkdir ~/Repositories
-mkdir ~/Pictures/Screenshots
-mkdir ~/Pictures/GIMP
-mkdir ~/Videos/Recordings
+mkdir -p ~/Mount
+mkdir -p ~/Mount/Drive
+mkdir -p ~/Mount/Drive2
+mkdir -p ~/Mount/Drive3
+mkdir -p ~/Mount/MTP
+mkdir -p ~/Mount/USB
+mkdir -p ~/Mount/USB2
+mkdir -p ~/Mount/USB3
+mkdir -p ~/Documents/PDF
+mkdir -p ~/Documents/Markdown
+mkdir -p ~/Documents/Disks
+mkdir -p ~/Documents/Archives
+mkdir -p ~/Documents/Word
+mkdir -p ~/Documents/Powerpoint
+mkdir -p ~/Documents/Excel
+mkdir -p ~/Repositories
+mkdir -p ~/Pictures/Screenshots
+mkdir -p ~/Pictures/GIMP
+mkdir -p ~/Videos/Recordings
 
 ### Install of Suckless tools
 

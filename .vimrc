@@ -1,5 +1,4 @@
 " Special
-let wallpaper  = "/home/rafael/Repositories/wallpapers/Vibrant/b1097f186954cfc8efd27825114853fe7675361c852c9f245dd57851fab14184.png"
 let background = "#040A33"
 let foreground = "#a2e9d0"
 let cursor     = "#a2e9d0"
