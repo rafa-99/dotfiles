@@ -46,7 +46,7 @@ cd suck && git clone https://gitlab.com/rafa_99/dwm && \
 	git clone https://gitlab.com/rafa_99/tabbed && \
 	git clone https://gitlab.com/rafa_99/farbfeld && \
 	git clone https://gitlab.com/rafa_99/sent && \
-	git clone httpss//gitlab.com/rafa_99/slock
+	git clone https://gitlab.com/rafa_99/slock
 cd $CURDIR/suck/dwm && sudo make clean install
 cd $CURDIR/suck/dmenu && sudo make clean install
 cd $CURDIR/suck/st && sudo make clean install
