@@ -12,4 +12,4 @@ rm -rf $HOME/.cache \
 	$HOME/.local/share/nautilus \
 	$HOME/.local/share/qutebrowser \
 	$HOME/.viminfo
-yay -Rns $(pacman -Qtdq) 2>/dev/null >/dev/null
+yay --noconfirm -Rns $(pacman -Qtdq) 2>/dev/null >/dev/null
