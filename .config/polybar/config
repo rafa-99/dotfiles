@@ -16,8 +16,8 @@ compositing-underline = over
 compositing-border = over
 
 ; Define fallback values used by all module formats
-format-foreground = #FF0000
-format-background = #00FF00
+format-foreground = #FFFFFF
+format-background = #001D2330
 format-underline =
 format-overline =
 format-spacing =
@@ -56,13 +56,13 @@ volume-max = #bf616a
 ;secondary = #e60053
 ;alert = #bd2c40
 
-################################################################################
-################################################################################
-################                         I3                     ################
-################################################################################
-################################################################################
+[bar/mybar]
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+;scroll-up = bspc desktop -f prev.local
+;scroll-down = bspc desktop -f next.local
 
-[bar/i3]
+[bar/custom]
 ;https://github.com/jaagr/polybar/wiki/Configuration
 
 monitor-strict = false
@@ -105,9 +105,9 @@ font-2 = "UbuntuMono Nerd Font:style=Regular:pixelsize=8;1"
 font-3 = "UbuntuMono Nerd Font:style=Solid:pixelsize=8;1"
 font-4 = "UbuntuMono Nerd Font:pixelsize=8;1"
 
-modules-left = i3 xwindow
+modules-left = bspwm
 modules-center = 
-modules-right = arrow1 networkspeedup networkspeeddown arrow2 memory2 arrow3 cpu2 arrow4 cpu_temp arrow5 date arrow6 mpd volume
+modules-right = arrow2 memory2 arrow3 cpu2 arrow4 cpu_temp arrow5 date weather arrow6 mpd volume
 separator = 
 
 ;dim-value = 1.0
@@ -150,7 +150,7 @@ cursor-scroll =
 
 ################################################################################
 ################################################################################
-############                       MODULE I3                        ############
+############                        MODULES                         ############
 ################################################################################
 ################################################################################
 
@@ -231,7 +231,7 @@ label-mode-background = #FFBB00
 ;   %output%
 ; Default: %icon%  %name%
 ; focused = Active workspace on focused monitor
-label-focused = %icon% %name%
+label-focused = %name% %icon%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
 label-focused-underline = #00ffff
@@ -283,7 +283,7 @@ type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
 content-foreground = #00FEB7
-content-background = #00BDBD
+content-background = ${colors.background}
 
 [module/arrow3]
 ; grey to Blue
@@ -317,7 +317,133 @@ content-font = 2
 content-foreground = #1D2330
 content-background = #00FFFF
 
+[module/bspwm]
+type = internal/bspwm
 
+; Only show workspaces defined on the same output as the bar
+; NOTE: The bspwm and XRandR monitor names must match, which they do by default.
+; Default: true
+pin-workspaces = true
+
+; Output mode flags after focused state label
+; Default: false
+inline-mode = false
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = true
+
+; Set the scroll cycle direction 
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = false
+
+; ws-icon-[0-9]+ = label;icon
+; Note that the label needs to correspond with the bspwm workspace name
+ws-icon-0 = X;ﲤ
+ws-icon-1 = I;
+ws-icon-2 = II;
+ws-icon-3 = III;ﱮ
+ws-icon-4 = IV;
+ws-icon-5 = V;
+ws-icon-6 = VI;
+ws-icon-7 = VII;ﲎ
+ws-icon-8 = VIII;
+ws-icon-9 = IX;
+;ws-icon-default = ♟
+
+; Available tags:
+;   <label-monitor>
+;   <label-state> - gets replaced with <label-(focused|urgent|occupied|empty)>
+;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
+; Default: <label-state>
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-monitor = %name%
+
+; If any values for label-dimmed-N are defined, the workspace/mode
+; colors will get overridden with those values if the monitor is out of focus
+; To only override workspaces in a specific state, use:
+;   label-dimmed-focused
+;   label-dimmed-occupied
+;   label-dimmed-urgent
+;   label-dimmed-empty
+;label-dimmed-foreground = #555
+;label-dimmed-underline = ${bar/top.background}
+;label-dimmed-focused-background = #f00
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-focused = %name% %icon%
+label-focused-foreground = #ffffff
+;label-focused-background = #1d2330
+label-focused-underline = #ffffff
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-occupied = %name% %icon%
+;label-occupied-underline = #ffffff
+;label-occupied-background = #1d2330
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+;label-urgent = %icon%
+;label-urgent-foreground = #000000
+;label-urgent-background = #bd2c40
+;label-urgent-underline = #9b0a20
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-empty = %name% %icon%
+label-empty-foreground = #55
+
+; The following labels will be used to indicate the layout/mode
+; for the focused workspace. Requires <label-mode>
+;
+; Available tokens:
+;   None
+;label-monocle = 
+;label-tiled = 
+;label-fullscreen = 
+;label-floating = 
+;label-pseudotiled = P
+;label-locked = 
+;label-locked-foreground = #bd2c40
+;label-sticky = 
+;label-sticky-foreground = #fba922
+;label-private = 
+;label-private-foreground = #bd2c40
+;label-marked = M
+
+; Separator in between workspaces
+label-separator ="|"
+;label-separator-padding = 1
+label-separator-foreground = #55
 
 ################################################################################
 ###############################################################################
@@ -913,10 +1039,10 @@ type = custom/script
 interval = 1800
 format = <label>
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
+format-prefix-foreground = ${colors.foreground2}
 ;format-underline = #3EC13F
-format-foreground = ${colors.foreground}
-format-background = #AD69AF
+format-foreground = ${colors.foreground2}
+format-background = #00FFFF
 exec = curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
 
 #################################################################################
