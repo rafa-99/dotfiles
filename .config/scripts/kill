@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#Ls prc| Gets user procs | Prints main prcs  | Opens a menu of 20        | Kills the desired process
+ps aux | grep ^$(whoami) | awk '{print $11}' | dmenu -i -p "Kill:" -l 20 | xargs -I {} killall "{}"
