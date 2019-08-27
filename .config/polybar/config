@@ -26,7 +26,7 @@ format-margin =
 format-offset =
 
 [colors]
-; Nord theme ============
+; Custom theme ============
 background = #001D2330
 foreground = #c0c5ce
 foreground2 = #1D2330
@@ -34,33 +34,6 @@ alert = #bd2c40
 volume-min = #a3be8c
 volume-med = #ebcb8b
 volume-max = #bf616a
-; =======================
-
-; Gotham theme ==========
-; background = #0a0f14
-; foreground = #99d1ce
-; alert = #d26937
-; volume-min = #2aa889
-; volume-med = #edb443
-; volume-max = #c23127
-; =======================
-
-; INTRCPTR theme ============
-;background = ${xrdb:color0:#222}
-;background = #aa000000
-;background-alt = #444
-;foreground = ${xrdb:color7:#222}
-;foreground = #fff
-;foreground-alt = #555
-;primary = #ffb52a
-;secondary = #e60053
-;alert = #bd2c40
-
-[bar/mybar]
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
-;scroll-up = bspc desktop -f prev.local
-;scroll-down = bspc desktop -f next.local
 
 [bar/custom]
 ;https://github.com/jaagr/polybar/wiki/Configuration
@@ -107,7 +80,7 @@ font-4 = "UbuntuMono Nerd Font:pixelsize=8;1"
 
 modules-left = bspwm
 modules-center = 
-modules-right = arrow2 memory2 arrow3 cpu2 arrow4 cpu_temp arrow5 date weather arrow6 mpd volume
+modules-right =  xwindow arrow2 mpd arrow3 cpu2 arrow4 cpu_temp arrow5 memory2 arrow6 date
 separator = 
 
 ;dim-value = 1.0
@@ -121,25 +94,6 @@ tray-offset-y = 0
 tray-padding = 4
 tray-scale = 1.0
 
-#i3: Make the bar appear below windows
-;wm-restack = i3
-;override-redirect = true
-
-; Enable support for inter-process messaging
-; See the Messaging wiki page for more details.
-enable-ipc = true
-
-; Fallback click handlers that will be called if
-; there's no matching module handler found.
-click-left =
-click-middle =
-click-right =
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-double-click-left =
-double-click-middle =
-double-click-right =
-
 ; Requires polybar to be built with xcursor support (xcb-util-cursor)
 ; Possible values are:
 ; - default   : The default pointer as before, can also be an empty string (default)
@@ -147,127 +101,6 @@ double-click-right =
 ; - ns-resize : Up and down arrows, can be used to indicate scrolling
 cursor-click =
 cursor-scroll =
-
-################################################################################
-################################################################################
-############                        MODULES                         ############
-################################################################################
-################################################################################
-
-[module/i3]
-;https://github.com/jaagr/polybar/wiki/Module:-i3
-type = internal/i3
-
-; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
-; Default: false
-pin-workspaces = true
-
-; This will split the workspace name on ':'
-; Default: false
-strip-wsnumbers = false
-
-; Sort the workspaces by index instead of the default
-; sorting that groups the workspaces by output
-; Default: false
-index-sort = false
-
-; Create click handler used to focus workspace
-; Default: true
-enable-click = true
-
-; Create scroll handlers used to cycle workspaces
-; Default: true
-enable-scroll = true
-
-; Wrap around when reaching the first/last workspace
-; Default: true
-wrapping-scroll = false
-
-; Set the scroll cycle direction
-; Default: true
-reverse-scroll = false
-
-; Use fuzzy (partial) matching on labels when assigning
-; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces
-; containing 'code' in the label
-; Default: false
-fuzzy-match = false
-
-;extra icons to choose from
-;http://fontawesome.io/cheatsheet/
-;       v     
-
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
-;ws-icon-default = " "
-
-; Available tags:
-;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
-;   <label-mode> (default)
-format = <label-state> <label-mode>
-
-label-mode = %mode%
-label-mode-padding = 2
-label-mode-foreground = #000000
-label-mode-background = #FFBB00
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
-; focused = Active workspace on focused monitor
-label-focused = %name% %icon%
-label-focused-background = ${colors.background}
-label-focused-foreground = ${colors.foreground}
-label-focused-underline = #00ffff
-label-focused-padding = 2
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon% %name%
-label-unfocused-padding = 2
-label-unfocused-background = ${colors.background}
-label-unfocused-foreground = ${colors.foreground}
-;label-unfocused-underline = ${label-focused-underline}
-
-; visible = Active workspace on unfocused monitor
-label-visible = %icon% %name%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = 2
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-; urgent = Workspace with urgency hint set
-label-urgent = %icon% %name%
-label-urgent-background = ${self.label-focused-background}
-label-urgent-foreground = #db104e
-label-urgent-padding = 2
-
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
 
 [module/arrow1]
 ; grey to Blue
@@ -282,7 +115,7 @@ content-background = ${colors.background}
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #00FEB7
+content-foreground = #007979
 content-background = ${colors.background}
 
 [module/arrow3]
@@ -290,32 +123,32 @@ content-background = ${colors.background}
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #00834A
-content-background = #00FEB7
+content-foreground = #00FEB7
+content-background = #007979
 
 [module/arrow4]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #007979
-content-background = #00834A
+content-foreground = #00834A
+content-background = #00FEB7
 
 [module/arrow5]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #00FFFF
-content-background = #007979
+content-foreground = #00BDBD
+content-background = #00834A
 
 [module/arrow6]
-; grey to Blue
+; Blue to grey
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #1D2330
-content-background = #00FFFF
+content-foreground = #00FFFF
+content-background = #00BDBD
 
 [module/bspwm]
 type = internal/bspwm
@@ -367,7 +200,7 @@ ws-icon-9 = IX;
 ;   <label-state> - gets replaced with <label-(focused|urgent|occupied|empty)>
 ;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
 ; Default: <label-state>
-format = <label-state> <label-mode>
+format = <label-state>
 
 ; Available tokens:
 ;   %name%
@@ -547,7 +380,7 @@ exec = acpi -t | awk '/^Thermal 1:/ {print $4}' | head -c 2
 interval = 2
 format-padding = 1
 format-foreground = #1D2330
-format-background = #007979
+format-background = #00834A
 ;format-underline = #C1B93E
 format-prefix-foreground = ${colors.background}
 label =   %output%ºC
@@ -616,7 +449,7 @@ type = internal/cpu
 ; Default: 1
 interval = 1
 format-foreground = ${colors.foreground2}
-format-background = #00834A
+format-background = #00FEB7
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground2}
 
@@ -801,7 +634,7 @@ format = Mem <label>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground2}
 format-foreground = ${colors.foreground2}
-format-background = #00FEB7
+format-background = #00BDBD
 
 ################################################################################
 
@@ -831,27 +664,96 @@ format-background = ${colors.background}
 ################################################################################
 
 [module/mpd]
-;https://github.com/jaagr/polybar/wiki/Module:-mpd
 type = internal/mpd
-;format-online =  "<label-song>  <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
-format-online =  "<label-song>"
-;format-online =  "<label-song>  <bar-progress> <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
-icon-prev = 
-icon-stop = 
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+;host = 127.0.0.1
+;port = 6600
+;password = mysecretpassword
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone> (deprecated)
+;   <icon-single> - Toggle playing only a single song. Replaces <icon-repeatone>
+;   <icon-consume>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online = <label-song>
+;format-playing = ${self.format-online}
+;format-paused = ${self.format-online}
+;format-stopped = ${self.format-online}
+
+; Available tags:
+;   <label-offline>
+; Default: ""
+;format-offline = <label-offline>
+
+; Available tokens:
+;   %artist%
+;   %album-artist%
+;   %album%
+;   %date%
+;   %title%
+; Default: %artist% - %title%
+label-song =  %title%
+
+; Available tokens:
+;   %elapsed%
+;   %total%
+; Default: %elapsed% / %total%
+;label-time = %elapsed% / %total%
+
+; Available tokens:
+;   None
+label-offline = ﱝ mpd is offline
+
+; Only applies if <icon-X> is used
 icon-play = 
 icon-pause = 
-icon-next = 
-label-song-maxlen = 40
-label-song-ellipsis = true
-bar-progress-width = 10
-bar-progress-indicator = 
-bar-progress-fill = 
-bar-progress-empty = 
-bar-progress-fill-foreground = ${colors.foreground}
-bar-progress-fill-background = #1D2330
-bar-progress-indicator-foreground = ${colors.foreground}
-format-online-foreground = ${colors.foreground}
-format-online-background = #1D2330
+icon-stop = 
+icon-prev = 玲
+icon-next = 怜
+icon-seekb = 倫
+icon-seekf = 淪
+icon-random = 
+icon-repeat = 凌
+icon-repeatone = 綾
+icon-single = 
+icon-consume = 
+
+; Used to display the state of random/repeat/repeatone/single
+; Only applies if <icon-[random|repeat|repeatone|single]> is used
+toggle-on-foreground = ${colors.foreground2}
+toggle-off-foreground = ${colors.foreground2}
+
+; Only applies if <bar-progress> is used
+;bar-progress-width = 45
+;bar-progress-indicator = |
+;bar-progress-fill = ─
+;bar-progress-empty = ─
+
+bar-progress-fill-foreground = ${colors.foreground2}
+bar-progress-fill-background = #007979
+bar-progress-indicator-foreground = ${colors.foreground2}
+format-online-foreground = ${colors.foreground2}
+format-online-background = #007979
+
 ################################################################################
 
 [module/networkspeedup]
@@ -1004,7 +906,7 @@ format-underline = #C15D3E
 type = internal/volume
 format-volume = "<label-volume>  <bar-volume>"
 
-label-volume = " "
+label-volume = ""
 label-volume-foreground = #00FFFF
 label-muted = muted
 
@@ -1175,9 +1077,8 @@ type = internal/xwindow
 label = %title%
 label-maxlen = 20
 
-format-prefix = "  "
+format-prefix = " "
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
 ###############################################################################
-# vim:ft=dosini
