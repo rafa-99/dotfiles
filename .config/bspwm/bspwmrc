@@ -6,6 +6,7 @@ setxkbmap pt &
 numlockx on &
 xwallpaper --stretch $HOME/Pictures/Cyan_Francisco.png &
 polybar custom &
+xsetroot -cursor_name left_ptr &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
