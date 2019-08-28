@@ -135,20 +135,8 @@ super + alt + m
 #
 
 # set the window state
-#super + {t,shift + t,s,f}
-#	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-#Tiling Mode
-super + t
-	bspc node -t tiled
-#Pseudo Tiling Mode
-super + alt + t
-	bpsc node -t pseudo_tiled
-#Floating Mode
-super + @space
-	bspc node -t floating
-#Fullscreen Mode 
-super + alt + f
-	bspc node -t fullscreen
+super + {t,alt + t,space,alt + f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
 #super + ctrl + {m,x,y,z}
