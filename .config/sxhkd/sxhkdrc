@@ -23,7 +23,7 @@ super + i
 	bash ~/.config/scripts/quickopen
 
 # program killer
-super + shift + k
+super + shift + alt + k
 	bash ~/.config/scripts/kill
 
 # drive mounter
@@ -37,6 +37,10 @@ super + shift + u
 # driver formater
 super + shift + f
 	bash ~/.config/scripts/formater
+
+# window flash
+super + z
+	bash ~/.config/scripts/flash
 
 # shutdown timer
 super + shift + t
@@ -148,7 +152,7 @@ super + {t,alt + t,space,alt + f}
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+	bspc node -{f,s} {west && bash ~/.config/scripts/flash,south && bash ~/.config/scripts/flash,north && bash ~/.config/scripts/flash,east && bash ~/.config/scripts/flash}
 
 # focus the node for the given path jump
 #super + {p,b,comma,period}
@@ -193,8 +197,8 @@ super + ctrl + space
 	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+#super + ctrl + shift + space
+#	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
 # move/resize
