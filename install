@@ -9,7 +9,7 @@ echo "**********************"
 sudo pacman --needed -S youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xcompmgr xwallpaper xclip newsboat vifm zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim ntfs-3g ffmpeg acpi transset-df
 sudo sed -i s/'# %wheel ALL=(ALL) NOPASSWD: ALL'/'%wheel ALL=(ALL) NOPASSWD: ALL'/g /etc/sudoers
 cp -rf .* $HOME
-cp -rf Pictures/* $HOME/Pictures/
+cp -rf Pictures/ $HOME/
 rm -rf $HOME/.git \
 	$HOME/LICENSE \
 	$HOME/install \
