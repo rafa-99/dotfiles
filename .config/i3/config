@@ -12,6 +12,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher) or Rofi
 bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme papirus-icon-theme
 
 # change focus
 bindsym $mod+h focus left
@@ -85,12 +86,13 @@ mode "resize" {
 
 bindsym $mod+Shift+r mode "resize"
 
-bindsym $mod+w exec "/home/rafael/.config/custom_scripts/ClearDataQutebrowser.sh && qutebrowser"
-bindsym $mod+f exec st -e ranger
-bindsym $mod+Shift+s exec "/home/rafael/.config/custom_scripts/QuickWipe.sh && systemctl suspend"
-bindsym $mod+Shift+p exec "/home/rafael/.config/custom_scripts/QuickWipe.sh && poweroff"
-bindsym $mod+m exec st -e ncmpcpp
-bindsym $mod+a exec st -e 'alsamixer'
+bindsym $mod+w exec "qutebrowser"
+bindsym $mod+f exec st -e "vifm"
+bindsym $mod+Shift+s exec "systemctl suspend && slock"
+bindsym $mod+Shift+p exec "shutdown now"
+bindsym $mod+Shift+m exec st -e ncmpcpp
+bindsym $mod+m exec "bash ~/.config/scripts/musicselect"
+bindsym $mod+a exec st -e 'mpd 2>/dev/null && alsamixer'
 
 for_window [class="^.*"] border pixel 0
 for_window [title="alsamixer"] floating enable
@@ -107,11 +109,10 @@ mode "moveit" {
 bindsym $mod+Shift+m focus floating; mode "moveit"
 
 exec "setxkbmap pt"
-exec feh --bg-scale "/home/rafael/Pictures/Wallpaper.png"
+exec xwallpaper --stretch $HOME/Pictures/Cyan_Francisco.png
 gaps inner 15
 gaps outer 15
 hide_edge_borders both
-exec compton
+exec xcompmgr 
 exec polybar i3
 exec_always --no-startup-id numlockx on
-exec mpd
