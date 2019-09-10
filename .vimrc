@@ -21,7 +21,12 @@ let color13 = "#3FBCA8"
 let color14 = "#4B9E9D"
 let color15 = "#a2e9d0"
 
+" Custom Settings
 syntax on
 set number
 set ignorecase
 set viminfo=""
+
+" Autocmd's
+
+autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%', 'pdf_document')"<space>\|<space>R<space>--vanilla<enter>
