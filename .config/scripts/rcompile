@@ -1,4 +1,0 @@
-#!/bin/bash
-
-#Lists md files| Outputs menu                            | Compiles the Markdown Document into PDF and sends it to PDF Folder| Go back to initial folder
-ls | grep .*md | dmenu -i -p "File to compile into PDF:" | xargs -I {} R -e "rmarkdown::render('"'{}'"', '"'pdf_document'"')" && mv *.pdf $HOME/Documents/PDF/

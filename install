@@ -26,6 +26,7 @@ mkdir -p ~/Mount/USB2
 mkdir -p ~/Mount/USB3
 mkdir -p ~/Documents/PDF
 mkdir -p ~/Documents/Markdown
+mkdir -p ~/Documents/Groff
 mkdir -p ~/Documents/Disks
 mkdir -p ~/Documents/Archives
 mkdir -p ~/Documents/Word

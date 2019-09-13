@@ -26,7 +26,6 @@ alias ls='ls --color=auto' \
 	copy='cp -rf' \
 	encrypt='openssl aes-256-cbc -a -salt' \
 	decrypt='openssl aes-256-cbc -d -a' \
-	rcompile='bash $HOME/.config/scripts/rcompile' \
 	clip='xclip -selection clipboard' \
 	whoshere='bash $HOME/.config/scripts/whoshere' \
 	webget='wget --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla' \
