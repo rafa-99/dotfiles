@@ -6,7 +6,7 @@ echo "######################"
 echo "|   for Arch Linux   |"
 echo "**********************"
 
-sudo pacman --needed -S youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xcompmgr xwallpaper xclip newsboat vifm zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim ntfs-3g ffmpeg acpi transset-df
+sudo pacman --needed -S youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xcompmgr xwallpaper xclip newsboat vifm zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim ntfs-3g ffmpeg acpi transset-df texlive-most pcmanfm lxappearance arc-gtk-theme papirus-icon-theme
 sudo sed -i s/'# %wheel ALL=(ALL) NOPASSWD: ALL'/'%wheel ALL=(ALL) NOPASSWD: ALL'/g /etc/sudoers
 cp -rf .* $HOME
 cp -rf Pictures/ $HOME/
@@ -41,15 +41,13 @@ mkdir -p ~/Videos/Recordings
 
 CURDIR=$(pwd)
 mkdir suck
-cd suck && git clone https://gitlab.com/rafa_99/dwm && \
-	git clone https://gitlab.com/rafa_99/dmenu && \
+cd suck && git clone https://gitlab.com/rafa_99/dmenu && \
 	git clone https://gitlab.com/rafa_99/st && \
 	git clone https://gitlab.com/rafa_99/surf && \
 	git clone https://gitlab.com/rafa_99/tabbed && \
 	git clone https://gitlab.com/rafa_99/farbfeld && \
 	git clone https://gitlab.com/rafa_99/sent && \
 	git clone https://gitlab.com/rafa_99/slock
-cd $CURDIR/suck/dwm && sudo make clean install
 cd $CURDIR/suck/dmenu && sudo make clean install
 cd $CURDIR/suck/st && sudo make clean install
 cd $CURDIR/suck/surf && sudo make clean install
