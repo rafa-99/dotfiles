@@ -22,10 +22,6 @@ super + e
 super + i
 	bash ~/.config/scripts/quickopen
 
-# program killer
-super + shift + alt + k
-	bash ~/.config/scripts/kill
-
 # drive mounter
 super + shift + d
 	bash ~/.config/scripts/mounter
