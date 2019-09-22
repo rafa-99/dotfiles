@@ -12,39 +12,39 @@ super + d
 
 # music selector
 super + m
-	bash ~/.config/scripts/musicselect
+	~/.config/scripts/musicselect
 
 # glyph selector
 super + e
-	bash ~/.config/scripts/glypher
+	~/.config/scripts/glypher
 
 # quick file open
 super + i
-	bash ~/.config/scripts/quickopen
+	~/.config/scripts/quickopen
 
 # drive mounter
 super + shift + d
-	bash ~/.config/scripts/mounter
+	~/.config/scripts/mounter
 
 # drive umounter
 super + shift + u
-	bash ~/.config/scripts/umounter
+	~/.config/scripts/umounter
 
 # driver formater
 super + shift + f
-	bash ~/.config/scripts/formater
+	~/.config/scripts/formater
 
 # window flash
 super + z
-	bash ~/.config/scripts/flash
+	~/.config/scripts/flash
 
 # shutdown timer
 super + shift + t
-	bash ~/.config/scripts/shutdowntimer
+	~/.config/scripts/shutdowntimer
 
 # screen recorder
 super + shift + F9
-	bash ~/.config/scripts/screenrecord
+	~/.config/scripts/screenrecord
 
 # stop screen recording 
 super + shift + F10

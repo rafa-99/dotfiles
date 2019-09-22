@@ -13,7 +13,18 @@ CURDIR=$(pwd)
 sudo pacman --needed -S zsh zsh-syntax-highlighting youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xcompmgr xwallpaper xclip newsboat vifm zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim ntfs-3g ffmpeg acpi transset-df texlive-most pcmanfm lxappearance arc-gtk-theme papirus-icon-theme
 
 # Disabling having to type password to yse sudo command
-sudo sed -i s/'# %wheel ALL=(ALL) NOPASSWD: ALL'/'%wheel ALL=(ALL) NOPASSWD: ALL'/g /etc/sudoers
+printf "Sudo mode you want to use:\n1. Safe Mode (Commands Password Locked)\n2. Unprotected (No password required when running sudo commands)\n-> " && Read SUMODE
+######################################
+if [ $SUMODE == 1 ]; then
+		sudo echo >>/etc/sudoers && sudo echo '## Programs to run without sudo password'>>/etc/sudoers && sudo echo 'ALL ALL=NOPASSWD: /bin/mount, \' && sudo echo '		/bin/umount, \'>>/etc/sudoers && sudo echo '		/bin/mkfs.ext4, \'>>/etc/sudoers && sudo echo '		/bin/mkfs.vfat, \'>>/etc/sudoers && sudo echo '		/bin/mkfs.ntfs'>>/etc/sudoers
+######################################
+elif [ $SUMODE == 2 ]; then
+		sudo sed -i s/'# %wheel ALL=(ALL) NOPASSWD: ALL'/'%wheel ALL=(ALL) NOPASSWD: ALL'/g /etc/sudoers
+######################################
+else
+		sudo echo >>/etc/sudoers && sudo echo '## Programs to run without sudo password'>>/etc/sudoers && sudo echo 'ALL ALL=NOPASSWD: /bin/mount, \' && sudo echo '		/bin/umount, \'>>/etc/sudoers && sudo echo '		/bin/mkfs.ext4, \'>>/etc/sudoers && sudo echo '		/bin/mkfs.vfat, \'>>/etc/sudoers && sudo echo '		/bin/mkfs.ntfs'>>/etc/sudoers
+######################################
+fi
 
 #Preparing Dirs and Files for dotfiles
 cp -rf .* $HOME
