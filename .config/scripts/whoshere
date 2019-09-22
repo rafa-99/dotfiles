@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #A internal network scanner which lists active IP's inside of an internal network
 

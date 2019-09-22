@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #A quick open menu who lets you open any file from any part of your home directory with its default application
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #Detecting resol| Grab Curr| Print Cur Res
 res=$(xrandr -q | grep '*' | awk '{print $1}')

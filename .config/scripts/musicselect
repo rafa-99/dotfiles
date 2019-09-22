@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #A menu who selects a a song from mpc playlist
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #A menu which gives you the option to unmount drives from their desired folders
 

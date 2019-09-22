@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Lst man| Gets program name| A menu                         | Opens the manual
 man -k . | awk '{print $1}' | dmenu -i -p "Select a Manual:" | xargs -I {} man "{}"

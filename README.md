@@ -4,6 +4,7 @@ My personal configuration
 
 ## Currently using:
 
+* zsh
 * bspwm
 * [surf](https://gitlab.com/rafa_99/surf) (Web Browser/HTML Viewer)
 * [dmenu](https://gitlab.com/rafa_99/dmenu) (Application Launcher/Menu Selector)
@@ -28,3 +29,4 @@ My personal configuration
 * tint2
 * [dwm](https://gitlab.com/rafa_99/dwm)
 * ranger
+* bash

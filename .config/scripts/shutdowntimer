@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/h
 
 # Added preset minutes for timer| Outputs a menu of available minutes| Shutdown the computer in desired minutes
 printf "5\n10\n30\n60\n90\n120" | dmenu -i -p "Shutdown in Minutes:" | xargs -I {} shutdown -P +{}

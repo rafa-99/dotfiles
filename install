@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "######################"
 echo "# dotfiles Installer #"
@@ -6,8 +6,16 @@ echo "######################"
 echo "|   for Arch Linux   |"
 echo "**********************"
 
-sudo pacman --needed -S youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xcompmgr xwallpaper xclip newsboat vifm zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim ntfs-3g ffmpeg acpi transset-df texlive-most pcmanfm lxappearance arc-gtk-theme papirus-icon-theme
+# Setting Vars
+CURDIR=$(pwd)
+
+# Installing Deps
+sudo pacman --needed -S zsh zsh-syntax-highlighting youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xcompmgr xwallpaper xclip newsboat vifm zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim ntfs-3g ffmpeg acpi transset-df texlive-most pcmanfm lxappearance arc-gtk-theme papirus-icon-theme
+
+# Disabling having to type password to yse sudo command
 sudo sed -i s/'# %wheel ALL=(ALL) NOPASSWD: ALL'/'%wheel ALL=(ALL) NOPASSWD: ALL'/g /etc/sudoers
+
+#Preparing Dirs and Files for dotfiles
 cp -rf .* $HOME
 cp -rf Pictures/ $HOME/
 rm -rf $HOME/.git \
@@ -38,8 +46,6 @@ mkdir -p ~/Pictures/GIMP
 mkdir -p ~/Videos/Recordings
 
 ### Install of Suckless tools
-
-CURDIR=$(pwd)
 mkdir suck
 cd suck && git clone https://gitlab.com/rafa_99/dmenu && \
 	git clone https://gitlab.com/rafa_99/st && \
@@ -56,3 +62,6 @@ cd $CURDIR/suck/farbfeld && sudo make clean install
 cd $CURDIR/suck/sent && sudo make clean install
 cd $CURDIR/suck/slock && sudo make clean install
 cd $CURDIR && sudo rm -rf suck/
+
+# Changing default shell to zsh
+chsh -s /bin/zsh

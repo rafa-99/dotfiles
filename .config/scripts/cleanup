@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #Deletes unrequired files/folders
 
@@ -11,5 +11,5 @@ rm -rf $HOME/.cache \
 	$HOME/.Xsession-erro* \
 	$HOME/.local/share/nautilus \
 	$HOME/.local/share/qutebrowser \
-	$HOME/.viminfo
+	$HOME/.viminfo 2>/dev/null
 yay --noconfirm -Rns $(pacman -Qtdq) 2>/dev/null >/dev/null
