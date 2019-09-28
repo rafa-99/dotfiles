@@ -89,7 +89,8 @@ ALL ALL=NOPASSWD: /bin/mount, \
 		/bin/umount, \
 		/bin/mkfs.ext4, \
 		/bin/mkfs.vfat, \
-		/bin/mkfs.ntfs
+		/bin/mkfs.ntfs, \
+		/bin/brightnessctl
 
 ## Uncomment to allow members of group sudo to execute any command
 # %sudo	ALL=(ALL) ALL

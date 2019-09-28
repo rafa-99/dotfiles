@@ -10,7 +10,7 @@ echo "**********************"
 CURDIR=$(pwd)
 
 # Installing Deps
-sudo pacman --needed -S zsh zsh-syntax-highlighting youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xcompmgr xwallpaper xclip newsboat vifm zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim ntfs-3g ffmpeg acpi transset-df texlive-most pcmanfm lxappearance arc-gtk-theme papirus-icon-theme
+sudo pacman --needed -S brightnessctl zsh zsh-syntax-highlighting youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xcompmgr xwallpaper xclip newsboat vifm zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim ntfs-3g ffmpeg acpi transset-df texlive-most pcmanfm lxappearance arc-gtk-theme papirus-icon-theme
 
 # Updated sudo permissions
 sudo cp -rf sudoers /etc/sudoers
@@ -22,7 +22,8 @@ rm -rf $HOME/.git \
 	$HOME/LICENSE \
 	$HOME/install \
 	$HOME/logo.png \
-	$HOME/README.md
+	$HOME/README.md \
+	$HOME/sudoers
 xrdb $HOME/.Xresources
 mkdir -p ~/Mount
 mkdir -p ~/Mount/Drive

@@ -1,7 +1,7 @@
 #! /bin/sh
 
 sxhkd &
-xcompmgr &
+compton &
 setxkbmap pt &
 numlockx on &
 xwallpaper --stretch $HOME/Pictures/Cyan_Francisco.png &
