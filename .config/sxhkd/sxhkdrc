@@ -102,13 +102,25 @@ super + shift + p
 Print
 	maim ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png
 
-# reduce screen brightness
+# decrease screen brightness
 XF86MonBrightnessDown
 	sudo brightnessctl set 10%-
 
 # increase screen brightness
 XF86MonBrightnessUp
 	sudo brightnessctl set +10%
+
+# mute volume
+XF86AudioMute
+	amixer set Master toggle
+
+# decrease volume
+XF86AudioLowerVolume
+	amixer set Master 5%-
+
+# increase volume
+XF86AudioRaiseVolume
+	amixer set Master 5%+
 
 #
 # bspwm hotkeys
