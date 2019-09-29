@@ -87,7 +87,7 @@ if [ $Compositor == 1 ]; then
 		sudo pacman -S xcompmgr && sed -i s:compositor:xcompmgr:g ~/.config/bspwm/bspwmrc && sed -i s:compositor:xcompmgr:g ~/.config/dwm/autostart && sed -i s:compositor:xcompmgr:g ~/.config/i3/config && sed -i s:compositor:xcompmgr:g ~/.config/polybar/autostart
 
 elif [ $Compositor == 2 ]; then
-		sudo pacman -S compton && sed -i s:compositor:compton:g ~/.config/bspwm/bspwmrc && sed -i s:compositor:compton:g ~/.config/dwm/autostart && sed -i s:compositor:compton:g ~/.config/i3/config && sed -i s:compositor:compton:g ~/.config/openbox/autostart
+		sudo pacman -S compton ; sed -i s:compositor:compton:g ~/.config/bspwm/bspwmrc && sed -i s:compositor:compton:g ~/.config/dwm/autostart && sed -i s:compositor:compton:g ~/.config/i3/config && sed -i s:compositor:compton:g ~/.config/openbox/autostart
 
 else
 		echo "Skipping..."
