@@ -102,6 +102,14 @@ super + shift + p
 Print
 	maim ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png
 
+# reduce screen brightness
+XF86MonBrightnessDown
+	sudo brightnessctl set 10%-
+
+# increase screen brightness
+XF86MonBrightnessUp
+	sudo brightnessctl set +10%
+
 #
 # bspwm hotkeys
 #
