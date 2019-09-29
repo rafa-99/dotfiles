@@ -10,7 +10,7 @@ echo "**********************"
 CURDIR=$(pwd)
 
 # Installing Deps
-sudo pacman --needed -S brightnessctl zsh zsh-syntax-highlighting youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xcompmgr xwallpaper xclip newsboat vifm zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim ntfs-3g ffmpeg acpi transset-df texlive-most pcmanfm lxappearance arc-gtk-theme papirus-icon-theme
+sudo pacman --needed -S brightnessctl zsh zsh-syntax-highlighting youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xwallpaper xclip newsboat vifm zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim ntfs-3g ffmpeg acpi transset-df texlive-most pcmanfm lxappearance arc-gtk-theme papirus-icon-theme
 
 # Updated sudo permissions
 sudo cp -rf sudoers /etc/sudoers
@@ -72,9 +72,9 @@ echo "Are you running a laptop or a desktop?" && printf "1)Laptop\n2)Desktop\nWh
 sleep 1
 
 if [ $PC == 1 ]; then
-		sed -i s:custom:laptop:g .config/polybar/custom
+		sed -i s:custom:laptop:g ~/.config/polybar/config
 elif [ $PC == 2 ]; then
-		sed -i s:custom:desktop:g .config/polybar/custom
+		sed -i s:custom:desktop:g ~/.config/polybar/config
 else
 		echo "Skipping..."
 fi
@@ -84,10 +84,10 @@ echo "Which compositor you want to run?" && printf "1)xcompmgr\n2)compton\n ->" 
 sleep 1
 
 if [ $Compositor == 1 ]; then
-		sudo pacman -S xcompmgr && sed -i s:compositor:xcompmgr:g .config/bspwm/bspwmrc && sed -i s:compositor:xcompmgr:g .config/dwm/autostart && sed -i s:compositor:xcompmgr:g .config/i3/config && sed -i s:compositor:xcompmgr:g .config/polybar/autorstart
+		sudo pacman -S xcompmgr && sed -i s:compositor:xcompmgr:g ~/.config/bspwm/bspwmrc && sed -i s:compositor:xcompmgr:g ~/.config/dwm/autostart && sed -i s:compositor:xcompmgr:g ~/.config/i3/config && sed -i s:compositor:xcompmgr:g ~/.config/polybar/autostart
 
-elif [ $PC == 2 ]; then
-		sudo pacman -S compton && sed -i s:compositor:compton:g .config/bspwm/bspwmrc && sed -i s:compositor:compton:g .config/dwm/autostart && sed -i s:compositor:compton:g .config/i3/config && sed -i s:compositor:compton:g .config/polybar/autorstart
+elif [ $Compositor == 2 ]; then
+		sudo pacman -S compton && sed -i s:compositor:compton:g ~/.config/bspwm/bspwmrc && sed -i s:compositor:compton:g ~/.config/dwm/autostart && sed -i s:compositor:compton:g ~/.config/i3/config && sed -i s:compositor:compton:g ~/.config/openbox/autostart
 
 else
 		echo "Skipping..."
