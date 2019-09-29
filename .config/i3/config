@@ -113,6 +113,6 @@ exec xwallpaper --stretch $HOME/Pictures/Cyan_Francisco.png
 gaps inner 15
 gaps outer 15
 hide_edge_borders both
-exec xcompmgr 
+exec compositor 
 exec polybar i3
 exec_always --no-startup-id numlockx on

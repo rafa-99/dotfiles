@@ -66,3 +66,29 @@ cd $CURDIR && sudo rm -rf suck/
 
 # Changing default shell to zsh
 chsh -s /bin/zsh
+
+# Diferenciating from laptop to desktop
+echo "Are you running a laptop or a desktop?" && printf "1)Laptop\n2)Desktop\nWhich type of computer you're running?:" && read PC && clear
+sleep 1
+
+if [ $PC == 1 ]; then
+		sed -i s:custom:laptop:g .config/polybar/custom
+elif [ $PC == 2 ]; then
+		sed -i s:custom:desktop:g .config/polybar/custom
+else
+		echo "Skipping..."
+fi
+
+# Compositor Selection
+echo "Which compositor you want to run?" && printf "1)xcompmgr\n2)compton\n ->" && read Compositor && clear
+sleep 1
+
+if [ $Compositor == 1 ]; then
+		sudo pacman -S xcompmgr && sed -i s:compositor:xcompmgr:g .config/bspwm/bspwmrc && sed -i s:compositor:xcompmgr:g .config/dwm/autostart && sed -i s:compositor:xcompmgr:g .config/i3/config && sed -i s:compositor:xcompmgr:g .config/polybar/autorstart
+
+elif [ $PC == 2 ]; then
+		sudo pacman -S compton && sed -i s:compositor:compton:g .config/bspwm/bspwmrc && sed -i s:compositor:compton:g .config/dwm/autostart && sed -i s:compositor:compton:g .config/i3/config && sed -i s:compositor:compton:g .config/polybar/autorstart
+
+else
+		echo "Skipping..."
+fi

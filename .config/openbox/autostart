@@ -16,7 +16,7 @@
 #
 #xfce-mcs-manager &
 feh --bg-scale /home/rafael/Pictures/Wallpaper.png &
-compton &
+compositor &
 tint2 &
 setxkbmap pt &
 mpd &

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 xwallpaper --stretch $HOME/Pictures/Cyan_Francisco.png &
-xcompmgr &
+compositor &
 setxkbmap pt &
 numlockx on &
 
