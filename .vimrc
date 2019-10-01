@@ -36,4 +36,4 @@ autocmd BufWritePost *.*md !R -e "rmarkdown::render('%', 'pdf_document')"; mv *-
 autocmd BufWritePost *.ms !groff -k -T pdf -m ms '%' > "$HOME/Documents/PDF/$(basename '%' .ms).pdf"
 
 " Autocompile Java
-autocmd BufWritePost *.java !javac '%' && mkdir -p $HOME/Documents/Java/$(basename '%' .java); cp '%' $HOME/Documents/Java/$(basename '%' .java); cp '%' $HOME/Documents/Java/$(basename '%' .java)/$(basename '%' .java).class; rm $(basename '%' .java).class; rm '%'
+autocmd BufWritePost *.java !javac '%' && mkdir -p $HOME/Documents/Java/$(basename '%' .java) && mv "$(basename '%' .java)".class $HOME/Documents/Java/$(basename '%' .java)/ && mv '%' $HOME/Documents/Java/$(basename '%' .java)/
