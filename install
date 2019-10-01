@@ -73,9 +73,9 @@ echo "Are you running a laptop or a desktop?" && printf "1)Laptop\n2)Desktop\nWh
 sleep 1
 
 if [ $PC == 1 ]; then
-		sed -i s:custom:laptop:g ~/.config/polybar/config
+		sed -i s:custom:laptop:g ~/.config/bspwm/bspwmrc
 elif [ $PC == 2 ]; then
-		sed -i s:custom:desktop:g ~/.config/polybar/config
+		sed -i s:custom:desktop:g ~/.config/bspwm/bspwmrc
 else
 		echo "Skipping..."
 fi
