@@ -30,10 +30,10 @@ set viminfo=""
 " Autocmd's
 
 " Autocompile Markdown
-autocmd BufWritePost *.*md !R -e "rmarkdown::render('%', 'pdf_document')"; mv *-* $HOME/Documents/PDF/"$(find . | sed s:./::g | sed 's:-: :g' | grep pdf)" 2>/dev/null; mv *.pdf $HOME/Documents/PDF/ 2>/dev/null
+autocmd BufWritePost *.*md !R -e "rmarkdown::render('%', 'pdf_document')"
 
 " Autocompile Groff
-autocmd BufWritePost *.ms !groff -k -T pdf -m ms '%' > "$HOME/Documents/PDF/$(basename '%' .ms).pdf"
+autocmd BufWritePost *.ms !groff -k -T pdf -m ms '%' > "$(basename '%' .ms).pdf"
 
 " Autocompile Java
-autocmd BufWritePost *.java !javac '%' && mkdir -p $HOME/Documents/Java/$(basename '%' .java) && mv "$(basename '%' .java)".class $HOME/Documents/Java/$(basename '%' .java)/ && mv '%' $HOME/Documents/Java/$(basename '%' .java)/
+autocmd BufWritePost *.java !javac '%'
