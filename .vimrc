@@ -27,13 +27,5 @@ set number
 set ignorecase
 set viminfo=""
 
-" Autocmd's
-
-" Autocompile Markdown
-autocmd BufWritePost *.*md !R -e "rmarkdown::render('%', 'pdf_document')"
-
-" Autocompile Groff
-autocmd BufWritePost *.ms !groff -k -T pdf -m ms '%' > "$(basename '%' .ms).pdf"
-
-" Autocompile Java
-autocmd BufWritePost *.java !javac '%'
+" Autocompiler
+map <F5> :!$HOME/.config/scripts/compiler '%' <enter> 

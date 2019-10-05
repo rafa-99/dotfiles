@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Setting Vars
+file=$(basename $1)
+extension=$(echo $file |awk -F . '{if (NF>1) {print $NF}}')
+base=$(basename $file .$extension)
+
+# Suckless Compiler
+if [ $file == config.h ]; then
+			sudo make clean install
+elif [ $file == config.def.h ]; then
+			sudo make clean install
+# Document Compiler
+elif [ $extension == rmd ]; then
+			R -e "rmarkdown::render('$file', 'pdf_document')" 
+elif [ $extension == md ]; then
+			R -e "rmarkdown::render('$file', 'pdf_document')"
+elif [ $extension == ms ]; then
+			groff -k -T pdf -m -ms $file > "$base.pdf"
+# Program Compiler
+elif [ $extension == java ]; then
+			javac $file
+# End of Compiler
+else
+			echo "Nothing to compile :^("
+fi
