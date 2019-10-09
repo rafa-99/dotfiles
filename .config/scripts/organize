@@ -4,35 +4,35 @@
 
 echo "Organizing Files..."
 mkdir ~/tmp
-#Looking for file extension   | Ignoring Repos Folder | Ignoring .files | Moving files to temp folder and redirects the to the correct folder
-find ~ -type f -iname '*.pdf' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/PDF/ 2>/dev/null
-find ~ -type f -iname '*.*md' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Markdown/ 2>/dev/null
-find ~ -type f -iname '*.doc*' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Word/ 2>/dev/null
-find ~ -type f -iname '*.odt' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Word/ 2>/dev/null
-find ~ -type f -iname '*.ppt*' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Powerpoint/ 2>/dev/null
-find ~ -type f -iname '*.xl*' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Excel/ 2>/dev/null
-find ~ -type f -iname '*.iso' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Disks/ 2>/dev/null
-find ~ -type f -iname '*.img' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Disks/ 2>/dev/null
-find ~ -type f -iname '*.jpeg' | grep -vi Repositories | grep -vi Cloud | grep -vi Music | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
-find ~ -type f -iname '*.jpg' | grep -vi Repositories | grep -vi Cloud | grep -vi Music | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
-find ~ -type f -iname '*.png' | grep -vi Repositories | grep -vi Cloud | grep -vi Music | grep -vi ~/[.*] | grep -vi screenshot | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
-find ~ -type f -iname '*.gif' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
-find ~ -type f -iname '*.bmp' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
-find ~ -type f -iname '*.xcf' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/GIMP/ 2>/dev/null
-find ~ -type f -iname '*.ogg' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | grep -vi $HOME/Music | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Music/ 2>/dev/null
-find ~ -type f -iname '*.flac' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | grep -vi $HOME/Music | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Music/ 2>/dev/null
-find ~ -type f -iname '*.mp3' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | grep -vi $HOME/Music | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Music/ 2>/dev/null
-find ~ -type f -iname '*.midi' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | grep -vi $HOME/Music | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Music/ 2>/dev/null
-find ~ -type f -iname '*.wav' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | grep -vi $HOME/Music | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Music/ 2>/dev/null
-find ~ -type f -iname '*.mp4' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Videos/ 2>/dev/null
-find ~ -type f -iname '*.3gp' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Videos/ 2>/dev/null
-find ~ -type f -iname '*.mkv' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Videos/ 2>/dev/null
-find ~ -type f -iname '*.avi' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Videos/ 2>/dev/null
-find ~ -type f -iname '*.txt' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Text/ 2>/dev/null
-find ~ -type f -iname '*.zip' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
-find ~ -type f -iname '*.rar' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
-find ~ -type f -iname '*.gz*' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
-find ~ -type f -iname '*.tar' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
-find ~ -type f -iname '*.xz' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
-find ~ -type f -iname 'screenshot*.png' | grep -vi Repositories | grep -vi Cloud | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/Screenshots/ 2>/dev/null
+#Looking for file extension   | Ignoring Some Specified Folders               | Ignoring .files | Moving files to temp folder and redirects the to the correct folder
+find ~ -type f -iname '*.pdf' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/PDF/ 2>/dev/null
+find ~ -type f -iname '*.*md' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Markdown/ 2>/dev/null
+find ~ -type f -iname '*.doc*' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Word/ 2>/dev/null
+find ~ -type f -iname '*.odt' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Word/ 2>/dev/null
+find ~ -type f -iname '*.ppt*' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Powerpoint/ 2>/dev/null
+find ~ -type f -iname '*.xl*' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Excel/ 2>/dev/null
+find ~ -type f -iname '*.iso' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Disks/ 2>/dev/null
+find ~ -type f -iname '*.img' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Disks/ 2>/dev/null
+find ~ -type f -iname '*.jpeg' | egrep -vi "/repositories/|/cloud/|/trabalho/|/music/" | grep -vi Music | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
+find ~ -type f -iname '*.jpg' | egrep -vi "/repositories/|/cloud/|/trabalho/|/music/" | grep -vi Music | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
+find ~ -type f -iname '*.png' | egrep -vi "/repositories/|/cloud/|/trabalho/|/music/" | grep -vi Music | grep -vi ~/[.*] | grep -vi screenshot | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
+find ~ -type f -iname '*.gif' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
+find ~ -type f -iname '*.bmp' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/ 2>/dev/null
+find ~ -type f -iname '*.xcf' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/GIMP/ 2>/dev/null
+find ~ -type f -iname '*.ogg' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | grep -vi $HOME/Music | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Music/ 2>/dev/null
+find ~ -type f -iname '*.flac' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | grep -vi $HOME/Music | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Music/ 2>/dev/null
+find ~ -type f -iname '*.mp3' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | grep -vi $HOME/Music | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Music/ 2>/dev/null
+find ~ -type f -iname '*.midi' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | grep -vi $HOME/Music | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Music/ 2>/dev/null
+find ~ -type f -iname '*.wav' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | grep -vi $HOME/Music | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Music/ 2>/dev/null
+find ~ -type f -iname '*.mp4' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Videos/ 2>/dev/null
+find ~ -type f -iname '*.3gp' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Videos/ 2>/dev/null
+find ~ -type f -iname '*.mkv' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Videos/ 2>/dev/null
+find ~ -type f -iname '*.avi' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Videos/ 2>/dev/null
+find ~ -type f -iname '*.txt' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Text/ 2>/dev/null
+find ~ -type f -iname '*.zip' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
+find ~ -type f -iname '*.rar' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
+find ~ -type f -iname '*.gz*' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
+find ~ -type f -iname '*.tar' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
+find ~ -type f -iname '*.xz' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Documents/Archives/ 2>/dev/null
+find ~ -type f -iname 'screenshot*.png' | egrep -vi "/repositories/|/cloud/|/trabalho/" | grep -vi ~/[.*] | xargs -I {} mv -f "{}" ~/tmp/ && mv ~/tmp/* ~/Pictures/Screenshots/ 2>/dev/null
 rm -rf ~/tmp/
