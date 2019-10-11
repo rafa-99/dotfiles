@@ -12,9 +12,9 @@ elif [ $file == config.def.h ]; then
 			sudo make clean install
 # Document Compiler
 elif [ $extension == rmd ]; then
-			R -e "rmarkdown::render('$file', 'pdf_document')" 
+			document=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$file', '"$document"')" 
 elif [ $extension == md ]; then
-			R -e "rmarkdown::render('$file', 'pdf_document')"
+			document=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$file', '"$document"')" 
 elif [ $extension == ms ]; then
 			groff -k -T pdf -m -ms $file > "$base.pdf"
 # Program Compiler
