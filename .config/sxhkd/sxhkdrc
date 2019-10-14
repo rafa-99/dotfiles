@@ -46,6 +46,10 @@ super + shift + t
 super + shift + F9
 	~/.config/scripts/screenrecord
 
+# screen output selector
+super + o
+	~/.config/scripts/output
+
 # stop screen recording 
 super + shift + F10
 	killall ffmpeg
