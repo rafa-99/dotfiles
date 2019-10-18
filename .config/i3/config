@@ -108,11 +108,10 @@ mode "moveit" {
 }
 bindsym $mod+Shift+m focus floating; mode "moveit"
 
-exec "setxkbmap pt"
+exec setxkbmap pt
 exec xwallpaper --stretch $HOME/Pictures/Cyan_Francisco.png
 gaps inner 15
 gaps outer 15
 hide_edge_borders both
-exec compositor 
 exec polybar i3
 exec_always --no-startup-id numlockx on

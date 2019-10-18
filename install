@@ -73,26 +73,12 @@ echo "Are you running a laptop or a desktop?" && printf "1)Laptop\n2)Desktop\nWh
 sleep 1
 
 if [ $PC == 1 ]; then
-		sed -i s:custom:laptop:g ~/.config/bspwm/bspwmrc
+		sed -i s:custom:laptop:g $HOME/.config/bspwm/bspwmrc
 elif [ $PC == 2 ]; then
-		sed -i s:custom:desktop:g ~/.config/bspwm/bspwmrc
-else
-		echo "Skipping..."
-fi
-
-# Compositor Selection
-echo "Which compositor you want to run?" && printf "1)xcompmgr\n2)compton\n ->" && read Compositor && clear
-sleep 1
-
-if [ $Compositor == 1 ]; then
-		sudo pacman -S xcompmgr && sed -i s:compositor:xcompmgr:g ~/.config/bspwm/bspwmrc && sed -i s:compositor:xcompmgr:g ~/.config/dwm/autostart && sed -i s:compositor:xcompmgr:g ~/.config/i3/config && sed -i s:compositor:xcompmgr:g ~/.config/polybar/autostart
-
-elif [ $Compositor == 2 ]; then
-		sed -i s:compositor:compton:g ~/.config/bspwm/bspwmrc && sed -i s:compositor:compton:g ~/.config/dwm/autostart && sed -i s:compositor:compton:g ~/.config/i3/config && sed -i s:compositor:compton:g ~/.config/openbox/autostart && sudo pacman -S compton
-
+		sed -i s:custom:desktop:g $HOME/.config/bspwm/bspwmrc
 else
 		echo "Skipping..."
 fi
 
 # Making Java Apps Work
-echo "export _JAVA_AWT_WM_NONREPARENTING=1" >/etc/profile.d/jre.sh
+sudo echo "export _JAVA_AWT_WM_NONREPARENTING=1" >/etc/profile.d/jre.sh

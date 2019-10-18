@@ -15,8 +15,6 @@
 # If you want to use XFCE config tools...
 #
 #xfce-mcs-manager &
-feh --bg-scale /home/rafael/Pictures/Wallpaper.png &
-compositor &
+xwallpaper --stretch $HOME/Pictures/Cyan_Francisco.png &
 tint2 &
 setxkbmap pt &
-mpd &
