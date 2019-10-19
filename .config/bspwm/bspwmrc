@@ -2,6 +2,7 @@
 
 sxhkd &
 setxkbmap pt &
+compton &
 numlockx on &
 xwallpaper --stretch $HOME/Pictures/Cyan_Francisco.png &
 polybar custom &
