@@ -38,4 +38,4 @@ application/x-zip-compressed=engrampa.desktop
 application/zip=engrampa.desktop
 application/xml=geany.desktop
 x-scheme-handler/magnet=transmission-qt.desktop
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop

@@ -40,6 +40,6 @@ Weather(){
 }
 
 while true; do
-	xsetroot -name "$(Music)   |   $(Memory)   |   $(Temp)   |   $(Weather)   |   $(Date)   |   $(Time)"
+	xsetroot -name "$(Music)   |   $(Memory)   |   $(Temp)   |   $(Date)   |   $(Time)"
 	sleep 10s
 done &
