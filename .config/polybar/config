@@ -250,7 +250,7 @@ fuzzy-match = false
 
 ; ws-icon-[0-9]+ = label;icon
 ; Note that the label needs to correspond with the bspwm workspace name
-ws-icon-0 = X;ﲤ
+ws-icon-0 = X;
 ws-icon-1 = I;
 ws-icon-2 = II;
 ws-icon-3 = III;ﱮ
