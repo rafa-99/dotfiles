@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 xwallpaper --stretch $HOME/Pictures/Cyan_Francisco.png &
 setxkbmap pt &
@@ -8,7 +8,6 @@ Date(){
 	Date=`date +'%F %A'`
 	echo -e ": $Date"
 }
-
 Kernel(){
 	Kernel=`uname -nro`
 	echo -e ": $Kernel"
@@ -21,7 +20,10 @@ Memory(){
 
 Music(){
 	Music=`mpc status | grep -`
-	echo -e ": $Music"
+	Running=`ps -C mpd | grep mpd | awk '{print $4}'`
+	if [ $Running == mpd ]; then 
+		echo -e ": $Music"
+	fi
 }
 
 Temp(){
@@ -39,7 +41,11 @@ Weather(){
 	echo -e "滛: $Weather"
 }
 
+Battery(){
+	Battery=`acpi -b | awk '{print $4}' | sed s:','::g`
+	echo -e ": $Battery"
+}
 while true; do
-	xsetroot -name "$(Music)   |   $(Memory)   |   $(Temp)   |   $(Date)   |   $(Time)"
+	xsetroot -name "$(Music) | $(Battery) | $(Temp) | $(Memory) | $(Date) | $(Time)"
 	sleep 10s
 done &
