@@ -22,7 +22,7 @@ Music(){
 	Music=`mpc status | grep -`
 	Running=`ps -C mpd | grep mpd | awk '{print $4}'`
 	if [ $Running == mpd ]; then 
-		echo -e ": $Music"
+		echo -e "| : $Music"
 	fi
 }
 
