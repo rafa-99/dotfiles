@@ -72,11 +72,21 @@ chsh -s /bin/zsh
 echo "Are you in a powerful computer?" && printf "1)Yes\n2)No:" && read PC && clear
 sleep 1
 
-if [ $PC == 1 ]; then
+if [ "$PC" == "1" ]; then
 		yay --needed --noconfirm -S polybar compton-tryone-git
 else
 		echo "Skipping..."
 fi
 
 # Making Java Apps Work
-sudo echo "export _JAVA_AWT_WM_NONREPARENTING=1" >/etc/profile.d/jre.sh
+sudo echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh
+
+# Block Junk Traffic on Your Computer
+echo "Do you want to block junky traffic. Ads, tracking, porn, junk?" && printf "1)Yes\n2)No:" && read Junk && clear
+sleep 1
+
+if [ "$Junk" == "1" ]; then
+		sudo cp -rf hosts /etc/
+else
+		echo "Skipping..."
+fi
