@@ -69,7 +69,7 @@ cd $CURDIR && sudo rm -rf suck/
 chsh -s /bin/zsh
 
 # Diferenciating from laptop to desktop
-echo "Are you in a powerful computer?" && printf "1)Yes\n2)No:" && read PC && clear
+echo "Are you in a powerful computer?" && printf "1)Yes\n2)No:\n-> " && read PC && clear
 sleep 1
 
 if [ "$PC" == "1" ]; then
@@ -79,10 +79,10 @@ else
 fi
 
 # Making Java Apps Work
-sudo echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh
+# sudo echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh
 
 # Block Junk Traffic on Your Computer
-echo "Do you want to block junky traffic. Ads, tracking, porn, junk?" && printf "1)Yes\n2)No:" && read Junk && clear
+echo "Do you want to block junky traffic. Ads, tracking, porn, junk?" && printf "1)Yes\n2)No:\n-> " && read Junk && clear
 sleep 1
 
 if [ "$Junk" == "1" ]; then
