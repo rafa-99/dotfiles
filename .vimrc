@@ -26,6 +26,11 @@ syntax on
 set number
 set ignorecase
 set viminfo=""
+set autoindent
+set smartindent
+set smarttab
+set ruler
+set autochdir
 
 " Autocompiler
 map <F5> :!$HOME/.config/scripts/compiler '%' <enter> 
