@@ -10,7 +10,7 @@ echo "**********************"
 CURDIR=$(pwd)
 
 # Installing Deps
-sudo pacman --needed -S brightnessctl zsh zsh-syntax-highlighting youtube-dl engrampa nmap geany base-devel vim ncmpcpp mpd mpc xwallpaper xclip newsboat vifm zathura r qutebrowser tcl tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim ntfs-3g ffmpeg acpi transset-df texlive-most pcmanfm lxappearance arc-gtk-theme papirus-icon-theme ntp vsftpd filezilla redshift jq
+sudo pacman --needed -S brightnessctl zsh zsh-syntax-highlighting youtube-dl engrampa nmap base-devel ncmpcpp mpd mpc xwallpaper xclip newsboat vifm zathura tk mpv libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good maim ntfs-3g ffmpeg acpi transset-df texlive-most pcmanfm lxappearance arc-gtk-theme papirus-icon-theme ntp vsftpd filezilla redshift jq numlockx catimg htop xclip maim ntfs-3g acpi imagemagick transmission-gtk vim vifm qutebrowser ncmpcpp mpv mpd mpc sxiv zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps python-pywal irssi r tk pandoc-citeproc firefox filezilla telegram-desktop python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools openjdk11-doc openjdk11-src jre11-openjdk jdk11-openjdk java11-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver
 
 # Updated sudo permissions
 sudo cp -rf sudoers /etc/sudoers
@@ -19,10 +19,12 @@ sudo cp -rf sudoers /etc/sudoers
 cp -rf .* $HOME
 cp -rf Pictures/ $HOME/
 rm -rf $HOME/.git \
+	$HOME/.gentoo \
 	$HOME/LICENSE \
 	$HOME/install \
 	$HOME/logo.png \
 	$HOME/README.md \
+	$HOME/hosts \
 	$HOME/sudoers
 xrdb $HOME/.Xresources
 mkdir -p ~/Mount
@@ -78,8 +80,11 @@ else
 		echo "Skipping..."
 fi
 
-# Making Java Apps Work
+# Sudo Mods
 # sudo echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh
+# sed -i s:#Color:Color:g /etc/pacman.conf
+# sed -i s:#VerbosePkgLists:VerbosePkgLists:g /etc/pacman.conf
+# sed -i '37iILoveCandy' /etc/pacman.conf
 
 # Block Junk Traffic on Your Computer
 echo "Do you want to block junky traffic. Ads, tracking, porn, junk?" && printf "1)Yes\n2)No:\n-> " && read Junk && clear
