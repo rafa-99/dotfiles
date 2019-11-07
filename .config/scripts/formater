@@ -9,12 +9,10 @@ formatdrive=$(lsblk -l | awk '{print $1}' | grep -vi NAME | sed s:^:/dev/:g | dm
 formatype=$(printf 'ext4\nfat32\nntfs' | dmenu -i -p "Type:")
 
 # Compairing the values of $formatype and $formatdrive and running it's desired formatation
-if [ $formatype == ext4 ]; then
-			sudo mkfs.ext4 $formatdrive
-elif [ $formatype == fat32 ]; then
-			sudo mkfs.vfat $formatdrive
-elif [ $formatype == ntfs ]; then
-			sudo mkfs.ntfs $formatdrive
-else
-			break
+if [ "$formatype" = "ext4" ]; then
+			sudo mkfs.ext4 -q "$formatdrive"
+elif [ "$formatype" = "fat32" ]; then
+			sudo mkfs.vfat "$formatdrive"
+elif [ "$formatype" = "ntfs" ]; then
+			sudo mkfs.ntfs "$formatdrive"
 fi

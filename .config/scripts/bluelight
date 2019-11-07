@@ -3,9 +3,9 @@
 #This is a script to turn on bluelight filter
 
 #Detect if Redshift Already Running
-running=$(ps -C redshift | grep redshift | awk '{print $4}')
+running=$(pgrep -l redshift | awk '{print $2}')
 
-if [ "$running" == "redshift" ]; then
+if [ "$running" = "redshift" ]; then
 			killall redshift
 else
 #Latitude Grab| Grabbing IP          | getting information from iplocation                  |qery| Grab latitude | grabbing the #   | removing "   | removing ,
@@ -13,5 +13,5 @@ else
 #Longitude Grab| Grabbing IP          | getting information from iplocation                  |qery| Grab longitude | grabbing the #   | removing "   | removing ,
 	longitude=$(curl https://ipinfo.io/ip | xargs -I {} curl -s --get https://ipvigilante.com/{} | jq | grep longitude | awk '{print $2}' | sed s:'"'::g | sed s:','::g) &&
 #Turning on Redshift with local coordinates
-	redshift -l $latitude:$longitude -m randr
+	redshift -l "$latitude":"$longitude" -m randr
 fi
