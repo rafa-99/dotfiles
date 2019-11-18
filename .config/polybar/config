@@ -27,7 +27,7 @@ format-offset =
 
 [colors]
 ; Custom theme ============
-background = #001D2330
+background = #040a33
 foreground = #c0c5ce
 foreground2 = #1D2330
 alert = #bd2c40
@@ -41,7 +41,7 @@ volume-max = #bf616a
 monitor-strict = false
 override-redirect = false
 bottom = false
-fixed-center = true
+fixed-center = false
 width = 100%
 height = 20
 ;offset-x = 1%
@@ -80,7 +80,7 @@ font-4 = "UbuntuMono Nerd Font:pixelsize=8;1"
 
 modules-left = bspwm
 modules-center = 
-modules-right =  xwindow arrow2 mpd arrow3 cpu2 arrow4 battery arrow5 memory2 arrow6 date
+modules-right = xwindow arrow2 mpd arrow3 cpu2 arrow4 battery arrow5 memory2 arrow6 date
 separator = 
 
 ;dim-value = 1.0
@@ -146,8 +146,8 @@ font-3 = "UbuntuMono Nerd Font:style=Solid:pixelsize=8;1"
 font-4 = "UbuntuMono Nerd Font:pixelsize=8;1"
 
 modules-left = bspwm
-modules-center = 
-modules-right =  xwindow arrow2 mpd arrow3 cpu2 arrow4 cpu_temp arrow5 memory2 arrow6 date
+modules-center =
+modules-right = xwindow arrow2 mpd arrow3 cpu2 arrow4 cpu_temp arrow5 memory2 arrow6 date
 separator = 
 
 ;dim-value = 1.0
@@ -250,16 +250,16 @@ fuzzy-match = false
 
 ; ws-icon-[0-9]+ = label;icon
 ; Note that the label needs to correspond with the bspwm workspace name
-ws-icon-0 = X;
-ws-icon-1 = I;
-ws-icon-2 = II;
-ws-icon-3 = III;ﱮ
-ws-icon-4 = IV;
-ws-icon-5 = V;
-ws-icon-6 = VI;
-ws-icon-7 = VII;ﲎ
-ws-icon-8 = VIII;
-ws-icon-9 = IX;
+ws-icon-0 = 0;
+ws-icon-1 = 1;
+ws-icon-2 = 2;
+ws-icon-3 = 3;ﱮ
+ws-icon-4 = 4;
+ws-icon-5 = 5;
+ws-icon-6 = 6;
+ws-icon-7 = 7;ﲎ
+ws-icon-8 = 8;
+ws-icon-9 = 9;
 ;ws-icon-default = ♟
 
 ; Available tags:
