@@ -5,7 +5,7 @@
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx
 
 # Adds ~/.local/bin to $PATH
-export PATH="$PATH:$HOME/.local/bin/"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Default programs
 export EDITOR="vim"
