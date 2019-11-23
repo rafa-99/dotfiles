@@ -48,6 +48,3 @@ URxvt*borderColor:  [100]#040A33
 *color13:  #3FBCA8
 *.color14: #4B9E9D
 *color14:  #4B9E9D
-
-! ST Terminal Transparency
-st*alpha: 200

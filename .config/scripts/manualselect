@@ -1,4 +1,0 @@
-#!/bin/sh
-
-# Lst man| Outputs a list | A menu           | Opens the manual
-man -k . | dmenu -i -l 20 | awk '{print $1}' | xargs -I {} man "{}"

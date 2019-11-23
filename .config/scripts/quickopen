@@ -1,6 +1,0 @@
-#!/bin/sh
-
-#A quick open menu who lets you open any file from any part of your home directory with its default application
-
-#Lists Directorys and outputs menu 20         | Grabs PATH       | Replaces ~ with complete PATH | Lists files in the directory  | Replace complete PATH with ~  | Outputs menu 20| Replace ~ with complete PATH  | Opens with default app
-dmenu -i -l 20 < "$HOME"/.config/directorysrc | awk '{print $2}' | sed s:'~':/home/"$(whoami)":g | xargs -I {} find "{}" -type f | sed s:/home/"$(whoami)":'~':g | dmenu -i -l 20 | sed s:'~':/home/"$(whoami)":g | xargs -I {} xdg-open "{}"

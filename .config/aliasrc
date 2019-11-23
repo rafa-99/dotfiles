@@ -3,10 +3,8 @@
 alias ls='ls --color=auto' \
 	unlock='sudo rm -rf /var-lib/pacman/db.lck' \
 	xr='xrdb ~/.Xresources' \
-	update='sudo pacman -Syu' \
-	updateaur='yay -Syu' \
+	update='yay -Syu' \
 	remove='yay -Rns' \
-	cleanup='bash $HOME/.config/scripts/cleanup' \
 	install='yay -S' \
 	search='yay -Ss' \
 	clone='git clone' \
@@ -20,17 +18,14 @@ alias ls='ls --color=auto' \
 	fonts='fc-cache -fv' \
 	ytmp3='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0' \
 	ytmp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"' \
-	patch='patch -p1 <' \
+	fpatch='patch -p1 <' \
 	mkdiff='diff -u' \
 	del='rm -rf' \
 	copy='cp -rf' \
 	encrypt='openssl aes-256-cbc -a -salt' \
 	decrypt='openssl aes-256-cbc -d -a' \
 	clip='xclip -selection clipboard' \
-	whoshere='bash $HOME/.config/scripts/whoshere' \
 	webget='wget --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla' \
-	organize='bash $HOME/.config/scripts/organize' \
-	mans='bash $HOME/.config/scripts/manualselect' \
 	trim='convert -trim' \
 	trans='convert -transparent -fuzz' \
 	mirrors='reflector --sort rate --save /etc/pacman.d/mirrorlist' \
