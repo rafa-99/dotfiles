@@ -33,4 +33,4 @@ set ruler
 set autochdir
 
 " Autocompiler
-map <F5> :!$HOME/.config/scripts/compiler '%' <enter> 
+map <F5> :!compiler '%' <enter> 
