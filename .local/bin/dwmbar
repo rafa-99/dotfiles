@@ -1,47 +1,47 @@
 #!/bin/sh
 
 Date(){
-	Date=`date +'%F %A'`
+	Date=$(date +'%F %A')
 	echo -e ": $Date"
 }
 Kernel(){
-	Kernel=`uname -nro`
+	Kernel=$(uname -nro)
 	echo -e ": $Kernel"
 }
 
 Memory(){
-	Memory=`free -h | awk '/^Mem:/ {print $3 "/" $2}'`
+	Memory=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
 	echo -e ": $Memory"
 }
 
 Music(){
-	Music=`mpc status | grep - | awk -F"- "  '{print $NF}'`
-	Running=`ps -C mpd | grep mpd | awk '{print $4}'`
-	if [ $Running == mpd ]; then 
-		echo -e "| : $Music"
+	Music=$(mpc status | grep - | awk -F"- "  '{print $NF}')
+	Running=$(pgrep -l mpd | awk '{print $2}')
+	if [ "$Running" = "mpd" ]; then 
+		echo -e "| : $Music "
 	fi
 }
 
 Temp(){
-	Temp=`sensors | awk '/^temp1:/ {print $2}' | head -1 | cut -b 2,3,6,7,8`
+	Temp=$(sensors | awk '/^temp1:/ {print $2}' | head -1 | cut -b 2,3,6,7,8)
 	echo -e ": $Temp"
 }
 
 Time(){
-	Time=`date +'%H:%M'`
+	Time=$(date +'%H:%M')
 	echo -e ": $Time"
 }
 
 Weather(){
-	Weather=`curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo`
+	Weather=$(curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo)
 	echo -e "滛: $Weather"
 }
 
 Battery(){
-	Battery=`acpi -b | awk '{print $4}' | sed s:','::g`
+	Battery=$(acpi -b | awk '{print $4}' | sed s:','::g)
 	echo -e ": $Battery"
 }
 while true; do
-	xsetroot -name "$(Music) | $(Battery) | $(Temp) | $(Memory) | $(Date) | $(Time)"
+	xsetroot -name "$(Music)| $(Battery) | $(Temp) | $(Memory) | $(Date) | $(Time)"
 	sleep 10s
 done &
