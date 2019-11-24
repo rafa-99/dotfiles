@@ -1,5 +1,5 @@
 #!/bin/sh
 
-xwallpaper --stretch $HOME/Pictures/Cyan_Francisco.png &
+xwallpaper --stretch "$WALLPAPER" &
 setxkbmap pt &
 numlockx on &
