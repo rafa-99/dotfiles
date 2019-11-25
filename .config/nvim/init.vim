@@ -5,6 +5,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " Custom Settings
@@ -28,6 +29,7 @@ map <F4> :!clear && shellcheck % <CR>
 map <C-p> :set spell spelllang=pt_pt <CR>
 map <C-e> :set spell spelllang=en_us <CR>
 map <C-s> :set nospell <CR>
+map <C-g> :Goyo <CR>
 
 " Keybinds for splits
 " Move between splits
