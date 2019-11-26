@@ -18,7 +18,7 @@ alias ls='ls --color=auto' \
 	fonts='fc-cache -fv' \
 	ytmp3='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0' \
 	ytmp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"' \
-	fpatch='patch -p1 <' \
+	patch='patch -p1 <' \
 	mkdiff='diff -u' \
 	del='rm -rf' \
 	copy='cp -rf' \
@@ -29,4 +29,4 @@ alias ls='ls --color=auto' \
 	trim='convert -trim' \
 	trans='convert -transparent -fuzz' \
 	mirrors='reflector --sort rate --save /etc/pacman.d/mirrorlist' \
-	synclock='sudo ntpdate pt.pool.ntp.org && sudo date -s "+1 hour" && sudo hwclock --systohc'
+	synclock='sudo ntpdate pt.pool.ntp.org && sudo date -s "+1 hour" && sudo hwclock --systohc' \
