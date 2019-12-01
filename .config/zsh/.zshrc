@@ -10,6 +10,5 @@ zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
 compinit
 ## Source Files
-source '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
 source "$HOME/.config/zsh/agnoster.zsh-theme"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"

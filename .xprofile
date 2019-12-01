@@ -1,5 +1,5 @@
 #!/bin/sh
 
-xwallpaper --stretch "$WALLPAPER" &
+nitrogen --set-scaled "$WALLPAPER" &
 setxkbmap pt &
 numlockx on &

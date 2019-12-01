@@ -20,5 +20,4 @@ export ZDOTDIR="$HOME/.config/zsh"
 export WALLPAPER="$HOME/.config/wallpaper/wallpaper.png"
 
 # Autostart X
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx
-
+startx

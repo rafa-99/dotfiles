@@ -1,12 +1,13 @@
 #!bin/sh
 
 alias ls='ls --color=auto' \
-	unlock='sudo rm -rf /var-lib/pacman/db.lck' \
+	grep='grep --color=auto -i' \
 	xr='xrdb ~/.Xresources' \
-	update='yay -Syu' \
-	remove='yay -Rns' \
-	install='yay -S' \
-	search='yay -Ss' \
+	update='sudo emerge-webrsync && sudo emerge --update --deep --with-bdeps=y --newuse @world' \
+	remove='sudo emerge -C' \
+	install='sudo emerge --ask' \
+	search='emerge --search' \
+	cleanup='sudo emerge --depclean' \
 	clone='git clone' \
 	add='git add' \
 	stat='git status' \
@@ -28,5 +29,4 @@ alias ls='ls --color=auto' \
 	webget='wget --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla' \
 	trim='convert -trim' \
 	trans='convert -transparent -fuzz' \
-	mirrors='reflector --sort rate --save /etc/pacman.d/mirrorlist' \
 	synclock='sudo ntpdate pt.pool.ntp.org && sudo date -s "+1 hour" && sudo hwclock --systohc' \
