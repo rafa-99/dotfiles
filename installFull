@@ -9,7 +9,17 @@ echo "**********************"
 # Setting Vars
 CURDIR=$(pwd)
 
-# Reloading udev Rules
+# Distributing Configs for Portage
+sudo cp -rf ".local/etc/" "/etc/"
+
+# Installing Deps
+emerge --ask playonlinux lutris engrampa youtube-dl nmap ncmpcpp media-sound/mpc nitrogen x11-misc/xclip vifm zathura zathura-pdf-poppler mpv tk scrot ntfs3g pcmanfm lxappearance filezilla redshift numlockx neofetch htop transmission-remote-gtk R pandoc-citeproc zip wget make bc android-tools unar arandr shellcheck gimp firefox-bin xorg-server xinit zsh webkit-gtk alsa-tools alsa-utils alsa-firmware alsa-plugins alsa-lib flaggie
+
+# Setting up rootless Xorg Server
+sudo mkdir -p /etc/portage/package.use
+sudo sh -c 'echo "x11-base/xorg-server -suid" > /etc/portage/package.use/xorg_flags'
+groupadd input
+sudo sh -c 'echo "SUBSYSTEM=="input", ACTION=="add", GROUP="input"" > /etc/udev/rules.d/99-dev-input-group.rules'
 sudo /etc/init.d/udev reload
 usermod -aG input,video,audio user
 
