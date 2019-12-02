@@ -42,7 +42,7 @@ set splitbelow splitright
 
 " Plugins Configuration
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-t> :NERDTreeToggle<CR>
 " Airline Theme
 let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1

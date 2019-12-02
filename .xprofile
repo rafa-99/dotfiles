@@ -1,5 +1,6 @@
 #!/bin/sh
 
+dwmbar &
 nitrogen --set-scaled "$WALLPAPER" &
 setxkbmap pt &
 numlockx on &
