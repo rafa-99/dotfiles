@@ -13,15 +13,10 @@ CURDIR=$(pwd)
 sudo cp -rf ".local/etc/" "/etc/"
 
 # Installing Deps
-emerge --ask playonlinux lutris engrampa youtube-dl nmap ncmpcpp media-sound/mpc nitrogen x11-misc/xclip vifm zathura zathura-pdf-poppler mpv tk scrot ntfs3g pcmanfm lxappearance filezilla redshift numlockx neofetch htop transmission-remote-gtk R pandoc-citeproc zip wget make bc android-tools unar arandr shellcheck gimp firefox-bin xorg-server xinit zsh webkit-gtk alsa-tools alsa-utils alsa-firmware alsa-plugins alsa-lib flaggie
+emerge --ask playonlinux lutris engrampa youtube-dl nmap ncmpcpp media-sound/mpc nitrogen x11-misc/xclip vifm zathura zathura-pdf-poppler mpv tk scrot ntfs3g pcmanfm lxappearance filezilla redshift numlockx neofetch htop transmission-remote-gtk R pandoc-citeproc zip wget make bc android-tools unar arandr shellcheck gimp firefox-bin xorg-x11 xinit zsh webkit-gtk alsa-tools alsa-utils alsa-firmware alsa-plugins alsa-lib flaggie acpi lm-sensors 
 
 # Setting up rootless Xorg Server
-sudo mkdir -p /etc/portage/package.use
-sudo sh -c 'echo "x11-base/xorg-server -suid" > /etc/portage/package.use/xorg_flags'
-groupadd input
-sudo sh -c 'echo "SUBSYSTEM=="input", ACTION=="add", GROUP="input"" > /etc/udev/rules.d/99-dev-input-group.rules'
-sudo /etc/init.d/udev reload
-usermod -aG input,video,audio user
+usermod -aG audio "$(whoami)"
 
 #Preparing Dirs and Files for dotfiles
 cp -rf .* "$HOME"
@@ -63,6 +58,7 @@ cd suck && git clone https://gitlab.com/rafa_99/dwm -b gentoo && \
 	git clone https://gitlab.com/rafa_99/farbfeld && \
 	git clone https://gitlab.com/rafa_99/sent && \
 	git clone https://gitlab.com/rafa_99/slock
+cd "$CURDIR"/suck/dwm && sudo make clean install
 cd "$CURDIR"/suck/dmenu && sudo make clean install
 cd "$CURDIR"/suck/st && sudo make clean install
 # cd "$CURDIR"/suck/surf && sudo make clean install
@@ -77,27 +73,23 @@ chsh -s /bin/zsh
 
 # Sudo Mods
 # sudo echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh
-# sed -i s:#Color:Color:g /etc/pacman.conf
-# sed -i s:#VerbosePkgLists:VerbosePkgLists:g /etc/pacman.conf
-# sed -i '37iILoveCandy' /etc/pacman.conf
 
 # Block Junk Traffic on Your Computer
-echo "Do you want to block junky traffic. Ads, tracking, porn, junk?" && printf "1)Yes\n2)No:\n-> " && read -r Junk && clear
-sleep 1
-
-if [ "$Junk" = "1" ]; then
+printf "Do you want to block junky traffic. Ads, tracking, porn, junk? [Y/n]" && read -r Junk && clear
+if [ "$Junk" = "Y" ] || [ "$Junk" = "Y" ]; then
 		sudo cp -rf .local/etc/hosts /etc/
-else
-		echo "Skipping..."
 fi
 
 # Setting up Neovim
-# Linking Neovim to Vim
+## Linking Neovim to Vim
 ln -s /usr/bin/nvim ~/.local/bin/vim 
-# Installing Neovim Plugin Manager (Vim Plug)
+
+## Installing Neovim Plugin Manager (Vim Plug)
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-# Installing Plugins
+
+## Installing Plugins
 nvim -c PlugInstall
-# Installing Spell Checker
+
+## Installing Spell Checker
 nvim -c setlocal spell spelllang=pt_pt

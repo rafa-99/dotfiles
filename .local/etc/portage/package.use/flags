@@ -1,0 +1,17 @@
+media-video/ffmpeg cpu_flags_x86_ssse3
+media-libs/libsdl2 haptic
+gnustep-base/gnustep-make native-exceptions
+sys-libs/pam -filecaps
+sys-libs/zlib minizip
+sys-libs/ncurses -gpm
+www-client/w3m imlib
+sys-devel/gcc objc
+sys-apps/util-linux static-libs
+app-editors/neovim ~amd64
+sys-fs/eudev -introspection
+dev-lua/luv luajit
+dev-lua/lpeg luajit
+dev-lua/mpack luajit
+dev-lang/python sqlite
+dev-lang/python sqlite
+sys-boot/grub mount

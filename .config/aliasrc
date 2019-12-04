@@ -3,11 +3,11 @@
 alias ls='ls --color=auto' \
 	grep='grep --color=auto -i' \
 	xr='xrdb ~/.Xresources' \
-	update='sudo emerge-webrsync && sudo emerge --update --deep --with-bdeps=y --newuse @world' \
-	remove='sudo emerge -C' \
-	install='sudo emerge --ask' \
-	search='emerge --search' \
-	cleanup='sudo emerge --depclean' \
+	update='sudo emerge-webrsync && sudo emerge -uaqDU --keep-going --with-bdeps=y @world' \
+	remove='sudo emerge -cav' \
+	install='sudo emerge -aq' \
+	search='emerge -s' \
+	cleanup='sudo emerge -av --depclean' \
 	clone='git clone' \
 	add='git add' \
 	stat='git status' \
@@ -29,4 +29,3 @@ alias ls='ls --color=auto' \
 	webget='wget --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla' \
 	trim='convert -trim' \
 	trans='convert -transparent -fuzz' \
-	synclock='sudo ntpdate pt.pool.ntp.org && sudo date -s "+1 hour" && sudo hwclock --systohc' \
