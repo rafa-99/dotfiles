@@ -6,3 +6,5 @@ dev-lua/luv ~amd64
 app-emulation/playonlinux ~amd64
 games-util/lutris ~amd64
 dev-python/python-evdev ~amd64
+x11-themes/papirus-icon-theme ~amd64
+games-util/steam-launcher ~amd64

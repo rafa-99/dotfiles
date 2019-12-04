@@ -13,7 +13,7 @@ CURDIR=$(pwd)
 sudo cp -rf ".local/etc/" "/etc/"
 
 # Installing Deps
-emerge --ask playonlinux lutris engrampa youtube-dl nmap ncmpcpp media-sound/mpc nitrogen x11-misc/xclip vifm zathura zathura-pdf-poppler mpv tk scrot ntfs3g pcmanfm lxappearance filezilla redshift numlockx neofetch htop transmission-remote-gtk R pandoc-citeproc zip wget make bc android-tools unar arandr shellcheck gimp firefox-bin xorg-x11 xinit zsh webkit-gtk alsa-tools alsa-utils alsa-firmware alsa-plugins alsa-lib flaggie acpi lm-sensors media-sound/mpd
+emerge --ask playonlinux lutris engrampa youtube-dl nmap ncmpcpp media-sound/mpc nitrogen x11-misc/xclip vifm zathura zathura-pdf-poppler mpv tk scrot ntfs3g pcmanfm lxappearance filezilla redshift numlockx neofetch htop transmission-remote-gtk R pandoc-citeproc zip wget make bc android-tools unar arandr shellcheck gimp firefox-bin xorg-x11 xinit zsh webkit-gtk alsa-tools alsa-utils alsa-firmware alsa-plugins alsa-lib flaggie acpi lm-sensors media-sound/mpd app-admin/system-config-printer app-portage/layman dev-java/openjdk-bin
 
 # Setting up rootless Xorg Server
 usermod -aG audio "$(whoami)"

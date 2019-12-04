@@ -2,3 +2,5 @@ sys-kernel/linux-firmware linux-fw-redistributable no-source-code
 app-arch/unrar unRAR
 media-fonts/font-bh-ttf bh-luxi
 media-fonts/font-bh-type1 bh-luxi
+games-util/steam-launcher ValveSteamLicense
+dev-java/oracle-jre-bin Oracle-BCLA-JavaSE
