@@ -13,7 +13,7 @@ CURDIR=$(pwd)
 sudo cp -rf ".local/etc/" "/etc/"
 
 # Installing Deps
-emerge --ask playonlinux lutris engrampa youtube-dl nmap ncmpcpp media-sound/mpc nitrogen x11-misc/xclip vifm zathura zathura-pdf-poppler mpv tk scrot ntfs3g pcmanfm lxappearance filezilla redshift numlockx neofetch htop transmission-remote-gtk R pandoc-citeproc zip wget make bc android-tools unar arandr shellcheck gimp firefox-bin xorg-x11 xinit zsh webkit-gtk alsa-tools alsa-utils alsa-firmware alsa-plugins alsa-lib flaggie acpi lm-sensors media-sound/mpd app-admin/system-config-printer app-portage/layman dev-java/openjdk-bin
+emerge --ask playonlinux lutris engrampa youtube-dl nmap ncmpcpp media-sound/mpc nitrogen x11-misc/xclip vifm zathura zathura-pdf-poppler mpv tk scrot ntfs3g pcmanfm lxappearance filezilla redshift numlockx neofetch htop transmission-remote-gtk R pandoc-citeproc zip wget make bc android-tools unar arandr shellcheck gimp xorg-x11 xinit zsh webkit-gtk alsa-tools alsa-utils alsa-firmware alsa-plugins alsa-lib flaggie acpi lm-sensors media-sound/mpd app-admin/system-config-printer app-portage/layman dev-java/openjdk-bin geany x11-themes/papirus-icon-theme x11-themes/arc-theme
 
 # Setting up rootless Xorg Server
 usermod -aG audio "$(whoami)"
@@ -53,7 +53,7 @@ mkdir suck
 cd suck && git clone https://gitlab.com/rafa_99/dwm -b gentoo && \
 	git clone https://gitlab.com/rafa_99/dmenu && \
 	git clone https://gitlab.com/rafa_99/st && \
-#	git clone https://gitlab.com/rafa_99/surf && \
+	git clone https://gitlab.com/rafa_99/surf && \
 	git clone https://gitlab.com/rafa_99/tabbed && \
 	git clone https://gitlab.com/rafa_99/farbfeld && \
 	git clone https://gitlab.com/rafa_99/sent && \
@@ -61,7 +61,7 @@ cd suck && git clone https://gitlab.com/rafa_99/dwm -b gentoo && \
 cd "$CURDIR"/suck/dwm && sudo make clean install
 cd "$CURDIR"/suck/dmenu && sudo make clean install
 cd "$CURDIR"/suck/st && sudo make clean install
-# cd "$CURDIR"/suck/surf && sudo make clean install
+cd "$CURDIR"/suck/surf && sudo make clean install
 cd "$CURDIR"/suck/tabbed && sudo make clean install
 cd "$CURDIR"/suck/farbfeld && sudo make clean install
 cd "$CURDIR"/suck/sent && sudo make clean install
@@ -76,7 +76,7 @@ chsh -s /bin/zsh
 
 # Block Junk Traffic on Your Computer
 printf "Do you want to block junky traffic. Ads, tracking, porn, junk? [Y/n]" && read -r Junk && clear
-if [ "$Junk" = "Y" ] || [ "$Junk" = "Y" ]; then
+if [ "$Junk" = "Y" ] || [ "$Junk" = "y" ]; then
 		sudo cp -rf .local/etc/hosts /etc/
 fi
 

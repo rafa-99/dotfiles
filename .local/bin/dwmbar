@@ -15,12 +15,11 @@ Memory(){
 }
 
 Music(){
-	Music=$(mpc status | grep - | awk -F"- "  '{print $NF}')
-	Running=$(pgrep -l mpd | awk '{print $2}')
-	if [ "$Running" = "mpd" ]; then 
-		echo -e "| : $Music "
+	if [ "$(pgrep -l mpd | awk '{print $2}')" = "mpd" ]; then 
+		Playing=$(mpc status | grep - | awk -F"- "  '{print $NF}')
+		echo -e "| : $Playing "
 	fi
-}
+	}
 
 Temp(){
 	Temp=$(sensors | awk '/^temp1:/ {print $2}' | head -1 | cut -b 2,3,6,7,8)
