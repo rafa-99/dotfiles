@@ -16,5 +16,5 @@ case $operation in
 		fi
 	;;
 	Suspend)
-		doas pm-suspend ; slock
+		doas pm-suspend & slock
 esac
