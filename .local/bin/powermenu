@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Displays a power menu through dmenu
+operation=$(printf "Reboot\nShutdown\nSuspend" | dmenu -i -p "Power Menu:")
+
+case $operation in
+	Reboot)
+		doas reboot
+	;;
+	Shutdown)
+		echo "Set timer? [y/N]" &&  read -r option \
+		&& if [ "$option" = "Y" ] || [ "$option" = "y" ]; then \
+		printf"5\n10\n30\n60\n90\n120" | dmenu -i -p "Shutdown in Minutes:" | xargs -I {} doas shutdown -P +{}
+			else
+			doas shutdown now
+		fi
+	;;
+	Suspend)
+		doas pm-suspend ; slock
+esac
