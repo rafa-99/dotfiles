@@ -1,12 +1,16 @@
+app-crypt/pinentry gnome-keyring
 app-editors/neovim ~amd64
 dev-lang/python sqlite
 dev-lang/python sqlite
 dev-lua/lpeg luajit
 dev-lua/luv luajit
 dev-lua/mpack luajit
+games-util/steam-launcher abi_x86_32
 gnustep-base/gnustep-make native-exceptions
 media-libs/libsdl2 haptic
-media-video/ffmpeg cpu_flags_x86_ssse3 cpu_flags_x86_sse3
+media-libs/libvpx postproc
+media-libs/mlt kdenlive ffmpeg frei0r qt5 melt
+media-video/ffmpeg cpu_flags_x86_ssse3 cpu_flags_x86_sse3 gnutls
 sys-apps/util-linux static-libs
 sys-boot/grub mount
 sys-devel/gcc objc
@@ -15,3 +19,4 @@ sys-libs/ncurses -gpm
 sys-libs/pam -filecaps
 sys-libs/zlib minizip
 www-client/w3m imlib
+x11-libs/libXdmcp abi_x86_32
