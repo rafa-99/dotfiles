@@ -1,18 +1,19 @@
 #!/bin/sh
 
-# Displays a power menu through dmenu
+# Added preset minutes for timer| Outputs a menu of available minutes| Shutdown the computer in desired minutes
+
 operation=$(printf "Reboot\nShutdown\nSuspend" | dmenu -i -p "Power Menu:")
 
 case $operation in
 	Reboot)
-		doas reboot
+		doas shutdown -r now
 	;;
 	Shutdown)
-		echo "Set timer? [y/N]" &&  read -r option \
+		option=$(printf "No\nYes" | dmenu -i -p "Set timer?") \
 		&& if [ "$option" = "Y" ] || [ "$option" = "y" ]; then \
 		printf"5\n10\n30\n60\n90\n120" | dmenu -i -p "Shutdown in Minutes:" | xargs -I {} doas shutdown -P +{}
 			else
-			doas shutdown now
+			doas shutdown -h now
 		fi
 	;;
 	Suspend)
