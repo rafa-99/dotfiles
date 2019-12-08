@@ -1,5 +1,5 @@
 app-crypt/pinentry gnome-keyring
-app-editors/neovim ~amd64
+dev-db/sqlite secure-delete
 dev-lang/python sqlite
 dev-lang/python sqlite
 dev-lua/lpeg luajit
