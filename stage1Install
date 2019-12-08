@@ -1,0 +1,25 @@
+#!/bin/sh
+
+echo "######################"
+echo "# Packages Installer #"
+echo "######################"
+echo "|  for Gentoo Linux  |"
+echo "**********************"
+
+
+# Checking if is root
+if [ "$(id -u)" != "0" ]; then
+	echo "This script must be run as root" 1>&2
+	exit 1
+fi
+
+# Adding Configs to Portage
+cp -rf ".local/etc/" "/etc/"
+
+# Installing Gentoo Overlay Manager and Adding Repositories 
+emerge --ask --quiet layman
+layman -a mv steam-overlay
+layman -S
+
+# Installing Packages
+emerge --ask --quiet playonlinux lutris engrampa youtube-dl nmap ncmpcpp media-sound/mpc nitrogen x11-misc/xclip vifm zathura zathura-pdf-poppler mpv tk scrot ntfs3g pcmanfm lxappearance filezilla redshift numlockx neofetch htop transmission R pandoc-citeproc zip wget make bc android-tools unar arandr shellcheck gimp xorg-x11 xinit zsh webkit-gtk alsa-tools alsa-utils alsa-firmware alsa-plugins alsa-lib flaggie acpi lm-sensors media-sound/mpd app-admin/system-config-printer app-portage/layman dev-java/openjdk-bin geany x11-themes/papirus-icon-theme x11-themes/arc-theme nm-applet media-plugins/gst-plugins-libav sxiv texlive firefox kdenlive pm-utils doas libreoffice-bin unoconv rust-bin games-util/steam-launcher app-shells/zsh-syntax-highlighting 
