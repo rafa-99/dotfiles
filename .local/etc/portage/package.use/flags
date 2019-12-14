@@ -12,6 +12,7 @@ gnustep-base/gnustep-make native-exceptions
 media-libs/libsdl2 haptic
 media-libs/libvpx postproc
 media-libs/mlt kdenlive ffmpeg frei0r qt5 melt
+media-sound/ncmpcpp clock visualizer
 media-video/ffmpeg cpu_flags_x86_ssse3 cpu_flags_x86_sse3 gnutls
 sys-apps/util-linux static-libs
 sys-boot/grub mount
