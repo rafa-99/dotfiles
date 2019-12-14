@@ -7,9 +7,9 @@ base=$(basename "$file" ."$extension")
 
 # Suckless Compiler
 if [ "$file" = "config.h" ]; then
-			doas make clean install
+			doas make clean install ; make clean
 elif [ "$file" = "config.def.h" ]; then
-			doas make clean install
+			doas make clean install ; make clean
 # Document Compiler
 elif [ "$extension" = "rmd" ]; then
 			document=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$file', '"$document"')"
