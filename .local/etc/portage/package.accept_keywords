@@ -8,4 +8,5 @@ dev-lua/luv ~amd64
 dev-python/python-evdev ~amd64
 games-util/lutris ~amd64
 games-util/steam-launcher ~amd64
+media-sound/lmms ~amd64
 x11-themes/papirus-icon-theme ~amd64

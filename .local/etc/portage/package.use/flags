@@ -1,7 +1,9 @@
+app-emulation/virtualbox qt5
 app-crypt/pinentry gnome-keyring
 dev-db/sqlite secure-delete
 dev-lang/python sqlite
 dev-lang/python sqlite
+dev-libs/libxml2 abi_x86_32
 dev-lua/lpeg luajit
 dev-lua/luv luajit
 dev-lua/mpack luajit

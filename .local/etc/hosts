@@ -1,6 +1,9 @@
 # Static table lookup for hostnames.
 # See hosts(5) for details.
 
+# localhost bind to local IP
+127.0.0.1 localhost
+
 # Ads, tracking and general junk
 0.0.0.0 api.opencandy.com
 0.0.0.0 api.recommendedsw.com
