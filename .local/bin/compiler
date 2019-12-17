@@ -8,20 +8,25 @@ BASE=$(basename "$FILE" ."$EXTENSION")
 
 # Filter to compiler Suckless Utilites
 case $FILE in
-	config.h.def) sudo make clean install ; make clean
+	config.h.def)
+		sudo make clean install ; make clean
 		;;
-	config.h) sudo make clean install ; make clean
+	config.h)
+		sudo make clean install ; make clean
 		;;
 esac
 
 # Filter to compile other types of files
 case $EXTENSION in
 	# Markdown
-	*md) document=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$FILE', '"$document"')"
-		;;
+	*md)
+	document=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$FILE', '"$document"')"
+	;;
 	# Groff
-	ms) groff -k -T pdf -m -ms "$FILE" > "$BASE.pdf"
-		;;
+	ms)
+	groff -k -T pdf -m -ms "$FILE" > "$BASE.pdf"
+	;;
 	# Java
-	java) javac "$FILE"
+	java)
+	javac "$FILE"
 esac
