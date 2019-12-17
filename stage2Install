@@ -21,7 +21,8 @@ rm -rf "$HOME"/.git \
 	"$HOME"/README.md \
 	"$HOME"/archInstall \
 	"$HOME"/stage1Install \
-	"$HOME"/.local/etc
+	"$HOME"/.local/etc \
+	"$HOME"/.local/linux
 mkdir -p ~/Mount
 mkdir -p ~/Mount/Drive
 mkdir -p ~/Mount/Drive2
