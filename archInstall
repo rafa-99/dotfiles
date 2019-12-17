@@ -12,7 +12,8 @@ CURDIR=$(pwd)
 # Installing opendoas
 sudo pacman -Syu --needed opendoas
 # Updated doas permissions
-doas cp -rf ".local/etc/" "/"
+sudo cp -rf ".local/etc/doas.conf" "/etc/"
+doas cp -rf ".local/etc/hosts" "/etc/"
 # Removing sudo
 doas pacman -Rns sudo
 
@@ -34,7 +35,8 @@ rm -rf "$HOME"/.git \
 	"$HOME"/README.md \
 	"$HOME"/gentoo_stage1Install \
 	"$HOME"/gentoo_stage2Install \
-	"$HOME"/.local/etc
+	"$HOME"/.local/etc \
+	"$HOME"/.local/linux
 mkdir -p ~/Mount
 mkdir -p ~/Mount/Drive
 mkdir -p ~/Mount/Drive2
