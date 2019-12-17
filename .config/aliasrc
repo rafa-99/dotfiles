@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 alias ls='ls --color=auto' \
 	grep='grep --color=auto -i' \
