@@ -1,26 +1,27 @@
 #!/bin/sh
 
 # Setting Vars
-file=$(basename "$1")
-extension=$(echo "$file" |awk -F . '{if (NF>1) {print $NF}}')
-base=$(basename "$file" ."$extension")
+FILE=$(basename "$1")
+EXTENSION=$(echo "$FILE" | awk -F . '{if (NF>1) {print $NF}}')
+BASE=$(basename "$FILE" ."$EXTENSION")
 
-# Suckless Compiler
-if [ "$file" = "config.h" ]; then
-			doas make clean install ; make clean
-elif [ "$file" = "config.def.h" ]; then
-			doas make clean install ; make clean
-# Document Compiler
-elif [ "$extension" = "rmd" ]; then
-			document=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$file', '"$document"')"
-elif [ "$extension" = "md" ]; then
-			document=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$file', '"$document"')" 
-elif [ "$extension" = "ms" ]; then
-			groff -k -T pdf -m -ms "$file" > "$base.pdf"
-# Program Compiler
-elif [ "$extension" = "java" ]; then
-			javac "$file"
-# End of Compiler
-else
-			echo "Nothing to compile :^("
-fi
+
+# Filter to compiler Suckless Utilites
+case $FILE in
+	config.h.def) sudo make clean install ; make clean
+		;;
+	config.h) sudo make clean install ; make clean
+		;;
+esac
+
+# Filter to compile other types of files
+case $EXTENSION in
+	# Markdown
+	*md) document=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$FILE', '"$document"')"
+		;;
+	# Groff
+	ms) groff -k -T pdf -m -ms "$FILE" > "$BASE.pdf"
+		;;
+	# Java
+	java) javac "$FILE"
+esac
