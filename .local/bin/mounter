@@ -9,4 +9,4 @@ mountdevice=$(lsblk -l | awk '{print $1}' | grep -vi NAME | sed s:^:/dev/:g | dm
 mountpoint=$(dmenu -i -p "Mountpoint:" -l 20 < "$HOME"/.config/mounterc | awk '{print $2}' | sed s:'~':"/home/""$(whoami)":g)
 
 #Mounts Partition to Mountpoint
-sudo mount "$mountdevice" "$mountpoint"
+doas mount "$mountdevice" "$mountpoint"
