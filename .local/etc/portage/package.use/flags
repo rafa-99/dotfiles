@@ -15,7 +15,7 @@ media-libs/libvpx postproc
 media-libs/mlt kdenlive ffmpeg frei0r qt5 melt
 media-sound/ncmpcpp clock visualizer
 media-video/ffmpeg cpu_flags_x86_ssse3 cpu_flags_x86_sse3 openssl gnutls
-net-misc/curl-7.66.0 http2
+net-misc/curl http2
 sys-apps/util-linux static-libs
 sys-boot/grub mount
 sys-devel/gcc objc
