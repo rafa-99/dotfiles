@@ -9,10 +9,10 @@ BASE=$(basename "$FILE" ."$EXTENSION")
 # Filter to compiler Suckless Utilites
 case $FILE in
 	config.h.def)
-		sudo make clean install ; make clean
+		doas make clean install ; make clean
 		;;
 	config.h)
-		sudo make clean install ; make clean
+		doas make clean install ; make clean
 		;;
 esac
 
