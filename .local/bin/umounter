@@ -3,7 +3,7 @@
 #A menu which gives you the option to unmount drives from their desired folders
 
 #Lists Mounted Devices  | Gets ^ w/dev| Prints partition#| Outputs Menu of 20
-umountdevice=$(mount -l | grep ^/dev/ | awk '{print $1}' | dmenu -i -p "Umount:")
+UMOUNTDEVICE=$(mount -l | grep ^/dev/ | awk '{print $1}' | dmenu -i -p "Umount:")
 
 #Lists Mounted Folder           | Gets the location| Unmounts the Drive from location
-mount -l | grep "$umountdevice" | awk '{print $3}' | xargs -I {} doas umount {}
+mount -l | grep "$UMOUNTDEVICE" | awk '{print $3}' | xargs -I {} doas umount {}

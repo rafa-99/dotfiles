@@ -3,10 +3,10 @@
 #A script who mounts partitions through the dmenu
 
 #Lists Partitions      | Grabs drive #    | Removes header| Adds /dev/ line | Outputs a Menu
-mountdevice=$(lsblk -l | awk '{print $1}' | grep -vi NAME | sed s:^:/dev/:g | dmenu -i -p "Mount:")
+MOUNTDEVICE=$(lsblk -l | awk '{print $1}' | grep -vi NAME | sed s:^:/dev/:g | dmenu -i -p "Mount:")
 
 #Lists Mountpoints and outputs a Menu of 20                             | Grabs the PATH   | Replaces ~ PATH with /HOME...
-mountpoint=$(dmenu -i -p "Mountpoint:" -l 20 < "$HOME"/.config/mounterc | awk '{print $2}' | sed s:'~':"/home/""$(whoami)":g)
+MOUNTPOINT=$(dmenu -i -p "Mountpoint:" -l 20 < "$HOME"/.config/mounterc | awk '{print $2}' | sed s:'~':"/home/""$(whoami)":g)
 
 #Mounts Partition to Mountpoint
-doas mount "$mountdevice" "$mountpoint"
+doas mount "$MOUNTDEVICE" "$MOUNTPOINT"

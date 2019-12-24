@@ -20,7 +20,7 @@ esac
 case $EXTENSION in
 	# Markdown
 	*md)
-	document=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$FILE', '"$document"')"
+	DOCUMENT=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$FILE', '""$DOCUMENT""')"
 	;;
 	# Groff
 	ms)

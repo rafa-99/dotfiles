@@ -3,16 +3,16 @@
 # A quick drive format utility
 
 #Listing Drives        |Grabbing 1st char | Remove header | Add /dev/ to ^  |Output a Menu
-formatdrive=$(lsblk -l | awk '{print $1}' | grep -vi NAME | sed s:^:/dev/:g | dmenu -i -p "Format:")
+FORMATDRIVE=$(lsblk -l | awk '{print $1}' | grep -vi NAME | sed s:^:/dev/:g | dmenu -i -p "Format:")
 
 #Listing partition types               | Outputs a Menu
-formatype=$(printf 'ext4\nfat32\nntfs' | dmenu -i -p "Type:")
+FORMATYPE=$(printf 'ext4\nfat32\nntfs' | dmenu -i -p "Type:")
 
 # Compairing the values of $formatype and $formatdrive and running it's desired formatation
-if [ "$formatype" = "ext4" ]; then
-			doas mkfs.ext4 -q "$formatdrive"
-elif [ "$formatype" = "fat32" ]; then
-			doas mkfs.vfat "$formatdrive"
-elif [ "$formatype" = "ntfs" ]; then
-			doas mkfs.ntfs "$formatdrive"
+if [ "$FORMATYPE" = "ext4" ]; then
+			doas mkfs.ext4 -q "$FORMATDRIVE"
+elif [ "$FORMATYPE" = "fat32" ]; then
+			doas mkfs.vfat "$FORMATDRIVE"
+elif [ "$FORMATYPE" = "ntfs" ]; then
+			doas mkfs.ntfs "$FORMATDRIVE"
 fi
