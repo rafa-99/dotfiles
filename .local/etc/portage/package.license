@@ -1,5 +1,8 @@
 app-arch/unrar unRAR
 dev-java/oracle-jre-bin Oracle-BCLA-JavaSE
+games-emulation/fbalpha FBA
+games-emulation/genplus-libretro GPGX
+games-emulation/mame2003-libretro MAME-GPL
 games-util/steam-launcher ValveSteamLicense
 media-fonts/font-bh-ttf bh-luxi
 media-fonts/font-bh-type1 bh-luxi
