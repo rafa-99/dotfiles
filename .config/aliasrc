@@ -1,9 +1,9 @@
-#!/bin/sh
+#!bin/sh
 
 alias ls='ls --color=auto' \
 	grep='grep --color=auto -i' \
 	xr='xrdb ~/.Xresources' \
-	update='doas emerge-webrsync && doas emerge -uaqDU --keep-going --with-bdeps=y @world' \
+	update='doas layman -S && doas emerge-webrsync && doas emerge -uaqDU --keep-going --with-bdeps=y @world' \
 	remove='doas emerge -cav' \
 	install='doas emerge -aq' \
 	search='emerge -s' \
