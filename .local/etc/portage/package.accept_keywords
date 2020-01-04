@@ -1,14 +1,1 @@
-app-editors/neovim ~amd64
-app-emulation/playonlinux ~amd64
-app-shells/zsh-syntax-highlighting ~amd64
-dev-libs/libvterm ~amd64
-dev-libs/msgpack ~amd64
-dev-libs/unibilium ~amd64
-dev-lua/luv ~amd64
-dev-python/python-evdev ~amd64
-games-emulation/desmume-libretro ~amd64
-games-emulation/ppsspp-libretro ~amd64
-games-util/lutris ~amd64
-games-util/steam-launcher ~amd64
-media-sound/lmms ~amd64
-x11-themes/papirus-icon-theme ~amd64
+*/* ~amd64
