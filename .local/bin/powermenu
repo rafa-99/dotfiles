@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# Added preset minutes for timer| Outputs a menu of available minutes| Shutdown the computer in desired minutes
-
 OPERATION=$(printf "Reboot\nShutdown\nSuspend" | dmenu -i -p "Power Menu:")
 
 case $OPERATION in
@@ -17,10 +15,11 @@ case $OPERATION in
 		fi
 	;;
 	Suspend)
+		DISTRO=$(grep ^ID= /etc/os-release | sed s:ID=::g)
 		if [ "$DISTRO" = "gentoo" ]; then
 			doas pm-suspend ; slock
 		elif [ "$DISTRO" = "arch" ]; then
-			doas systemctl suspend ; slock
+			systemctl suspend ; slock
 		else
 			slock
 		fi
