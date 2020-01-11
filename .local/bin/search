@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case $DISTRO in
+	gentoo)
+		emerge -s
+		;;
+	arch)
+		pacman -Ss
+		;;
+	parabola)
+		pacman -Ss
+		;;
+esac

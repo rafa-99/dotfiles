@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case $DISTRO in
+	gentoo)
+		doas layman -S && doas emerge-webrsync && doas emerge -uaqDU --keep-going --with-bdeps=y @world
+		;;
+	arch)
+		yay -Syu || doas pacman -Syu
+		;;
+	parabola)
+		yay -Syu || doas pacman -Syu
+		;;
+esac

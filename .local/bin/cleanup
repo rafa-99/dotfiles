@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case $DISTRO in
+	gentoo)
+		doas emerge -av --depclean
+		;;
+	arch)
+		doas pacman -Scc
+		;;
+	parabola)
+		doas pacman -Scc
+		;;
+esac
