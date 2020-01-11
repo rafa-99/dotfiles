@@ -2,12 +2,12 @@
 
 case $DISTRO in
 	gentoo)
-		doas emerge -aq
+		doas emerge -aq "$1"
 		;;
 	arch)
-		doas pacman -Sy
+		doas pacman -Sy "$1"
 		;;
 	parabola)
-		doas pacman -Sy
+		doas pacman -Sy "$1"
 		;;
 esac
