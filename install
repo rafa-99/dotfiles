@@ -56,8 +56,7 @@ base(){
 		"$HOME"/install \
 		"$HOME"/logo.png \
 		"$HOME"/README.md \
-		"$HOME"/gentoo_stage1Install \
-		"$HOME"/gentoo_stage2Install \
+		"$HOME"/PreInstall_Gentoo \
 		"$HOME"/.local/etc \
 		"$HOME"/.local/linux
 	mkdir -p ~/Mount
