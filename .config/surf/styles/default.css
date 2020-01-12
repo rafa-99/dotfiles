@@ -1,5 +1,5 @@
-pre,textarea,body,input,td,tr,p {
-	background-color: black !important;
+pre,textarea,body,td,tr,p,nav,section,button,footer,i {
+	background-color: #202020 !important;
 	background-image: none !important;
 	color: #e0e0e0 !important;
 }
@@ -8,9 +8,9 @@ div {
 	background-image: none !important;
 	color: #e0e0e0 !important;
 }
-h1,h2,h3,h4 {
-	background-color: black !important;
-	color: #e02020 !important;
+h1,h2,h3,h4,h5,h6,span {
+	background-color: #202020 !important;
+	color: #5050f0 !important;
 }
 a {
 	color: #5050f0 !important;
