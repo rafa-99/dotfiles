@@ -1,6 +1,17 @@
 #!/bin/sh
 
-dwmbar &
+# Detecting Session and it's requirements
+case "$SESSION" in
+	bspwm)
+		sxhkd &
+		;;
+	dwm)
+		dwmbar &
+		;;
+esac
+
+# General Requirements
 nitrogen --set-scaled "$WALLPAPER" &
+picom &
 setxkbmap pt &
 numlockx on &

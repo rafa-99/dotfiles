@@ -23,5 +23,16 @@ export ZDOTDIR="$HOME/.config/zsh"
 # Default Vars
 export WALLPAPER="$HOME/.config/wallpaper/wallpaper.png"
 
-# Autostart X
-startx
+#Session Selection Menu
+printf "Which Session\n1. BSPWM\n2. DWM\n -> " && read -r SESSION
+case "$SESSION" in
+	1)
+		export SESSION=bspwm && startx
+		;;
+	2)
+		export SESSION=dwm && startx
+		;;
+	*)
+		echo "Not Available"
+		;;
+esac

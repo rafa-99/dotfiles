@@ -1,4 +1,4 @@
 #!/bin/sh
 
-source ~/.xprofile
-exec dwm
+. "$HOME"/.xprofile
+exec "$SESSION"
