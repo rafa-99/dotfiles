@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	st
+	"$TERMINAL"
 
 # program launcher
 super + d
@@ -42,6 +42,18 @@ super + shift + F9
 super + shift + F10
 	killall ffmpeg
 
+# screen output
+super + shift + o
+	monitor
+
+# bluelight filter
+super + shift + F4
+	bluelight
+
+# screenshot
+print
+	scrot ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png
+
 # music pause/play
 super + F9
 	mpc toggle
@@ -68,35 +80,38 @@ super + p
 
 # network manager
 super + n
-	st -e nmtui
+	"$TERMINAL" -e nmtui
 
 # alsamixer
 super + a
-	st -e alsamixer
+	"$TERMINAL" -e alsamixer
 
 # file manager
 super + f
-	st -e vifm
+	"$TERMINAL" -e vifm
 
 # music player
 super + shift + m
-	mpd & st -e ncmpcpp
+	mpd & "$TERMINAL" -e ncmpcpp
 
+# reload sxhkd
+super + r
+	pkill -USR1 -x sxhkd
 #
 # bspwm hotkeys
 #
 
 # quit/restart bspwm
-super + shift + {x,r}
-	bspc {quit,wm -r}
+super + shift + {x}
+	bspc {quit}
+
+# quit bspwm
+super + shift + r
+	bspc {wm -r}
 
 # close and kill
 super + shift + q
 	bspc node -{c,k}
-
-# make sxhkd reload its configuration files:
-super + r
-	pkill -USR1 -x sxhkd
 
 # alternate between the tiled and monocle layout
 super + alt + m
@@ -115,8 +130,8 @@ super + alt + m
 #
 
 # set the window state
-super + {t,alt + t,space,alt + f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {alt + 1,alt + 2,alt + 3,alt + 4}
+	bspc node -t {tiled,floating,pseudo_tiled,fullscreen}
 
 # set the node flags
 #super + ctrl + {m,x,y,z}
@@ -127,24 +142,24 @@ super + {t,alt + t,space,alt + f}
 #
 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,nort,east}
+super + {h,j,k,l}
+	bspc node -{f} {west,south,north,east}
 
 # focus the node for the given path jump
 #super + {p,b,comma,period}
 #	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
-super + {_,shift + }c
+alt + tab
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
-super + {comma,period}
+super + ctrl + {h,l}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-#super + {grave,Tab}
-#        bspc {node,desktop} -f last
+alt + {Tab,shift + Tab}
+	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
 #super + {o,i}
@@ -173,19 +188,19 @@ super + ctrl + space
 	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
-#super + ctrl + shift + space
-#	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
 # move/resize
 #
 
 # expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
+super + ctrl + {Left,Down,Up,Right}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
+super + shift + {Left,Down,Up,Right}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
