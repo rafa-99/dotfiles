@@ -17,6 +17,7 @@ arch(){
 	sudo cp -rf ".local/etc/doas.conf" "/etc/"
 	doas cp -rf ".local/etc/hosts" "/etc/"
 	# Installing Deps
+	doas pacman -Rns vim
 	doas pacman --needed -Syu zsh zsh-syntax-highlighting youtube-dl engrampa nmap base-devel ncmpcpp nitrogen xclip newsboat vifm zathura tk libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good scrot ntfs-3g ffmpeg acpi texlive-most pcmanfm lxappearance arc-gtk-theme papirus-icon-theme ntp vsftpd filezilla redshift numlockx catimg htop xclip ntfs-3g acpi imagemagick transmission-gtk neovim vifm ncmpcpp mpv mpd mpc sxiv zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps python-pywal irssi r tk pandoc-citeproc firefox python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme curl linux-firmware lutris playonlinux geany steam ctags unoconv
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
@@ -104,7 +105,7 @@ base(){
 	chsh -s /bin/zsh
 	# Setting up Neovim
 	## Linking Neovim to Vim
-	ln -s /usr/bin/nvim .local/bin/vim 
+	ln -s /usr/bin/nvim ~/.local/bin/vim 
 	
 	## Installing Neovim Plugin Manager (Vim Plug)
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
