@@ -25,7 +25,7 @@ export WALLPAPER="$HOME/.config/wallpaper/wallpaper.png"
 
 #Session Selection Menu
 clear
-neofetch
+screenfetch
 printf "Which Session\n1. BSPWM\n2. DWM\n -> " && read -r SESSION
 case "$SESSION" in
 	1)
