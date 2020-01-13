@@ -285,11 +285,9 @@ def_key "h"
 #
 def_key "6"
   show_visualizer
-  show_tag_editor
 
 def_key "7"
   show_clock
-  show_outputs
 
 def_key "8"
   show_tag_editor
