@@ -24,6 +24,8 @@ export ZDOTDIR="$HOME/.config/zsh"
 export WALLPAPER="$HOME/.config/wallpaper/wallpaper.png"
 
 #Session Selection Menu
+clear
+neofetch
 printf "Which Session\n1. BSPWM\n2. DWM\n -> " && read -r SESSION
 case "$SESSION" in
 	1)
