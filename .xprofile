@@ -4,6 +4,7 @@
 case "$SESSION" in
 	bspwm)
 		sxhkd &
+		polybar laptop &
 		;;
 	dwm)
 		dwmbar &
