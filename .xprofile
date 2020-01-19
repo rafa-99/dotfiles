@@ -9,6 +9,8 @@ case "$SESSION" in
 	dwm)
 		dwmbar &
 		;;
+	xfce)
+		;;
 esac
 
 # General Requirements

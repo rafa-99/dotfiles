@@ -26,13 +26,16 @@ export WALLPAPER="$HOME/.config/wallpaper/wallpaper.png"
 #Session Selection Menu
 clear
 screenfetch
-printf "Which Session\n1. BSPWM\n2. DWM\n -> " && read -r SESSION
+printf "Which Session\n1. BSPWM\n2. DWM\n3. XFCE\n -> " && read -r SESSION
 case "$SESSION" in
 	1)
 		export SESSION=bspwm && startx
 		;;
 	2)
 		export SESSION=dwm && startx
+		;;
+	3)
+		export SESSION=xfce && startxfce4
 		;;
 	*)
 		echo "Not Available"
