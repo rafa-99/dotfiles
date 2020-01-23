@@ -14,7 +14,7 @@ alias ls='ls --color=auto' \
 	fonts='fc-cache -fv' \
 	ytmp3='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0' \
 	ytmp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"' \
-	patch='patch -p1 <' \
+	patchd='patch -p1 <' \
 	mkdiff='diff -u' \
 	del='rm -rf' \
 	copy='cp -rf' \
@@ -24,3 +24,4 @@ alias ls='ls --color=auto' \
 	webget='wget --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla' \
 	trim='convert -trim' \
 	trans='convert -transparent -fuzz' \
+	synclock='doas ntpdate pt.pool.ntp.org && doas hwclock --systohc'

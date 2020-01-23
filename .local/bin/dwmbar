@@ -4,6 +4,12 @@ Date(){
 	Date=$(date +'%F %A')
 	echo -e ": $Date"
 }
+
+Disk(){
+	Disk=$(df -h | grep ^/dev/sd | awk '{print ": " $2 "/" $4}' | xargs)
+	echo -e "$Disk"
+}
+
 Kernel(){
 	Kernel=$(uname -nro)
 	echo -e ": $Kernel"
@@ -41,6 +47,6 @@ Battery(){
 	echo -e ": $Battery"
 }
 while true; do
-	xsetroot -name "$(Music)| $(Battery) | $(Temp) | $(Memory) | $(Date) | $(Time)"
+	xsetroot -name "$(Music)| $(Battery) | $(Temp) | $(Memory) | $(Disk) | $(Date) | $(Time)"
 	sleep 10s
 done &
