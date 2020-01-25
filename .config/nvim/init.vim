@@ -1,13 +1,10 @@
 " Call plugins folder
 call plug#begin('~/.config/nvim/plugged')
 Plug 'bling/vim-airline'
-Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
-Plug 'junegunn/goyo.vim'
 Plug 'frazrepo/vim-rainbow'
-Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/taglist.vim'
 call plug#end()
 
@@ -50,7 +47,5 @@ let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1
 " Rainbow Vim
 let g:rainbow_active = 1
-" Goyo
-map <C-g> :Goyo <CR>
 " Taglist
 map <C-c> :Tlist <CR>
