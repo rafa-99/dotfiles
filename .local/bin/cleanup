@@ -5,9 +5,9 @@ case $DISTRO in
 		doas emerge -av --depclean
 		;;
 	arch)
-		doas pacman -Scc
+		doas pacman -Rns $(pacman -Qtdq) && doas pacman -Scc
 		;;
 	parabola)
-		doas pacman -Scc
+		doas pacman -Rns $(pacman -Qtdq) && doas pacman -Scc
 		;;
 esac
