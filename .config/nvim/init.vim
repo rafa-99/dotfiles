@@ -3,9 +3,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-surround'
-Plug 'frazrepo/vim-rainbow'
-Plug 'vim-scripts/taglist.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'luochen1990/rainbow'
 call plug#end()
 
 " Custom Settings
@@ -47,5 +46,3 @@ let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1
 " Rainbow Vim
 let g:rainbow_active = 1
-" Taglist
-map <C-c> :Tlist <CR>
