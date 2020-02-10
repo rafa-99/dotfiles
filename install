@@ -35,9 +35,6 @@ echo "**********************"
 
 # Adding to audio group
 usermod -aG audio "$(whoami)"
-
-# doas Mods
-# doas echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh
 }
 
 base(){
@@ -45,15 +42,11 @@ base(){
 	CURDIR=$(pwd)
 
 	#Preparing Dirs and Files for dotfiles
-	cp -rf .* "$HOME"
-	rm -rf "$HOME"/.git \
-		"$HOME"/LICENSE \
-		"$HOME"/install \
-		"$HOME"/logo.png \
-		"$HOME"/README.md \
-		"$HOME"/PreInstall_Gentoo \
-		"$HOME"/.local/etc \
-		"$HOME"/.local/linux
+	cp -rf .config "$HOME"
+	cp -rf .local "$HOME"
+	cp -rf .xinitrc "$HOME"
+	cp -rf .xprofile "$HOME"
+	cp -rf .zprofile "$HOME"
 	mkdir -p ~/Mount
 	mkdir -p ~/Mount/Drive
 	mkdir -p ~/Mount/Drive2
@@ -86,6 +79,7 @@ base(){
 		git clone https://gitlab.com/rafa_99/farbfeld && \
 		git clone https://gitlab.com/rafa_99/sent && \
 		git clone https://gitlab.com/rafa_99/slock
+	cd "$CURDIR"/suck/dwm && doas make clean install
 	cd "$CURDIR"/suck/dmenu && doas make clean install
 	cd "$CURDIR"/suck/st && doas make clean install
 	cd "$CURDIR"/suck/surf && doas make clean install
@@ -95,7 +89,7 @@ base(){
 	cd "$CURDIR"/suck/slock && doas make clean install
 	cd "$CURDIR" && doas rm -rf suck/
 	
-	# Fixin Java Programs on Window Managers
+	# Fixing Java Programs on Window Managers
 	doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
 
 	# Changing default shell to zsh
@@ -122,6 +116,7 @@ base(){
 
 echo "Detecting Distro..."
 DISTRO=$(grep ^ID= /etc/os-release | sed s:ID=::g)
+
 case "$DISTRO" in
 	arch)
 		arch && base
