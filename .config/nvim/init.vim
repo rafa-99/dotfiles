@@ -5,6 +5,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'luochen1990/rainbow'
+Plug 'vim-scripts/taglist.vim'
 call plug#end()
 
 " Custom Settings
@@ -46,3 +47,5 @@ let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1
 " Rainbow Vim
 let g:rainbow_active = 1
+" Tag List
+map <C-z> :TlistToggle
