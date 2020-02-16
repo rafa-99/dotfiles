@@ -1,5 +1,6 @@
 app-arch/unrar unRAR
 dev-java/oracle-jre-bin Oracle-BCLA-JavaSE
+dev-util/idea-community codehaus-classworlds
 games-emulation/fbalpha FBA
 games-emulation/genplus-libretro GPGX
 games-emulation/mame2003-libretro MAME-GPL
