@@ -21,7 +21,7 @@ export LESSHISTFILE="-"
 export ZDOTDIR="$HOME/.config/zsh"
 
 # Default Vars
-export WALLPAPER="$HOME/.config/wallpaper/wallpaper.png"
+export WALLPAPER="$HOME/.config/wallpaper/wallpaper.jpg"
 
 #Session Selection Menu
 clear
