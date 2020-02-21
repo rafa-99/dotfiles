@@ -4,7 +4,6 @@
 # Setting Up Vars #
 ###################
 
-# CURDIR=$(pwd)
 SUCKLESS="$HOME/Repositories/Suckless"
 
 #################################
@@ -36,10 +35,10 @@ cd "$SUCKLESS"/slock && git pull
 printf "Select a color scheme:\n1. Black and White\n2. Cyan\n ->" && read -r SCHEME
 case "$SCHEME" in
 	1)
-	cp -rf "$SUCKLESS/colors/BW/*" "$SUCKLESS" && mv -f "$SUCKLESS/wallpaper.png" "$HOME/.config/wallpaper/"
+	cp -rf "$SUCKLESS"/colors/BW/* "$SUCKLESS" && mv -f "$SUCKLESS/wallpaper.png" "$HOME/.config/wallpaper/"
 		;;
 	2)
-	cp -rf "$SUCKLESS/colors/Cyan/*" "$SUCKLESS" && mv -f "$SUCKLESS/wallpaper.png" "$HOME/.config/wallpaper/"
+	cp -rf "$SUCKLESS"/colors/Cyan/* "$SUCKLESS" && mv -f "$SUCKLESS/wallpaper.png" "$HOME/.config/wallpaper/"
 		;;
 	*)
 	echo "Not Available X("
@@ -50,11 +49,11 @@ esac
 # Recompiling Programs #
 ########################
 
-cd "$SUCKLESS"/dwm && git pull ; doas make clean install
-cd "$SUCKLESS"/dmenu && git pull ; doas make clean install
-cd "$SUCKLESS"/st && git pull ; doas make clean install
-cd "$SUCKLESS"/surf && git pull ; doas make clean install
-cd "$SUCKLESS"/tabbed && git pull ; doas make clean install
-cd "$SUCKLESS"/farbfeld && git pull ; doas make clean install
-cd "$SUCKLESS"/sent && git pull ; doas make clean install
-cd "$SUCKLESS"/slock && git pull ; doas make clean install
+cd "$SUCKLESS"/dwm && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/dmenu && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/st && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/surf && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/tabbed && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/farbfeld && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/sent && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/slock && git pull ; doas make clean install ; make clean

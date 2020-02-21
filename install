@@ -73,6 +73,7 @@ base(){
 	# Run Suckless Script
 	cp -rf ".bootstrap/*" "$SUCKLESS"
 	sh "$SUCKLESS/sucklessUpdate"
+	cd "$CURDIR"
 
 	# Fixing Java Programs on Window Managers
 	doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
