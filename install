@@ -40,6 +40,7 @@ usermod -aG audio "$(whoami)"
 base(){
 	# Setting Vars
 	CURDIR=$(pwd)
+	SUCKLESS="$HOME/Repositories/Suckless"
 
 	#Preparing Dirs and Files for dotfiles
 	cp -rf .config "$HOME"
@@ -64,31 +65,15 @@ base(){
 	mkdir -p ~/Documents/Word
 	mkdir -p ~/Documents/Powerpoint
 	mkdir -p ~/Documents/Excel
-	mkdir -p ~/Repositories
 	mkdir -p ~/Pictures/Screenshots
 	mkdir -p ~/Pictures/GIMP
 	mkdir -p ~/Videos/Recordings
+	mkdir -p "$SUCKLESS"
 
-	### Install of Suckless tools
-	mkdir suck
-	cd suck && git clone https://gitlab.com/rafa_99/dwm && \
-		git clone https://gitlab.com/rafa_99/dmenu && \
-		git clone https://gitlab.com/rafa_99/st && \
-		git clone https://gitlab.com/rafa_99/surf && \
-		git clone https://gitlab.com/rafa_99/tabbed && \
-		git clone https://gitlab.com/rafa_99/farbfeld && \
-		git clone https://gitlab.com/rafa_99/sent && \
-		git clone https://gitlab.com/rafa_99/slock
-	cd "$CURDIR"/suck/dwm && doas make clean install
-	cd "$CURDIR"/suck/dmenu && doas make clean install
-	cd "$CURDIR"/suck/st && doas make clean install
-	cd "$CURDIR"/suck/surf && doas make clean install
-	cd "$CURDIR"/suck/tabbed && doas make clean install
-	cd "$CURDIR"/suck/farbfeld && doas make clean install
-	cd "$CURDIR"/suck/sent && doas make clean install
-	cd "$CURDIR"/suck/slock && doas make clean install
-	cd "$CURDIR" && doas rm -rf suck/
-	
+	# Run Suckless Script
+	cp -rf ".bootstrap/*" "$SUCKLESS"
+	sh "$SUCKLESS/sucklessUpdate"
+
 	# Fixing Java Programs on Window Managers
 	doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
 
