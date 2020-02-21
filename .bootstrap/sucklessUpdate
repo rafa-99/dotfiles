@@ -1,0 +1,59 @@
+#!/bin/sh
+
+###################
+# Setting Up Vars #
+###################
+
+SUCKLESS="$HOME/Repositories/Suckless"
+
+#################################
+# Cloning and Cleaning Programs #
+#################################
+
+cd "$SUCKLESS" && \
+	git clone https://gitlab.com/rafa_99/dwm 2>/dev/null ; \
+	git clone https://gitlab.com/rafa_99/dmenu 2>/dev/null ; \
+	git clone https://gitlab.com/rafa_99/st 2>/dev/null ; \
+	git clone https://gitlab.com/rafa_99/surf 2>/dev/null ; \
+	git clone https://gitlab.com/rafa_99/tabbed 2>/dev/null ; \
+	git clone https://gitlab.com/rafa_99/farbfeld 2>/dev/null ; \
+	git clone https://gitlab.com/rafa_99/sent 2>/dev/null ; \
+	git clone https://gitlab.com/rafa_99/slock 2>/dev/null
+cd "$SUCKLESS"/dwm && git pull ;
+cd "$SUCKLESS"/dmenu && git pull ;
+cd "$SUCKLESS"/st && git pull ;
+cd "$SUCKLESS"/surf && git pull ;
+cd "$SUCKLESS"/tabbed && git pull ;
+cd "$SUCKLESS"/farbfeld && git pull ;
+cd "$SUCKLESS"/sent && git pull ;
+cd "$SUCKLESS"/slock && git pull
+
+##########################
+# Selecting Color Scheme #
+##########################
+
+printf "Select a color scheme:\n1. Black and White\n2. Cyan\n ->" && read -r SCHEME
+case "$SCHEME" in
+	1)
+	cp -rf "$SUCKLESS"/colors/BW/* "$SUCKLESS" && mv -f "$SUCKLESS/wallpaper.png" "$HOME/.config/wallpaper/"
+		;;
+	2)
+	cp -rf "$SUCKLESS"/colors/Cyan/* "$SUCKLESS" && mv -f "$SUCKLESS/wallpaper.png" "$HOME/.config/wallpaper/"
+		;;
+	*)
+	echo "Not Available X("
+		;;
+esac
+
+########################
+# Recompiling Programs #
+########################
+
+cd "$SUCKLESS"/dwm && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/dmenu && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/st && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/surf && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/tabbed && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/farbfeld && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/sent && git pull ; doas make clean install ; make clean
+cd "$SUCKLESS"/slock && git pull ; doas make clean install ; make clean
