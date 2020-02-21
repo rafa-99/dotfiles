@@ -32,7 +32,7 @@ cd "$SUCKLESS"/slock && git pull
 # Selecting Color Scheme #
 ##########################
 
-printf "Select a color scheme:\n1. Black and White\n2. Cyan\n ->" && read -r SCHEME
+printf "Select a color scheme:\n1. Black and White\n2. Cyan\n3. Default Colors\n\n-> " && read -r SCHEME
 case "$SCHEME" in
 	1)
 	cp -rf "$SUCKLESS"/colors/BW/* "$SUCKLESS" && mv -f "$SUCKLESS/wallpaper.png" "$HOME/.config/wallpaper/"
@@ -41,7 +41,7 @@ case "$SCHEME" in
 	cp -rf "$SUCKLESS"/colors/Cyan/* "$SUCKLESS" && mv -f "$SUCKLESS/wallpaper.png" "$HOME/.config/wallpaper/"
 		;;
 	*)
-	echo "Not Available X("
+	rm -rf "$HOME/.config/wallpaper/wallpaper.png"
 		;;
 esac
 
