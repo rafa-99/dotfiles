@@ -24,4 +24,5 @@ alias ls='ls --color=auto' \
 	webget='wget --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla' \
 	trim='convert -trim' \
 	trans='convert -transparent -fuzz' \
-	synclock='doas ntpdate pt.pool.ntp.org && doas hwclock --systohc'
+	synclock='doas ntpdate pt.pool.ntp.org && doas hwclock --systohc' \
+	x='extract'
