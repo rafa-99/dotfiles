@@ -18,7 +18,7 @@ arch(){
 	doas cp -rf ".local/etc/hosts" "/etc/"
 	# Installing Deps
 	doas pacman -Rns vim
-	doas pacman --needed -Syu screenfetch zsh zsh-syntax-highlighting youtube-dl engrampa nmap base-devel ncmpcpp nitrogen xclip newsboat vifm zathura tk libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good scrot ntfs-3g ffmpeg acpi texlive-most pcmanfm lxappearance arc-gtk-theme papirus-icon-theme ntp vsftpd filezilla redshift numlockx catimg htop xclip ntfs-3g acpi imagemagick transmission-gtk neovim vifm ncmpcpp mpv mpd mpc sxiv zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps python-pywal irssi r tk pandoc-citeproc firefox python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme curl linux-firmware lutris playonlinux geany steam ctags unoconv picom nodejs yarn
+	doas pacman --needed -Syu screenfetch zsh zsh-syntax-highlighting youtube-dl engrampa nmap base-devel ncmpcpp nitrogen xclip newsboat vifm zathura tk libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good scrot ntfs-3g ffmpeg acpi texlive-most pcmanfm lxappearance ntp vsftpd filezilla redshift numlockx catimg htop xclip ntfs-3g acpi imagemagick transmission-gtk neovim vifm ncmpcpp mpv mpd mpc sxiv zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps python-pywal irssi r tk pandoc-citeproc firefox python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme curl linux-firmware lutris playonlinux geany steam ctags unoconv picom nodejs yarn p7zip gzip tar xz
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
 	if [ "$CS" = "Y" ] || [ "$CS" = "y" ]; then
@@ -48,6 +48,8 @@ base(){
 	cp -rf .xinitrc "$HOME"
 	cp -rf .xprofile "$HOME"
 	cp -rf .zprofile "$HOME"
+	mkdir -p ~/.icons
+	mkdir -p ~/.themes
 	mkdir -p ~/Mount
 	mkdir -p ~/Mount/Drive
 	mkdir -p ~/Mount/Drive2
@@ -69,8 +71,17 @@ base(){
 	mkdir -p ~/Pictures/GIMP
 	mkdir -p ~/Videos/Recordings
 	mkdir -p "$SUCKLESS"
-
-	# Run Suckless Script
+	
+	# BootStraping Graphical Configurations
+	cd "usr/share/theme/"
+	7z x "theme.7z"
+	find . -type f | grep tar | xargs -I {} tar xpvf "{}"
+	rm -rf *.tar
+	mv -f Mc* "$HOME"/.icons
+	mv -f Moja* "$HOME"/.themes
+	mv -f oreo* "$HOME"/.themes
+	
+	## Run Suckless Script
 	cp -rf ".bootstrap/*" "$SUCKLESS"
 	sh "$SUCKLESS/sucklessUpdate"
 	cd "$CURDIR"
