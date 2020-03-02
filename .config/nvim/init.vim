@@ -6,8 +6,22 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'luochen1990/rainbow'
 Plug 'vim-scripts/taglist.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+" Keybinds Index
+"
+" F4 -> Checks shellcode "bashisms"
+" F5 -> Compile current program with compiler script
+" Control + P -> Runs portuguese spelling check
+" Control + E -> Runs english spelling check
+" Control + S -> Disables any spelling check
+" Control + H,J,K,L -> Movement between splits
+" Control + T -> Opens up NERDTree
+" Control + Z -> Toggles Tag List from current program
+" :Dox -> Runs doxygen documentation program
+"
 
 " Custom Settings
 set number

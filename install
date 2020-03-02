@@ -22,7 +22,7 @@ arch(){
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
 	if [ "$CS" = "Y" ] || [ "$CS" = "y" ]; then
-		doas pacman --needed --noconfirm -S jdk11-openjdk java11-openjfx intellij-idea-community-edition && clear
+		doas pacman --needed --noconfirm -S jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench && clear
 	fi
 }
 
