@@ -1,4 +1,5 @@
 app-arch/bzip2 abi_x86_32
+app-arch/zstd abi_x86_32
 app-crypt/pinentry gnome-keyring
 app-emulation/virtualbox qt5
 app-emulation/wine-gecko abi_x86_32
@@ -53,9 +54,11 @@ media-sound/ncmpcpp clock visualizer
 media-video/ffmpeg cpu_flags_x86_ssse3 cpu_flags_x86_sse3 openssl gnutls
 net-dns/libidn2 abi_x86_32
 net-libs/gnutls abi_x86_32
+net-libs/libssh server
 net-misc/curl http2
 net-nds/openldap abi_x86_32
 net-print/cups abi_x86_32
+sci-mathematics/octave gui
 sys-apps/dbus abi_x86_32
 sys-apps/util-linux abi_x86_32 static-libs
 sys-boot/grub mount
@@ -77,11 +80,8 @@ virtual/opengl abi_x86_32
 virtual/rubygems ruby_targets_ruby27
 www-client/w3m imlib
 x11-base/xcb-proto abi_x86_32
-x11-libs/libdrm abi_x86_32
-x11-libs/libpciaccess abi_x86_32
 x11-libs/libX11 abi_x86_32
 x11-libs/libXau abi_x86_32
-x11-libs/libxcb abi_x86_32
 x11-libs/libXcomposite abi_x86_32
 x11-libs/libXcursor abi_x86_32
 x11-libs/libXdamage abi_x86_32
@@ -91,6 +91,9 @@ x11-libs/libXfixes abi_x86_32
 x11-libs/libXi abi_x86_32
 x11-libs/libXrandr abi_x86_32
 x11-libs/libXrender abi_x86_32
-x11-libs/libxshmfence abi_x86_32
 x11-libs/libXxf86vm abi_x86_32
+x11-libs/libdrm abi_x86_32
+x11-libs/libpciaccess abi_x86_32
+x11-libs/libxcb abi_x86_32
+x11-libs/libxshmfence abi_x86_32
 x11-wm/openbox imlib
