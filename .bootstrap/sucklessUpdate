@@ -19,14 +19,14 @@ cd "$SUCKLESS" && \
 	git clone https://gitlab.com/rafa_99/farbfeld 2>/dev/null ; \
 	git clone https://gitlab.com/rafa_99/sent 2>/dev/null ; \
 	git clone https://gitlab.com/rafa_99/slock 2>/dev/null
-cd "$SUCKLESS"/dwm && git pull ;
-cd "$SUCKLESS"/dmenu && git pull ;
-cd "$SUCKLESS"/st && git pull ;
-cd "$SUCKLESS"/surf && git pull ;
-cd "$SUCKLESS"/tabbed && git pull ;
-cd "$SUCKLESS"/farbfeld && git pull ;
-cd "$SUCKLESS"/sent && git pull ;
-cd "$SUCKLESS"/slock && git pull
+cd "$SUCKLESS"/dwm && git pull && git checkout . ;
+cd "$SUCKLESS"/dmenu && git pull && git checkout . ;
+cd "$SUCKLESS"/st && git pull && git checkout . ;
+cd "$SUCKLESS"/surf && git pull && git checkout . ;
+cd "$SUCKLESS"/tabbed && git pull && git checkout . ;
+cd "$SUCKLESS"/farbfeld && git pull && git checkout . ;
+cd "$SUCKLESS"/sent && git pull && git checkout . ;
+cd "$SUCKLESS"/slock && git pull && git checkout .
 
 ##########################
 # Selecting Color Scheme #
