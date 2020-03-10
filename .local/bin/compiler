@@ -18,15 +18,19 @@ esac
 
 # Filter to compile other types of files
 case $EXTENSION in
-	# Markdown
-	*md)
-	DOCUMENT=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$FILE', '""$DOCUMENT""')"
-	;;
-	# Groff
-	ms)
-	groff -k -T pdf -m -ms "$FILE" > "$BASE.pdf"
-	;;
-	# Java
-	java)
-	javac "$FILE"
+	md|rmd) # Markdown
+		DOCUMENT=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$FILE', '""$DOCUMENT""')"
+		;;
+	ms) # Groff
+		groff -k -T pdf -m -ms "$FILE" > "$BASE.pdf"
+		;;
+	java) # Java
+		java "$FILE"
+		;;
+	c|h) # C
+		FILES=$(find . -name '*.h' -o -name '*.c' | cut -d/ -f2)
+		gcc -o "$BASE" "$FILES"
+		;;
+	*)
+		echo "File Type Not Found X("
 esac
