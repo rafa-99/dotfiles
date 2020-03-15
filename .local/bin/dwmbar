@@ -43,8 +43,24 @@ Weather(){
 }
 
 Battery(){
-	Battery=$(acpi -b | awk '{print $4}' | sed s:','::g)
-	echo -e " $Battery"
+	Battery=$(acpi -b | awk '{print $4}' | cut -d% -f1)
+	if [ "$Battery" -ge 75 ]; then
+		echo -e "  $Battery%"
+		else
+			if [ "$Battery" -ge 50 ]; then
+				echo -e "  $Battery%"
+			else
+				if [ "$Battery" -ge 25 ]; then
+					echo -e "  $Battery%"
+				else
+					if [ "$Battery" -ge 0 ]; then
+						echo -e "  $Battery%"
+					else
+						echo -e "  No Info Found"
+					fi
+				fi
+			fi
+	fi
 }
 while true; do
 	xsetroot -name "$(Music)| $(Battery) | $(Temp) | $(Memory) | $(Disk) | $(Date) | $(Time)"
