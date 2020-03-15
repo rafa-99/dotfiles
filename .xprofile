@@ -15,6 +15,6 @@ esac
 
 # General Requirements
 nitrogen --set-scaled "$WALLPAPER" &
-picom -fc --fade-delta=5 &
+picom -f --fade-delta=5 &
 setxkbmap pt &
 numlockx on &
