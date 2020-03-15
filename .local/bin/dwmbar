@@ -2,51 +2,51 @@
 
 Date(){
 	Date=$(date +'%F %A')
-	echo -e ": $Date"
+	echo -e " $Date"
 }
 
 Disk(){
-	Disk=$(df -h | grep ^/dev/sd | awk '{print ": " $2 "/" $4}' | xargs)
+	Disk=$(df -h | grep ^/dev/sd | awk '{print " " $2 "/" $4}' | xargs)
 	echo -e "$Disk"
 }
 
 Kernel(){
 	Kernel=$(uname -nro)
-	echo -e ": $Kernel"
+	echo -e " $Kernel"
 }
 
 Memory(){
 	Memory=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
-	echo -e ": $Memory"
+	echo -e " $Memory"
 }
 
 Music(){
 	if [ "$(pgrep -l mpd | awk '{print $2}')" = "mpd" ]; then 
 		Playing=$(mpc status | grep - | awk -F"- "  '{print $NF}')
-		echo -e "| : $Playing "
+		echo -e "|  $Playing "
 	fi
 	}
 
 Temp(){
 	Temp=$(sensors | awk '/^temp1:/ {print $2}' | head -1 | cut -b 2,3,6,7,8)
-	echo -e ": $Temp"
+	echo -e " $Temp"
 }
 
 Time(){
 	Time=$(date +'%H:%M')
-	echo -e ": $Time"
+	echo -e " $Time"
 }
 
 Weather(){
 	Weather=$(curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo)
-	echo -e "滛: $Weather"
+	echo -e "滛 $Weather"
 }
 
 Battery(){
 	Battery=$(acpi -b | awk '{print $4}' | sed s:','::g)
-	echo -e ": $Battery"
+	echo -e " $Battery"
 }
 while true; do
-	xsetroot -name "$(Music)| $(Battery) | $(Temp) | $(Memory) | $(Disk) | $(Date) | $(Time)"
+	xsetroot -name "$(Music)| $(Memory) | $(Disk) | $(Date) | $(Time)"
 	sleep 10s
 done &
