@@ -5,17 +5,6 @@ FILE=$(basename "$1")
 EXTENSION=$(echo "$FILE" | awk -F . '{if (NF>1) {print $NF}}')
 BASE=$(basename "$FILE" ."$EXTENSION")
 
-
-# Filter to compiler Suckless Utilites
-case $FILE in
-	config.h.def)
-		doas make clean install ; make clean
-		;;
-	config.h)
-		doas make clean install ; make clean
-		;;
-esac
-
 # Filter to compile other types of files
 case $EXTENSION in
 	md|rmd) # Markdown
@@ -28,8 +17,12 @@ case $EXTENSION in
 		java "$FILE"
 		;;
 	c|h) # C
-		FILES=$(find . -name '*.h' -o -name '*.c' | cut -d/ -f2)
-		gcc -o "$BASE" "$FILES"
+		# Checking if is a suckless software
+		if [ "$FILE" = "config.h" ] || [ "$FILE" = "config.def.h" ]; then
+			doas make clean install ; make clean
+		else
+			gcc -o "$BASE" "$FILE"
+		fi
 		;;
 	*)
 		echo "File Type Not Found X("
