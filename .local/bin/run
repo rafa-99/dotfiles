@@ -1,0 +1,97 @@
+#!/bin/sh
+
+RUN=$(\
+printf "alsamixer
+atom
+audacity
+dmenu
+filezilla
+firefox
+gimp
+intellij
+kdenlive
+lmms
+lutris
+music
+mysql
+networks
+octave
+pcmanfm
+printers
+st
+surf
+transmission
+vifm
+virtualbox
+vscode" | dmenu -i -p "Run:")
+
+case $RUN in
+	alsamixer)
+		st -e alsamixer
+		;;
+	atom)
+		atom
+		;;
+	audacity)
+		audacity
+		;;
+	dmenu)
+		dmenu_run
+		;;
+	filezilla)
+		filezilla
+		;;
+	firefox)
+		firefox
+		;;
+	gimp)
+		gimp
+		;;
+	intellij)
+		idea
+		;;
+	kdenlive)
+		kdenlive
+		;;
+	lmms)
+		lmms
+		;;
+	lutris)
+		lutris
+		;;
+	music)
+		mpd; st -e ncmpcpp
+		;;
+	mysql)
+		mysql-workbench
+		;;
+	networks)
+		nmtui
+		;;
+	octave)
+		octave --gui
+		;;
+	pcmanfm)
+		pcmanfm
+		;;
+	printers)
+		system-config-printer
+		;;
+	st)
+		st
+		;;
+	surf)
+		tabbed surf -e
+		;;
+	transmission)
+		transmission-gtk
+		;;
+	vifm)
+		st -e vifm
+		;;
+	virtualbox)
+		virtualbox
+		;;
+	vscode)
+		code-oss
+esac
