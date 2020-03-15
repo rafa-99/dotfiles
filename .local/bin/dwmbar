@@ -47,6 +47,6 @@ Battery(){
 	echo -e " $Battery"
 }
 while true; do
-	xsetroot -name "$(Music)| $(Memory) | $(Disk) | $(Date) | $(Time)"
+	xsetroot -name "$(Music)| $(Battery) | $(Temp) | $(Memory) | $(Disk) | $(Date) | $(Time)"
 	sleep 10s
 done &
