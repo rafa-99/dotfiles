@@ -21,7 +21,8 @@ case $EXTENSION in
 		if [ "$FILE" = "config.h" ] || [ "$FILE" = "config.def.h" ]; then
 			doas make clean install ; make clean
 		else
-			gcc -o "$BASE" "$FILE"
+			FILES=$(find . -name '*.h' -o -name '*.c' | cut -d/ -f2 | xargs)
+			gcc -o "$BASE" $FILES
 		fi
 		;;
 	*)
