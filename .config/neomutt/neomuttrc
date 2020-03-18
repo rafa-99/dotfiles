@@ -7,7 +7,7 @@ set from = "SETEMAIL"
 set realname = "SETNAME"
 
 ## Email Password
-source "gpg -dq pwd.gpg |"
+source "gpg -dq ~/.config/neomutt/pwd.gpg |"
 
 ## IMAP Server
 ### Online Folder
