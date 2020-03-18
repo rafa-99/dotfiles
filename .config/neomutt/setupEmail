@@ -1,0 +1,49 @@
+#!/bin/sh
+
+# Base Email Information
+printf "Enter your desired email\n-> " && read -r SETEMAIL
+printf "Enter your real name\n-> " && read -r SETNAME
+printf "Enter your desired IMAP Server\n-> " && read -r SETIMAPSERVER
+printf "Enter your desired IMAP Server Port\n-> " && read -r SETIMAPPORT
+printf "Enter your desired SMTP Server\n-> " && read -r SETSMTPSERVER
+printf "Enter your desired SMTP Server Port\n-> " && read -r SETSMTPPORT
+printf "Enter your mail Inbox box name\n-> " && read -r SETINBOX
+printf "Enter your mail Sent email box name\n-> " && read -r SETSENT
+printf "Enter your mail Trash box name\n-> " && read -r SETTRASH
+printf "Enter your mail Dradts box name\n-> " && read -r SETDRAFTS
+
+# Email password configuration and encryption for safety reasons
+printf "Enter your email password (Will be encrypted on your system)\n-> " && read -r SETPASSWORD
+echo Generating GPG key to go on top of the mail password...
+gpg --full-gen-key
+echo "imap_pass = ""$SETPASSWORD""" > pwd
+echo "smtp_pass = ""$SETPASSWORD""" >> pwd
+echo "isync = ""$SETPASSWORD""" >> pwd
+gpg -r $SETEMAIL -e pwd
+rm -rf pwd
+clear
+
+# Replacing variables
+sed -i s/SETEMAIL/$SETEMAIL/g neomuttrc isyncrc
+sed -i s/SETNAME/$SETNAME/g neomuttrc
+sed -i s/SETIMAPSERVER/$SETIMAPSERVER/g neomuttrc isyncrc
+sed -i s/SETIMAPPORT/$SETIMAPPORT/g neomuttrc
+sed -i s/SETSMTPSERVER/$SETSMTPSERVER/g neomuttrc
+sed -i s/SETSMTPPORT/$SETSMTPPORT/g neomuttrc
+sed -i s/SETINBOX/$SETINBOX/g neomuttrc isyncrc
+sed -i s/SETSENT/$SETSENT/g neomuttrc
+sed -i s/SETTRASH/$SETTRASH/g neomuttrc
+sed -i s/SETDRAFTS/$SETDRAFTS/g neomuttrc
+
+# Selecting which type of email to use
+printf "Do you want to use:\n1. Online Cloud Email\n2. Local Email\n-> " && read -r OPTION
+
+if [ "$OPTION" = 1 ]; then
+	sed -i '/set folder = "imaps/s/^# //g' neomuttrc
+elif
+	[ "$OPTION" = 2 ]; then
+	printf "Enter an alias for your mail account\n-> " && read -r SETACCOUNT
+	mkdir -p ~/Documents/Mail/"$SETACCOUNT"
+	sed -i '/set folder = "~/s/^# //g' neomuttrc
+
+fi
