@@ -1,17 +1,12 @@
 # Choose an IMAPAccount name
 IMAPAccount SETACCOUNT
-
 # Address to connect to
 # IMAP Address
 Host SETIMAPSERVER
-
 # Email Account
 User SETEMAIL
-PassCmd "gpg -q --for-your-eyes-only --no-tty -d pwd.gpg | awk '{print $3}' | sed s/\"//g"
-
 # Use SSL
 SSLType IMAPS
-
 # Certificate Location
 CertificateFile /etc/ssl/cert.pem
 
@@ -22,7 +17,6 @@ Account SETACCOUNT
 # Local Repo Configs
 MaildirStore SETACCOUNT-local
 Subfolders Verbatim
-
 # The trailing "/" is important
 Path ~/Documents/Mail/SETACCOUNT/
 Inbox ~/Documents/Mail/SETACCOUNT/SETINBOX
@@ -33,10 +27,8 @@ Master :SETACCOUNT-remote:
 Slave :SETACCOUNT-local:
 # Include everything
 Patterns *
-
 # Automatically create and delete missing mailboxes, both locally and on the server
 Create Both
 Expunge Both
-
 # Save the synchronization state files in the relevant directory
 SyncState *
