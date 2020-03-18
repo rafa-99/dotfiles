@@ -10,7 +10,7 @@ printf "Enter your desired SMTP Server Port\n-> " && read -r SETSMTPPORT
 printf "Enter your mail Inbox box name\n-> " && read -r SETINBOX
 printf "Enter your mail Sent email box name\n-> " && read -r SETSENT
 printf "Enter your mail Trash box name\n-> " && read -r SETTRASH
-printf "Enter your mail Dradts box name\n-> " && read -r SETDRAFTS
+printf "Enter your mail Drafts box name\n-> " && read -r SETDRAFTS
 
 # Email password configuration and encryption for safety reasons
 printf "Enter your email password (Will be encrypted on your system)\n-> " && read -r SETPASSWORD
