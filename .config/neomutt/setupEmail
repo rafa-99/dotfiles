@@ -45,5 +45,5 @@ elif
 	printf "Enter an alias for your mail account\n-> " && read -r SETACCOUNT
 	mkdir -p ~/Documents/Mail/"$SETACCOUNT"
 	sed -i '/set folder = "~/s/^# //g' neomuttrc
-
+	mbsync -c ~/.config/neomutt/syncrc "$SETACCOUNT"
 fi

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+USER=$(find . -type d | grep / | cut -d/ -f2)
+mbsync -c ~/.config/neomutt/syncrc "$USER"
+neomutt
