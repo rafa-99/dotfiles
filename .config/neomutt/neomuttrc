@@ -5,12 +5,10 @@ set from = "SETEMAIL"
 ## Desired Email Name
 set realname = "SETNAME"
 
-## Email Password
-source "gpg -dq ~/.config/neomutt/pwd.gpg |"
-
-## IMAP Server
+## IMAP Configs
 ### Online Folder
 # set folder = "imaps://SETEMAIL@SETIMAPSERVER:SETIMAPPORT"
+# source "gpg -dq ~/.config/neomutt/pwd.gpg |"
 ### Local Folder
 # set folder = "~/Documents/Mail/SETACCOUNT/"
 
