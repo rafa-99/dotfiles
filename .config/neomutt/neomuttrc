@@ -1,5 +1,4 @@
 # Custom Configs
-
 ## Your Email
 set from = "SETEMAIL"
 
@@ -33,8 +32,53 @@ set postponed = "+SETDRAFTS"
 ## Actives Mail Boxes
 mailboxes ="SETINBOX" ="SETSENT" ="SETTRASH" ="SETDRAFTS"
 
-## Colors for NeoMutt
+# Interface Configs
+set date_format="%y/%m/%d %I:%M%p"
+set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
+set sort = 'reverse-date'
+set sidebar_visible = yes
+set sidebar_width = 20
+set sidebar_short_path = yes
+set sidebar_next_new_wrap = yes
+set mail_check_stats
+set sidebar_format = '%B%?F? [%F]?%* %?N?%N/? %?S?%S?'
 source colors.muttrc
+
+# Custom Keybinds
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+bind index,pager \Co sidebar-open
+bind index,pager \Cp sidebar-prev-new
+bind index,pager \Cn sidebar-next-new
+bind index,pager B sidebar-toggle-visible
+bind index j next-entry
+bind index k previous-entry
+bind attach <return> view-mailcap
+bind attach l view-mailcap
+bind editor <space> noop
+bind pager,attach h exit
+bind pager j next-line
+bind pager k previous-line
+bind pager l view-attachments
+bind index D delete-message
+bind index U undelete-message
+bind index L limit
+bind index h noop
+bind index l display-message
+bind index <space> tag-entry
+bind index,pager H view-raw-message
+bind browser l select-entry
+bind pager,browser gg top-page
+bind pager,browser G bottom-page
+bind index G last-entry
+bind index g first-entry
+bind index,pager,browser d half-down
+bind index,pager,browser u half-up
+bind index \031 previous-undeleted
+bind index \005 next-undeleted
+bind pager \031 previous-line
+bind pager \005 next-line
+bind editor <Tab> complete-query
 
 #########################################
 #                                       #
