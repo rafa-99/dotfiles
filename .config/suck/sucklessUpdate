@@ -5,6 +5,7 @@
 ###################
 
 SUCK=$(pwd)
+mkdir -p ~/.config/wallpaper
 
 #################################
 # Cloning and Cleaning Programs #
