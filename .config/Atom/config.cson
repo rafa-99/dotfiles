@@ -1,0 +1,7 @@
+"*":
+  core:
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "seti-syntax"
+    ]

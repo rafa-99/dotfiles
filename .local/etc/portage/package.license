@@ -1,10 +1,5 @@
-app-arch/unrar unRAR
 dev-java/oracle-jre-bin Oracle-BCLA-JavaSE
 dev-util/idea-community codehaus-classworlds
-games-emulation/fbalpha FBA
-games-emulation/genplus-libretro GPGX
-games-emulation/mame2003-libretro MAME-GPL
-games-util/steam-launcher ValveSteamLicense
+sys-kernel/linux-firmware linux-fw-redistributable no-source-code
 media-fonts/font-bh-ttf bh-luxi
 media-fonts/font-bh-type1 bh-luxi
-sys-kernel/linux-firmware linux-fw-redistributable no-source-code

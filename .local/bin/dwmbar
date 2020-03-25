@@ -27,8 +27,8 @@ Music(){
 	fi
 	}
 
-Temp(){
-	Temp=$(sensors | awk '/^temp1:/ {print $2}' | head -1 | cut -b 2,3,6,7,8)
+Temperature(){
+	Temp=$(sensors | grep ^temp1 | cut -d+ -f2 | sed "s:\s*::g")
 	echo -e " $Temp"
 }
 

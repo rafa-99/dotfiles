@@ -1,0 +1,189 @@
+#!/bin/sh
+
+####################################################################################################################
+## This script will detect your your system distro and then automatically choose a package manager based on it ;) ##
+##                                           DiStRo HoPpInG mAdE eAsIeR                                           ##
+##                                              Written by: @rafa_99                                              ##
+####################################################################################################################
+
+# Extra Functions
+checkdistro()
+{
+	## Already in my environment, uncomment if you're not using my dotfiles
+	## Checking current distro
+	# DISTRO="$(grep ^ID= /etc/os-release | sed s:ID=::g)"
+	
+	if [ "$DISTRO" = "arch" ]; then
+		{
+			if [ -f /usr/bin/yay ]; then
+				PACKER=yay
+			else
+				PACKER=pacman
+			fi
+		}
+	fi
+}
+
+suapp()
+{
+	## Checking su app
+	if [ -f /usr/bin/sudo ]; then
+		SU=sudo
+	else
+		SU=doas
+	fi
+}
+
+
+logo()
+{
+	echo "                                     "
+	sleep 0.08
+	echo "      :::::::::  :::    ::: :::::::: "
+	sleep 0.07
+	echo "     :+:    :+: :+:   :+: :+:    :+: "
+	sleep 0.06
+	echo "    +:+    +:+ +:+  +:+  +:+         "
+	sleep 0.05
+	echo "   +#++:++#+  +#++:++   :#:          "
+	sleep 0.04
+	echo "  +#+        +#+  +#+  +#+   +#+#    "
+	sleep 0.03
+	echo " #+#        #+#   #+# #+#    #+#     "
+	sleep 0.02
+	echo "###        ###    ### ########       "
+	sleep 0.01
+	echo "                                     "
+}
+
+# Base Functions
+clean()
+{
+	case "$DISTRO" in
+		arch|manjaro|parabola)
+			"$SU" "$PACKER" -Rns "$(pacman -Qtdq)" && "$SU" pacman -Scc
+			;;
+		debian|ubuntu|linuxmint)
+			"$SU" apt autoremove --purge && "$SU" apt clean
+			;;
+		gentoo)
+			"$SU" emerge -caq
+	esac
+}
+
+help()
+{
+	printf "clean   -> removes orphans and cleans the package cache\nhelp    -> display this message\ninstall -> install a selected package\nquery   -> lists available packages or a package to \nremove  -> remove a selected package\nsearch  -> look up for a package in the available repos\nupdate  -> updates repos and packages\n\n"
+}
+
+install()
+{
+	case "$DISTRO" in
+		arch|manjaro|parabola)
+			"$SU" "$PACKER" -Sy "$PACKAGE"
+			;;
+		debian|ubuntu|linuxmint)
+			"$SU" apt install "$PACKAGE"
+			;;
+		gentoo)
+			"$SU" emerge -aq "$PACKAGE"
+	esac
+}
+
+query()
+{
+	case "$DISTRO" in
+		arch|manjaro|parabola)
+			"$PACKER" -Qs "$PACKAGE"
+			;;
+		debian|ubuntu|linuxmint)
+			apt list --installed | grep "$PACKAGE"
+			;;
+		gentoo)
+			emerge -s | grep "$PACKAGE"
+	esac
+}
+
+remove()
+{
+	case "$DISTRO" in
+		arch|manjaro|parabola)
+			"$SU" "$PACKER" -Rns "$PACKAGE"
+			;;
+		debian|ubuntu|linuxmint)
+			"$SU" apt autoremove --purge "$PACKAGE"
+			;;
+		gentoo)
+			"$SU" emerge -caq "$PACKAGE"
+	esac
+}
+
+search()
+{
+	case "$DISTRO" in
+		arch|manjaro|parabola)
+			"$PACKER" -Ss "$PACKAGE" | less
+			;;
+		debain)
+			apt search "$PACKAGE" | less
+			;;
+		gentoo)
+			emerge -s "$PACKAGE" | less
+	esac
+}
+
+update()
+{
+	case "$DISTRO" in
+		arch|manjaro|parabola)
+			"$SU" "$PACKER" -Syyuu
+			;;
+		debian|ubuntu|linuxmint)
+			"$SU" apt update && "$SU" apt upgrade
+			;;
+		gentoo)
+			if [ -f /usr/bin/layman ]; then
+				"$SU" layman -S &&"$SU" emerge-webrsync && "$SU" emerge -uaqDU --keep-going --with-bdeps=y --newuse @world
+			else
+				"$SU" layman -S &&"$SU" emerge-webrsync && "$SU" emerge -uaqDU --keep-going --with-bdeps=y --newuse @world
+			fi
+	esac
+}
+
+#
+# Main Function
+#
+
+logo
+checkdistro
+suapp
+PACKAGE="$2"
+
+case "$1" in
+	clean|c)
+		clean
+		;;
+	debug|d)
+		echo "$SU + $PACKER = variables maybe working =)"
+		;;
+	help|h)
+		help
+		;;
+	install|i)
+		install
+		;;
+	query|q)
+		query
+		;;
+	remove|r)
+		remove
+		;;
+	search|s)
+		search
+		;;
+	update|u)
+		update
+		;;
+	*)
+		printf "Command not found\n" && help
+esac

@@ -18,14 +18,20 @@ arch(){
 	doas cp -rf ".local/etc/hosts" "/etc/"
 	# Installing Deps
 	doas pacman -Rns vim
-	doas pacman --needed -Syu screenfetch zsh zsh-syntax-highlighting youtube-dl engrampa nmap base-devel ncmpcpp nitrogen xclip newsboat vifm zathura tk libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good scrot ntfs-3g ffmpeg acpi texlive-most pcmanfm lxappearance ntp vsftpd filezilla redshift numlockx catimg htop xclip ntfs-3g acpi imagemagick transmission-gtk neovim vifm ncmpcpp mpv mpd mpc sxiv zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps python-pywal irssi r tk pandoc-citeproc firefox python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme curl linux-firmware lutris playonlinux geany steam ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme arc-gtk-theme neomutt isync
-	
+	doas pacman --needed -Syu screenfetch zsh zsh-syntax-highlighting youtube-dl engrampa nmap base-devel ncmpcpp nitrogen xclip newsboat vifm zathura tk libpng libjpeg-turbo webkit2gtk gtk2 gtk3 gtkmm gtkmm3 wxgtk-common wxgtk3 grc gst-libav gst-plugins-good scrot ntfs-3g ffmpeg acpi texlive-most pcmanfm lxappearance ntp vsftpd filezilla redshift numlockx catimg htop xclip ntfs-3g acpi imagemagick transmission-gtk neovim vifm ncmpcpp mpv mpd mpc sxiv zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps python-pywal irssi r tk pandoc-citeproc firefox python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme curl linux-firmware atom ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme arc-gtk-theme neomutt isync
+
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
-	if [ "$CS" = "Y" ] || [ "$CS" = "y" ]; then
-		doas pacman --needed --noconfirm -S jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench && clear
+	if [ "$CS" != "N" ] && [ "$CS" != "n" ]; then
+		doas pacman --needed --noconfirm -S jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench octave && clear
 	fi
-	
+
+	# Install Atom Packages
+	printf "Do yo want to install Atom Packages? [Y/n]" && read -r ATOM
+	if [ "$ATOM" != "N" ] && [ "$ATOM" != "n" ]; then
+		apm install ask-stack file-icons gpp-compiler highlight-selected linter linter-gcc linter-shellcheck linter-ui-default minimap pigments seti-syntax teletype && clear
+	fi
+
 	# Cleanup
 	doas pacman --noconfirm -Scc
 }
@@ -44,7 +50,6 @@ usermod -aG audio "$(whoami)"
 base(){
 	# Setting Vars
 	CURDIR=$(pwd)
-	SUCKLESS="$HOME/Repositories/Suckless"
 
 	#Preparing Dirs and Files for dotfiles
 	cp -rf .config "$HOME"
@@ -52,8 +57,6 @@ base(){
 	cp -rf .xinitrc "$HOME"
 	cp -rf .xprofile "$HOME"
 	cp -rf .zprofile "$HOME"
-	mkdir -p ~/.icons
-	mkdir -p ~/.themes
 	mkdir -p ~/Mount
 	mkdir -p ~/Mount/Drive
 	mkdir -p ~/Mount/Drive2
@@ -74,35 +77,36 @@ base(){
 	mkdir -p ~/Pictures/Screenshots
 	mkdir -p ~/Pictures/GIMP
 	mkdir -p ~/Videos/Recordings
-	mkdir -p "$SUCKLESS"
-	
+	mkdir -p ~/Repositories
+	mkdir -p ~/.config/wallpaper
+
 	## Run Suckless Script
-	cp -rf ".bootstrap/*" "$SUCKLESS"
-	sh "$SUCKLESS/sucklessUpdate"
-	cd "$CURDIR"
+	cd ~/.config/suck/ || exit
+	sh sucklessUpdate
+	cd "$CURDIR" || exit
 
 	# Fixing Java Programs on Window Managers
 	doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
 
 	# Changing default shell to zsh
 	chsh -s /bin/zsh
-	
+
 	# Setting up Neovim
 	## Linking Neovim to Vim
-	ln -s /usr/bin/nvim ~/.local/bin/vim 
-	
+	ln -s /usr/bin/nvim ~/.local/bin/vim
+
 	## Installing Neovim Plugin Manager (Vim Plug)
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	
+
 	## Installing Plugins
 	nvim -c PlugInstall
-	
+
 	## Installing Spell Checker
 	nvim -c setlocal spell spelllang=pt_pt
 
 	# Cleanup
-	rm -rf .local/etc .local/usr
+	rm -rf ~/.local/etc ~/.local/usr
 }
 
 #

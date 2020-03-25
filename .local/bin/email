@@ -1,5 +1,0 @@
-#!/bin/sh
-
-USER=$(ls ~/Documents/Mail/)
-mbsync -c ~/.config/neomutt/isyncrc "$USER";
-neomutt
