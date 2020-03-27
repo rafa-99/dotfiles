@@ -1,4 +1,4 @@
-dev-lang/R jpeg png -tiff -tk -X minimal
+dev-lang/R jpeg png X minimal -tiff -tk
 dev-vcs/git -emacs
 media-gfx/gimp -gnome-keyring -python
 media-sound/alsa-lib -debug -doc -gtkdoc
