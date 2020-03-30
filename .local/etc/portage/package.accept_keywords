@@ -1,2 +1,4 @@
 app-arch/unar ~amd64
 dev-util/idea-community ~amd64
+games-util/steam-launcher ~amd64
+net-vpn/logmein-hamachi ~amd64
