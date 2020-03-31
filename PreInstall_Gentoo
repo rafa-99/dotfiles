@@ -13,12 +13,10 @@ if [ "$(id -u)" != "0" ]; then
 	exit 1
 fi
 
-# Installing Gentoo Overlay Manager and Adding Repositories
-emerge --ask --quiet layman
 
 printf "Do you want to install Extra Packages? [Y/n]" && read -r BASE
 if [ "$BASE" != "N" ] && [ "$BASE" != "n" ]; then
-	layman-updater -R && layman -L && layman -a mv && layman -S && emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler mpv zip wget make bc unar xorg-x11 xinit zsh webkit-gtk media-plugins/gst-plugins-libav sxiv pm-utils doas app-shells/zsh-syntax-highlighting sys-fs/dosfstools app-editors/neovim alsa-lib alsa-plugins
+	emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler mpv zip wget make bc unar xorg-x11 xinit zsh webkit-gtk media-plugins/gst-plugins-libav sxiv pm-utils doas sys-fs/dosfstools app-editors/neovim alsa-lib alsa-plugins
 fi
 
 printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
