@@ -1,15 +1,8 @@
-app-arch/bzip2 abi_x86_32
 dev-cpp/cairomm X aqua
+dev-lang/python sqlite
 dev-lang/R jpeg png X minimal -tiff -tk
-dev-libs/elfutils abi_x86_32
-dev-libs/expat abi_x86_32
-dev-libs/libffi abi_x86_32
-dev-libs/libpthread-stubs abi_x86_32
-dev-util/pkgconf abi_x86_32
 dev-vcs/git -emacs
 media-gfx/gimp -gnome-keyring -python
-media-libs/libglvnd abi_x86_32 X
-media-libs/mesa abi_x86_32
 media-sound/alsa-lib -debug -doc -gtkdoc
 media-sound/alsa-plugins
 media-sound/ncmpcpp visualizer
@@ -24,24 +17,5 @@ sys-auth/polkit consolekit
 sys-boot/grub mount
 sys-devel/clang xml
 sys-devel/gcc objc
-sys-devel/llvm abi_x86_32
-sys-libs/ncurses abi_x86_32
-sys-libs/zlib minizip abi_x86_32
-virtual/libelf abi_x86_32
-virtual/opengl abi_x86_32
-virtual/pkgconfig abi_x86_32
 www-client/firefox -bindist -debug -screenshot
-x11-base/xcb-proto python_targets_python3_7 abi_x86_32
-x11-libs/libX11 abi_x86_32
-x11-libs/libXau abi_x86_32
-x11-libs/libXdamage abi_x86_32
-x11-libs/libXdmcp abi_x86_32
-x11-libs/libXext abi_x86_32
-x11-libs/libXfixes abi_x86_32
-x11-libs/libXrandr abi_x86_32
-x11-libs/libXrender abi_x86_32
-x11-libs/libXxf86vm abi_x86_32
-x11-libs/libdrm abi_x86_32
-x11-libs/libpciaccess abi_x86_32
-x11-libs/libxcb abi_x86_32
-x11-libs/libxshmfence abi_x86_32
+x11-misc/xwallpaper jpeg png

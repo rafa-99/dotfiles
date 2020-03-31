@@ -20,6 +20,7 @@ do
 			cp -rf "$FILE" "$SUCK"/colors/wal/wallpaper."$EXTENSION"
 			cp -rf "$SUCK"/colors/wal/* "$SUCK"
 			rm -rf ~/.config/wallpaper/*
+			rm -rf "$SUCK/wallpaper*"
 			cp -rf "$FILE" ~/.config/wallpaper/wallpaper."$EXTENSION"
 			cd "$SUCK"/dwm && git pull ; doas make clean install ; make clean
 			cd "$SUCK"/dmenu && git pull ; doas make clean install ; make clean

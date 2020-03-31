@@ -33,6 +33,7 @@ cd "$SUCK"/slock && git pull && git checkout .
 
 printf "Select a color scheme:\n1. Black and White\n2. Cyan\n3. Green\n4. Red\n5. Default Colors\n\n-> " && read -r SCHEME
 rm -rf ~/.config/wallpaper/*
+rm -rf wallpaper*
 mkdir -p colors/wal
 case "$SCHEME" in
 	1)

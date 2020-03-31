@@ -18,10 +18,10 @@ emerge --ask --quiet layman
 
 printf "Do you want to install Extra Packages? [Y/n]" && read -r BASE
 if [ "$BASE" != "N" ] && [ "$BASE" != "n" ]; then
-	layman-updater -R && layman -L && layman -a mv && layman -S && emerge --ask --quiet nitrogen x11-misc/xclip vifm zathura zathura-pdf-poppler mpv zip wget make bc unar xorg-x11 xinit zsh webkit-gtk media-plugins/gst-plugins-libav sxiv pm-utils doas app-shells/zsh-syntax-highlighting sys-fs/dosfstools app-editors/neovim alsa-lib alsa-plugins
+	layman-updater -R && layman -L && layman -a mv && layman -S && emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler mpv zip wget make bc unar xorg-x11 xinit zsh webkit-gtk media-plugins/gst-plugins-libav sxiv pm-utils doas app-shells/zsh-syntax-highlighting sys-fs/dosfstools app-editors/neovim alsa-lib alsa-plugins
 fi
 
 printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
 if [ "$EXTRA" != "N" ] && [ "$EXTRA" != "n" ]; then
-	emerge --ask --quiet youtube-dl ncmpcpp mpc mpd tk scrot ntfs3g lxappearance redshift numlockx transmission R pandoc-citeproc android-tools shellcheck app-admin/system-config-printer papirus-icon-theme arc-theme texlive net-libs/nodejs mail-client/neomutt net-mail/isync firefox libreoffice-bin unoconv dev-util/ctags gimp
+	emerge --ask --quiet youtube-dl ncmpcpp mpc mpd tk scrot ntfs3g lxappearance redshift numlockx transmission R pandoc-citeproc android-tools shellcheck app-admin/system-config-printer papirus-icon-theme arc-theme texlive net-libs/nodejs mail-client/neomutt net-mail/isync firefox libreoffice-bin unoconv dev-util/ctags gimp imagemagick
 fi
