@@ -5,7 +5,6 @@
 ###################
 
 SUCK=$(pwd)
-mkdir -p ~/.config/wallpaper
 
 #################################
 # Cloning and Cleaning Programs #
@@ -33,6 +32,8 @@ cd "$SUCK"/slock && git pull && git checkout .
 ##########################
 
 printf "Select a color scheme:\n1. Black and White\n2. Cyan\n3. Green\n4. Red\n5. Default Colors\n\n-> " && read -r SCHEME
+rm -rf ~/.config/wallpaper/*
+mkdir -p colors/wal
 case "$SCHEME" in
 	1)
 	cp -rf "$SUCK"/colors/BW/* "$SUCK" && mv -f "$SUCK"/wallpaper.png "$HOME"/.config/wallpaper/

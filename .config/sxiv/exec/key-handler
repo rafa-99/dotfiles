@@ -1,0 +1,33 @@
+#!/bin/sh
+while read -r FILE
+do
+	EXTENSION=$(echo "$FILE" | cut -d. -f2)
+	case "$1" in
+		"d")
+			rm -rf "$FILE"
+			;;
+		"w")
+			cp -rf "$FILE" ~/.config/wallpaper/wallpaper."$EXTENSION"
+			nitrogen --save --set-scaled "$WALLPAPER"
+			;;
+		"C-w")
+			SUCK=~/.config/suck
+			wal -i "$FILE"
+			cp ~/.cache/wal/colors-wal-dmenu.h "$SUCK"/colors/wal/dmenu/colors.h
+			head -7 ~/.cache/wal/colors-wal-dwm.h > "$SUCK"/colors/wal/dwm/colors.h
+			head -27 ~/.cache/wal/colors-wal-st.h > "$SUCK"/colors/wal/st/colors.h
+			cp ~/.cache/wal/colors-wal-tabbed.h "$SUCK"/colors/wal/tabbed/colors.h
+			cp -rf "$FILE" "$SUCK"/colors/wal/wallpaper."$EXTENSION"
+			cp -rf "$SUCK"/colors/wal/* "$SUCK"
+			rm -rf ~/.config/wallpaper/*
+			cp -rf "$FILE" ~/.config/wallpaper/wallpaper."$EXTENSION"
+			cd "$SUCK"/dwm && git pull ; doas make clean install ; make clean
+			cd "$SUCK"/dmenu && git pull ; doas make clean install ; make clean
+			cd "$SUCK"/st && git pull ; doas make clean install ; make clean
+			cd "$SUCK"/surf && git pull ; doas make clean install ; make clean
+			cd "$SUCK"/tabbed && git pull ; doas make clean install ; make clean
+			cd "$SUCK"/farbfeld && git pull ; doas make clean install ; make clean
+			cd "$SUCK"/sent && git pull ; doas make clean install ; make clean
+			cd "$SUCK"/slock && git pull ; doas make clean install ; make clean
+	esac
+done

@@ -27,11 +27,10 @@ export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
 export WINEPREFIX="$XDG_DATA_HOME"/wine/default
 
 # Default Vars
-export WALLPAPER="$HOME/.config/wallpaper/wallpaper.png"
+EXTENSION=$(find "$HOME"/.config/wallpaper/ -type f | cut -d/ -f6 | cut -d. -f2)
+export WALLPAPER="$HOME"/.config/wallpaper/wallpaper."$EXTENSION"
 
 #Session Selection Menu
-clear
-screenfetch
 printf "Which Session\n1. BSPWM\n2. DWM\n3. XFCE\n -> " && read -r SESSION
 case "$SESSION" in
 	1)
