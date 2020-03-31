@@ -63,4 +63,4 @@ let g:airline_powerline_fonts = 1
 " Rainbow Vim
 let g:rainbow_active = 1
 " Tag List
-map <C-z> :TlistToggle
+map <C-z> :TlistToggle<CR>
