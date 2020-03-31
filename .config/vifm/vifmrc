@@ -413,7 +413,7 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 " Sample mappings
 
 " Gallery Mode
-nnoremap gl :!sxiv *<cr>
+nnoremap gl :!sxiv -t *<cr>
 
 " Start shell in current directory
 nnoremap s :shell<cr>
