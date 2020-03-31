@@ -13,13 +13,15 @@ if [ "$(id -u)" != "0" ]; then
 	exit 1
 fi
 
-# Adding Configs to Portage
-cp -rf ".local/etc/" "/"
-
 # Installing Gentoo Overlay Manager and Adding Repositories
 emerge --ask --quiet layman
 
+printf "Do you want to install Extra Packages? [Y/n]" && read -r BASE
+if [ "$BASE" != "N" ] && [ "$BASE" != "n" ]; then
+	layman-updater -R && layman -L && layman -a mv && layman -S && emerge --ask --quiet nitrogen x11-misc/xclip vifm zathura zathura-pdf-poppler mpv zip wget make bc unar xorg-x11 xinit zsh webkit-gtk media-plugins/gst-plugins-libav sxiv pm-utils doas app-shells/zsh-syntax-highlighting sys-fs/dosfstools app-editors/neovim alsa-lib alsa-plugins
+fi
+
 printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
 if [ "$EXTRA" != "N" ] && [ "$EXTRA" != "n" ]; then
-	layman-updater -R && layman -L && layman -a mv && layman -S && emerge --ask --quiet youtube-dl ncmpcpp media-sound/mpc nitrogen x11-misc/xclip vifm zathura zathura-pdf-poppler mpv tk scrot ntfs3g lxappearance redshift numlockx screenfetch transmission R pandoc-citeproc zip wget make bc android-tools unar shellcheck xorg-x11 xinit zsh webkit-gtk acpi lm-sensors media-sound/mpd app-admin/system-config-printer x11-themes/papirus-icon-theme x11-themes/arc-theme nm-applet media-plugins/gst-plugins-libav sxiv texlive pm-utils doas app-shells/zsh-syntax-highlighting sys-fs/dosfstools net-libs/nodejs mail-client/neomutt net-mail/isync firefox-bin libreoffice-bin unoconv dev-util/ctags app-editors/neovim pulsemixer pulseaudio
+	emerge --ask --quiet youtube-dl ncmpcpp mpc mpd tk scrot ntfs3g lxappearance redshift numlockx transmission R pandoc-citeproc android-tools shellcheck app-admin/system-config-printer papirus-icon-theme arc-theme texlive net-libs/nodejs mail-client/neomutt net-mail/isync firefox libreoffice-bin unoconv dev-util/ctags gimp
 fi
