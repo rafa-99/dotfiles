@@ -86,7 +86,6 @@ base(){
 
 	# Changing default shell to zsh
 	chsh -s /bin/zsh
-	source ~/.zprofile
 
 	# Setting up Neovim
 	## Linking Neovim to Vim
@@ -101,12 +100,6 @@ base(){
 
 	## Installing Spell Checker
 	nvim -c setlocal spell spelllang=pt_pt
-
-	## Install Atom Packages
-	printf "Do yo want to install Atom Packages? [Y/n]" && read -r ATOM
-	if [ "$ATOM" != "N" ] && [ "$ATOM" != "n" ]; then
-		apm install ask-stack file-icons gpp-compiler highlight-selected linter linter-gcc linter-shellcheck linter-ui-default minimap pigments seti-syntax teletype && clear
-	fi
 
 	## Setup Git Account
 	printf "Do yo want to Setup Git Account? [Y/n]" && read -r GIT
