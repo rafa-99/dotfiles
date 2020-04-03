@@ -103,7 +103,7 @@ base(){
 
 	## Setup Git Account
 	printf "Do yo want to Setup Git Account? [Y/n]" && read -r GIT
-	if [ "$ATOM" != "N" ] && [ "$ATOM" != "n" ]; then
+	if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
 		printf "Username: " && read -r USER
 		printf "Email: " && read -r EMAIL
 		git config --global user.name "$USER"
