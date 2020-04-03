@@ -1,16 +1,17 @@
 app-arch/bzip2 abi_x86_32
+app-emulation/virtualbox qt5
 dev-cpp/cairomm X aqua
 dev-lang/R jpeg png X minimal -tiff -tk
-dev-lang/python * -build
+dev-lang/python sqlite
 dev-libs/elfutils abi_x86_32
 dev-libs/expat abi_x86_32
 dev-libs/libffi abi_x86_32
+dev-libs/libpcre2 pcre16
 dev-vcs/git -emacs
 media-gfx/gimp -gnome-keyring -python
-media-gfx/imagemagick
+media-libs/libsdl X
 media-libs/mesa abi_x86_32
 media-sound/alsa-lib -debug -doc -gtkdoc
-media-sound/alsa-plugins
 media-sound/ncmpcpp visualizer
 media-video/ffmpeg X sdl gnutls
 media-video/mpv cli -raspberry-pi
@@ -28,6 +29,7 @@ sys-libs/ncurses abi_x86_32
 virtual/libelf abi_x86_32
 virtual/opengl abi_x86_32
 www-client/firefox -bindist -debug -screenshot
+x11-base/xcb-proto python_targets_python3_7 abi_x86_32
 x11-libs/libXdamage abi_x86_32
 x11-libs/libXfixes abi_x86_32
 x11-libs/libXrandr abi_x86_32
@@ -35,5 +37,7 @@ x11-libs/libXrender abi_x86_32
 x11-libs/libXxf86vm abi_x86_32
 x11-libs/libdrm abi_x86_32
 x11-libs/libpciaccess abi_x86_32
+x11-libs/libxcb xkb abi_x86_32
+x11-libs/libxkbcommon X
 x11-libs/libxshmfence abi_x86_32
 x11-misc/xwallpaper jpeg png
