@@ -16,6 +16,7 @@ export FILE="vifm"
 export DISTRO
 
 # Home directory clean-up
+export SUCK="$HOME"/.config/suck
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export LESSHISTFILE="-"
@@ -27,8 +28,7 @@ export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
 export WINEPREFIX="$XDG_DATA_HOME"/wine/default
 
 # Default Vars
-EXTENSION=$(find "$HOME"/.config/wallpaper/ -type f | cut -d/ -f6 | cut -d. -f2)
-export WALLPAPER="$HOME"/.config/wallpaper/wallpaper."$EXTENSION"
+export WALLPAPER="$HOME"/.config/wallpaper/wallpaper.png
 
 #Session Selection Menu
 printf "Which Session\n1. BSPWM\n2. DWM\n3. XFCE\n -> " && read -r SESSION
