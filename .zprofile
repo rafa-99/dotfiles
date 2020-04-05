@@ -16,7 +16,7 @@ export FILE="vifm"
 export DISTRO
 
 # Home directory clean-up
-export SUCK="$HOME"/.config/suck
+export SUCK="$HOME"/.local/src/suck
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export LESSHISTFILE="-"
