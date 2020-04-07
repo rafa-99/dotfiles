@@ -8,6 +8,6 @@ case "$INPUT" in
 		scrot -q 100 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
 		;;
 	Selection)
-		scrot -l style=solid,width=1 -s -q 100 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
+		scrot -s -q 100 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
 		;;
 esac
