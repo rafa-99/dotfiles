@@ -31,14 +31,39 @@ arch(){
 }
 
 gentoo(){
-echo "######################"
-echo "# dotfiles Installer #"
-echo "######################"
-echo "|  for Gentoo Linux  |"
-echo "**********************"
+	echo "######################"
+	echo "# dotfiles Installer #"
+	echo "######################"
+	echo "|  for Gentoo Linux  |"
+	echo "**********************"
 
 # Adding to audio group
 usermod -aG audio "$(whoami)"
+}
+
+void(){
+	echo "######################"
+	echo "# dotfiles Installer #"
+	echo "######################"
+	echo "|   for Void Linux   |"
+	echo "**********************"
+
+# Installing opendoas
+sudo xbps-install opendoas
+
+# Updated doas permissions
+sudo cp -rf ".local/etc/doas.conf" "/etc/"
+doas cp -rf ".local/etc/hosts" "/etc/"
+
+# Installing apps
+doas xbps-install xorg git neovim opendoas firefox ncmpcpp neofetch atom zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel xdg-user-dirs engrampa zathura zathura-pdf-poppler ctags scrot unoconv neomutt isync nodejs curl wget
+
+# Removing Old dhcpcd entries from boot
+sudo rm -rf /var/service/dhcp*
+
+# Adding Services to boot
+sudo ln -s /etc/sv/NetworkManager /var/service/
+sudo ln -s /etc/sv/dbus /var/service
 }
 
 base(){
@@ -77,7 +102,7 @@ base(){
 	mkdir -p ~/.config/wallpaper
 
 	## Run Suckless Script
-	cd ~/.config/suck/ || exit
+	cd ~/.local/src/suck/ || exit
 	sh sucklessUpdate
 	cd "$CURDIR" || exit
 
@@ -93,7 +118,7 @@ base(){
 
 	## Installing Neovim Plugin Manager (Vim Plug)
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 	## Installing Plugins
 	nvim -c PlugInstall
@@ -119,7 +144,7 @@ base(){
 #
 
 echo "Detecting Distro..."
-DISTRO=$(grep ^ID= /etc/os-release | sed s:ID=::g)
+DISTRO=$(grep ^ID= /etc/os-release | sed s:ID=::g | sed s:\"::g)
 
 case "$DISTRO" in
 	arch)
@@ -128,4 +153,6 @@ case "$DISTRO" in
 	gentoo)
 		gentoo && base
 		;;
+	void)
+		void && base
 esac
