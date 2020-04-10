@@ -11,7 +11,7 @@ checkdistro()
 {
 	## Already in my environment, uncomment if you're not using my dotfiles
 	## Checking current distro
-	# DISTRO="$(grep ^ID= /etc/os-release | sed s:ID=::g)"
+	# DISTRO="$(grep ^ID= /etc/os-release | sed s:ID=::g | sed s:\"::g)"
 	
 	if [ "$DISTRO" = "arch" ]; then
 		{
@@ -68,6 +68,9 @@ clean()
 			;;
 		gentoo)
 			"$SU" emerge -caq
+			;;
+		void)
+			"$SU" xbps-remove -Oo
 	esac
 }
 
@@ -87,6 +90,9 @@ install()
 			;;
 		gentoo)
 			"$SU" emerge -aq "$PACKAGE"
+			;;
+		void)
+			"$SU" xbps-install -S "$PACKAGE"
 	esac
 }
 
@@ -101,6 +107,9 @@ query()
 			;;
 		gentoo)
 			emerge -s | grep "$PACKAGE"
+			;;
+		void)
+			xbps-query -l | grep "$PACKAGE"
 	esac
 }
 
@@ -115,6 +124,9 @@ remove()
 			;;
 		gentoo)
 			"$SU" emerge -caq "$PACKAGE"
+			;;
+		void)
+			"$SU" xbps-remove -R "$PACKAGE"
 	esac
 }
 
@@ -129,6 +141,9 @@ search()
 			;;
 		gentoo)
 			emerge -s "$PACKAGE" | less
+			;;
+		void)
+			xbps-query -Rs "$PACKAGE"
 	esac
 }
 
@@ -147,6 +162,9 @@ update()
 			else
 				"$SU" layman -S &&"$SU" emerge-webrsync && "$SU" emerge -uaqDU --keep-going --with-bdeps=y --newuse @world
 			fi
+			;;
+		void)
+			"$SU" xbps-install -Su
 	esac
 }
 

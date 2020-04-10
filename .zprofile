@@ -2,7 +2,7 @@
 
 # Profile file. Runs on login. Environmental variables are set here.
 # Grabs the  current distro
-DISTRO="$(grep ^ID= /etc/os-release | sed s:ID=::g)"
+DISTRO="$(grep ^ID= /etc/os-release | sed s:ID=::g | sed s:\"::g)"
 
 # Adds ~/.local/bin to $PATH
 export PATH="$HOME/.local/bin:$PATH"
