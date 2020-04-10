@@ -56,7 +56,13 @@ sudo cp -rf ".local/etc/doas.conf" "/etc/"
 doas cp -rf ".local/etc/hosts" "/etc/"
 
 # Installing apps
-doas xbps-install xorg git neovim opendoas firefox ncmpcpp neofetch atom zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel xdg-user-dirs engrampa zathura zathura-pdf-poppler ctags scrot unoconv neomutt isync nodejs curl wget
+doas xbps-install xorg git neovim opendoas firefox ncmpcpp neofetch atom zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel xdg-user-dirs engrampa zathura zathura-pdf-poppler ctags scrot unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar
+
+	# Install Computer Science Programs
+	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
+	if [ "$CS" != "N" ] && [ "$CS" != "n" ]; then
+		doas pacman --needed --noconfirm -S openjdk11 intellij-idea-community-edition valgrind doxygen gdb octave && clear
+	fi
 
 # Removing Old dhcpcd entries from boot
 sudo rm -rf /var/service/dhcp*
