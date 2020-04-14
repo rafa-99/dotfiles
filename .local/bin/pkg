@@ -7,34 +7,28 @@
 ####################################################################################################################
 
 # Extra Functions
-checkdistro()
+distrovars()
 {
 	## Already in my environment, uncomment if you're not using my dotfiles
 	## Checking current distro
 	# DISTRO="$(grep ^ID= /etc/os-release | sed s:ID=::g | sed s:\"::g)"
-	
-	if [ "$DISTRO" = "arch" ]; then
-		{
+
+	case "$DISTRO" in
+		debian|ubuntu|linuxmint|void)
+			RUN=sudo
+			;;
+		arch|manjaro|parabola)
 			if [ -f /usr/bin/yay ]; then
-				PACKER=yay
+				RUN=yay
 			else
-				PACKER=pacman
+				RUN="sudo pacman"
 			fi
-		}
-	fi
+			;;
+		gentoo)
+			RUN=doas
+			;;
+	esac
 }
-
-suapp()
-{
-	## Checking su app
-	if [ -f /usr/bin/sudo ]; then
-		SU=sudo
-	else
-		SU=doas
-	fi
-}
-
-
 logo()
 {
 	echo "                                     "
@@ -61,13 +55,13 @@ clean()
 {
 	case "$DISTRO" in
 		arch|manjaro|parabola)
-			"$SU" "$PACKER" -Rns "$(pacman -Qtdq)" && "$SU" pacman -Scc
+			"$RUN" -Rns "$(pacman -Qtdq)" && "$RUN" -Scc
 			;;
 		debian|ubuntu|linuxmint)
-			"$SU" apt autoremove --purge && "$SU" apt clean
+			"$RUN" apt autoremove --purge && "$RUN" apt clean
 			;;
 		gentoo)
-			"$SU" emerge -caq
+			"$RUN" emerge -caq
 			;;
 		void)
 			"$SU" xbps-remove -Oo
@@ -83,16 +77,16 @@ install()
 {
 	case "$DISTRO" in
 		arch|manjaro|parabola)
-			"$SU" "$PACKER" -Sy "$PACKAGE"
+			"$RUN" -Sy "$PACKAGE"
 			;;
 		debian|ubuntu|linuxmint)
-			"$SU" apt install "$PACKAGE"
+			"$RUN" apt install "$PACKAGE"
 			;;
 		gentoo)
-			"$SU" emerge -aq "$PACKAGE"
+			"$RUN" emerge -aq "$PACKAGE"
 			;;
 		void)
-			"$SU" xbps-install -S "$PACKAGE"
+			"$RUN" xbps-install -S "$PACKAGE"
 	esac
 }
 
@@ -100,7 +94,7 @@ query()
 {
 	case "$DISTRO" in
 		arch|manjaro|parabola)
-			"$PACKER" -Qs "$PACKAGE"
+			pacman -Qs "$PACKAGE"
 			;;
 		debian|ubuntu|linuxmint)
 			apt list --installed | grep "$PACKAGE"
@@ -117,16 +111,16 @@ remove()
 {
 	case "$DISTRO" in
 		arch|manjaro|parabola)
-			"$SU" "$PACKER" -Rns "$PACKAGE"
+			"$RUN" -Rns "$PACKAGE"
 			;;
 		debian|ubuntu|linuxmint)
-			"$SU" apt autoremove --purge "$PACKAGE"
+			"$RUN" apt autoremove --purge "$PACKAGE"
 			;;
 		gentoo)
-			"$SU" emerge -caq "$PACKAGE"
+			"$RUN" emerge -caq "$PACKAGE"
 			;;
 		void)
-			"$SU" xbps-remove -R "$PACKAGE"
+			"$RUN" xbps-remove -R "$PACKAGE"
 	esac
 }
 
@@ -134,7 +128,7 @@ search()
 {
 	case "$DISTRO" in
 		arch|manjaro|parabola)
-			"$PACKER" -Ss "$PACKAGE" | less
+			pacman -Ss "$PACKAGE" | less
 			;;
 		debain)
 			apt search "$PACKAGE" | less
@@ -151,20 +145,20 @@ update()
 {
 	case "$DISTRO" in
 		arch|manjaro|parabola)
-			"$SU" "$PACKER" -Syyuu
+			"$RUN" -Syyuu
 			;;
 		debian|ubuntu|linuxmint)
-			"$SU" apt update && "$SU" apt upgrade
+			"$RUN" apt update && "$RUN" apt upgrade
 			;;
 		gentoo)
 			if [ -f /usr/bin/layman ]; then
-				"$SU" layman -S &&"$SU" emerge-webrsync && "$SU" emerge -uaqDU --keep-going --with-bdeps=y --newuse @world
+				"$RUN" layman -S &&"$RUN" emerge-webrsync && "$RUN" emerge -uaqDU --keep-going --with-bdeps=y --newuse @world
 			else
-				"$SU" layman -S &&"$SU" emerge-webrsync && "$SU" emerge -uaqDU --keep-going --with-bdeps=y --newuse @world
+				"$RUN" emerge-webrsync && "$RUN" emerge -uaqDU --keep-going --with-bdeps=y --newuse @world
 			fi
 			;;
 		void)
-			"$SU" xbps-install -Su
+			"$RUN" xbps-install -Su
 	esac
 }
 
