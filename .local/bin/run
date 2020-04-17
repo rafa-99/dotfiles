@@ -1,18 +1,19 @@
 #!/bin/sh
 
 RUN=$(\
-printf "alsamixer
-atom
+printf "atom
 audacity
+browser
 dmenu
+flatpak
 filezilla
-firefox
 gallery
 gimp
 intellij
 kdenlive
 lmms
 lutris
+mixer
 music
 mysql
 networks
@@ -20,15 +21,14 @@ octave
 pcmanfm
 printers
 st
-surf
 transmission
 vifm
 virtualbox
 vscode" | dmenu -i -p "Run:")
 
 case $RUN in
-	alsamixer)
-		st -e alsamixer
+	mixer)
+		st -e pulsemixer || st -e alsamixer
 		;;
 	atom)
 		atom
@@ -36,14 +36,18 @@ case $RUN in
 	audacity)
 		audacity
 		;;
+	browser)
+		neovimb || firefox || tabbed surf -e
+		;;
 	dmenu)
 		dmenu_run
 		;;
 	filezilla)
 		filezilla
 		;;
-	firefox)
-		firefox
+	flatpak)
+		APP=$(flatpak list | grep -vi freedesktop | awk '{print $1}' | grep -vi Name | dmenu -i -p "Flatpak:")
+		flatpak run "$(flatpak list | grep ^"$APP" | awk '{print $2}')"
 		;;
 	gallery)
 		SEL=$(printf "Gallery\nWallpapers" | dmenu -i)
@@ -91,9 +95,6 @@ case $RUN in
 	st)
 		st
 		;;
-	surf)
-		tabbed surf -e
-		;;
 	transmission)
 		transmission-gtk
 		;;
@@ -104,5 +105,5 @@ case $RUN in
 		virtualbox
 		;;
 	vscode)
-		vscodium-bin
+		vscodium || vscodium-bin
 esac
