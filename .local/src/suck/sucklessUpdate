@@ -11,18 +11,18 @@ SUCK=$(pwd)
 #################################
 
 git clone https://gitlab.com/rafa_99/dwm
+git clone https://gitlab.com/rafa_99/dwmblocks
 git clone https://gitlab.com/rafa_99/dmenu
 git clone https://gitlab.com/rafa_99/st
-git clone https://gitlab.com/rafa_99/surf
-git clone https://gitlab.com/rafa_99/tabbed
+git clone https://gitlab.com/rafa_99/neovimb
 git clone https://gitlab.com/rafa_99/farbfeld
 git clone https://gitlab.com/rafa_99/sent
 git clone https://gitlab.com/rafa_99/slock
 cd "$SUCK"/dwm && git pull && git checkout . ;
+cd "$SUCK"/dwmblocks && git pull && git checkout . ;
 cd "$SUCK"/dmenu && git pull && git checkout . ;
 cd "$SUCK"/st && git pull && git checkout . ;
-cd "$SUCK"/surf && git pull && git checkout . ;
-cd "$SUCK"/tabbed && git pull && git checkout . ;
+cd "$SUCK"/neovimb && git pull && git checkout . ;
 cd "$SUCK"/farbfeld && git pull && git checkout . ;
 cd "$SUCK"/sent && git pull && git checkout . ;
 cd "$SUCK"/slock && git pull && git checkout .
@@ -54,10 +54,9 @@ esac
 ########################
 
 cd "$SUCK"/dwm && git pull ; doas make clean install ; make clean
+cd "$SUCK"/dwmblocks && git pull ; doas make clean install ; make clean
 cd "$SUCK"/dmenu && git pull ; doas make clean install ; make clean
 cd "$SUCK"/st && git pull ; doas make clean install ; make clean
-cd "$SUCK"/surf && git pull ; doas make clean install ; make clean
-cd "$SUCK"/tabbed && git pull ; doas make clean install ; make clean
 cd "$SUCK"/farbfeld && git pull ; doas make clean install ; make clean
 cd "$SUCK"/sent && git pull ; doas make clean install ; make clean
 cd "$SUCK"/slock && git pull ; doas make clean install ; make clean

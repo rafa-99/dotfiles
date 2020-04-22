@@ -1,6 +1,4 @@
 #!/bin/sh
 
-#Detecting resol| Grab Curnt| Print Cur Res
-RESOLUTION=$(xrandr -q | grep "\*" | awk '{print $1}')
 #FFMPEG Grabs X11 Screen Puts it into a file inside Videos Folder
-ffmpeg -f x11grab -s "$RESOLUTION" -i :0.0 -f alsa -i default ~/Videos/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".mkv
+ffmpeg -y -f x11grab -framerate 60 -s "$(xdpyinfo | grep dimensions | awk '{print $2;}')" -i :0.0 -f alsa -i default ~/Videos/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".mkv

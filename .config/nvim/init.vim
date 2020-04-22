@@ -8,6 +8,7 @@ Plug 'luochen1990/rainbow'
 Plug 'vim-scripts/taglist.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " Keybinds Index
@@ -17,7 +18,7 @@ call plug#end()
 " Control + P -> Runs portuguese spelling check
 " Control + E -> Runs english spelling check
 " Control + S -> Disables any spelling check
-" Control + H,J,K,L -> Movement between splits
+" Alt + H,J,K,L -> Movement between splits
 " Control + T -> Opens up NERDTree
 " Control + Z -> Toggles Tag List from current program
 " :Dox -> Runs doxygen documentation program
@@ -37,6 +38,12 @@ set inccommand=split
 set incsearch
 set wildmode=longest,list,full
 set relativenumber
+set cursorline
+set cursorcolumn
+
+highlight CursorLine ctermbg=red cterm=bold guibg=#2b2b2b
+highlight CursorColumn ctermbg=red cterm=bold guibg=#2b2b2b
+
 
 " Autocommands
 map <F5> :!compiler '%' <CR>
@@ -46,12 +53,18 @@ map <C-e> :set spell spelllang=en_us <CR>
 map <C-s> :set nospell <CR>
 map <C-i> gg=G
 
+" Remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
+
+" Use system clipboard
+set clipboard+=unnamedplus
+
 " Keybinds for splits
 " Move between splits
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+map <A-h> <C-w>h
+map <A-j> <C-w>j
+map <A-k> <C-w>k
+map <A-l> <C-w>l
 " Splits position
 set splitbelow splitright
 

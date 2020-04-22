@@ -1,19 +1,7 @@
 #!/bin/sh
 
-# Detecting Session and it's requirements
-case "$SESSION" in
-	bspwm)
-		sxhkd &
-		polybar laptop &
-		;;
-	dwm)
-		dwmbar &
-		;;
-	xfce)
-		;;
-esac
-
 # General Requirements
+dwmblocks &
 xwallpaper --stretch "$WALLPAPER" &
 picom -f --fade-delta=5 &
 setxkbmap pt &
