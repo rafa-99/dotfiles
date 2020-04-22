@@ -38,12 +38,6 @@ set inccommand=split
 set incsearch
 set wildmode=longest,list,full
 set relativenumber
-set cursorline
-set cursorcolumn
-
-highlight CursorLine ctermbg=red cterm=bold guibg=#2b2b2b
-highlight CursorColumn ctermbg=red cterm=bold guibg=#2b2b2b
-
 
 " Autocommands
 map <F5> :!compiler '%' <CR>
@@ -78,3 +72,5 @@ let g:airline_powerline_fonts = 1
 let g:rainbow_active = 1
 " Tag List
 map <C-z> :TlistToggle<CR>
+" Vim gitgutter
+map <C-g> :GitGutterToggle<CR>
