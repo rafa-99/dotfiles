@@ -1,5 +1,9 @@
 app-arch/unar ~amd64
+app-editors/kakoune ~amd64
+app-editors/vscodium ~amd64
 dev-lang/python ~amd64
+dev-libs/light ~amd64
+dev-libs/light ~amd64
 dev-python/python-evdev ~amd64
 dev-util/idea-community ~amd64
 games-util/lutris ~amd64
