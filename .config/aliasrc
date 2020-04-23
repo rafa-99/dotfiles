@@ -1,6 +1,6 @@
 #!bin/sh
 
-alias ls='ls --color=auto' \
+alias ls='lsd' \
 	grep='grep --color=auto -i' \
 	xr='xrdb ~/.Xresources' \
 	clone='git clone' \
@@ -25,5 +25,7 @@ alias ls='ls --color=auto' \
 	trim='convert -trim' \
 	trans='convert -transparent -fuzz' \
 	synclock='doas ntpdate pt.pool.ntp.org && doas hwclock --systohc' \
+	wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"' \
 	x='extract' \
-	e='$EDITOR'
+	e='$EDITOR' \
+	g='sxiv -t *'
