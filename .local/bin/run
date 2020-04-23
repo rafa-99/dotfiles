@@ -5,6 +5,7 @@ printf "atom
 audacity
 browser
 dmenu
+document
 flatpak
 filezilla
 gallery
@@ -41,6 +42,18 @@ case $RUN in
 		;;
 	dmenu)
 		dmenu_run
+		;;
+	document)
+		DOC=$(printf "Document\nAnswer Sheet" | dmenu -i -p "Document Type:")
+		case "$DOC" in
+			"Document")
+				cp -rf ~/.local/src/templates/document.md ~/
+				st -e nvim document.md
+				;;
+			"Answer Sheet")
+				cp -rf ~/.local/src/templates/quick.md ~/
+				st -e nvim quick.md
+		esac
 		;;
 	filezilla)
 		filezilla
