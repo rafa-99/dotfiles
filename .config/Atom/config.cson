@@ -1,7 +1,24 @@
 "*":
   core:
+    disabledPackages: [
+      "metrics"
+      "spell-check"
+      "welcome"
+      "wrap-guide"
+    ]
+    packagesWithKeymapsDisabled: [
+      "atom-doxit"
+    ]
     telemetryConsent: "no"
     themes: [
-      "one-dark-ui"
-      "seti-syntax"
+      "atom-material-ui"
+      "atom-material-syntax"
     ]
+  "platformio-ide-terminal":
+    style:
+      fontFamily: "JetbrainsMono Nerd Font"
+      theme: "dracula"
+    toggles:
+      autoClose: true
+  welcome:
+    showOnStartup: false

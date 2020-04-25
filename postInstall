@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Setup Git Account
+printf "Do yo want to Setup Git Account? [Y/n]" && read -r GIT
+if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
+	printf "Username: " && read -r USER
+	printf "Email: " && read -r EMAIL
+	git config --global user.name "$USER"
+	git config --global user.email "$EMAIL"
+fi
+
+# Setup atom
+apm install atom-beautify atom-material-syntax file-icons pigments teletype atom-doxit atom-material-ui highlight-selected platformio-ide-terminal vim-mode-plus busy-signal intentions linter linter-ui-default linter-shellcheck
