@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Setup Git Account
-printf "Do yo want to Setup Git Account? [Y/n]" && read -r GIT
+# setup Git account
+printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
 if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
 	printf "Username: " && read -r USER
 	printf "Email: " && read -r EMAIL
@@ -10,4 +10,14 @@ if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
 fi
 
 # Setup atom
-apm install atom-beautify atom-material-syntax file-icons pigments teletype atom-doxit atom-material-ui highlight-selected platformio-ide-terminal vim-mode-plus busy-signal intentions linter linter-ui-default linter-shellcheck
+printf "Do yo want to install Atom packages? [Y/n]" && read -r ATOM
+if [ "$ATOM" != "N" ] && [ "$ATOM" != "n" ]; then
+apm install atom-beautify file-icons pigments teletype atom-doxit highlight-selected platformio-ide-terminal vim-mode-plus busy-signal intentions linter linter-ui-default linter-shellcheck
+fi
+
+# Setup atom
+printf "Do yo want to install flatpak packages? [Y/n]" && read -r FLAT
+if [ "$FLAT" != "N" ] && [ "$FLAT" != "n" ]; then
+	pkg i flatpak
+	sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+fi
