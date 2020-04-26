@@ -2,5 +2,5 @@
 
 #A menu that selects emojis/glyphs and copies them to the clipboard
 
-#Reading glyphs and outputs menu 20       | Grabs the emoji  | Redirects into an outp| Sends it to the clipboard
-dmenu -i -l 20 < "$HOME"/.config/glyphsrc | awk '{print $1}' | xargs -I {} printf {} | xclip -selection clipboard
+#Reading glyphs and outputs menu 20                | Grabs the emoji|Rdircts into outpt| Sends it to the clipboard
+grep -vi "### EMOJIS ###" "$HOME"/.config/glyphsrc | dmenu -i -l 20 | awk '{print $1}' | xargs -I {} printf {} | xclip -selection clipboard
