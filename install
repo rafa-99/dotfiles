@@ -18,7 +18,7 @@ arch(){
 	doas cp -rf ".local/etc/hosts" "/etc/"
 	# Installing Deps
 	doas pacman -Rns vim
-	doas pacman --needed -Syu screenfetch zsh youtube-dl engrampa nmap base-devel ncmpcpp xwallpaper xclip newsboat vifm zathura tk webkit2gtk grc gst-libav gst-plugins-good scrot ntfs-3g ffmpeg acpi texlive-most pcmanfm lxappearance ntp redshift numlockx htop xclip ntfs-3g acpi imagemagick transmission-gtk neovim vifm ncmpcpp mpv mpd mpc sxiv zathura zathura-pdf-mupdf zathura-ps python-pywal r tk pandoc-citeproc firefox python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme curl linux-firmware atom ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme arc-gtk-theme neomutt isync uncrustify
+	doas pacman --needed -Syu screenfetch zsh youtube-dl engrampa nmap base-devel ncmpcpp xwallpaper newsboat vifm zathura tk webkit2gtk grc gst-libav gst-plugins-good scrot ntfs-3g ffmpeg acpi texlive-most pcmanfm lxappearance ntp redshift numlockx htop xclip ntfs-3g acpi imagemagick transmission-gtk neovim vifm ncmpcpp mpv mpd mpc sxiv zathura zathura-pdf-mupdf zathura-ps python-pywal r tk pandoc-citeproc firefox python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme curl linux-firmware atom ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme arc-gtk-theme neomutt isync uncrustify lsd
 
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
@@ -56,7 +56,7 @@ sudo cp -rf ".local/etc/doas.conf" "/etc/"
 doas cp -rf ".local/etc/hosts" "/etc/"
 
 # Installing apps
-doas xbps-install xorg git neovim opendoas firefox ncmpcpp neofetch atom zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel xdg-user-dirs engrampa zathura zathura-pdf-poppler ctags scrot unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin
+doas xbps-install xorg git neovim opendoas firefox ncmpcpp neofetch atom zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel xdg-user-dirs engrampa zathura zathura-pdf-poppler ctags scrot unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip transset lsd
 
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS

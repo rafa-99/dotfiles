@@ -21,5 +21,5 @@ fi
 
 printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
 if [ "$EXTRA" != "N" ] && [ "$EXTRA" != "n" ]; then
-	emerge --ask --quiet youtube-dl ncmpcpp mpc mpd tk scrot ntfs3g lxappearance redshift numlockx transmission R pandoc-citeproc android-tools shellcheck app-admin/system-config-printer papirus-icon-theme arc-theme texlive net-libs/nodejs mail-client/neomutt net-mail/isync firefox libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd
+	emerge --ask --quiet youtube-dl ncmpcpp mpc mpd tk scrot ntfs3g lxappearance redshift numlockx transmission R pandoc-citeproc android-tools shellcheck app-admin/system-config-printer papirus-icon-theme arc-theme texlive net-libs/nodejs mail-client/neomutt net-mail/isync firefox libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd transset
 fi
