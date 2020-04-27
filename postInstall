@@ -15,7 +15,7 @@ if [ "$ATOM" != "N" ] && [ "$ATOM" != "n" ]; then
 apm install atom-beautify file-icons pigments teletype atom-doxit highlight-selected platformio-ide-terminal vim-mode-plus busy-signal intentions linter linter-ui-default linter-shellcheck
 fi
 
-# Setup atom
+# Setup flathub
 printf "Do yo want to install flatpak packages? [Y/n]" && read -r FLAT
 if [ "$FLAT" != "N" ] && [ "$FLAT" != "n" ]; then
 	pkg i flatpak
