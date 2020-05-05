@@ -26,8 +26,8 @@ cd "$SUCK"/neovimb && git pull && git checkout . ;
 cd "$SUCK"/farbfeld && git pull && git checkout . ;
 cd "$SUCK"/sent && git pull && git checkout . ;
 cd "$SUCK"/slock && git pull && git checkout .
-mv -f neovimbconfig neovimb/config.h
-mv -f dwmblocksconfig dwmblocks/config.h
+mv -f ~/.config/customs/neovimb neovimb/config.h
+mv -f ~/.config/customs/dwmblocks dwmblocks/config.h
 
 ##########################
 # Selecting Color Scheme #
