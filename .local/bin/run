@@ -59,8 +59,7 @@ case $RUN in
 		filezilla
 		;;
 	flatpak)
-		APP=$(flatpak list | grep -vi freedesktop | awk '{print $1}' | grep -vi Name | dmenu -i -p "Flatpak:")
-		flatpak run "$(flatpak list | grep ^"$APP" | awk '{print $2}')"
+		flatpak run "$(flatpak list --app --columns=application | grep -vi "Application ID" | dmenu -i -p "Flatpak:")"
 		;;
 	gallery)
 		SEL=$(printf "Gallery\nWallpapers" | dmenu -i)
