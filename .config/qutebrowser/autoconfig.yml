@@ -1,0 +1,14 @@
+config_version: 2
+settings:
+  completion.cmd_history_max_items:
+    global: 0
+  completion.web_history.max_items:
+    global: 0
+  downloads.location.directory:
+    global: ~/Downloads
+  downloads.location.prompt:
+    global: false
+  statusbar.hide:
+    global: true
+  tabs.show:
+    global: switching
