@@ -10,7 +10,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # Default programs
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="neovimb"
+export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="vifm"
 export DISTRO
