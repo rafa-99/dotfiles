@@ -1,13 +1,28 @@
 #!/bin/sh
 
 # Screenshot Tool Script
-INPUT=$(printf "Screen\nSelection" | dmenu -i -p "Screenshot:")
+if [ "$1" = "q" ] || [ "$1" = "quick" ]; then
+	{
+		flameshot full -r > ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
+	}
+else
+	{
+		INPUT=$(printf "Screen\nSelection" | dmenu -i -p "Screenshot: ")
 
-case "$INPUT" in
-	Screen)
-		sleep 1.5 && scrot -q 100 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
-		;;
-	Selection)
-		scrot -s -q 100 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
-		;;
-esac
+		case "$INPUT" in
+			Screen)
+				SAVE=$(printf "Clipboard\nPictures Folder" | dmenu -i -p "Save to: ")
+				case "$SAVE" in
+					"Clipboard")
+						flameshot full -d 1000 -c
+						;;
+					"Pictures Folder")
+						flameshot full -d 1000 -r > ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
+				esac
+				;;
+			Selection)
+				flameshot gui
+		esac
+
+	}
+fi

@@ -26,10 +26,11 @@ arch(){
 		doas pacman --needed --noconfirm -S jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench octave && clear
 	fi
 
-# Install Extra AUR packages
-printf "Do yo want to setup extra git packages? [Y/n]" && read -r AUR
-if [ "$AUR" != "N" ] && [ "$AUR" != "n" ]; then
-	yay --needed -Syu lbry-app-bin xorg-transset cordless-git
+	# Install Extra AUR packages
+	printf "Do yo want to setup extra git packages? [Y/n]" && read -r AUR
+	if [ "$AUR" != "N" ] && [ "$AUR" != "n" ]; then
+		yay --needed -Syu lbry-app-bin xorg-transset cordless-git
+	fi
 
 	# Cleanup
 	doas pacman --noconfirm -Scc
@@ -42,8 +43,22 @@ gentoo(){
 	echo "|  for Gentoo Linux  |"
 	echo "**********************"
 
-# Adding to audio group
-usermod -aG audio "$(whoami)"
+	# Checking if is root
+	if [ "$(id -u)" != "0" ]; then
+		echo "This script must be run as root" 1>&2
+		exit 1
+	fi
+
+	printf "Do you want to install Extra Packages? [Y/n]" && read -r BASE
+	if [ "$BASE" != "N" ] && [ "$BASE" != "n" ]; then
+		emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler zip wget make bc unar xorg-x11 xinit zsh pm-utils doas sys-fs/dosfstools app-editors/neovim alsa-lib alsa-plugins
+	fi
+
+	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
+	if [ "$EXTRA" != "N" ] && [ "$EXTRA" != "n" ]; then
+		emerge --ask --quiet sxiv mpv youtube-dl ncmpcpp mpc mpd tk flameshot ntfs3g lxappearance redshift numlockx transmission R pandoc-citeproc android-tools shellcheck app-admin/system-config-printer papirus-icon-theme arc-theme texlive net-libs/nodejs mail-client/neomutt net-mail/isync qutebrowser libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd transset
+	fi
+
 }
 
 void(){
@@ -53,15 +68,15 @@ void(){
 	echo "|   for Void Linux   |"
 	echo "**********************"
 
-# Installing opendoas
-sudo xbps-install opendoas
+	# Installing opendoas
+	sudo xbps-install opendoas
 
-# Updated doas permissions
-sudo cp -rf ".local/etc/doas.conf" "/etc/"
-doas cp -rf ".local/etc/hosts" "/etc/"
+	# Updated doas permissions
+	sudo cp -rf ".local/etc/doas.conf" "/etc/"
+	doas cp -rf ".local/etc/hosts" "/etc/"
 
-# Installing apps
-doas xbps-install xorg git neovim opendoas qutebrowser ncmpcpp neofetch atom zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel xdg-user-dirs engrampa zathura zathura-pdf-poppler ctags scrot unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip transset lsd
+	# Installing apps
+	doas xbps-install xorg git neovim opendoas qutebrowser ncmpcpp neofetch atom zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel xdg-user-dirs engrampa zathura zathura-pdf-poppler ctags flameshot unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip transset lsd
 
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
@@ -69,15 +84,15 @@ doas xbps-install xorg git neovim opendoas qutebrowser ncmpcpp neofetch atom zsh
 		doas xbps-install -Su openjdk11 intellij-idea-community-edition valgrind doxygen gdb octave && clear
 	fi
 
-# Removing Old dhcpcd entries from boot
-sudo rm -rf /var/service/dhcp*
+	# Removing Old dhcpcd entries from boot
+	sudo rm -rf /var/service/dhcp*
 
-# Adding Services to boot
-sudo ln -s /etc/sv/NetworkManager /var/service/
-sudo ln -s /etc/sv/dbus /var/service
+	# Adding Services to boot
+	sudo ln -s /etc/sv/NetworkManager /var/service/
+	sudo ln -s /etc/sv/dbus /var/service
 }
 
-base(){
+baseInstall(){
 	# Setting Vars
 	CURDIR=$(pwd)
 
@@ -129,7 +144,7 @@ base(){
 
 	## Installing Neovim Plugin Manager (Vim Plug)
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 	## Installing Plugins
 	nvim -c PlugInstall
@@ -141,6 +156,38 @@ base(){
 	rm -rf ~/.local/etc ~/.local/usr
 }
 
+postInstall()
+{
+	if [ "$DISTRO" = "gentoo" ];then
+		{
+			# Adding to audio group
+			usermod -aG audio "$(whoami)"
+		}
+	fi
+
+	# Setup Git account
+	printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
+	if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
+		printf "Username: " && read -r USER
+		printf "Email: " && read -r EMAIL
+		git config --global user.name "$USER"
+		git config --global user.email "$EMAIL"
+	fi
+
+	# Setup atom
+	printf "Do yo want to install Atom packages? [Y/n]" && read -r ATOM
+	if [ "$ATOM" != "N" ] && [ "$ATOM" != "n" ]; then
+		apm install atom-beautify file-icons pigments teletype atom-doxit highlight-selected platformio-ide-terminal vim-mode-plus
+	fi
+
+	# Setup flathub
+	printf "Do yo want to install flatpak packages? [Y/n]" && read -r FLAT
+	if [ "$FLAT" != "N" ] && [ "$FLAT" != "n" ]; then
+		pkg i flatpak
+		sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+	fi
+}
+
 #
 # Main Script
 #
@@ -148,13 +195,21 @@ base(){
 echo "Detecting Distro..."
 DISTRO=$(grep ^ID= /etc/os-release | sed s:ID=::g | sed s:\"::g)
 
-case "$DISTRO" in
-	arch)
-		arch && base
-		;;
-	gentoo)
-		gentoo && base
-		;;
-	void)
-		void && base
-esac
+if [ -f /usr/local/bin/dwm ]; then
+	{
+		postInstall
+	}
+else
+	{
+		case "$DISTRO" in
+			arch)
+			arch && base
+			;;
+			gentoo)
+			gentoo && base
+			;;
+			void)
+			void && base
+		esac
+	}
+fi
