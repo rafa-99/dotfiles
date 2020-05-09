@@ -26,6 +26,11 @@ arch(){
 		doas pacman --needed --noconfirm -S jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench octave && clear
 	fi
 
+# Install Extra AUR packages
+printf "Do yo want to setup extra git packages? [Y/n]" && read -r AUR
+if [ "$AUR" != "N" ] && [ "$AUR" != "n" ]; then
+	yay --needed -Syu lbry-app-bin xorg-transset cordless-git
+
 	# Cleanup
 	doas pacman --noconfirm -Scc
 }
