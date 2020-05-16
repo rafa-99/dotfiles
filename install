@@ -203,7 +203,7 @@ else
 	{
 		case "$DISTRO" in
 			arch)
-			arch && base
+			arch && baseInstall
 			;;
 			gentoo)
 			gentoo && base
