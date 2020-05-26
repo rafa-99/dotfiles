@@ -26,7 +26,7 @@ head -7 ~/.cache/wal/colors-wal-dwm.h > "$SUCK"/colors/wal/dwm/colors.h
 head -27 ~/.cache/wal/colors-wal-st.h > "$SUCK"/colors/wal/st/colors.h
 sed -i s:256:259:g "$SUCK"/colors/wal/st/colors.h
 sed -i s:258:256:g "$SUCK"/colors/wal/st/colors.h
-sed -i s:259:256:g "$SUCK"/colors/wal/st/colors.h
+sed -i s:259:258:g "$SUCK"/colors/wal/st/colors.h
 
 # Recompiling Suckless Programs with new colorscheme
 cp -rf "$SUCK"/colors/wal/* "$SUCK"
