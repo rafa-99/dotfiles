@@ -76,7 +76,7 @@ void(){
 	doas cp -rf ".local/etc/hosts" "/etc/"
 
 	# Installing apps
-	doas xbps-install xorg git neovim opendoas qutebrowser ncmpcpp neofetch atom zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel xdg-user-dirs engrampa zathura zathura-pdf-poppler ctags flameshot unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip transset lsd
+	doas xbps-install xorg git neovim opendoas qutebrowser ncmpcpp neofetch atom zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel engrampa zathura zathura-pdf-poppler ctags flameshot unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip transset lsd
 
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
@@ -102,23 +102,10 @@ baseInstall(){
 	cp -rf .xinitrc "$HOME"
 	cp -rf .xprofile "$HOME"
 	cp -rf .zprofile "$HOME"
-	mkdir -p ~/Mount
-	mkdir -p ~/Mount/Drive
-	mkdir -p ~/Mount/Drive2
-	mkdir -p ~/Mount/Drive3
-	mkdir -p ~/Mount/MTP
-	mkdir -p ~/Mount/USB
-	mkdir -p ~/Mount/USB2
-	mkdir -p ~/Mount/USB3
 	mkdir -p ~/Documents/PDF
 	mkdir -p ~/Documents/Markdown
-	mkdir -p ~/Documents/Groff
-	mkdir -p ~/Documents/Java
 	mkdir -p ~/Documents/Disks
 	mkdir -p ~/Documents/Archives
-	mkdir -p ~/Documents/Word
-	mkdir -p ~/Documents/Powerpoint
-	mkdir -p ~/Documents/Excel
 	mkdir -p ~/Pictures/Screenshots
 	mkdir -p ~/Pictures/GIMP
 	mkdir -p ~/Videos/Recordings
@@ -158,13 +145,6 @@ baseInstall(){
 
 postInstall()
 {
-	if [ "$DISTRO" = "gentoo" ];then
-		{
-			# Adding to audio group
-			usermod -aG audio "$(whoami)"
-		}
-	fi
-
 	# Setup Git account
 	printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
 	if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
