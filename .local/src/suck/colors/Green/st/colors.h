@@ -25,3 +25,10 @@ const char *colorname[] = {
   [257] = "#c0e5c7", /* foreground */
   [256] = "#c0e5c7",     /* cursor */
 };
+
+/* Default colors (colorname index)
+ * foreground, background, cursor */
+ unsigned int defaultbg = 0;
+ unsigned int defaultfg = 257;
+ unsigned int defaultcs = 256;
+ unsigned int defaultrcs= 256;
