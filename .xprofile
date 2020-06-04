@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # General Requirements
-dwmblocks &
+slstatus &
 xwallpaper --stretch "$WALLPAPER" &
 picom -f --fade-delta=5 &
 setxkbmap pt &

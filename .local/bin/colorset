@@ -1,11 +1,5 @@
 #!/bin/sh
 
-##if [ -z "$1" ]
-##  then
-##    exit
-##fi
-##
-# Setting Vars
 if [ -f /usr/bin/wal ]; then
 	/usr/bin/wal -i "$1"
 else
@@ -41,10 +35,9 @@ cp -rf "$SUCK"/colors/wal/wallpaper.png ~/.config/wallpaper
 
 xwallpaper --stretch "$WALLPAPER"
 cd "$SUCK"/dwm && git pull ; doas make clean install ; make clean
-cd "$SUCK"/dwmblocks && git pull ; doas make clean install ; make clean
+cd "$SUCK"/slstatus && git pull ; doas make clean install ; make clean
 cd "$SUCK"/dmenu && git pull ; doas make clean install ; make clean
 cd "$SUCK"/st && git pull ; doas make clean install ; make clean
 cd "$SUCK"/farbfeld && git pull ; doas make clean install ; make clean
 cd "$SUCK"/sent && git pull ; doas make clean install ; make clean
-cd "$SUCK"/neovimb && git pull ; doas make clean install ; make clean
 cd "$SUCK"/slock && git pull ; doas make clean install ; make clean

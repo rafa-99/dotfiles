@@ -11,20 +11,19 @@ SUCK=$(pwd)
 #################################
 
 git clone https://gitlab.com/rafa_99/dwm
-git clone https://gitlab.com/rafa_99/dwmblocks
+git clone https://gitlab.com/rafa_99/slstatus
 git clone https://gitlab.com/rafa_99/dmenu
 git clone https://gitlab.com/rafa_99/st
 git clone https://gitlab.com/rafa_99/farbfeld
 git clone https://gitlab.com/rafa_99/sent
 git clone https://gitlab.com/rafa_99/slock
 cd "$SUCK"/dwm && git pull && git checkout . ;
-cd "$SUCK"/dwmblocks && git pull && git checkout . ;
+cd "$SUCK"/slstatus && git pull && git checkout . ;
 cd "$SUCK"/dmenu && git pull && git checkout . ;
 cd "$SUCK"/st && git pull && git checkout . ;
 cd "$SUCK"/farbfeld && git pull && git checkout . ;
 cd "$SUCK"/sent && git pull && git checkout . ;
 cd "$SUCK"/slock && git pull && git checkout .
-mv -f ~/.config/customs/dwmblocks ~/.local/src/suck/dwmblocks/config.h
 
 ##########################
 # Selecting Color Scheme #
@@ -53,7 +52,7 @@ esac
 ########################
 
 cd "$SUCK"/dwm && git pull ; doas make clean install ; make clean
-cd "$SUCK"/dwmblocks && git pull ; doas make clean install ; make clean
+cd "$SUCK"/slstatus && git pull ; doas make clean install ; make clean
 cd "$SUCK"/dmenu && git pull ; doas make clean install ; make clean
 cd "$SUCK"/st && git pull ; doas make clean install ; make clean
 cd "$SUCK"/farbfeld && git pull ; doas make clean install ; make clean

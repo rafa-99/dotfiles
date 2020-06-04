@@ -1,5 +1,6 @@
 app-emulation/virtualbox qt5
 dev-lang/R jpeg png X minimal -tiff -tk
+dev-lang/ghc -elfutils -ghcbootstrap -ghcmakebinary -binary
 dev-libs/glib dbus
 dev-vcs/git -emacs
 media-gfx/gimp -gnome-keyring -python
