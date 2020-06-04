@@ -6,6 +6,7 @@ media-gfx/gimp -gnome-keyring -python
 media-sound/ncmpcpp visualizer
 media-video/ffmpeg X bzip2 debug doc gtk-doc encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opengl opus oss sdl speex svg test theora threads truetype v4l vaapi vdpau vorbis wavpack webp x264 xvid zlib
 media-video/mpv cli -raspberry-pi
+net-libs/nodejs -snapshot -system-ssl
 net-libs/webkit-gtk -geolocation
 net-misc/networkmanager bluetooth -ppp -vala -teamd -ofono -dhcpcd
 net-print/cups dbus
@@ -14,7 +15,8 @@ sci-mathematics/octave gui
 sys-boot/grub mount
 sys-devel/clang xml
 sys-devel/gcc objc
-sys-devel/llvm abi_x86_32
+sys-devel/gdb -python -server -xml
+sys-devel/llvm -doc -exegesis -ncusrses -z3 -debug -test -xml
 virtual/opengl abi_x86_32
 www-client/firefox -bindist -debug -screenshot
 x11-misc/xwallpaper jpeg png
