@@ -1,9 +1,10 @@
 #!/bin/sh
 
 # Screenshot Tool Script
+
 if [ "$1" = "q" ] || [ "$1" = "quick" ]; then
 	{
-		flameshot full -r > ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
+		maim -m 10 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
 	}
 else
 	{
@@ -14,14 +15,22 @@ else
 				SAVE=$(printf "Clipboard\nPictures Folder" | dmenu -i -p "Save to: ")
 				case "$SAVE" in
 					"Clipboard")
-						flameshot full -d 1000 -c
+						maim -m 10 | xclip -selection clipboard -t image/png
 						;;
 					"Pictures Folder")
-						flameshot full -d 1000 -r > ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
+						maim -m 10 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
 				esac
 				;;
 			Selection)
-				flameshot gui
+				SAVE=$(printf "Clipboard\nPictures Folder" | dmenu -i -p "Save to: ")
+				case "$SAVE" in
+					"Clipboard")
+						maim -s -m 10 | xclip -selection clipboard -t image/png
+						;;
+					"Pictures Folder")
+						maim -s -m 10 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
+				esac
+				;;
 		esac
 
 	}
