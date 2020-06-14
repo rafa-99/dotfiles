@@ -1,8 +1,13 @@
+app-crypt/gcr gtk
 app-emulation/virtualbox qt5
+dev-cpp/cairomm aqua X
+dev-cpp/gtkmm X
+dev-lang/python sqlite
 dev-lang/R jpeg png X minimal -tiff -tk
 dev-lang/ghc -elfutils -ghcbootstrap -ghcmakebinary -binary
 dev-libs/glib dbus
 dev-vcs/git -emacs
+gnustep-base/gnustep-make native-exceptions
 media-gfx/gimp -gnome-keyring -python
 media-sound/ncmpcpp visualizer
 media-libs/harfbuzz icu
@@ -22,4 +27,18 @@ sys-devel/gdb client -python -server -xml
 sys-devel/llvm exegesis gold -doc -ncurses -z3 -debug -test -xml
 www-client/firefox -bindist -debug -screenshot
 www-client/firefox-bin -startup-notification -wayland
+x11-base/xcb-proto abi_x86_32
+x11-libs/cairo X aqua
+x11-libs/libdrm abi_x86_32
+x11-libs/libX11 abi_x86_32
+x11-libs/libXau abi_x86_32
+x11-libs/libxcb abi_x86_32
+x11-libs/libXdamage abi_x86_32
+x11-libs/libXdmcp abi_x86_32
+x11-libs/libXext abi_x86_32
+x11-libs/libXfixes abi_x86_32
+x11-libs/libXrandr abi_x86_32
+x11-libs/libXrender abi_x86_32
+x11-libs/libxshmfence abi_x86_32
+x11-libs/libXxf86vm abi_x86_32
 x11-misc/xwallpaper jpeg png

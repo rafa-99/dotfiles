@@ -10,3 +10,4 @@ net-im/discord-bin ~amd64
 media-sound/pulsemixer ~amd64
 games-util/lutris ~amd64
 games-action/minetest ~amd64
+dev-util/idea-community ~amd64
