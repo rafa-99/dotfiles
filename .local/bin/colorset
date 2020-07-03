@@ -16,18 +16,8 @@ convert "$1" "$SUCK"/colors/wal/wallpaper.png
 
 # Setting the new colorscheme based on the wallpaper
 cp ~/.cache/wal/colors-wal-dmenu.h "$SUCK"/colors/wal/dmenu/colors.h
+cp ~/.cache/wal/colors-wal-st.h "$SUCK"/colors/wal/st/colors.h
 head -7 ~/.cache/wal/colors-wal-dwm.h > "$SUCK"/colors/wal/dwm/colors.h
-head -27 ~/.cache/wal/colors-wal-st.h > "$SUCK"/colors/wal/st/colors.h
-sed -i s:256:259:g "$SUCK"/colors/wal/st/colors.h
-sed -i s:258:256:g "$SUCK"/colors/wal/st/colors.h
-sed -i s:259:258:g "$SUCK"/colors/wal/st/colors.h
-echo "" >> "$SUCK"/colors/wal/st/colors.h
-echo "/* Default colors (colorname index)" >> "$SUCK"/colors/wal/st/colors.h
-echo " * foreground, background, cursor */" >> "$SUCK"/colors/wal/st/colors.h
-echo " unsigned int defaultbg = 0;" >> "$SUCK"/colors/wal/st/colors.h
-echo " unsigned int defaultfg = 257;" >> "$SUCK"/colors/wal/st/colors.h
-echo " unsigned int defaultcs = 256;" >> "$SUCK"/colors/wal/st/colors.h
-echo " unsigned int defaultrcs = 256;" >> "$SUCK"/colors/wal/st/colors.h
 
 # Recompiling Suckless Programs with new colorscheme
 cp -rf "$SUCK"/colors/wal/* "$SUCK"
