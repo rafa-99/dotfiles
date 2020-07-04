@@ -7,7 +7,7 @@ bind-key l open
 bind-key u open-in-browser
 bind-key h quit
 bind-key q hard-quit
-browser "surf %u"
-color listfocus blue white standout 
+browser "$BROWSER %u"
+color listfocus blue white standout
 color listfocus_unread blue white standout bold
 color info white blue standout bold
