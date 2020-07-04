@@ -4,7 +4,7 @@
 
 if [ "$1" = "q" ] || [ "$1" = "quick" ]; then
 	{
-		maim -m 10 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
+		maim -u -m 10 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
 	}
 else
 	{
@@ -15,20 +15,20 @@ else
 				SAVE=$(printf "Clipboard\nPictures Folder" | dmenu -i -p "Save to: ")
 				case "$SAVE" in
 					"Clipboard")
-						maim -m 10 | xclip -selection clipboard -t image/png
+						maim -u -q -d 1 -m 10 | xclip -selection clipboard -t image/png
 						;;
 					"Pictures Folder")
-						maim -m 10 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
+						maim -u -q -d 1 -m 10 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
 				esac
 				;;
 			Selection)
 				SAVE=$(printf "Clipboard\nPictures Folder" | dmenu -i -p "Save to: ")
 				case "$SAVE" in
 					"Clipboard")
-						maim -s -m 10 | xclip -selection clipboard -t image/png
+						maim -s -u -m 10 | xclip -selection clipboard -t image/png
 						;;
 					"Pictures Folder")
-						maim -s -m 10 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
+						maim -s -u -m 10 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
 				esac
 				;;
 		esac
