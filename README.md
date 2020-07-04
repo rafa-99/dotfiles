@@ -12,7 +12,7 @@ My personal configuration
 * newsboat (Terminal Based RSS Feed/Atom Reader)
 * neomutt (Terminal Email Client)
 * R (Language for data analysis and graphics)
-* [surf](https://gitlab.com/rafa_99/surf) (Web Browser/HTML Viewer)
+* qutebrowser (Web Browser/HTML Viewer)
 * [st](https://gitlab.com/rafa_99/st) (Terminal)
 * vifm (Terminal Based File Manager)
 * zathura (Vim based PDF Reader)
