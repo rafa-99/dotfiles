@@ -3,24 +3,24 @@
 # Pulseaudio or Alsa audio binds
 case $1 in
 	"+")
-		if [ -f /bin/pamixer ]; then
-			pamixer -i 5
+		if [ -f /bin/pulsemixer ]; then
+			pulsemixer --change-volume +5
 		elif
 			[ -f /bin/amixer ]; then
 			amixer set Master 5%+
 		fi
 		;;
 	"-")
-		if [ -f /bin/pamixer ]; then
-			pamixer -d 5
+		if [ -f /bin/pulsemixer ]; then
+			pulsemixer --change-volume +5
 		elif
 			[ -f /bin/amixer ]; then
 			amixer set Master 5%-
 		fi
 		;;
 	t)
-		if [ -f /bin/pamixer ]; then
-			pamixer -t
+		if [ -f /bin/pulsemixer ]; then
+			pulsemixer --toggle-mute
 		elif
 			[ -f /bin/amixer ]; then
 			amixer set Master toggle
