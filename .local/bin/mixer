@@ -12,7 +12,7 @@ case $1 in
 		;;
 	"-")
 		if [ -f /usr/bin/pulsemixer ]; then
-			pulsemixer --change-volume +5
+			pulsemixer --change-volume -5
 		elif
 			[ -f /usr/bin/amixer ]; then
 			amixer set Master 5%-
