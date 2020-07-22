@@ -18,7 +18,7 @@ arch(){
 	doas cp -rf ".local/etc/hosts" "/etc/"
 	# Installing Deps
 	doas pacman -Rns vim
-	doas pacman --needed -Syu screenfetch zsh youtube-dl engrampa nmap ncmpcpp xwallpaper newsboat vifm zathura tk maim ffmpeg texlive-most pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal r pandoc-citeproc qutebrowser python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme linux-firmware atom ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme neomutt isync uncrustify lsd
+	doas pacman --needed -Syu screenfetch zsh youtube-dl engrampa nmap ncmpcpp xwallpaper newsboat vifm zathura tk maim ffmpeg texlive-most pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal r pandoc-citeproc qutebrowser python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme linux-firmware atom ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme neomutt isync uncrustify lsd valgrind doxygen gdb
 
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
@@ -27,7 +27,7 @@ arch(){
 	fi
 
 	# Install Extra AUR packages
-	printf "Do yo want to setup extra git packages? [Y/n]" && read -r AUR
+	printf "Do yo want to setup extra AUR packages? [Y/n]" && read -r AUR
 	if [ "$AUR" != "N" ] && [ "$AUR" != "n" ]; then
 		yay --needed -Syu lbry-app-bin xorg-transset cordless-git
 	fi
@@ -57,7 +57,7 @@ gentoo(){
 	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
 	if [ "$EXTRA" != "N" ] && [ "$EXTRA" != "n" ]; then
 		FEATURES="splitdebug" emerge --oneshot sys-libs/glibc
-		emerge --ask --quiet sxiv mpv youtube-dl ncmpcpp mpc mpd tk ntfs3g redshift numlockx R pandoc-citeproc android-tools shellcheck app-admin/system-config-printer texlive-latex net-libs/nodejs mail-client/neomutt net-mail/isync firefox-bin libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd transset
+		emerge --ask --quiet sxiv mpv youtube-dl ncmpcpp mpc mpd tk ntfs3g redshift numlockx R pandoc-citeproc android-tools shellcheck app-admin/system-config-printer texlive-latex net-libs/nodejs mail-client/neomutt net-mail/isync firefox-bin libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd transset picom
 	fi
 
 }

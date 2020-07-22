@@ -28,10 +28,11 @@ gnustep-base/gnustep-make native-exceptions
 media-gfx/gimp -gnome-keyring -python
 media-libs/gegl cairo
 media-libs/harfbuzz icu
+media-libs/libepoxy egl
 media-libs/libglvnd X abi_x86_32
 media-libs/libpng apng
 media-libs/libvpx postproc
-media-libs/mesa abi_x86_32
+media-libs/mesa abi_x86_32 egl
 media-plugins/alsa-plugins pulseaudio
 media-sound/ncmpcpp visualizer
 media-video/ffmpeg X bzip2 debug doc gtk-doc encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opengl opus oss sdl speex svg test theora threads truetype v4l vaapi vdpau vorbis wavpack webp x264 xvid zlib
@@ -57,6 +58,7 @@ www-client/firefox hardened hwaccel openh264 system-av1 system-harfbuzz system-i
 x11-base/xcb-proto abi_x86_32
 x11-libs/cairo X aqua
 x11-libs/libdrm abi_x86_32
+x11-libs/libpciaccess abi_x86_32
 x11-libs/libX11 abi_x86_32
 x11-libs/libXau abi_x86_32
 x11-libs/libxcb abi_x86_32
