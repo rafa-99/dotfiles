@@ -1,5 +1,6 @@
+app-arch/unrar unRAR
+dev-util/idea-community codehaus-classworlds
 media-fonts/font-bh-ttf bh-luxi
 media-fonts/font-bh-type1 bh-luxi
-sys-kernel/linux-firmware linux-fw-redistributable no-source-code
 net-im/discord-bin all-rights-reserved
-dev-util/idea-community codehaus-classworlds
+sys-kernel/linux-firmware linux-fw-redistributable no-source-code

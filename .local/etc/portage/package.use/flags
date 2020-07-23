@@ -27,6 +27,7 @@ dev-vcs/git -emacs
 gnustep-base/gnustep-make native-exceptions
 media-gfx/gimp -gnome-keyring -python
 media-libs/gegl cairo
+media-libs/gst-plugins-base egl
 media-libs/harfbuzz icu
 media-libs/libepoxy egl
 media-libs/libglvnd X abi_x86_32
@@ -39,11 +40,14 @@ media-video/ffmpeg X bzip2 debug doc gtk-doc encode fontconfig gmp gnutls gsm ic
 media-video/mpv cli -raspberry-pi
 net-libs/libssh server
 net-libs/nodejs -snapshot -system-ssl
-net-libs/webkit-gtk -geolocation
+net-libs/webkit-gtk egl -geolocation
 net-misc/networkmanager bluetooth -ppp -vala -teamd -ofono -dhcpcd
 net-print/cups dbus
 net-wireless/wpa_supplicant dbus
 sci-mathematics/octave gui
+sys-auth/consolekit policykit
+sys-auth/pambase elogind
+sys-auth/polkit consolekit
 sys-boot/grub mount
 sys-devel/clang xml
 sys-devel/gcc objc
