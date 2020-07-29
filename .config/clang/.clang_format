@@ -22,25 +22,25 @@ AlwaysBreakTemplateDeclarations: MultiLine
 BinPackArguments: true
 BinPackParameters: true
 BraceWrapping:
- AfterCaseLabel: true
- AfterClass: true
- AfterControlStatement: true
- AfterEnum: true
- AfterFunction: true
- AfterNamespace: true
- AfterObjCDeclaration: true
- AfterStruct: true
- AfterUnion: true
- AfterExternBlock: true
- BeforeCatch: true
- BeforeElse: true
- IndentBraces: true
- SplitEmptyFunction: true
- SplitEmptyRecord: true
- SplitEmptyNamespace: true
+  AfterCaseLabel: true
+  AfterClass: true
+  AfterControlStatement: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterObjCDeclaration: true
+  AfterStruct: true
+  AfterUnion: true
+  AfterExternBlock: true
+  BeforeCatch: true
+  BeforeElse: true
+  IndentBraces: true
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
 BreakAfterJavaFieldAnnotations: true
 BreakBeforeBinaryOperators: All
-BreakBeforeBraces: Allman
+BreakBeforeBraces: Custom
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: AfterColon
 BreakInheritanceList: AfterColon
