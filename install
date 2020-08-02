@@ -18,7 +18,7 @@ arch(){
 	doas cp -rf ".local/etc/hosts" "/etc/"
 	# Installing Deps
 	doas pacman -Rns vim
-	doas pacman --needed -Syu screenfetch zsh youtube-dl engrampa nmap ncmpcpp xwallpaper newsboat vifm zathura tk maim ffmpeg texlive-most pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal r pandoc-citeproc qutebrowser python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme linux-firmware atom ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme neomutt isync uncrustify lsd valgrind doxygen gdb
+	doas pacman --needed -Syu screenfetch zsh youtube-dl engrampa nmap ncmpcpp xwallpaper newsboat vifm zathura tk maim ffmpeg texlive-most pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal r pandoc-citeproc qutebrowser python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme linux-firmware atom ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme neomutt isync uncrustify lsd valgrind doxygen gdb light
 
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
@@ -51,7 +51,7 @@ gentoo(){
 
 	printf "Do you want to install Base Packages? [Y/n]" && read -r BASE
 	if [ "$BASE" != "N" ] && [ "$BASE" != "n" ]; then
-		emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler zip wget make bc unar xorg-x11 xinit zsh pm-utils doas sys-fs/dosfstools app-editors/neovim alsa-lib alsa-plugins
+		emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler zip wget make bc unar xorg-x11 xinit zsh pm-utils doas sys-fs/dosfstools app-editors/neovim alsa-lib alsa-plugins light
 	fi
 
 	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
@@ -77,7 +77,7 @@ void(){
 	doas cp -rf ".local/etc/hosts" "/etc/"
 
 	# Installing apps
-	doas xbps-install xorg git neovim opendoas qutebrowser ncmpcpp neofetch atom zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel engrampa zathura zathura-pdf-poppler ctags maim unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip transset lsd
+	doas xbps-install xorg git neovim opendoas qutebrowser ncmpcpp neofetch zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel engrampa zathura zathura-pdf-poppler ctags maim unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip transset lsd light
 
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
