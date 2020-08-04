@@ -4,7 +4,8 @@
 # Distro dots install list
 #
 
-arch(){
+arch()
+{
 	echo "######################"
 	echo "# dotfiles Installer #"
 	echo "######################"
@@ -36,7 +37,8 @@ arch(){
 	doas pacman --noconfirm -Scc
 }
 
-gentoo(){
+gentoo()
+{
 	echo "######################"
 	echo "# dotfiles Installer #"
 	echo "######################"
@@ -62,7 +64,13 @@ gentoo(){
 
 }
 
-void(){
+openbsd()
+{
+	pkg_add neovim git neofetch firefox gimp zsh newsboat zathura ffmpeg maim xwallpaper xclip redshift mpv ncmpcpp ImageMagick gdb valgrind doxygen unoconv sxiv mpc ccache ntp htop zip numlockx shellcheck unzip mc node
+}
+
+void()
+{
 	echo "######################"
 	echo "# dotfiles Installer #"
 	echo "######################"
@@ -77,7 +85,7 @@ void(){
 	doas cp -rf ".local/etc/hosts" "/etc/"
 
 	# Installing apps
-	doas xbps-install xorg git neovim opendoas qutebrowser ncmpcpp neofetch zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel engrampa zathura zathura-pdf-poppler ctags maim unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip transset lsd light psmisc void-linux-nonfree void-linux-multilib void-linux-nonfree-multilib
+	doas xbps-install xorg git neovim opendoas qutebrowser ncmpcpp neofetch zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel engrampa zathura zathura-pdf-poppler ctags maim unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip transset lsd light  psmisc void-linux-nonfree void-linux-multilib void-linux-nonfree-multilib
 
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
@@ -120,11 +128,14 @@ baseInstall(){
 	sh sucklessUpdate
 	cd "$CURDIR" || exit
 
-	# Fixing Java Programs on Window Managers
-	doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
-
-	# Changing default shell to zsh
-	chsh -s /bin/zsh
+	if [ "$OS" != 3 ]; then
+		{
+			# Fixing Java Programs on Window Managers
+			doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
+			# Changing default shell to zsh
+			chsh -s /bin/zsh
+		}
+	fi
 
 	# Setting up Neovim
 	## Linking Neovim to Vim
@@ -173,8 +184,7 @@ postInstall()
 # Main Script
 #
 
-echo "Detecting Distro..."
-DISTRO=$(grep ^ID= /etc/os-release | sed s:ID=::g | sed s:\"::g)
+printf "Select a Operating System:\n1) Arch Linux\n2) Gentoo Linux\n3) OpenBSD\n4) Void Linux\n5) None\n-> " && read -r OS && clear
 
 if [ -f /usr/local/bin/dwm ]; then
 	{
@@ -182,15 +192,21 @@ if [ -f /usr/local/bin/dwm ]; then
 	}
 else
 	{
-		case "$DISTRO" in
-			arch)
+		case "$OS" in
+			1)
 				arch && baseInstall
 				;;
-			gentoo)
+			2)
 				gentoo && baseInstall
 				;;
-			void)
+			3)
+				openbsd && baseInstall
+				;;
+			4)
 				void && baseInstall
+				;;
+			5)
+				echo "None Selected"
 				;;
 			*)
 				baseInstall
