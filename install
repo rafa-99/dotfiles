@@ -77,7 +77,7 @@ void(){
 	doas cp -rf ".local/etc/hosts" "/etc/"
 
 	# Installing apps
-	doas xbps-install xorg git neovim opendoas qutebrowser ncmpcpp neofetch zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel engrampa zathura zathura-pdf-poppler ctags maim unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip transset lsd light
+	doas xbps-install xorg git neovim opendoas qutebrowser ncmpcpp neofetch zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel engrampa zathura zathura-pdf-poppler ctags maim unoconv neomutt isync nodejs curl wget R void-repo-multilib pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip transset lsd light psmisc void-linux-nonfree void-linux-multilib void-linux-nonfree-multilib
 
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
