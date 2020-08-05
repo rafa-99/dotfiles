@@ -1,8 +1,7 @@
 #!/bin/sh
 
 # Profile file. Runs on login. Environmental variables are set here.
-# Grabs the  current distro
-DISTRO="$(grep ^ID= /etc/os-release | sed s:ID=::g | sed s:\"::g)"
+DISTRO=REPLACEME
 
 # Adds ~/.local/bin to $PATH
 export PATH="$HOME/.local/bin:$PATH"
@@ -28,7 +27,7 @@ export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
 export WINEPREFIX="$XDG_DATA_HOME"/wine/default
 
 # Default Vars
-export WALLPAPER="$HOME"/.config/wallpaper/wallpaper.png
+export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
 
 #Session Selection Menu
 export SESSION=dwm

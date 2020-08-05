@@ -12,19 +12,24 @@ arch()
 	echo "|   for Arch Linux   |"
 	echo "**********************"
 
+	# Setting system distro
+	sed -i s:REPLACEME:arch:g .zprofile
+
 	# Installing opendoas
 	sudo pacman -Syu --needed opendoas
+
 	# Updated doas permissions
 	sudo cp -rf ".local/etc/doas.conf" "/etc/"
 	doas cp -rf ".local/etc/hosts" "/etc/"
+
 	# Installing Deps
-	doas pacman -Rns vim
+	doas pacman -Rnsc vim
 	doas pacman --needed -Syu screenfetch zsh youtube-dl engrampa nmap ncmpcpp xwallpaper newsboat vifm zathura tk maim ffmpeg texlive-most pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal r pandoc-citeproc qutebrowser python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme linux-firmware atom ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme neomutt isync uncrustify lsd valgrind doxygen gdb light
 
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
 	if [ "$CS" != "N" ] && [ "$CS" != "n" ]; then
-		doas pacman --needed --noconfirm -S jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench octave && clear
+		doas pacman --needed --noconfirm -Syu jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench octave && clear
 	fi
 
 	# Install Extra AUR packages
@@ -47,7 +52,9 @@ gentoo()
 
 	# Checking if is root
 	if [ "$(id -u)" != "0" ]; then
-		echo "This script must be run as root" 1>&2
+		# Setting system distro
+		sed -i s:REPLACEME:gentoo:g .zprofile
+		echo "This script now, must be run as root" 1>&2
 		exit 1
 	fi
 
@@ -66,6 +73,13 @@ gentoo()
 
 openbsd()
 {
+	echo "######################"
+	echo "# dotfiles Installer #"
+	echo "######################"
+	echo "|    for OpenBSD     |"
+	echo "**********************"
+
+	sed -i s:REPLACEME:openbsd:g .zprofile
 	pkg_add neovim git neofetch firefox gimp zsh newsboat zathura ffmpeg maim xwallpaper xclip redshift mpv ncmpcpp ImageMagick gdb valgrind doxygen unoconv sxiv mpc ccache ntp htop zip numlockx shellcheck unzip mc node
 }
 
@@ -76,6 +90,9 @@ void()
 	echo "######################"
 	echo "|   for Void Linux   |"
 	echo "**********************"
+
+	# Setting system distro
+	sed -i s:REPLACEME:void:g .zprofile
 
 	# Installing opendoas
 	sudo xbps-install opendoas
@@ -115,6 +132,7 @@ baseInstall(){
 	mkdir -p ~/Documents/Markdown
 	mkdir -p ~/Documents/Disks
 	mkdir -p ~/Documents/Archives
+	mkdir -p ~/Downloads
 	mkdir -p ~/Pictures/Screenshots
 	mkdir -p ~/Pictures/GIMP
 	mkdir -p ~/Videos/Recordings
@@ -132,6 +150,7 @@ baseInstall(){
 		{
 			# Fixing Java Programs on Window Managers
 			doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
+
 			# Changing default shell to zsh
 			chsh -s /bin/zsh
 		}
