@@ -80,7 +80,37 @@ openbsd()
 	echo "**********************"
 
 	sed -i s:REPLACEME:openbsd:g .zprofile
-	pkg_add neovim git neofetch firefox gimp zsh newsboat zathura ffmpeg maim xwallpaper xclip redshift mpv ncmpcpp ImageMagick gdb valgrind doxygen unoconv sxiv mpc ccache ntp htop zip numlockx shellcheck unzip mc node
+	pkg_add neovim
+	pkg_add git
+	pkg_add neofetch
+	pkg_add firefox
+	pkg_add gimp
+	pkg_add zsh
+	pkg_add newsboat
+	pkg_add zathura
+	pkg_add ffmpeg
+	pkg_add maim
+	pkg_add xwallpaper
+	pkg_add xclip
+	pkg_add redshift
+	pkg_add mpv
+	pkg_add ncmpcpp
+	pkg_add ImageMagick
+	pkg_add gdb
+	pkg_add valgrind
+	pkg_add doxygen
+	pkg_add unoconv
+	pkg_add sxiv
+	pkg_add mpc
+	pkg_add ccache
+	pkg_add ntp
+	pkg_add htop
+	pkg_add zip
+	pkg_add numlockx
+	pkg_add shellcheck
+	pkg_add unzip
+	pkg_add mc
+	pkg_add node
 }
 
 void()
