@@ -20,6 +20,8 @@ distrovars()
 		arch|manjaro|parabola)
 			if [ -f /usr/bin/yay ]; then
 				RUN=yay
+			elif [ -f /usr/bin/doas ]; then
+				RUN="doas pacman"
 			else
 				RUN="sudo pacman"
 			fi
@@ -55,13 +57,13 @@ clean()
 {
 	case "$DISTRO" in
 		arch|manjaro|parabola)
-			"$RUN" -Rns "$(pacman -Qtdq)" && "$RUN" -Scc
+			$RUN -Rns "$(pacman -Qtdq)" && $RUN -Scc
 			;;
 		debian|ubuntu|linuxmint)
-			"$RUN" apt autoremove --purge && "$RUN" apt clean
+			$RUN apt autoremove --purge && $RUN apt clean
 			;;
 		gentoo)
-			"$RUN" emerge -caq
+			$RUN emerge -caq
 			;;
 		void)
 			"$SU" xbps-remove -Oo
@@ -77,16 +79,16 @@ install()
 {
 	case "$DISTRO" in
 		arch|manjaro|parabola)
-			"$RUN" -Sy "$PACKAGE"
+			$RUN -Sy "$PACKAGE"
 			;;
 		debian|ubuntu|linuxmint)
-			"$RUN" apt install "$PACKAGE"
+			$RUN apt install "$PACKAGE"
 			;;
 		gentoo)
-			"$RUN" emerge -aq "$PACKAGE"
+			$RUN emerge -aq "$PACKAGE"
 			;;
 		void)
-			"$RUN" xbps-install -S "$PACKAGE"
+			$RUN xbps-install -S "$PACKAGE"
 	esac
 }
 
@@ -111,16 +113,16 @@ remove()
 {
 	case "$DISTRO" in
 		arch|manjaro|parabola)
-			"$RUN" -Rns "$PACKAGE"
+			$RUN -Rns "$PACKAGE"
 			;;
 		debian|ubuntu|linuxmint)
-			"$RUN" apt autoremove --purge "$PACKAGE"
+			$RUN apt autoremove --purge "$PACKAGE"
 			;;
 		gentoo)
-			"$RUN" emerge -caq "$PACKAGE"
+			$RUN emerge -caq "$PACKAGE"
 			;;
 		void)
-			"$RUN" xbps-remove -R "$PACKAGE"
+			$RUN xbps-remove -R "$PACKAGE"
 	esac
 }
 
@@ -145,20 +147,20 @@ update()
 {
 	case "$DISTRO" in
 		arch|manjaro|parabola)
-			"$RUN" -Syyuu
+			$RUN -Syyuu
 			;;
 		debian|ubuntu|linuxmint)
-			"$RUN" apt update && "$RUN" apt upgrade
+			$RUN apt update && $RUN apt upgrade
 			;;
 		gentoo)
 			if [ -f /usr/bin/layman ]; then
-				"$RUN" layman -S &&"$RUN" emerge-webrsync && "$RUN" emerge -uaqDU --keep-going --with-bdeps=y --newuse @world
+				$RUN layman -S &&$RUN emerge-webrsync && $RUN emerge -uaqDU --keep-going --with-bdeps=y --newuse @world
 			else
-				"$RUN" emerge-webrsync && "$RUN" emerge -uaqDU --keep-going --with-bdeps=y --newuse @world
+				$RUN emerge-webrsync && $RUN emerge -uaqDU --keep-going --with-bdeps=y --newuse @world
 			fi
 			;;
 		void)
-			"$RUN" xbps-install -Su
+			$RUN xbps-install -Su
 	esac
 }
 

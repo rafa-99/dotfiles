@@ -4,18 +4,12 @@ OPERATION=$(printf "Reboot\nShutdown\nSuspend" | dmenu -i -p "Power Menu:")
 
 case $OPERATION in
 	Reboot)
-		doas shutdown -r now
-	;;
+		doas reboot
+		;;
 	Shutdown)
-		OPTION=$(printf "No\nYes" | dmenu -i -p "Set timer?") \
-		&& if [ "$OPTION" = "Y" ] || [ "$OPTION" = "y" ]; then \
-		printf"5\n10\n30\n60\n90\n120" | dmenu -i -p "Shutdown in Minutes:" | xargs -I {} doas shutdown -P +{}
-			else
-			doas shutdown -h now
-		fi
-	;;
+		doas poweroff
+		;;
 	Suspend)
-		DISTRO=$(grep ^ID= /etc/os-release | sed s:ID=::g)
 		if [ "$DISTRO" = "gentoo" ]; then
 			doas pm-suspend ; slock
 		elif [ "$DISTRO" = "arch" ]; then

@@ -5,6 +5,7 @@ DISTRO=REPLACEME
 
 # Adds ~/.local/bin to $PATH
 export PATH="$HOME/.local/bin:$PATH"
+pulseaudio -D
 
 # Default programs
 export EDITOR="nvim"
