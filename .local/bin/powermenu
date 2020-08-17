@@ -12,12 +12,15 @@ case $OPERATION in
 	Suspend)
 		case $INIT in
 			openrc)
-				loginctl suspend ; slock
+				slock &
+				loginctl suspend
 				;;
 			runit)
-				doas zzz ; slock
+				slock &
+				doas zzz
 				;;
 			systemd)
-				doas systemctl suspend ; slock
+				slock &
+				doas systemctl suspend
 		esac
 esac
