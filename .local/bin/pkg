@@ -17,7 +17,7 @@ distrovars()
 		debian|ubuntu|linuxmint|void)
 			RUN=sudo
 			;;
-		arch|manjaro|parabola)
+		arch|artix|manjaro|parabola)
 			if [ -f /usr/bin/yay ]; then
 				RUN=yay
 			elif [ -f /usr/bin/doas ]; then

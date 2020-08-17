@@ -1,8 +1,6 @@
 #!/bin/sh
 
 # Profile file. Runs on login. Environmental variables are set here.
-DISTRO=REPLACEME
-
 # Adds ~/.local/bin to $PATH
 export PATH="$HOME/.local/bin:$PATH"
 pulseaudio -D
@@ -13,7 +11,8 @@ export TERMINAL="st"
 export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="vifm"
-export DISTRO
+export DISTRO="REPLACEDISTRO"
+export INIT="REPLACEINIT"
 
 # Home directory clean-up
 export SUCK="$HOME"/.local/src/suck

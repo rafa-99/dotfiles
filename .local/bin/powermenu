@@ -10,11 +10,14 @@ case $OPERATION in
 		doas poweroff
 		;;
 	Suspend)
-		if [ "$DISTRO" = "gentoo" ]; then
-			doas pm-suspend ; slock
-		elif [ "$DISTRO" = "arch" ]; then
-			systemctl suspend ; slock
-		else
-			slock
-		fi
+		case $INIT in
+			openrc)
+				loginctl suspend ; slock
+				;;
+			runit)
+				doas zzz ; slock
+				;;
+			systemd)
+				doas systemctl suspend ; slock
+		esac
 esac
