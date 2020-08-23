@@ -8,7 +8,7 @@ pulseaudio -D
 # Default programs
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="qutebrowser"
+export BROWSER="tabbed -c neovimb -e"
 export READER="zathura"
 export FILE="vifm"
 export DISTRO="REPLACEDISTRO"
