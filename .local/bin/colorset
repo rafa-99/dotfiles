@@ -10,6 +10,7 @@ fi
 ! [ -f "$SUCK"/colors/wal/dmenu ] && mkdir -p "$SUCK"/colors/wal/dmenu
 ! [ -f "$SUCK"/colors/wal/dwm ] && mkdir -p "$SUCK"/colors/wal/dwm
 ! [ -f "$SUCK"/colors/wal/st ] && mkdir -p "$SUCK"/colors/wal/st
+! [ -f "$SUCK"/colors/wal/tabbed ] && mkdir -p "$SUCK"/colors/wal/tabbed
 
 # Purging previous colorscheme files
 convert "$1" "$SUCK"/colors/wal/wallpaper.png
@@ -18,6 +19,7 @@ convert "$1" "$SUCK"/colors/wal/wallpaper.png
 cp ~/.cache/wal/colors-wal-dmenu.h "$SUCK"/colors/wal/dmenu/colors.h
 cp ~/.cache/wal/colors-wal-st.h "$SUCK"/colors/wal/st/colors.h
 head -7 ~/.cache/wal/colors-wal-dwm.h > "$SUCK"/colors/wal/dwm/colors.h
+cp ~/.cache/wal/colors-wal-tabbed.h "$SUCK"/colors/wal/tabbed/colors.h
 
 # Recompiling Suckless Programs with new colorscheme
 cp -rf "$SUCK"/colors/wal/* "$SUCK"
@@ -28,6 +30,7 @@ cd "$SUCK"/dwm && git pull ; doas make clean install ; make clean
 cd "$SUCK"/slstatus && git pull ; doas make clean install ; make clean
 cd "$SUCK"/dmenu && git pull ; doas make clean install ; make clean
 cd "$SUCK"/st && git pull ; doas make clean install ; make clean
+cd "$SUCK"/tabbed && git pull ; doas make clean install ; make clean
 cd "$SUCK"/farbfeld && git pull ; doas make clean install ; make clean
 cd "$SUCK"/sent && git pull ; doas make clean install ; make clean
 cd "$SUCK"/slock && git pull ; doas make clean install ; make clean

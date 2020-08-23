@@ -14,6 +14,7 @@ git clone https://gitlab.com/rafa_99/dwm
 git clone https://gitlab.com/rafa_99/slstatus
 git clone https://gitlab.com/rafa_99/dmenu
 git clone https://gitlab.com/rafa_99/st
+git clone https://gitlab.com/rafa_99/tabbed
 git clone https://gitlab.com/rafa_99/farbfeld
 git clone https://gitlab.com/rafa_99/sent
 git clone https://gitlab.com/rafa_99/slock
@@ -21,6 +22,7 @@ cd "$SUCK"/dwm && git pull && git checkout . ;
 cd "$SUCK"/slstatus && git pull && git checkout . ;
 cd "$SUCK"/dmenu && git pull && git checkout . ;
 cd "$SUCK"/st && git pull && git checkout . ;
+cd "$SUCK"/tabbed && git pull && git checkout . ;
 cd "$SUCK"/farbfeld && git pull && git checkout . ;
 cd "$SUCK"/sent && git pull && git checkout . ;
 cd "$SUCK"/slock && git pull && git checkout .
@@ -51,25 +53,10 @@ esac
 # Recompiling Programs #
 ########################
 
-if [ "$DISTRO" == "openbsd" ]; then
-	cd "SUCK"/dwm && sed -i s:"FREETYPEINC = /usr/include/freetype2"::g config.mk && sed -i s:"#FREETYPEINC":"FREETYPEINC":g config.mk
-fi
 cd "$SUCK"/dwm && git pull ; doas make clean install ; make clean
-
 cd "$SUCK"/slstatus && git pull ; doas make clean install ; make clean
-
-if [ "$DISTRO" == "openbsd" ]; then
-	cd "SUCK"/dmenu && sed -i s:"FREETYPEINC = /usr/include/freetype2"::g config.mk && sed -i s:"#FREETYPEINC":"FREETYPEINC":g config.mk
-fi
 cd "$SUCK"/dmenu && git pull ; doas make clean install ; make clean
-
-if [ "$DISTRO" == "openbsd" ]; then
-	cd "SUCK"/st && sed -i s:"#CPPFLAGS":"CPPFLAGS":g config.mk && sed -i s:"LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft -lXrender\":"LIBS = -L$(X11LIB) -lm -lX11 -lutil -lXft \":g config.mk
-fi
 cd "$SUCK"/st && git pull ; doas make clean install ; make clean
-
 cd "$SUCK"/farbfeld && git pull ; doas make clean install ; make clean
-
 cd "$SUCK"/sent && git pull ; doas make clean install ; make clean
-
 cd "$SUCK"/slock && git pull ; doas make clean install ; make clean
