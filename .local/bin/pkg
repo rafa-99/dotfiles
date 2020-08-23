@@ -56,7 +56,7 @@ logo()
 clean()
 {
 	case "$DISTRO" in
-		arch|manjaro|parabola)
+		arch|artix|manjaro|parabola)
 			$RUN -Rns "$(pacman -Qtdq)" && $RUN -Scc
 			;;
 		debian|ubuntu|linuxmint)
@@ -78,7 +78,7 @@ help()
 install()
 {
 	case "$DISTRO" in
-		arch|manjaro|parabola)
+		arch|artix|manjaro|parabola)
 			$RUN -Sy "$PACKAGE"
 			;;
 		debian|ubuntu|linuxmint)
@@ -95,7 +95,7 @@ install()
 query()
 {
 	case "$DISTRO" in
-		arch|manjaro|parabola)
+		arch|artix|manjaro|parabola)
 			pacman -Qs "$PACKAGE"
 			;;
 		debian|ubuntu|linuxmint)
@@ -112,7 +112,7 @@ query()
 remove()
 {
 	case "$DISTRO" in
-		arch|manjaro|parabola)
+		arch|artix|manjaro|parabola)
 			$RUN -Rns "$PACKAGE"
 			;;
 		debian|ubuntu|linuxmint)
@@ -129,7 +129,7 @@ remove()
 search()
 {
 	case "$DISTRO" in
-		arch|manjaro|parabola)
+		arch|artix|manjaro|parabola)
 			pacman -Ss "$PACKAGE" | less
 			;;
 		debain)
@@ -146,7 +146,7 @@ search()
 update()
 {
 	case "$DISTRO" in
-		arch|manjaro|parabola)
+		arch|artix|manjaro|parabola)
 			$RUN -Syyuu
 			;;
 		debian|ubuntu|linuxmint)
