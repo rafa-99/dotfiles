@@ -46,7 +46,7 @@ case "$SCHEME" in
 		cp -rf "$SUCK"/colors/Red/* "$SUCK" && mv -f "$SUCK"/wallpaper.png "$HOME"/.config/wallpaper/
 		;;
 	5)
-		cp -rf "$SUCK"/colors/Wal/* "$SUCK" && mv -f "$SUCK"/wallpaper.png "$HOME"/.config/wallpaper/
+		cp -rf "$SUCK"/colors/wal/* "$SUCK" && mv -f "$SUCK"/wallpaper.png "$HOME"/.config/wallpaper/
 esac
 
 ########################
