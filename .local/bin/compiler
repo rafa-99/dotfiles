@@ -8,7 +8,26 @@ BASE=$(basename "$FILE" ."$EXTENSION")
 # Filter to compile other types of files
 case $EXTENSION in
 	md|rmd) # Markdown
-		DOCUMENT=$(printf "pdf_document\nhtml_document\nbeamer_presentation" | dmenu -i -p "Format:") && R -e "rmarkdown::render('$FILE', '""$DOCUMENT""')"
+		FORMAT=$(printf "PDF\nHTML\nBeamer\nODT\nDOCX\nPPTX\n" | dmenu -i -p "Format:")
+		case "$FORMAT" in
+			PDF)
+				pandoc "$FILE" --to latex --from markdown+autolink_bare_uris+tex_math_single_backslash --output "$BASE".pdf --self-contained --highlight-style tango --pdf-engine pdflatex --variable graphics --variable 'geometry:margin=1in'
+				;;
+			HTML)
+				pandoc "$FILE" --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output "$BASE".html --email-obfuscation none --self-contained --standalone --section-divs --template ~/.local/src/templates/default.html --no-highlight --variable highlightjs=1 --variable 'theme:bootstrap' --mathjax
+				;;
+			Beamer)
+				pandoc "$FILE" --to beamer --from markdown+autolink_bare_uris+tex_math_single_backslash --output "$BASE".pdf --highlight-style tango --pdf-engine pdflatex --self-contained
+				;;
+			ODT)
+				pandoc "$FILE" --to odt --from markdown+autolink_bare_uris+tex_math_single_backslash --output "$BASE".odt
+				;;
+			DOCX)
+				pandoc "$FILE" --to docx --from markdown+autolink_bare_uris+tex_math_single_backslash --output "$BASE".docx --highlight-style tango
+				;;
+			PPTX)
+				pandoc "$FILE" --to pptx --from markdown+autolink_bare_uris+tex_math_single_backslash --output "$BASE".pptx
+		esac
 		;;
 	ms) # Groff
 		groff -k -T pdf -m -ms "$FILE" > "$BASE.pdf"
@@ -22,7 +41,7 @@ case $EXTENSION in
 			doas make clean install ; make clean
 		else
 			FILES=$(find . -name '*.h' -o -name '*.c' | cut -d/ -f2 | xargs)
-			gcc -o "$BASE" $FILES
+			gcc -o "$BASE" "$FILES"
 		fi
 		;;
 	*)
