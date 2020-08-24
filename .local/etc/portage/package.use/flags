@@ -10,7 +10,6 @@ dev-cpp/cairomm aqua X
 dev-cpp/gtkmm X
 dev-db/sqlite secure-delete
 dev-lang/ghc -elfutils -ghcbootstrap -ghcmakebinary -binary
-dev-lang/python:2.7 sqlite
 dev-lang/python sqlite
 dev-lang/R jpeg png X minimal -tiff -tk
 dev-libs/boost icu
@@ -50,7 +49,7 @@ net-wireless/wpa_supplicant dbus
 sci-mathematics/octave gui
 sys-auth/consolekit policykit
 sys-auth/pambase elogind
-sys-auth/polkit consolekit
+sys-auth/polkit elogind
 sys-boot/grub mount
 sys-devel/clang xml
 sys-devel/gcc objc
@@ -74,7 +73,7 @@ x11-libs/libXdamage abi_x86_32
 x11-libs/libXdmcp abi_x86_32
 x11-libs/libXext abi_x86_32
 x11-libs/libXfixes abi_x86_32
-x11-libs/libxkbcommon-0.10.0-r1 X
+x11-libs/libxkbcommon X
 x11-libs/libXrandr abi_x86_32
 x11-libs/libXrender abi_x86_32
 x11-libs/libxshmfence abi_x86_32
