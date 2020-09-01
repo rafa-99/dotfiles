@@ -48,13 +48,13 @@ gentoo()
 
 	printf "Do you want to install Base Packages? [Y/n]" && read -r BASE
 	if [ "$BASE" != "N" ] && [ "$BASE" != "n" ]; then
-		emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler zip wget make bc unar xorg-x11 xinit zsh pm-utils doas sys-fs/dosfstools app-editors/neovim pulsemixer pulseaudio light gentoolkit
+		emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler zip wget make bc unar xorg-x11 xinit zsh doas sys-fs/dosfstools app-editors/neovim pulsemixer pulseaudio light gentoolkit
 	fi
 
 	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
 	if [ "$EXTRA" != "N" ] && [ "$EXTRA" != "n" ]; then
 		FEATURES="splitdebug" emerge --oneshot sys-libs/glibc
-		emerge --ask --quiet sxiv mpv youtube-dl ncmpcpp mpc mpd tk ntfs3g redshift numlockx pandoc android-tools shellcheck app-admin/system-config-printer texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs mail-client/neomutt net-mail/isync libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd transset picom net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer
+		emerge --ask --quiet sxiv mpv youtube-dl ncmpcpp mpc mpd ntfs3g redshift numlockx pandoc android-tools shellcheck app-admin/system-config-printer texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs mail-client/neomutt net-mail/isync libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd transset picom net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer
 	fi
 
 }
