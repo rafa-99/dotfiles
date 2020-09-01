@@ -9,6 +9,7 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
+Plug 'RRethy/vim-hexokinase'
 call plug#end()
 
 " Keybinds Index
@@ -38,6 +39,7 @@ set inccommand=split
 set incsearch
 set wildmode=longest,list,full
 set relativenumber
+set termguicolors
 
 " Autocommands
 map <F5> :!compiler '%' <CR>
@@ -74,3 +76,5 @@ let g:rainbow_active = 1
 map <C-z> :TlistToggle<CR>
 " Vim gitgutter
 map <C-g> :GitGutterToggle<CR>
+" Vim Hexokinase
+let g:Hexokinase_highlighters = ['backgroundfull']
