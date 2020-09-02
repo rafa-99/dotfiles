@@ -3,4 +3,4 @@
 #A Script which detects displays connected and gives the outputs to connect to them
 
 #List Outs| Greps connected   | Shows name       | Displays List                    | Send display info into xrandr
-xrandr -q | grep -w connected | awk '{print $1}' | dmenu -i -p "Available Outputs:" | xargs -I {} xrandr --output {} --auto
+xrandr -q | grep -w connected | awk '{print $1}' | dmenu -i -l 10 -p "Available Outputs:" | xargs -I {} xrandr --output {} --auto
