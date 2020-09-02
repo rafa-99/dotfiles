@@ -43,7 +43,7 @@ media-video/mpv cli -raspberry-pi
 net-libs/libssh server
 net-libs/nodejs -snapshot -system-ssl
 net-libs/webkit-gtk egl -geolocation
-net-misc/networkmanager bluetooth -ppp -vala -teamd -ofono -dhcpcd
+net-misc/networkmanager -bluetooth -ppp -vala -teamd -ofono -dhcpcd -modemmanager
 net-print/cups dbus
 net-wireless/wpa_supplicant dbus
 sci-mathematics/octave gui
