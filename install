@@ -138,7 +138,7 @@ baseInstall(){
 	sh sucklessUpdate
 	cd "$CURDIR" || exit
 
-	if [ "$OS" != 3 ]; then
+	if [ "$OS" != 4 ]; then
 		{
 			# Fixing Java Programs on Window Managers
 			doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
