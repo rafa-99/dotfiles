@@ -66,7 +66,7 @@ clean()
 			$RUN emerge -caq
 			;;
 		void)
-			"$SU" xbps-remove -Oo
+			$RUN xbps-remove -ROo
 	esac
 }
 
@@ -175,9 +175,6 @@ PACKAGE="$2"
 case "$1" in
 	clean|c)
 		clean
-		;;
-	debug|d)
-		echo "$SU + $PACKER = variables maybe working =)"
 		;;
 	help|h)
 		help
