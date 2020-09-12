@@ -54,7 +54,7 @@ gentoo()
 	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
 	if [ "$EXTRA" != "N" ] && [ "$EXTRA" != "n" ]; then
 		FEATURES="splitdebug" emerge --oneshot sys-libs/glibc
-		emerge --ask --quiet sxiv mpv youtube-dl ncmpcpp mpc mpd ntfs3g redshift numlockx pandoc android-tools shellcheck app-admin/system-config-printer texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs mail-client/neomutt net-mail/isync libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd transset picom net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer go
+		emerge --ask --quiet sxiv mpv youtube-dl ncmpcpp media-sound/mpc mpd ntfs3g redshift numlockx pandoc android-tools shellcheck app-admin/system-config-printer texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs mail-client/neomutt net-mail/isync libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd transset picom net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer go
 	fi
 
 }
