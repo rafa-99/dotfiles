@@ -132,7 +132,7 @@ baseInstall(){
 	git clone https://gitlab.com/rafa_99/neovimb
 	mv ~/.config/neovimb/config.h neovimb/include/
 	rm -rf ~/.config/neovimb
-	cd neovimb && sudo make clean install
+	cd neovimb && doas make clean install
 	cd ..
 
 	sh sucklessUpdate
