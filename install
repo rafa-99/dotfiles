@@ -128,11 +128,13 @@ baseInstall(){
 	## Run Suckless Script
 	cd ~/.local/src/suck/ || exit
 
-	### Install Neovimb
+	### Install extra programs
 	git clone https://gitlab.com/rafa_99/neovimb
+	git clone https://gitlab.com/rafa_99/pkg
 	mv ~/.config/neovimb/config.h neovimb/include/
 	rm -rf ~/.config/neovimb
 	cd neovimb && doas make clean install
+	cd ../pkg && doas make clean install
 	cd ..
 
 	sh sucklessUpdate
