@@ -1,0 +1,38 @@
+#!/bin/sh
+
+OPERATION=$(printf "Mount\nPoweroff\nUnmount" | dmenu -i -c -l 15 -p "Select an Option:")
+
+case $OPERATION in
+	Mount)
+		DRIVE=$(lsblk -l | awk '{print $1}' | grep -vi NAME | sed s:^:/dev/:g | grep '[0-9]'$ | dmenu -i -c -l 15 -p "Mount:")
+		ENCRYPTED=$(printf "No\nYes" | dmenu -i -c -l 15 -p "Encrypted:")
+		MOUNTPOINT=$(dmenu -i -c -l 15 -p "Enter Mount Point:")
+
+		if [ "$ENCRYPTED" = "Yes" ]; then
+			{
+				doas cryptsetup open "$DRIVE" disk
+				doas mount /dev/mapper/disk "$MOUNTPOINT"
+			}
+	else
+		doas mount "$DRIVE" "$MOUNTPOINT"
+		fi
+		;;
+
+	Poweroff)
+		DRIVE=$(lsblk -l | awk '{print $1}' | grep -vi NAME | sed s:^:/dev/:g | grep '[0-9]'$ | dmenu -i -c -l 15 -p "Drive:")
+		doas udisksctl power-off "$DRIVE"
+		;;
+
+	Unmount)
+		MOUNTPOINT=$(mount -l | grep ^/dev/ | awk '{print $3}' | dmenu -i -c -l 15 -p "Enter Mount Point:" )
+		ENCRYPTED=$(printf "No\nYes" | dmenu -i -c -l 15 -p "Encrypted:")
+
+		if [ "$ENCRYPTED" = "Yes" ]; then
+			{
+				doas umount "$MOUNTPOINT"
+				doas cryptsetup close disk
+			}
+	else
+		doas umount "$MOUNTPOINT"
+		fi
+	esac
