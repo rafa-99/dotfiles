@@ -20,7 +20,7 @@ case $OPERATION in
 
 	Poweroff)
 		DRIVE=$(lsblk -l | awk '{print $1}' | grep -vi NAME | sed s:^:/dev/:g | grep '[0-9]'$ | dmenu -i -c -l 15 -p "Drive:")
-		doas udisksctl power-off "$DRIVE"
+		doas udisksctl power-off -b "$DRIVE"
 		;;
 
 	Unmount)
