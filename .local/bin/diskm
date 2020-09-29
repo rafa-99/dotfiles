@@ -6,7 +6,7 @@ case $OPERATION in
 	Mount)
 		DRIVE=$(lsblk -l | awk '{print $1}' | grep -vi NAME | sed s:^:/dev/:g | grep '[0-9]'$ | dmenu -i -c -l 15 -p "Mount:")
 		ENCRYPTED=$(printf "No\nYes" | dmenu -i -c -l 15 -p "Encrypted:")
-		MOUNTPOINT=$(dmenu -i -c -l 15 -p "Enter Mount Point:")
+		MOUNTPOINT=$(printf "/mnt\n/home/$(whoami)/Mount" | dmenu -i -c -l 15 -p "Enter Mount Point:")
 
 		if [ "$ENCRYPTED" = "Yes" ]; then
 			{
