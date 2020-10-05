@@ -54,7 +54,7 @@ gentoo()
 	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
 	if [ "$EXTRA" != "N" ] && [ "$EXTRA" != "n" ]; then
 		FEATURES="splitdebug" emerge --oneshot sys-libs/glibc
-		emerge --ask --quiet sxiv mpv youtube-dl ncmpcpp media-sound/mpc mpd ntfs3g redshift numlockx pandoc android-tools shellcheck app-admin/system-config-printer texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs mail-client/neomutt net-mail/isync libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd transset picom net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer go && poweroff
+		emerge --ask --quiet sxiv mpv youtube-dl ncmpcpp media-sound/mpc mpd ntfs3g redshift numlockx pandoc android-tools shellcheck app-admin/system-config-printer texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs mail-client/neomutt net-mail/isync libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd picom net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer go && poweroff
 	fi
 
 }
@@ -86,7 +86,7 @@ void()
 	doas cp -rf ".local/etc/hosts" "/etc/"
 
 	# Installing apps
-	doas xbps-install xorg git neovim opendoas ncmpcpp neofetch zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel engrampa zathura zathura-pdf-poppler ctags maim unoconv neomutt isync nodejs curl wget pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip transset lsd light psmisc void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree pavucontrol pulsemixer grc pulseaudio gst-libav gst-plugins-good1 go newsboat
+	doas xbps-install xorg git neovim opendoas ncmpcpp neofetch zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel engrampa zathura zathura-pdf-poppler ctags maim unoconv neomutt isync nodejs curl wget pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib alsa-utils lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar uncrustify texlive-bin xclip lsd light psmisc void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree pavucontrol pulsemixer grc pulseaudio gst-libav gst-plugins-good1 go newsboat
 
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
