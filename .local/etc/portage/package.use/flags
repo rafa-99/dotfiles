@@ -55,7 +55,7 @@ media-libs/libglvnd X abi_x86_32
 media-libs/libjpeg-turbo abi_x86_32
 media-libs/libogg abi_x86_32
 media-libs/libpng apng abi_x86_32
-media-libs/libsdl2 abi_x86_32
+media-libs/libsdl2 abi_x86_32 X opengl
 media-libs/libsdl X
 media-libs/libsndfile abi_x86_32
 media-libs/libvorbis abi_x86_32
@@ -63,7 +63,7 @@ media-libs/libvpx postproc
 media-libs/mesa abi_x86_32 egl vulkan
 media-libs/opus abi_x86_32
 media-libs/vulkan-loader X layers
-media-plugins/alsa-plugins pulseaudio abi_x86_32
+media-plugins/alsa-plugins abi_x86_32
 media-sound/ncmpcpp visualizer
 media-sound/pulseaudio abi_x86_32
 media-video/ffmpeg X bzip2 debug doc gtk-doc encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opengl opus oss sdl speex svg test theora threads truetype v4l vaapi vdpau vorbis wavpack webp x264 xvid zlib
@@ -79,7 +79,7 @@ net-print/cups dbus
 net-wireless/wpa_supplicant dbus
 sci-mathematics/octave gui
 sys-apps/attr abi_x86_32
-sys-apps/dbus abi_x86_32
+sys-apps/dbus abi_x86_32 X
 sys-apps/tcp-wrappers abi_x86_32
 sys-apps/util-linux abi_x86_32
 sys-auth/consolekit policykit
