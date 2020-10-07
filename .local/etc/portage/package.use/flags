@@ -2,6 +2,7 @@ app-arch/bzip2 abi_x86_32
 app-arch/zstd abi_x86_32
 app-crypt/gcr gtk
 app-crypt/pinentry gnome-keyring
+app-emulation/virt-manager gtk
 app-emulation/virtualbox qt5
 app-emulation/wine-gecko abi_x86_32
 app-text/ghostscript-gpl cups
@@ -75,6 +76,7 @@ net-libs/libssh server
 net-libs/nodejs -snapshot -system-ssl
 net-libs/webkit-gtk egl -geolocation
 net-misc/networkmanager -bluetooth -ppp -vala -teamd -ofono -dhcpcd -modemmanager
+net-misc/spice-gtk usbredir
 net-print/cups dbus
 net-wireless/wpa_supplicant dbus
 sci-mathematics/octave gui
