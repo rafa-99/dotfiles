@@ -2,6 +2,7 @@ app-arch/bzip2 abi_x86_32
 app-arch/zstd abi_x86_32
 app-crypt/gcr gtk
 app-crypt/pinentry gnome-keyring
+app-emulation/qemu usbredir spice
 app-emulation/virt-manager gtk
 app-emulation/virtualbox qt5
 app-emulation/wine-gecko abi_x86_32
