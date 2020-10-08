@@ -3,7 +3,6 @@
 # Profile file. Runs on login. Environmental variables are set here.
 # Adds ~/.local/bin to $PATH
 export PATH="$HOME/.local/bin:$PATH"
-pulseaudio -D
 
 # Default programs
 export EDITOR="nvim"
