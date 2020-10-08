@@ -1,4 +1,4 @@
 #!/bin/sh
 
 #FFMPEG Grabs X11 Screen Puts it into a file inside Videos Folder
-ffmpeg -y -f x11grab -framerate 60 -s "$(xdpyinfo | grep dimensions | awk '{print $2;}')" -i :0.0 -f alsa -i default ~/Videos/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".mkv
+ffmpeg -y -f x11grab -framerate 60 -s "$(xdpyinfo | grep dimensions | awk '{print $2;}')" -i :0.0 -f pulse -i default ~/Videos/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".mkv
