@@ -1,4 +1,0 @@
-#!/bin/sh
-
-USER=$(ls ~/Documents/Mail/)
-mbsync -c ~/.config/mbsync/mbsyncrc "$USER";

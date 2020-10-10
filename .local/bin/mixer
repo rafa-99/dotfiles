@@ -25,9 +25,4 @@ case $1 in
 			[ -f /usr/bin/amixer ]; then
 			amixer set Master toggle
 		fi
-		;;
-	m)
-		if [ -f /usr/bin/pulsemixer ]; then
-			pulsemixer --toggle-mute -id source-0
-		fi
 esac

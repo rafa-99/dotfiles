@@ -4,8 +4,12 @@
 
 RUNNING=$(pgrep -l redshift | awk '{print $2}')
 
-if [ "$RUNNING" = "redshift" ]; then
+if pgrep redshift > /dev/null
+then
 	killall redshift
-	else
-		LATITUDE=$(curl https://ipinfo.io/ip | xargs -I {} curl -s --get https://ipvigilante.com/{} | jq | grep latitude | awk '{print $2}' | sed s:'"'::g | sed s:','::g) && LONGITUDE=$(curl https://ipinfo.io/ip | xargs -I {} curl -s --get https://ipvigilante.com/{} | jq | grep longitude | awk '{print $2}' | sed s:'"'::g | sed s:','::g) && redshift -l "$LATITUDE":"$LONGITUDE" -m randr
+else
+	LATITUDE=$(curl https://ipinfo.io/ip | xargs -I {} curl -s --get https://ipvigilante.com/{} | jq | grep latitude | awk '{print $2}' \
+		| sed s:'"'::g | sed s:','::g) && LONGITUDE=$(curl https://ipinfo.io/ip \
+		| xargs -I {} curl -s --get https://ipvigilante.com/{} | jq | grep longitude | awk '{print $2}' | sed s:'"'::g \
+		| sed s:','::g) && redshift -l "$LATITUDE":"$LONGITUDE" -m randr
 fi

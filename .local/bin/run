@@ -1,50 +1,18 @@
 #!/bin/sh
 
 RUN=$(\
-printf "atom
-audacity
-browser
-dmenu
-document
+printf "document
 flatpak
-filezilla
 gallery
-gimp
-intellij
-kdenlive
-lmms
-lutris
-mixer
-music
-mysql
-networks
-octave
-pcmanfm
-printers
-st
-transmission
-vifm
-virtualbox
-vscode" | dmenu -i -c -l 15 -p "Run:")
+printers" | dmenu -i -c -l 15 -p "Run:")
 
 case $RUN in
 	mixer)
 		st -e pulsemixer || st -e alsamixer
 		;;
-	atom)
-		atom
-		;;
-	audacity)
-		audacity
-		;;
-	browser)
-		neovimb || firefox || tabbed surf -e
-		;;
-	dmenu)
-		dmenu_run
-		;;
+
 	document)
-		DOC=$(printf "Document\nAnswer Sheet" | dmenu -i -p "Document Type:")
+		DOC=$(printf "Document\nAnswer Sheet" | dmenu -i -c -l 15 -p "Document Type:")
 		case "$DOC" in
 			"Document")
 				cp -rf ~/.local/src/templates/document.md ~/
@@ -55,12 +23,11 @@ case $RUN in
 				st -e nvim quick.md
 		esac
 		;;
-	filezilla)
-		filezilla
-		;;
+
 	flatpak)
-		flatpak run "$(flatpak list --app --columns=application | grep -vi "Application ID" | dmenu -i -p "Flatpak:")"
+		flatpak run "$(flatpak list --app --columns=application | grep -vi "Application ID" | dmenu -i -c -l 15 -p "Flatpak:")"
 		;;
+
 	gallery)
 		SEL=$(printf "Gallery\nWallpapers" | dmenu -i)
 		if [ "$SEL" = "Gallery" ]; then
@@ -71,51 +38,7 @@ case $RUN in
 			find ~/Pictures/wallpapers/"$CAT" -type f | shuf | sxiv -t -
 		fi
 		;;
-	gimp)
-		gimp
-		;;
-	intellij)
-		idea
-		;;
-	kdenlive)
-		kdenlive
-		;;
-	lmms)
-		lmms
-		;;
-	lutris)
-		lutris
-		;;
-	music)
-		mpd; st -e ncmpcpp
-		;;
-	mysql)
-		mysql-workbench
-		;;
-	networks)
-		nmtui
-		;;
-	octave)
-		octave --gui
-		;;
-	pcmanfm)
-		pcmanfm
-		;;
+
 	printers)
 		system-config-printer
-		;;
-	st)
-		st
-		;;
-	transmission)
-		transmission-gtk
-		;;
-	vifm)
-		st -e vifm
-		;;
-	virtualbox)
-		virtualbox
-		;;
-	vscode)
-		vscodium || vscodium-bin
 esac
