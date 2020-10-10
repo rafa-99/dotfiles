@@ -34,7 +34,7 @@ doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
 chsh -s /bin/zsh
 
 # Deploy Dots
-stow $(dir -d */ | sed s:\/::g | xargs | sed s:"ROOT "::g)
+stow --target="$HOME" $(dir -d */ | sed s:\/::g | xargs | sed s:"ROOT "::g)
 cd ~/.local/src/suck && sh sucklessUpdate && cd $CURDIR
 
 # Setting up Neovim
@@ -64,3 +64,6 @@ fi
 # Setting Up Web Browser
 cp -rf ~/.config/misc/neovimb.h ~/.local/src/suck/neovimb/config.h
 cd ~/.local/src/suck/neovimb && doas make clean install
+
+# Wallpapers
+cd ~/Pictures && git clone https://gitlab.com/rafa_99/wallpapers

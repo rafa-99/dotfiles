@@ -12,3 +12,7 @@ suckless/.local/src/suck/*
 # Vifm Files
 vifm/.config/vifm/*
 !vifm/.config/vifm/vifmrc
+
+# .local/share Folder
+fonts/.local/share
+!fonts/.local/share/fonts
