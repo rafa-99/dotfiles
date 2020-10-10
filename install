@@ -27,7 +27,7 @@ sudo pacman --needed -Syu stow opendoas zsh youtube-dl engrampa ncmpcpp xwallpap
 # bluej netbeans jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench octave
 
 # Building Folder Structure
-mkdir -p ~/Documents/PDF ~/Documents/Markdown ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Source ~/.config/git ~/.config/gnupg ~/.config/wallpaper ~/.config/X11
+mkdir -p ~/Documents/PDF ~/Documents/Markdown ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Source ~/.config/git ~/.config/gnupg ~/.config/wallpaper ~/.config/X11 ~/Mount
 
 touch ~/.config/X11/Xauthority
 doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
