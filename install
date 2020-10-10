@@ -27,6 +27,11 @@ arch()
 		doas pacman --needed --noconfirm -Syu artix-dark-theme
 	fi
 
+	# Install Gaming Software
+	printf "Do yo want to install Gaming Software? [Y/n]" && read -r GAMING
+	if [ "$GAMING" != "N" ] && [ "$GAMING" != "n" ]; then
+		doas pacman --needed --noconfirm -Syu wine-staging wine-mono wine-gecko winetricks giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader lutris steam
+	fi
 	# Install Computer Science Programs
 	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
 	if [ "$CS" != "N" ] && [ "$CS" != "n" ]; then
@@ -121,7 +126,9 @@ baseInstall(){
 	mkdir -p ~/Documents/Markdown
 	mkdir -p ~/Documents/Disks
 	mkdir -p ~/Documents/Archives
+	mkdir -p ~/Documents/VMs
 	mkdir -p ~/Downloads
+	mkdir -p ~/Games
 	mkdir -p ~/Pictures/Screenshots
 	mkdir -p ~/Pictures/GIMP
 	mkdir -p ~/Videos/Recordings
