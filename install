@@ -58,7 +58,7 @@ if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
 	git config --global user.email "$EMAIL"
 	git config pull.rebase false
 	mv ~/.gitconfig ~/.config/git/config
-	git config pull.rebase false
+	git --global config pull.rebase false
 fi
 
 # Setting Up Web Browser
