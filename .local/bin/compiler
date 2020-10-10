@@ -43,6 +43,5 @@ case $EXTENSION in
 		java "$FILE"
 		;;
 	c|h)
-			FILES=$(find . -name '*.c' | cut -d/ -f2 | xargs)
-			cc -o "$BASE" "$FILES"
+		cc -o "$BASE" ./*.c
 esac
