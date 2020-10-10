@@ -1,5 +1,5 @@
 # dotfiles
-My personal configuration
+My personal system configuration, handled by GNU Stow
 
 ## Currently using:
 * [dmenu](https://gitlab.com/rafa_99/dmenu) (Application Launcher/Menu Selector)

@@ -1,232 +1,66 @@
 #!/bin/sh
 
 #
-# Distro dots install list
+# Artix dots install
 #
 
-arch()
-{
-	echo "######################"
-	echo "# dotfiles Installer #"
-	echo "######################"
-	echo "|   for Arch Linux   |"
-	echo "**********************"
+CURDIR=$(pwd)
 
-	# Installing opendoas
-	sudo pacman -Syu --needed opendoas
+echo "######################"
+echo "# dotfiles Installer #"
+echo "######################"
+echo "|    Artix Linux     |"
+echo "**********************"
 
-	# Updated doas permissions
-	sudo cp -rf ".local/etc/doas.conf" "/etc/"
-	doas cp -rf ".local/etc/hosts" "/etc/"
+# Adding Root Files
+sudo cp -rf ROOT/doas/doas.conf /etc
+sudo cp -rf ROOT/issue/issue /etc
+sudo cp -rf ROOT/hosts/hosts /etc
 
-	# Installing Deps
-	doas pacman -Rnsc vim
-	doas pacman --needed -Syu zsh youtube-dl engrampa ncmpcpp xwallpaper newsboat vifm zathura maim ffmpeg texlive-most pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal pandoc python python-pip python2 python2-pip ccache automake lzop bison gperf zip curl python-networkx squashfs-tools libxml2 pngcrush schedtool make bc android-tools jdk8-openjdk java8-openjfx gimp audacity kdenlive frei0r-plugins breeze-icons vlc inkscape unzip unarchiver arandr shellcheck arc-gtk-theme linux-firmware ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme neomutt isync lsd valgrind doxygen gdb light pulsemixer pavucontrol xorg-server xorg-xinit go qt5ct
+# Remove Vim if Present
+sudo pacman -Rnsc vim
 
-	if [ "$OS" = "2" ]; then
-		doas pacman --needed --noconfirm -Syu artix-dark-theme
-	fi
+# Install Required Programs
+sudo pacman --needed -Syu stow opendoas zsh youtube-dl engrampa ncmpcpp xwallpaper newsboat vifm zathura maim ffmpeg texlive-most pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal pandoc automake lzop zip curl make bc android-tools gimp audacity kdenlive frei0r-plugins inkscape unzip unarchiver arandr shellcheck arc-gtk-theme ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme lsd valgrind doxygen gdb light pulsemixer pavucontrol xorg-server xorg-xinit go qt5ct artix-dark-theme wine-staging wine-mono wine-gecko winetricks giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader lutris
 
-	# Install Gaming Software
-	printf "Do yo want to install Gaming Software? [Y/n]" && read -r GAMING
-	if [ "$GAMING" != "N" ] && [ "$GAMING" != "n" ]; then
-		doas pacman --needed --noconfirm -Syu wine-staging wine-mono wine-gecko winetricks giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader lutris steam
-	fi
-	# Install Computer Science Programs
-	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
-	if [ "$CS" != "N" ] && [ "$CS" != "n" ]; then
-		# BlueJ
-		doas pacman --needed --noconfirm -Syu netbeans jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench octave && clear
-	fi
+# Computer Science Programs
+# bluej netbeans jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench octave
 
-	# Cleanup
-	doas pacman --noconfirm -Scc
-}
+# Building Folder Structure
+mkdir -p ~/Documents/PDF ~/Documents/Markdown ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Source ~/.config/git ~/.config/gnupg ~/.config/wallpaper ~/.config/X11
 
-gentoo()
-{
-	echo "######################"
-	echo "# dotfiles Installer #"
-	echo "######################"
-	echo "|  for Gentoo Linux  |"
-	echo "**********************"
+touch ~/.config/X11/Xauthority
+doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
+chsh -s /bin/zsh
 
-	# Checking if is root
-	if [ "$(id -u)" != "0" ]; then
-		exit 1
-	fi
+# Deploy Dots
+stow $(dir -d */ | sed s:\/::g | xargs | sed s:"ROOT "::g)
+cd ~/.local/src/suck && sh sucklessUpdate && cd $CURDIR
 
-	printf "Do you want to install Base Packages? [Y/n]" && read -r BASE
-	if [ "$BASE" != "N" ] && [ "$BASE" != "n" ]; then
-		emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler zip wget make bc unar xorg-x11 xinit zsh doas sys-fs/dosfstools app-editors/neovim pulsemixer pulseaudio light gentoolkit && poweroff
-	fi
+# Setting up Neovim
+## Linking Neovim to Vim
+ln -s /usr/bin/nvim ~/.local/bin/vim
 
-	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
-	if [ "$EXTRA" != "N" ] && [ "$EXTRA" != "n" ]; then
-		FEATURES="splitdebug" emerge --oneshot sys-libs/glibc
-		emerge --ask --quiet sxiv mpv youtube-dl ncmpcpp media-sound/mpc mpd ntfs3g redshift numlockx pandoc android-tools shellcheck app-admin/system-config-printer texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs mail-client/neomutt net-mail/isync libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd picom net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer go && poweroff
-	fi
+## Installing Neovim Plugin Manager (Vim Plug)
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-}
+## Installing Plugins
+nvim -c PlugInstall
+cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
 
-openbsd()
-{
-	echo "######################"
-	echo "# dotfiles Installer #"
-	echo "######################"
-	echo "|    for OpenBSD     |"
-	echo "**********************"
+# Setup Git account
+printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
+if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
+	printf "Username: " && read -r USER
+	printf "Email: " && read -r EMAIL
+	git config --global user.name "$USER"
+	git config --global user.email "$EMAIL"
+	git config pull.rebase false
+	mv ~/.gitconfig ~/.config/git/config
+	git config pull.rebase false
+fi
 
-	doas pkg_add neovim git neofetch firefox gimp zsh newsboat zathura ffmpeg maim xwallpaper xclip redshift mpv ncmpcpp ImageMagick gdb valgrind doxygen unoconv sxiv mpc ccache ntp htop zip numlockx shellcheck unzip mc node
-}
-
-void()
-{
-	echo "######################"
-	echo "# dotfiles Installer #"
-	echo "######################"
-	echo "|   for Void Linux   |"
-	echo "**********************"
-
-	# Installing opendoas
-	sudo xbps-install opendoas
-
-	# Updated doas permissions
-	sudo cp -rf ".local/etc/doas.conf" "/etc/"
-	doas cp -rf ".local/etc/hosts" "/etc/"
-
-	# Installing apps
-	doas xbps-install xorg git neovim opendoas ncmpcpp neofetch zsh pkg-config xwallpaper picom NetworkManager NetworkManager-devel ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel engrampa zathura zathura-pdf-poppler ctags maim unoconv neomutt isync nodejs curl wget pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib lutris shellcheck redshift ntfs-3g git sxiv mpc mpd tar texlive-bin xclip lsd light psmisc void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree pavucontrol pulsemixer grc pulseaudio gst-libav gst-plugins-good1 go newsboat
-
-	# Install Computer Science Programs
-	printf "Do yo want to install Computer Science Programs? [Y/n]" && read -r CS
-	if [ "$CS" != "N" ] && [ "$CS" != "n" ]; then
-		doas xbps-install -Su openjdk11 intellij-idea-community-edition valgrind doxygen gdb octave && clear
-	fi
-
-	# Removing Old dhcpcd entries from boot
-	sudo rm -rf /var/service/dhcp*
-
-	# Adding Services to boot
-	sudo ln -s /etc/sv/NetworkManager /var/service/
-	sudo ln -s /etc/sv/dbus /var/service
-}
-
-baseInstall(){
-	# Setting Vars
-	CURDIR=$(pwd)
-
-	#Preparing Dirs and Files for dotfiles
-	cp -rf .config "$HOME"
-	cp -rf .local "$HOME"
-	cp -rf .xinitrc "$HOME"
-	cp -rf .xprofile "$HOME"
-	cp -rf .zprofile "$HOME"
-	mkdir -p ~/Documents/PDF
-	mkdir -p ~/Documents/Markdown
-	mkdir -p ~/Documents/Disks
-	mkdir -p ~/Documents/Archives
-	mkdir -p ~/Documents/VMs
-	mkdir -p ~/Downloads
-	mkdir -p ~/Games
-	mkdir -p ~/Pictures/Screenshots
-	mkdir -p ~/Pictures/GIMP
-	mkdir -p ~/Videos/Recordings
-	mkdir -p ~/Source
-	mkdir -p ~/.config/git
-	mkdir -p ~/.config/gnupg
-	mkdir -p ~/.config/wallpaper
-
-	## Run Suckless Script
-	cd ~/.local/src/suck/ || exit
-
-	### Install extra programs
-	git clone https://gitlab.com/rafa_99/neovimb
-	git clone https://gitlab.com/rafa_99/pkg
-	mv ~/.config/neovimb/config.h neovimb/include/
-	rm -rf ~/.config/neovimb
-	cd neovimb && doas make clean install
-	cd ../pkg && doas make clean install
-	cd ..
-
-	sh sucklessUpdate
-	cd "$CURDIR" || exit
-
-	if [ "$OS" != 4 ]; then
-		{
-			# Fixing Java Programs on Window Managers
-			doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
-
-			# Changing default shell to zsh
-			chsh -s /bin/zsh
-		}
-	fi
-
-	# Setting up Neovim
-	## Linking Neovim to Vim
-	ln -s /usr/bin/nvim ~/.local/bin/vim
-
-	## Installing Neovim Plugin Manager (Vim Plug)
-	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-	## Installing Plugins
-	nvim -c PlugInstall
-	cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
-	cd "$CURDIR" || exit
-
-	# Setup Git account
-	printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
-	if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
-		printf "Username: " && read -r USER
-		printf "Email: " && read -r EMAIL
-		git config --global user.name "$USER"
-		git config --global user.email "$EMAIL"
-		git config pull.rebase false
-		mv ~/.gitconfig ~/.config/git/config
-	fi
-
-	# Cleanup
-	doas cp -rf ~/.local/etc/issue /etc/
-	rm -rf ~/.local/etc ~/.local/usr
-}
-
-#
-# Main Script
-#
-
-printf "Select a Operating System:\n1) Arch Linux\n2) Artix Linux\n3) Gentoo Linux\n4) OpenBSD\n5) Void Linux\n6) None\n-> " && read -r OS && clear
-
-case "$OS" in
-	1)
-		sed -i s:REPLACEDISTRO:arch:g .zprofile
-		sed -i s:REPLACEINIT:systemd:g .zprofile
-		arch && baseInstall
-		;;
-	2)
-		sed -i s:REPLACEDISTRO:artix:g .zprofile
-		sed -i s:REPLACEINIT:openrc:g .zprofile
-		arch && baseInstall
-		;;
-
-	3)
-		sed -i s:REPLACEDISTRO:gentoo:g .zprofile
-		sed -i s:REPLACEINIT:openrc:g .zprofile
-		gentoo && baseInstall
-		;;
-	4)
-		sed -i s:REPLACEDISTRO:openbsd:g .zprofile
-		sed -i s:REPLACEDINIT:openbsd:g .zprofile
-		openbsd && baseInstall
-		;;
-	5)
-		sed -i s:REPLACEDISTRO:void:g .zprofile
-		sed -i s:REPLACEINIT:runit:g .zprofile
-		void && baseInstall
-		;;
-	6)
-		echo "None Selected"
-		;;
-	*)
-		baseInstall
-esac
+# Setting Up Web Browser
+cp -rf ~/.config/misc/neovimb.h ~/.local/src/suck/neovimb/config.h
+cd ~/.local/src/suck/neovimb && doas make clean install

@@ -1,0 +1,14 @@
+# X Session Files
+X11/.config/X11
+
+# Nvim Plugins
+nvim/.config/nvim/*
+!nvim/.config/nvim/init.vim
+
+# Suckless Software
+suckless/.local/src/suck/*
+!suckless/.local/src/suck/sucklessUpdate
+
+# Vifm Files
+vifm/.config/vifm/*
+!vifm/.config/vifm/vifmrc
