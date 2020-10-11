@@ -10,7 +10,6 @@ My personal system configuration, handled by GNU Stow
 * neovim (Terminal Based Text Editor)
 * [neovimb](https://gitlab.com/rafa_99/neovimb) (Web Browser/HTML Viewer)
 * newsboat (Terminal Based RSS Feed/Atom Reader)
-* neomutt (Terminal Email Client)
 * pandoc (Document Writer/Converter)
 * [st](https://gitlab.com/rafa_99/st) (Terminal)
 * vifm (Terminal Based File Manager)

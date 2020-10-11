@@ -29,7 +29,7 @@ case $RUN in
 		;;
 
 	gallery)
-		SEL=$(printf "Gallery\nWallpapers" | dmenu -i)
+		SEL=$(printf "Gallery\nWallpapers" | dmenu -i -c -l 15)
 		if [ "$SEL" = "Gallery" ]; then
 			find Gallery -type f | grep -vi Plz | shuf | sxiv -t -
 		fi

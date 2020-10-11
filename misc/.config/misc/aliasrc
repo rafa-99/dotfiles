@@ -2,7 +2,6 @@
 
 alias ls='lsd' \
 	grep='grep --color=auto -i' \
-	xr='xrdb ~/.Xresources' \
 	clone='git clone' \
 	add='git add' \
 	stat='git status' \
