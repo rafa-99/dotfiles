@@ -27,4 +27,5 @@ alias ls='lsd' \
 	wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"' \
 	x='extract' \
 	e='$EDITOR' \
+	stow='stow --target=$HOME' \
 	g='sxiv -t *'

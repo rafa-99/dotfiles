@@ -37,7 +37,8 @@ doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
 chsh -s /bin/zsh
 
 # Deploy Dots
-stow --target="$HOME" $(dir -d */ | sed s:\/::g | xargs | sed s:"ROOT "::g)
+stow --target="$HOME" fonts gtk mimeapps misc mpd ncmpcpp newsboat nvim scripts suckless sxiv vifm X11 zathura zsh
+
 cd ~/.local/src/suck && sh sucklessUpdate && cd $CURDIR
 
 # Setting up Neovim
