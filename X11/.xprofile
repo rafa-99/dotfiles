@@ -6,4 +6,8 @@ xwallpaper --stretch "$WALLPAPER" &
 picom -f --fade-delta=5 &
 setxkbmap pt &
 numlockx on &
-xinput set-prop 13 329 0 &
+
+if grep thinkpad /etc/conf.d/hostname > /dev/null
+then
+	xinput set-prop 13 329 0 &
+fi
