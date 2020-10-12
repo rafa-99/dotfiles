@@ -6,3 +6,4 @@ xwallpaper --stretch "$WALLPAPER" &
 picom -f --fade-delta=5 &
 setxkbmap pt &
 numlockx on &
+xinput set-prop 13 329 0 &
