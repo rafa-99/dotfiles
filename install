@@ -65,9 +65,5 @@ if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
 	git config --global pull.rebase false
 fi
 
-# Setting Up Web Browser
-cp -rf ~/.config/misc/neovimb.h ~/.local/src/suck/neovimb/include/config.h
-cd ~/.local/src/suck/neovimb && doas make clean install
-
 # Wallpapers
 cd ~/Pictures && git clone https://gitlab.com/rafa_99/wallpapers
