@@ -7,7 +7,7 @@ picom -f --fade-delta=5 &
 setxkbmap pt &
 numlockx on &
 
-if grep thinkpad /etc/conf.d/hostname > /dev/null || grep laptop /etc/conf.d/hostname
+if grep -i thinkpad /etc/conf.d/hostname || grep -i laptop /etc/conf.d/hostname
 then
 	xinput set-prop 13 329 0 &
 fi
