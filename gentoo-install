@@ -1,0 +1,76 @@
+#!/bin/sh
+
+#
+# Gentoo dots install
+#
+
+CURDIR=$(pwd)
+
+echo "######################"
+echo "# dotfiles Installer #"
+echo "######################"
+echo "|    Gentoo Linux    |"
+echo "**********************"
+
+if [ "$(id -u)" = "0" ]; then
+	cp -rf ROOT/doas/doas.conf /etc
+	cp -rf ROOT/issue/issue /etc
+	cp -rf ROOT/hosts/hosts /etc
+	cp -rf ROOT/portage/ /etc
+
+	printf "Do you want to install Base Packages? [Y/n]" && read -r BASE
+	if [ "$BASE" != "N" ] && [ "$BASE" != "n" ]; then
+		emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler zip wget make bc unar xorg-x11 xinit zsh doas sys-fs/dosfstools app-editors/neovim pulsemixer pulseaudio light gentoolkit && poweroff
+	fi
+
+	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
+	if [ "$EXTRA" != "N" ] && [ "$EXTRA" != "n" ]; then
+		FEATURES="splitdebug" emerge --oneshot sys-libs/glibc
+		emerge --ask --quiet sxiv mpv youtube-dl ncmpcpp media-sound/mpc mpd ntfs3g redshift numlockx pandoc android-tools shellcheck app-admin/system-config-printer texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs mail-client/neomutt libreoffice-bin unoconv dev-util/ctags gimp imagemagick lsd picom net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer go && poweroff
+	fi
+else
+	{
+		# Adding System default init services
+		doas rc-update add cupsd default
+
+		# Building Folder Structure
+		mkdir -p ~/Documents/PDF ~/Documents/Markdown ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Source ~/.config/git ~/.config/gnupg ~/.config/wallpaper ~/.config/X11 ~/Mount
+
+		touch ~/.config/X11/Xauthority
+		doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
+		chsh -s /bin/zsh
+
+		# Deploy Dots
+		stow --target="$HOME" fonts gtk mimeapps misc mpd ncmpcpp newsboat nvim scripts suckless sxiv vifm X11 zathura zsh
+
+		cd ~/.local/src/suck && sh sucklessUpdate && cd "$CURDIR" || exit
+
+		# Setting up Neovim
+		## Linking Neovim to Vim
+		ln -s /usr/bin/nvim ~/.local/bin/vim
+
+		## Installing Neovim Plugin Manager (Vim Plug)
+		curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+		## Installing Plugins
+		nvim -c PlugInstall
+		cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
+
+		# Setup Git account
+		printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
+		if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
+			printf "Username: " && read -r USER
+			printf "Email: " && read -r EMAIL
+			git config --global user.name "$USER"
+			git config --global user.email "$EMAIL"
+			git config pull.rebase false
+			mv ~/.gitconfig ~/.config/git/config
+			git config --global pull.rebase false
+		fi
+
+		# Wallpapers
+		cd ~/Pictures && git clone https://gitlab.com/rafa_99/wallpapers
+}
+fi
+

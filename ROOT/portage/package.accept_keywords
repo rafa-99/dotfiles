@@ -1,0 +1,22 @@
+app-admin/haskell-updater ~amd64
+app-arch/unar ~amd64
+app-emulation/wine-mono ~amd64
+app-emulation/wine-staging ~amd64
+app-text/pandoc ~amd64
+dev-haskell/* ~amd64
+dev-lang/ghc ~amd64
+dev-lang/tcc ~amd64
+dev-libs/libressl
+dev-libs/light ~amd64
+dev-python/python-evdev ~amd64
+dev-ruby/pcaprub ~amd64
+dev-util/idea-community ~amd64
+dev-util/shellcheck ~amd64
+games-action/minetest ~amd64
+games-util/lutris ~amd64
+games-util/steam-launcher ~amd64
+media-gfx/maim ~amd64
+media-sound/mpc ~amd64
+media-sound/pulsemixer ~amd64
+net-im/discord-bin ~amd64
+x11-misc/slop ~amd64

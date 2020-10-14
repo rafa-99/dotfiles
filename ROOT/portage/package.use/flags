@@ -1,0 +1,137 @@
+app-arch/bzip2 abi_x86_32
+app-arch/zstd abi_x86_32
+app-crypt/gcr gtk
+app-crypt/pinentry gnome-keyring
+app-emulation/qemu usbredir spice
+app-emulation/virt-manager gtk
+app-emulation/virtualbox qt5
+app-emulation/wine-gecko abi_x86_32
+app-text/ghostscript-gpl cups
+app-text/poppler cairo
+app-text/xmlto text
+dev-cpp/cairomm aqua X
+dev-cpp/gtkmm X
+dev-db/sqlite secure-delete
+dev-lang/ghc -elfutils -ghcbootstrap -ghcmakebinary -binary
+dev-lang/python sqlite
+dev-lang/R jpeg png X minimal -tiff -tk
+dev-libs/boost icu
+dev-libs/elfutils abi_x86_32
+dev-libs/expat abi_x86_32
+dev-libs/glib dbus abi_x86_32
+dev-libs/gmp abi_x86_32
+dev-libs/libffi abi_x86_32
+dev-libs/libgcrypt abi_x86_32
+dev-libs/libgpg-error abi_x86_32
+dev-libs/libpcre2 pcre16
+dev-libs/libpcre abi_x86_32
+dev-libs/libtasn1 abi_x86_32
+dev-libs/libunistring abi_x86_32
+dev-libs/libxml2 abi_x86_32
+dev-libs/libxslt abi_x86_32
+dev-libs/light udev
+dev-libs/nettle abi_x86_32
+dev-libs/xmlsec nss
+dev-lua/lpeg luajit
+dev-lua/luv luajit
+dev-lua/mpack luajit
+dev-python/certifi python_targets_python3_8
+dev-python/pip python_targets_python3_8
+dev-python/setuptools python_targets_python3_8
+dev-python/setuptools_scm python_targets_python3_8
+dev-util/pkgconf abi_x86_32
+dev-vcs/git -emacs
+gnustep-base/gnustep-make native-exceptions
+media-gfx/gimp -gnome-keyring -python
+media-libs/alsa-lib abi_x86_32
+media-libs/flac abi_x86_32
+media-libs/fontconfig abi_x86_32
+media-libs/freetype abi_x86_32
+media-libs/gegl cairo
+media-libs/glu abi_x86_32
+media-libs/gst-plugins-base egl
+media-libs/harfbuzz icu
+media-libs/lcms abi_x86_32
+media-libs/libepoxy egl
+media-libs/libglvnd X abi_x86_32
+media-libs/libjpeg-turbo abi_x86_32
+media-libs/libogg abi_x86_32
+media-libs/libpng apng abi_x86_32
+media-libs/libsdl2 abi_x86_32 X opengl
+media-libs/libsdl X
+media-libs/libsndfile abi_x86_32
+media-libs/libvorbis abi_x86_32
+media-libs/libvpx postproc
+media-libs/mesa abi_x86_32 egl vulkan
+media-libs/opus abi_x86_32
+media-libs/vulkan-loader X layers
+media-plugins/alsa-plugins abi_x86_32
+media-sound/ncmpcpp visualizer
+media-sound/pulseaudio abi_x86_32
+media-video/ffmpeg X bzip2 debug doc gtk-doc encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opengl opus oss sdl speex svg test theora threads truetype v4l vaapi vdpau vorbis wavpack webp x264 xvid zlib
+media-video/mpv cli -raspberry-pi
+net-dns/libidn2 abi_x86_32
+net-libs/gnutls abi_x86_32
+net-libs/libasyncns abi_x86_32
+net-libs/libssh server
+net-libs/nodejs -snapshot -system-ssl
+net-libs/webkit-gtk egl -geolocation
+net-misc/networkmanager -bluetooth -ppp -vala -teamd -ofono -dhcpcd -modemmanager
+net-misc/spice-gtk usbredir
+net-print/cups dbus
+net-wireless/wpa_supplicant dbus
+sci-mathematics/octave gui
+sys-apps/attr abi_x86_32
+sys-apps/dbus abi_x86_32 X
+sys-apps/tcp-wrappers abi_x86_32
+sys-apps/util-linux abi_x86_32
+sys-auth/consolekit policykit
+sys-auth/pambase elogind
+sys-auth/polkit elogind
+sys-boot/grub mount device-mapper
+sys-devel/clang xml
+sys-devel/gcc objc
+sys-devel/gdb -python -server -xml
+sys-devel/gettext abi_x86_32
+sys-devel/llvm abi_x86_32 -doc -exegesis -ncurses -z3 -debug -test -xml
+sys-libs/cracklib abi_x86_32
+sys-libs/db abi_x86_32
+sys-libs/libcap abi_x86_32
+sys-libs/libunwind abi_x86_32
+sys-libs/ncurses abi_x86_32
+sys-libs/pam abi_x86_32
+sys-libs/zlib minizip abi_x86_32
+virtual/glu abi_x86_32
+virtual/jpeg abi_x86_32
+virtual/libcrypt abi_x86_32
+virtual/libelf abi_x86_32
+virtual/libiconv abi_x86_32
+virtual/libintl abi_x86_32
+virtual/opengl abi_x86_32
+virtual/pkgconfig abi_x86_32
+www-client/firefox hardened hwaccel openh264 system-av1 system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-webp -bindist -debug -screenshot -eme-free -geckodriver -gmp-autoupdate -startup-notification -test -wifi
+x11-base/xcb-proto abi_x86_32
+x11-libs/cairo X aqua
+x11-libs/libdrm abi_x86_32
+x11-libs/libfm gtk
+x11-libs/libICE abi_x86_32
+x11-libs/libpciaccess abi_x86_32
+x11-libs/libSM abi_x86_32
+x11-libs/libva X
+x11-libs/libX11 abi_x86_32
+x11-libs/libXau abi_x86_32
+x11-libs/libxcb abi_x86_32
+x11-libs/libXcomposite abi_x86_32
+x11-libs/libXcursor abi_x86_32
+x11-libs/libXdamage abi_x86_32
+x11-libs/libXdmcp abi_x86_32
+x11-libs/libXext abi_x86_32
+x11-libs/libXfixes abi_x86_32
+x11-libs/libXi abi_x86_32
+x11-libs/libxkbcommon X
+x11-libs/libXrandr abi_x86_32
+x11-libs/libXrender abi_x86_32
+x11-libs/libxshmfence abi_x86_32
+x11-libs/libXtst abi_x86_32
+x11-libs/libXxf86vm abi_x86_32
+x11-misc/xwallpaper jpeg png
