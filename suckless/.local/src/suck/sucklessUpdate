@@ -31,7 +31,7 @@ cd "$SUCK"/slstatus && git pull ;
 cd "$SUCK"/st && git pull ;
 cd "$SUCK"/tabbed && git pull
 
-cp -rf ~/.config/misc/neovimb.h "$SUCK"/neovimb/include
+cp -rf ~/.config/misc/neovimb.h "$SUCK"/neovimb/include/config.h
 
 ########################
 # Recompiling Programs #
