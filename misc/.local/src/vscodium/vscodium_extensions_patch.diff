@@ -1,19 +1,19 @@
---- a/resources/app/product.json	2020-08-26 11:43:07.000000000 +0100
-+++ b/resources/app/product.json	2020-09-03 16:36:49.754138177 +0100
-@@ -136,8 +136,8 @@
-   "keyboardShortcutsUrlWin": "https://go.microsoft.com/fwlink/?linkid=832145",
-   "quality": "stable",
-   "extensionsGallery": {
--    "serviceUrl": "https://open-vsx.org/vscode/gallery",
--    "itemUrl": "https://open-vsx.org/vscode/item"
-+    "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
-+    "itemUrl": "https://marketplace.visualstudio.com/items"
-   },
-   "linkProtectionTrustedDomains": ["https://open-vsx.org"],
+--- a/resources/app/product.json	2020-10-16 17:05:04.260017410 +0100
++++ b/resources/app/product.json	2020-10-16 17:06:02.450018579 +0100
+@@ -2,8 +2,8 @@
    "serverDataFolderName": ".vscode-server-oss",
-@@ -151,4 +151,4 @@
+   "linkProtectionTrustedDomains": ["https://open-vsx.org"],
+   "extensionsGallery": {
+-    "itemUrl": "https://open-vsx.org/vscode/item",
+-    "serviceUrl": "https://open-vsx.org/vscode/gallery"
++    "itemUrl": "https://marketplace.visualstudio.com/items",
++    "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery"
+   },
+   "quality": "stable",
+   "keyboardShortcutsUrlWin": "https://go.microsoft.com/fwlink/?linkid=832145",
+@@ -152,4 +152,4 @@
      "vs/code/electron-browser/workbench/workbench.html": "DCAx76TE79oJvbVEouBCXQ",
-     "vs/code/electron-browser/workbench/workbench.js": "dV26E9RtxjyogiJBnA3ymQ"
+     "vs/code/electron-browser/workbench/workbench.js": "EWRP4AdsNbp965Vz0YEmAA"
    }
 -}
 \ No newline at end of file
