@@ -11,7 +11,7 @@
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
 
-set vicmd=vim
+set vicmd=nvim
 " set vicmd=elvis\ -G\ termcap
 " set vicmd=vile
 
@@ -22,19 +22,6 @@ set vicmd=vim
 
 set syscalls
 
-" Trash Directory
-" The default is to move files that are deleted with dd or :d to
-" the trash directory.  If you change this you will not be able to move
-" files by deleting them and then using p to put the file in the new location.
-" I recommend not changing this until you are familiar with vifm.
-" This probably shouldn't be an option.
-
-"" set trash
-
-" This is how many directories to store in the directory history.
-
-set history=0
-
 " Automatically resolve symbolic links on l or Enter.
 
 set nofollowlinks
@@ -42,7 +29,7 @@ set nofollowlinks
 " With this option turned on you can run partially entered commands with
 " unambiguous beginning using :! (e.g. :!Te instead of :!Terminal or :!Te<tab>).
 
-" set fastrun
+set fastrun
 
 " Natural sort of (version) numbers within text.
 
@@ -215,7 +202,9 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 " Web
 filextype *.html,*.htm
         \ {Open with neovim}
-        \ neovim %f %i &,
+        \ nvim %f %i &,
+        \ {Open with neovimb}
+        \ neovimb %f %i &,
         \ {Open with firefox}
         \ firefox %f &,
         \ {Open with uzbl}
@@ -386,15 +375,6 @@ set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.m
 set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
 " office files
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
-
-" ------------------------------------------------------------------------------
-
-" What should be saved automatically between vifm runs
-" Like in previous versions of vifm
-" set vifminfo=options,filetypes,commands,bookmarks,dhistory,state,cs
-" Like in vi
-set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
-    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
 " ------------------------------------------------------------------------------
 
