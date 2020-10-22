@@ -202,7 +202,7 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 " Web
 filextype *.html,*.htm
         \ {Open with neovim}
-        \ nvim %f %i &,
+        \ nvim %f,
         \ {Open with neovimb}
         \ neovimb %f %i &,
         \ {Open with firefox}
