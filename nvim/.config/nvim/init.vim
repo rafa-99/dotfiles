@@ -47,6 +47,7 @@ map <F4> :!clear && shellcheck % <CR>
 map <C-p> :set spell spelllang=pt_pt <CR>
 map <C-e> :set spell spelllang=en_us <CR>
 map <C-s> :set nospell <CR>
+map <Tab> gg=G
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
