@@ -21,7 +21,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 export ATOM_HOME="$XDG_CONFIG_HOME"/Atom
 export XAUTHORITY="$XDG_CONFIG_HOME"/X11/Xauthority
 export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
-export WINEPREFIX="$XDG_DATA_HOME"/wine/default
+export WINEPREFIX="$HOME"/Games/WINEPREFIX
 
 # Default Vars
 export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
