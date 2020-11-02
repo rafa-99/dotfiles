@@ -1,0 +1,66 @@
+#!/bin/sh
+
+#
+# Arch dots install
+#
+
+CURDIR=$(pwd)
+
+echo "######################"
+echo "# dotfiles Installer #"
+echo "######################"
+echo "|     Arch Linux     |"
+echo "**********************"
+
+# Adding Root Files
+sudo cp -rf ROOT/doas/doas.conf /etc
+sudo cp -rf ROOT/issue/issue /etc
+sudo cp -rf ROOT/hosts/hosts /etc
+
+# Remove Vim if Present
+sudo pacman -Rnsc vim
+
+# Install Required Programs
+sudo pacman --needed -Syu stow opendoas zsh youtube-dl engrampa ncmpcpp xwallpaper newsboat vifm zathura maim ffmpeg texlive-most pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal pandoc automake lzop zip curl make bc android-tools gimp audacity kdenlive frei0r-plugins inkscape unzip unarchiver arandr shellcheck arc-gtk-theme ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme lsd valgrind doxygen gdb light pulsemixer pavucontrol xorg-server xorg-xinit go qt5ct artix-dark-theme wine-staging wine-mono wine-gecko winetricks giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader lutris hplip simple-scan system-config-printer xorg gst-plugins-good grc gst-libav clang
+
+# Computer Science Programs
+# bluej netbeans jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench octave
+
+# Building Folder Structure
+mkdir -p ~/Documents/PDF ~/Documents/Markdown ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games/WINEPREFIX ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Source ~/.config/git ~/.config/gnupg ~/.config/wallpaper ~/.config/X11 ~/Mount
+
+touch ~/.config/X11/Xauthority
+doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
+chsh -s /bin/zsh
+
+# Deploy Dots
+stow --target="$HOME" fonts gtk misc mpd ncmpcpp newsboat nvim scripts suckless sxiv vifm X11 zathura zsh
+
+cd ~/.local/src/suck && sh sucklessUpdate && cd $CURDIR
+
+# Setting up Neovim
+## Linking Neovim to Vim
+ln -s /usr/bin/nvim ~/.local/bin/vim
+
+## Installing Neovim Plugin Manager (Vim Plug)
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+## Installing Plugins
+nvim -c PlugInstall
+cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
+
+# Setup Git account
+printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
+if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
+	printf "Username: " && read -r USER
+	printf "Email: " && read -r EMAIL
+	git config --global user.name "$USER"
+	git config --global user.email "$EMAIL"
+	git config pull.rebase false
+	mv ~/.gitconfig ~/.config/git/config
+	git config --global pull.rebase false
+fi
+
+# Wallpapers
+cd ~/Pictures && git clone https://gitlab.com/rafa_99/wallpapers

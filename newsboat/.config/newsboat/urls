@@ -27,6 +27,9 @@ https://www.si.ips.pt/ests_si/noticias_web.rss?p_grupo_noticias=119 "~IPS ESTS L
 https://www.nba.com/rss.xml "~NBA"
 https://www.rtp.pt/noticias/rss "~RTP"
 
+" Sauce"
+"https://github.com/alexmpc98/Engenharia-Informatica-IPS/commits/master.atom" "~Sauce 1"
+
 "  - Reddit"
 https://www.reddit.com/r/FreeGameFindings.rss "~FreeGameFindings"
 https://www.reddit.com/r/linuxmemes.rss "~LinuxMemes"
