@@ -26,6 +26,11 @@ export WINEPREFIX="$HOME"/Games/WINEPREFIX
 # Default Vars
 export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
 
+# Fixing Broken PulseAudio
+[ -x /usr/bin/pulseaudio ] &&
+	! pidof pulseaudio >/dev/null &&
+	setsid -f pulseaudio --start >/dev/null 2>&1
+
 #Session Selection Menu
 export SESSION=dwm
 printf "Starting X, press Ctrl-C to interrupt\n"
