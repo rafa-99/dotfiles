@@ -11,5 +11,5 @@ case $OPERATION in
 		;;
 	Suspend)
 		slock &
-		loginctl suspend
+		(loginctl suspend || systemctl suspend)
 esac

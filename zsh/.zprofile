@@ -27,9 +27,9 @@ export WINEPREFIX="$HOME"/Games/WINEPREFIX
 export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
 
 # Fixing Broken PulseAudio
-[ -x /usr/bin/pulseaudio ] &&
-	! pidof pulseaudio >/dev/null &&
-	setsid -f pulseaudio --start >/dev/null 2>&1
+# [ -x /usr/bin/pulseaudio ] &&
+# 	! pidof pulseaudio >/dev/null &&
+# 	setsid -f pulseaudio --start >/dev/null 2>&1
 
 #Session Selection Menu
 export SESSION=dwm
