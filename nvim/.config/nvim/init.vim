@@ -34,7 +34,7 @@ set smartindent
 set smarttab
 set ruler
 set autochdir
-set guicursor=
+" set guicursor=
 set inccommand=split
 set incsearch
 set wildmode=longest,list,full

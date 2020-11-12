@@ -8,6 +8,11 @@ https://blog.linuxmint.com/?feed=rss2 "~Linux Mint"
 https://www.undeadly.org/cgi?action=rss "~OpenBSD"
 https://voidlinux.org/atom.xml "~Void"
 
+" - Packages"
+https://www.archlinux.org/feeds/packages/ "~Arch Linux Packages"
+https://packages.gentoo.org/packages/updated.atom "~Gentoo Linux Packages"
+https://github.com/void-linux/void-packages/commits/master.atom "~Void Linux Packages"
+
 " - Tech"
 https://distrowatch.com/news/dw.xml "~DistroWatch"
 https://www.gadgethacks.com/rss.xml "~Gadget Hacks"
