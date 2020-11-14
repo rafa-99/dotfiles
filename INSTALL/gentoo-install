@@ -4,6 +4,7 @@
 # Gentoo dots install
 #
 
+cd .. || exit
 CURDIR=$(pwd)
 
 echo "######################"

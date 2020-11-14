@@ -1,0 +1,60 @@
+#!/bin/sh
+
+#
+# OpenBSD dots install
+#
+
+cd .. || exit
+CURDIR=$(pwd)
+
+echo "######################"
+echo "# dotfiles Installer #"
+echo "######################"
+echo "|       OpenBSD      |"
+echo "**********************"
+
+# Adding Root Files
+sudo cp -rf ROOT/doas/doas.conf /etc
+
+# Installing Programs
+doas pkg_add neovim git neofetch firefox gimp zsh newsboat zathura ffmpeg maim xwallpaper xclip redshift mpv ncmpcpp ImageMagick gdb valgrind doxygen unoconv sxiv mpc ccache ntp htop zip numlockx shellcheck unzip mc node automake m4 go
+
+# Building Folder Structure
+mkdir -p ~/Documents/PDF ~/Documents/Markdown ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Source ~/.config/git ~/.config/gnupg ~/.config/wallpaper ~/.config/X11 ~/Mount
+
+rm -rf ~/.Xauthority && touch ~/.config/X11/Xauthority
+doas sh -c 'echo "/usr/local/bin/startxfce4" >/etc/X11/xenodm/Xsession'
+chsh -s /usr/local/bin/zsh
+
+# Deploy Dots
+stow --target="$HOME" fonts gtk misc mpd ncmpcpp newsboat nvim scripts suckless sxiv vifm X11 zathura zsh
+
+# Suckless Software (Missing Patches)
+# cd ~/.local/src/suck && sh sucklessUpdate && cd "$CURDIR" || exit
+
+# Setting up Neovim
+## Linking Neovim to Vim
+ln -s /usr/bin/nvim ~/.local/bin/vim
+
+## Installing Neovim Plugin Manager (Vim Plug)
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+## Installing Plugins
+nvim -c PlugInstall
+cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
+
+# Setup Git account
+printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
+if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
+	printf "Username: " && read -r USER
+	printf "Email: " && read -r EMAIL
+	git config --global user.name "$USER"
+	git config --global user.email "$EMAIL"
+	git config pull.rebase false
+	mv ~/.gitconfig ~/.config/git/config
+	git config --global pull.rebase false
+fi
+
+# Wallpapers
+cd ~/Pictures && git clone https://gitlab.com/rafa_99/wallpapers
