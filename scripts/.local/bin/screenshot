@@ -25,10 +25,10 @@ else
 				SAVE=$(printf "Clipboard\nPictures Folder" | dmenu -i -c -l 15 -p "Save to: ")
 				case "$SAVE" in
 					"Clipboard")
-						maim -s -u -m 10 | xclip -selection clipboard -t image/png
+						maim -s -u -m 10 --color=1,1,1,0.1 | xclip -selection clipboard -t image/png
 						;;
 					"Pictures Folder")
-						maim -s -u -m 10 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
+						maim -s -u -m 10 --color=1,1,1,0.1 ~/Pictures/Screenshots/screenshot-"$(date '+%Y%m%d_%H%M%S')".png
 				esac
 				;;
 		esac
