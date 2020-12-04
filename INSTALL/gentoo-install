@@ -38,6 +38,7 @@ else
 		mkdir -p ~/Documents/PDF ~/Documents/Markdown ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games/WINEPREFIX ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Source ~/.config/git ~/.config/gnupg ~/.config/wallpaper ~/.config/X11 ~/Mount
 
 		touch ~/.config/X11/Xauthority
+		touch ~/.xprofile
 		doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
 		chsh -s /bin/zsh
 
@@ -72,6 +73,6 @@ else
 
 		# Wallpapers
 		cd ~/Pictures && git clone https://gitlab.com/rafa_99/wallpapers
-}
+	}
 fi
 
