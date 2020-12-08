@@ -1,0 +1,84 @@
+#!/bin/sh
+
+USER=$(ls /home/)
+
+# Removing Unecessary software
+## fcitx
+sh -c "apt list --installed | grep fcitx | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## anthy
+sh -c "apt list --installed | grep anthy | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## xsane
+sh -c "apt list --installed | grep xsane | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## mozc
+sh -c "apt list --installed | grep mozc | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## uim
+sh -c "apt list --installed | grep uim | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## ibus
+sh -c "apt list --installed | grep ibus | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## thai terminal
+sh -c "apt list --installed | grep xiterm+thai | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## multilingual terminal
+sh -c "apt list --installed | grep mlterm | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## exfalso (music tagger)
+sh -c "apt list --installed | grep exfalso | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## quite weak archiver
+sh -c "apt list --installed | grep xarchiver | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+# Adding Extra Repos
+sed -i s:main:'main contrib non-free':g /etc/apt/sources.list
+
+# Enable 32 Bit Suport
+dpkg --add-architecture i386
+
+apt update
+apt upgrade -y
+
+# Adding All Firmware
+apt install -y alsa-firmware-loaders bladerf-firmware-fx3 dahdi-firmware-nonfree dns323-firmware-tools expeyes-firmware-dev firmware-adi firmware-amd-graphics firmware-ath9k-htc firmware-ath9k-htc-dbgsym firmware-atheros firmware-b43-installer firmware-b43legacy-installer firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-intel-sound firmware-intelwimax firmware-ipw2x00 firmware-ivtv firmware-iwlwifi firmware-libertas firmware-linux firmware-linux-free firmware-linux-nonfree firmware-microbit-micropython firmware-misc-nonfree firmware-myricom firmware-netronome firmware-netxen firmware-qcom-media firmware-qlogic firmware-ralink firmware-realtek firmware-samsung firmware-siano firmware-ti-connectivity firmware-zd1211 grub-firmware-qemu isight-firmware-tools sigrok-firmware-fx2lafw ubertooth-firmware-source
+
+# Adding Software Store
+apt install -y flatpak flatpak-builder gnome-packagekit-session gnome-software gnome-software-common gnome-software-dev gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Printer
+apt install cups system-config-printer system-config-printer-udev system-config-printer-common hplip printer-driver-all simple-scan
+systemctl enable cups
+
+# Adding Extra Important Software
+apt install -y engrampa unar arc-theme papirus-icon-theme transmission-gtk
+
+## Retroarch
+apt install -y retroarch
+sh -c "apt search libretro | grep stable | cut -d"/" -f1 | xargs -I {} apt install -y {}"
+
+
+if test -f /usr/bin/xfwm4-settings; then
+
+	# Enabling Power Settings
+	apt install -y xfce4-power-manager
+
+	# Enabling Autologin
+	sed -i s:#autologin-session=:autologin-session=xfce:g /etc/lightdm/lightdm.conf
+	sed -i s:#autologin-user=:autologin-user="$USER":g /etc/lightdm/lightdm.conf
+fi
+
+# Replacing WICD with NetworkManager
+apt install -y network-manager network-manager-gnome
+systemctl disable wicd
+sh -c "apt list --installed | grep wicd | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+systemctl enable NetworkManager
+
+# Cleaning Up
+apt clean
+
+# Shuting Down System
+poweroff
