@@ -1,8 +1,18 @@
 #!/bin/sh
 
 USER=$(ls /home/)
+SESSION=$(grep = /home/$USER/.dmrc | cut -d= -f2)
 
 # Removing Unecessary software
+## khmer
+sh -c "apt list --installed | grep khmer | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## deluge
+sh -c "apt list --installed | grep deluge | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## parole
+sh -c "apt list --installed | grep parole | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
 ## fcitx
 sh -c "apt list --installed | grep fcitx | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
 
@@ -54,7 +64,7 @@ apt install cups system-config-printer system-config-printer-udev system-config-
 systemctl enable cups
 
 # Adding Extra Important Software
-apt install -y engrampa unar arc-theme papirus-icon-theme transmission-gtk
+apt install -y engrampa vlc unar arc-theme papirus-icon-theme transmission-gtk
 
 ## Retroarch
 apt install -y retroarch
@@ -67,7 +77,7 @@ if test -f /usr/bin/xfwm4-settings; then
 	apt install -y xfce4-power-manager
 
 	# Enabling Autologin
-	sed -i s:#autologin-session=:autologin-session=xfce:g /etc/lightdm/lightdm.conf
+	sed -i s:#autologin-session=:autologin-session="$SESSION":g /etc/lightdm/lightdm.conf
 	sed -i s:#autologin-user=:autologin-user="$USER":g /etc/lightdm/lightdm.conf
 fi
 
