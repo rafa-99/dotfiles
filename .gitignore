@@ -23,3 +23,7 @@ gtk/.config/gtk-2.0/*
 
 # ZSH Files
 zsh/.config/zsh/.zcompdump
+
+# Qutebrowser
+qutebrowser/.config/qutebrowser/*
+!qutebrowser/.config/qutebrowser/autoconfig.yml
