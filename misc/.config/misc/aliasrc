@@ -28,4 +28,5 @@ alias ls='lsd' \
 	x='extract' \
 	e='$EDITOR' \
 	stow='stow --target=$HOME' \
-	g='sxiv -t *'
+	g='sxiv -t *' \
+	format='clang-format -i -style=GNU'
