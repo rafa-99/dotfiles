@@ -33,6 +33,7 @@
 #define SETTING_GUI_FONT_NORMAL               "10pt monospace"
 #define SETTING_GUI_FONT_EMPH                 "bold 10pt monospace"
 #define SETTING_HOME_PAGE                     "https://rafa_99.gitlab.io/"
+#define SEARCH_ENGINE                         "https://searx.info/?preferences=eJxtVcGO4zYM_Zr6YqTodg895VC0KLpAgVl0ZnsVaIlRWEuil5KTcb--VMZOlCCHBBBJkY-PT7SFgp6FMO89JhQIXYDkZ_C4x7T79toFthDqoYO5sOU4BSy47yhqjJmE35f9HxAydhHLkd3-68vrW5fhgBlB7HH_U1eOGHHP2YJ0gnkOJRtOJuHZFBjW247JqJPDCWXPoMcfWXx3ubXLZVEMgT1ZdnjaOZCxc5RhCOgMJk9JO7DW7srJmBM55PzDz79l_C9BNGZtTS1nGunES4XeWMH6zLMxl57yGqbwsqkgqyEtAI3fM_uA_RRg6WGaNO5A4eLhCZPgxI3pIJRGAvuQX_vMVJYWx-J9YRFM5XbbzQ5TG-RmO9af59Yal4iRZemLQMpBx-pa96f3pjolaEgSdI60YGZLEPqIjuABy43QAlKmB_ZqMwPzmFujJ6_DgVxa40h2hKxxcc5kaxTiWCiimqjoufC4cOF85BFSU3cb0NXgqQQY1lsLHJkfEBXiBHLHbgKlvDVMiFLmAZu8WJbIKejw28AqugHFr_Vqw99nLvcamsY-kgjLGvX9DOmueyzM4Y6kgyD2mQ_lDIK9I0GrnC9rgg_NbToINIg21Nfbme7TOGFyt9CNrY3lbcJXAXz6_PmX96Zr53zv8ECJKm0PECFCrY0rKpmHxWPcJpamuDnWKo0msWhBeaqAa-2rZUNf2VX4Yu_ofVDGFhz5X5XQ8-fRf_Tb9D1QGdSFZYVc95O-w_6ezvZxXyi8Mfkxku2EwmdyzxbJBm_jZN0iHxuxqqmvf89Fv2VvH-BmO4KKoP7dSeT2KlrkfCJsiZ5TVkc-NnycGJ48fEgO369ddZjut-xt705hVlPev-jOM79aizrG31--6Bo_CxXUXF_SRVRoshUOlaF_KO4CjWiOXEZc8jX9luxNQCck5tvff2ki7QJFr71emKtfDfvxxVpMxqDP5eILB6OVWCJc9Ku2P9_evr5uQDplGDX1_yVynGg=&q=$0"
 
 #define MAXIMUM_HINTS              500
 /* default window dimensions */
