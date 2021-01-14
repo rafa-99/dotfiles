@@ -1,1 +1,2 @@
 dev-libs/openssl
+>net-news/newsboat-2.20.1
