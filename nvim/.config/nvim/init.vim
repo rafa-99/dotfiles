@@ -1,19 +1,20 @@
 " Call plugins folder
 call plug#begin('~/.config/nvim/plugged')
 Plug 'bling/vim-airline'
-Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'luochen1990/rainbow'
-Plug 'vim-scripts/taglist.vim'
-Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'RRethy/vim-hexokinase'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
+" Unused Plugins
+" Plug 'vim-scripts/DoxygenToolkit.vim'
+" Plug 'vim-scripts/taglist.vim'
+" Plug 'scrooloose/nerdtree'
+
 " Keybinds Index
-"
 " F4 -> Checks shellcode "bashisms"
 " F5 -> Compile current program with compiler script
 " Control + P -> Runs portuguese spelling check
@@ -65,16 +66,18 @@ map <A-l> <C-w>l
 set splitbelow splitright
 
 " Plugins Configuration
-" NERDTree
-map <C-t> :NERDTreeToggle<CR>
 " Airline Theme
 let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1
 " Rainbow Vim
 let g:rainbow_active = 1
-" Tag List
-map <C-z> :TlistToggle<CR>
 " Vim gitgutter
+set updatetime=100
+let g:gitgutter_highlight_lines = 1
+let g:gitgutter_signs = 0
+map <S-n> :GitGutterNextHunk<CR>
+map <S-p> :GitGutterPrevHunk<CR>
+map <A-h> :GitGutterPreviewHunk<CR>
 map <C-g> :GitGutterToggle<CR>
 " Vim Hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
