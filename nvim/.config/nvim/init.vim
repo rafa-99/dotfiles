@@ -73,11 +73,8 @@ let g:airline_powerline_fonts = 1
 let g:rainbow_active = 1
 " Vim gitgutter
 set updatetime=100
-let g:gitgutter_highlight_lines = 1
-let g:gitgutter_signs = 0
-map <S-n> :GitGutterNextHunk<CR>
-map <S-p> :GitGutterPrevHunk<CR>
-map <A-h> :GitGutterPreviewHunk<CR>
+map <C-l> :GitGutterLineHighlightsToggle<CR>
+map <C-h> :GitGutterPreviewHunk<CR>
 map <C-g> :GitGutterToggle<CR>
 " Vim Hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
