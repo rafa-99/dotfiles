@@ -27,3 +27,7 @@ zsh/.config/zsh/.zcompdump
 # Qutebrowser
 qutebrowser/.config/qutebrowser/*
 !qutebrowser/.config/qutebrowser/autoconfig.yml
+
+# MPD Configs
+!mpd/.config/mpd/mpd.conf
+mpd/.config/mpd/*

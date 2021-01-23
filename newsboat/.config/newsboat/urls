@@ -49,6 +49,7 @@ https://www.si.ips.pt/ests_si/noticias_web.rss?p_grupo_noticias=116 "~IPS ESTS G
 https://www.si.ips.pt/ests_si/noticias_web.rss?p_grupo_noticias=119 "~IPS ESTS Licenciaturas"
 https://www.nba.com/rss.xml "~NBA"
 https://www.rtp.pt/noticias/rss "~RTP"
+http://feeds.urbandictionary.com/UrbanWordOfTheDay "~Urban Dictionary"
 
 " Sauce"
 "https://github.com/alexmpc98/Engenharia-Informatica-IPS/commits/master.atom" "~Sauce 1"
