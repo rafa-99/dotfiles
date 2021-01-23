@@ -6,7 +6,6 @@ app-emulation/wine-staging ~amd64
 app-text/pandoc ~amd64
 dev-haskell/* ~amd64
 dev-java/openjdk-bin ~amd64
-dev-java/openjdk-jre-bin ~amd64
 dev-java/openjfx ~amd64
 dev-java/swt ~amd64
 dev-lang/ghc ~amd64
@@ -26,15 +25,13 @@ games-emulation/mupen64plus-audio-sdl ~amd64
 games-emulation/mupen64plus-core ~amd64
 games-emulation/mupen64plus-input-sdl ~amd64
 games-emulation/mupen64plus-rsp-hle ~amd64
-games-emulation/mupen64plus-ui-console ~amd64
 games-emulation/mupen64plus-video-glide64mk2 ~amd64
 games-emulation/mupen64plus-video-rice ~amd64
+games-emulation/mupen64plus-ui-console ~amd64
 games-util/lutris ~amd64
 games-util/steam-launcher ~amd64
 media-gfx/maim ~amd64
 media-sound/mpc ~amd64
 media-sound/pulsemixer ~amd64
-net-im/discord-bin ~amd64
-net-im/teams ~amd64
 sys-apps/flatpak ~amd64
 x11-misc/slop ~amd64

@@ -1,2 +1,3 @@
 dev-libs/openssl
 >net-news/newsboat-2.20.1
+>dev-java/openjfx-8.999

@@ -1,3 +1,3 @@
-# Unmask Gentoo-VM OpenJDK/JRE
-dev-java/openjdk-bin -gentoo-vm
-dev-java/openjdk-jre-bin -gentoo-vm
+# Unmasking System VM's and enabling JavaFX
+dev-java/openjdk -gentoo-vm -javafx
+dev-java/openjdk-bin -gentoo-vm -javafx

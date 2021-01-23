@@ -20,9 +20,10 @@ dev-cpp/cairomm aqua X
 dev-cpp/gtkmm X
 dev-db/lmdb abi_x86_32
 dev-db/sqlite secure-delete
-dev-java/openjdk-bin gentoo-vm
-dev-java/openjdk-jre-bin gentoo-vm
-dev-java/swt opengl cairo
+dev-java/openjdk-bin gentoo-vm javafx
+dev-java/openjdk gentoo-vm javafx source
+dev-java/openjfx media source
+dev-java/swt cairo opengl
 dev-lang/R jpeg png X minimal -tiff -tk
 dev-lang/ghc -elfutils -ghcbootstrap -ghcmakebinary -binary
 dev-lang/python sqlite
@@ -74,6 +75,7 @@ dev-util/ostree curl
 dev-util/pkgconf abi_x86_32
 dev-util/spirv-tools abi_x86_32
 dev-vcs/git -emacs
+games-emulation/mgba ffmpeg gles3 opengl qt5 -debug -discord
 gnome-base/librsvg abi_x86_32
 gnustep-base/gnustep-make native-exceptions
 kde-frameworks/kitemmodels qml
@@ -110,18 +112,17 @@ media-libs/vulkan-loader X layers abi_x86_32
 media-plugins/alsa-plugins abi_x86_32
 media-sound/ncmpcpp visualizer
 media-sound/pulseaudio abi_x86_32
-media-video/ffmpeg X bzip2 chromium encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opengl opus oss sdl speex svg theora threads truetype v4l vaapi vdpau vorbis wavpack webp x264 xvid zlib
+media-video/ffmpeg X bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opengl opus oss sdl speex svg theora threads truetype v4l vaapi vdpau vorbis wavpack webp x264 xvid zlib
 media-video/mpv cli drm dvb dvd egl gbm libmpv opengl vaapi vdpau vulkan X xv zlib -raspberry-pi
 net-dns/dnsmasq script
 net-dns/libidn2 abi_x86_32
 net-fs/samba abi_x86_32
-net-im/teams system-ffmpeg system-mesa
 net-libs/gnutls abi_x86_32
 net-libs/libasyncns abi_x86_32
 net-libs/libnsl abi_x86_32
 net-libs/libssh server
 net-libs/libtirpc abi_x86_32
-net-libs/nodejs icu inspector snapshot system-ssl -system-tap
+net-libs/nodejs icu inspector snapshot -system-tap -system-ssl
 net-libs/webkit-gtk egl -geolocation -gamepad
 net-misc/networkmanager -bluetooth -ppp -vala -teamd -ofono -dhcpcd -modemmanager
 net-misc/spice-gtk usbredir
