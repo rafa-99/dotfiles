@@ -29,4 +29,5 @@ alias ls='lsd' \
 	e='$EDITOR' \
 	stow='stow --target=$HOME' \
 	g='sxiv -t *' \
-	format='clang-format -i -style=GNU'
+	format='clang-format -i -style=GNU' \
+	fm='$FILE'
