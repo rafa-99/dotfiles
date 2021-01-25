@@ -9,7 +9,7 @@ export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="neovimb"
 export READER="zathura"
-export FILE="vifm"
+export FILE="vifmrun"
 export NEWS="st -e newsboat"
 export CHAT="st -e cordless"
 

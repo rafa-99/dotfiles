@@ -32,7 +32,7 @@ if [ "$(id -u)" = "0" ]; then
 
 	printf "Do you want to install Extra Packages? [Y/n]" && read -r USERPACKAGES
 	if [ "$USERPACKAGES" != "N" ] && [ "$USERPACKAGES" != "n" ]; then
-		emerge --ask --quiet app-emulation/libvirt app-emulation/qemu app-emulation/virt-manager app-emulation/wine-mono app-emulation/wine-staging neofetch dev-python/pip dev-util/idea-community games-util/lutris lxde-base/lxappearance media-sound/pavucontrol x11-misc/pcmanfm x11-themes/arc-theme x11-themes/papirus-icon-theme x11-misc/qt5ct breeze
+		emerge --ask --quiet app-emulation/libvirt app-emulation/qemu app-emulation/virt-manager app-emulation/wine-mono app-emulation/wine-staging neofetch dev-python/pip dev-util/idea-community games-util/lutris lxde-base/lxappearance media-sound/pavucontrol x11-misc/pcmanfm x11-themes/arc-theme x11-themes/papirus-icon-theme x11-misc/qt5ct breeze ffmpegthumbnailer
 	fi
 else
 	{
