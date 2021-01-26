@@ -1,3 +1,4 @@
+ net-print/hplip X hpcups scanner snmp
 app-accessibility/at-spi2-atk abi_x86_32
 app-accessibility/at-spi2-core abi_x86_32
 app-arch/bzip2 abi_x86_32
@@ -20,8 +21,8 @@ dev-cpp/cairomm aqua X
 dev-cpp/gtkmm X
 dev-db/lmdb abi_x86_32
 dev-db/sqlite secure-delete
-dev-java/openjdk-bin gentoo-vm javafx
 dev-java/openjdk gentoo-vm javafx source
+dev-java/openjdk-bin gentoo-vm javafx
 dev-java/openjfx media source
 dev-java/swt cairo opengl
 dev-lang/R jpeg png X minimal -tiff -tk
@@ -48,6 +49,7 @@ dev-libs/libpcre2 pcre16
 dev-libs/libressl abi_x86_32
 dev-libs/libtasn1 abi_x86_32
 dev-libs/libunistring abi_x86_32
+dev-libs/libusb udev
 dev-libs/libverto abi_x86_32
 dev-libs/libxml2 abi_x86_32
 dev-libs/libxslt abi_x86_32
@@ -62,6 +64,7 @@ dev-lua/luv luajit
 dev-lua/mpack luajit
 dev-python/PyQt5 opengl gui widgets
 dev-python/certifi python_targets_python3_8
+dev-python/pillow truetype tiff
 dev-python/pip python_targets_python3_8
 dev-python/setuptools python_targets_python3_8
 dev-python/setuptools_scm python_targets_python3_8
@@ -166,6 +169,7 @@ virtual/libcrypt abi_x86_32
 virtual/libelf abi_x86_32
 virtual/libiconv abi_x86_32
 virtual/libintl abi_x86_32
+virtual/libusb udev
 virtual/opengl abi_x86_32
 virtual/pkgconfig abi_x86_32
 virtual/rust abi_x86_32
