@@ -25,4 +25,12 @@ case $1 in
 			[ -f /usr/bin/amixer ]; then
 			amixer set Master toggle
 		fi
+		;;
+	m)
+		if [ -f /usr/bin/pacmd ]; then
+			pacmd list-sources | grep -oP 'index: \d+' | awk '{ print $2 }' | xargs -I {} pactl set-source-mute {} toggle
+		elif
+			[ -f /usr/bin/amixer ]; then
+			amixer set Capture toggle
+		fi
 esac
