@@ -6,11 +6,13 @@ https://www.gentoo.org/feeds/news.xml "~Gentoo"
 https://www.linux.com/feed/ "~Linux"
 https://blog.linuxmint.com/?feed=rss2 "~Linux Mint"
 https://www.undeadly.org/cgi?action=rss "~OpenBSD"
+https://www.parabola.nu/feeds/news/ "~Parabola"
 https://voidlinux.org/atom.xml "~Void"
 
 " - Packages"
 https://www.archlinux.org/feeds/packages/ "~Arch Linux Packages"
 https://packages.gentoo.org/packages/updated.atom "~Gentoo Linux Packages"
+https://www.parabola.nu/feeds/packages/ "~Parabola Linux Packages"
 https://github.com/void-linux/void-packages/commits/master.atom "~Void Linux Packages"
 
 " - Programs"
