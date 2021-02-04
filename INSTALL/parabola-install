@@ -14,15 +14,12 @@ echo "|   Parabola Linux   |"
 echo "**********************"
 
 # Adding Root Files
-doas cp -rf ROOT/doas/doas.conf /etc
-doas cp -rf ROOT/issue/issue /etc
-doas cp -rf ROOT/hosts/hosts /etc
-#
-# # Remove Vim if Present
-doas pacman -Rnsc vim
+sudo cp -rf ROOT/doas/doas.conf /etc
+sudo cp -rf ROOT/issue/issue /etc
+sudo cp -rf ROOT/hosts/hosts /etc
 
 # Install Required Programs
-doas pacman --needed -Syu stow opendoas zsh youtube-dl engrampa ncmpcpp xwallpaper newsboat vifm zathura maim texlive-most ffmpeg pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal pandoc automake lzop zip curl make bc android-tools gimp audacity kdenlive frei0r-plugins inkscape unzip unarchiver arandr shellcheck arc-gtk-theme ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme valgrind doxygen gdb light pulsemixer pavucontrol xorg-server xorg-xinit go qt5ct ncurses gtk3 gst-plugins-base-libs hplip simple-scan cups-openrc system-config-printer gst-plugins-good grc gst-libav avahi-openrc clang breeze net-tools ueberzug ffmpegthumbnailer webkit2gtk torbrowser-launcher
+sudo pacman --needed -Syu stow opendoas zsh youtube-dl engrampa ncmpcpp xwallpaper newsboat vifm zathura maim texlive-most ffmpeg pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal pandoc automake lzop zip curl make bc android-tools gimp audacity kdenlive frei0r-plugins inkscape unzip unarchiver arandr shellcheck arc-gtk-theme ctags unoconv picom nodejs yarn p7zip gzip tar xz papirus-icon-theme valgrind doxygen gdb light pulsemixer pavucontrol xorg-server xorg-xinit go qt5ct ncurses gtk3 gst-plugins-base-libs hplip simple-scan cups-openrc system-config-printer gst-plugins-good grc gst-libav avahi-openrc clang breeze net-tools ueberzug ffmpegthumbnailer webkit2gtk torbrowser-launcher neofetch cmatrix asciiquarium
 
 # Adding System default init services
 doas rc-update add cupsd default
