@@ -1,5 +1,13 @@
 #!/bin/sh
 
 #FFMPEG Grabs X11 Screen Puts it into a file inside Videos Folder
-ffmpeg -y -f x11grab -framerate 60 -s "$(xdpyinfo | grep dimensions | awk '{print $2;}')" -i :0.0 \
-	-f pulse -i default ~/Videos/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".mkv
+INPUT=$(printf "Screen Record\nScreen Cast" | dmenu -i -c -l 15 -p "Record Type: ")
+case "$INPUT" in
+	"Screen Record")
+		SOURCE=$(pamixer --list-sources | grep -vi "Sources:" | awk '{print $2}' | grep output | sed s:\"::g)
+		ffmpeg -y -f x11grab -framerate 60 -s $(xdpyinfo | grep dimensions | awk '{print $2}') -i :0.0 -f pulse -i $SOURCE -c:v libx264rgb -r 30 -c:a flac ~/Videos/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".mkv
+		;;
+	"Screen Cast")
+		SOURCE=$(pamixer --list-sources | grep -vi "Sources:" | awk '{print $2}' | grep input | sed s:\"::g)
+		ffmpeg -y -f x11grab -framerate 60 -s $(xdpyinfo | grep dimensions | awk '{print $2}') -i :0.0 -f pulse -i $SOURCE -c:v libx264rgb -r 30 -c:a flac ~/Videos/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".mkv
+esac
