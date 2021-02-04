@@ -28,6 +28,6 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 ## Source Files
-source "$HOME"/.config/zsh/prompt/nicoulaj.zsh-theme
+source "$HOME"/.config/zsh/prompt/agnoster.zsh-theme
 source "$HOME"/.config/zsh/zsh-syntax-highlighting.zsh
 [ -f "$HOME/.config/misc/aliasrc" ] && source "$HOME/.config/misc/aliasrc"
