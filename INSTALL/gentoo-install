@@ -46,6 +46,9 @@ else
 		doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
 		chsh -s /bin/zsh
 
+		# Installing pywal and ueberzug
+		pip install --user ueberzug pywal
+
 		# Deploy Dots
 		stow --target="$HOME" fonts gtk misc mpd ncmpcpp newsboat nvim qt shell scripts suckless sxiv vifm X11 zathura zsh
 
