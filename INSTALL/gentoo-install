@@ -17,7 +17,6 @@ if [ "$(id -u)" = "0" ]; then
 	cp -rf ROOT/doas/doas.conf /etc
 	cp -rf ROOT/issue/issue /etc
 	cp -rf ROOT/hosts/hosts /etc
-	cp -rf ROOT/portage/ /etc
 
 	printf "Do you want to install Base Packages? [Y/n]" && read -r BASE
 	if [ "$BASE" != "N" ] && [ "$BASE" != "n" ]; then
