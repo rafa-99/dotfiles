@@ -7,6 +7,7 @@ Plug 'luochen1990/rainbow'
 Plug 'airblade/vim-gitgutter'
 Plug 'RRethy/vim-hexokinase'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-scripts/taglist.vim'
 call plug#end()
 
 " Unused Plugins
@@ -78,3 +79,5 @@ map <C-h> :GitGutterPreviewHunk<CR>
 map <C-g> :GitGutterToggle<CR>
 " Vim Hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
+" Tag List
+map <C-t> :TlistToggle<CR>

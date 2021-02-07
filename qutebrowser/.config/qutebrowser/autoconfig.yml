@@ -28,6 +28,8 @@ settings:
     global: never
   tabs.show:
     global: switching
+  url.default_page:
+    global: https://rafa_99.gitlab.io
   url.open_base_url:
     global: false
   url.searchengines:
