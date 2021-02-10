@@ -4,8 +4,5 @@ do
 	case "$1" in
 		"d")
 			rm -rf "$FILE"
-			;;
-		"w")
-			printf "$FILE" | xclip -selection clipboard
 	esac
 done

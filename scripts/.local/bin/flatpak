@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Flatpak Run Script
+flatpak run "$(flatpak list --app --columns=application | grep -vi "Application ID" | dmenu -i -c -l 15 -p "Flatpak:")"
