@@ -34,7 +34,7 @@ case $RUN in
 			find Gallery -type f | grep -vi Plz | shuf | sxiv -t -
 		fi
 		if [ "$SEL" = "Wallpapers" ]; then
-			CAT=$(find ~/Pictures/wallpapers -type d | grep -vi git | cut -d/ -f6 | uniq | sort | tail -10 | dmenu -i)
+			CAT=$(find ~/Pictures/wallpapers -type d | grep -vi git | cut -d/ -f6 | uniq | sort | tail -10 | dmenu -i -c -l 15)
 			find ~/Pictures/wallpapers/"$CAT" -type f | shuf | sxiv -t -
 		fi
 		;;
