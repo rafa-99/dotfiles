@@ -18,6 +18,11 @@ vifm/.config/vifm/*
 !gtk/.config/gtk-2.0/gtkrc-2.0
 gtk/.config/gtk-2.0/*
 
+# Fonts
+!fonts/.local/share/fonts/*.ttf
+!fonts/.local/share/fonts/*.otf
+fonts/.local/share/fonts
+
 # ZSH Files
 zsh/.config/zsh/.zcompdump
 

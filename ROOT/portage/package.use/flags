@@ -50,6 +50,7 @@ dev-libs/libunistring abi_x86_32
 dev-libs/libusb udev
 dev-libs/libverto abi_x86_32
 dev-libs/libxml2 abi_x86_32
+dev-libs/libxml2 icu
 dev-libs/libxslt abi_x86_32
 dev-libs/light udev
 dev-libs/lzo abi_x86_32
@@ -64,12 +65,17 @@ dev-lua/mpack luajit
 dev-python/certifi python_targets_python3_8
 dev-python/pillow truetype tiff
 dev-python/pip python_targets_python3_8
+dev-python/PyQt5 network declarative sql multimedia printsupport webchannel
 dev-python/PyQt5 opengl gui widgets
 dev-python/setuptools python_targets_python3_8
 dev-python/setuptools_scm python_targets_python3_8
 dev-python/subunit abi_x86_32
 dev-qt/qtcore icu
 dev-qt/qtgui egl dbus
+dev-qt/qtmultimedia widgets
+dev-qt/qtwebchannel qml
+dev-qt/qtwebengine system-ffmpeg system-icu widgets -designer -geolocation
+dev-qt/qtwebengine widgets
 dev-util/cmocka abi_x86_32
 dev-util/cppunit abi_x86_32
 dev-util/glslang abi_x86_32
@@ -105,6 +111,7 @@ media-libs/libsndfile abi_x86_32
 media-libs/libsoundtouch abi_x86_32
 media-libs/libvorbis abi_x86_32
 media-libs/libvpx postproc
+media-libs/libvpx svc
 media-libs/mesa abi_x86_32 egl vulkan wayland
 media-libs/mlt xml sdl melt kdenlive ffmpeg qt5 frei0r
 media-libs/opus abi_x86_32
@@ -176,7 +183,7 @@ virtual/rust abi_x86_32
 www-client/firefox-bin -gmp-autoupdate
 www-client/firefox eme-free hwaccel lto openh264 pgo system-av1 system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-webp -clang -screenshot -geckodriver -gmp-autoupdate -screencast -wifi
 x11-base/xcb-proto abi_x86_32
-x11-base/xorg-server xvfb
+x11-base/xorg-server dmx xorg xvfb -suid -xephyr -xnest
 x11-libs/cairo abi_x86_32
 x11-libs/cairo X aqua
 x11-libs/gdk-pixbuf abi_x86_32

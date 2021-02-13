@@ -13,6 +13,7 @@ dev-lang/ghc ~amd64
 dev-lang/tcc ~amd64
 dev-libs/light ~amd64
 dev-python/PySDL2 ~amd64
+dev-python/pypeg2 ~amd64
 dev-python/python-evdev ~amd64
 dev-ruby/pcaprub ~amd64
 dev-util/idea-community ~amd64
@@ -34,4 +35,5 @@ media-gfx/maim ~amd64
 media-sound/mpc ~amd64
 media-sound/pulsemixer ~amd64
 sys-apps/flatpak ~amd64
+www-client/qutebrowser ~amd64
 x11-misc/slop ~amd64
