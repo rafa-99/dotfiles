@@ -8,6 +8,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'RRethy/vim-hexokinase'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-scripts/taglist.vim'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 " Unused Plugins
@@ -81,3 +82,5 @@ map <C-g> :GitGutterToggle<CR>
 let g:Hexokinase_highlighters = ['backgroundfull']
 " Tag List
 map <C-t> :TlistToggle<CR>
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
