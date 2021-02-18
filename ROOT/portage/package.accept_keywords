@@ -33,6 +33,7 @@ games-util/lutris ~amd64
 games-util/steam-launcher ~amd64
 media-gfx/maim ~amd64
 media-sound/mpc ~amd64
+media-sound/ncmpcpp ~amd64
 media-sound/pulsemixer ~amd64
 sys-apps/flatpak ~amd64
 www-client/qutebrowser ~amd64

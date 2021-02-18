@@ -70,6 +70,7 @@ dev-python/PyQt5 opengl gui widgets
 dev-python/setuptools python_targets_python3_8
 dev-python/setuptools_scm python_targets_python3_8
 dev-python/subunit abi_x86_32
+dev-qt/qtdeclarative widgets
 dev-qt/qtcore icu
 dev-qt/qtgui egl dbus
 dev-qt/qtmultimedia widgets
@@ -119,7 +120,7 @@ media-libs/portaudio abi_x86_32
 media-libs/vulkan-layers abi_x86_32
 media-libs/vulkan-loader X layers abi_x86_32
 media-plugins/alsa-plugins abi_x86_32
-media-sound/ncmpcpp visualizer
+media-sound/ncmpcpp visualizer clock -taglib
 media-sound/pulseaudio abi_x86_32
 media-video/ffmpeg X bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opengl opus oss sdl speex svg theora threads truetype v4l vaapi vdpau vorbis wavpack webp x264 xvid zlib
 media-video/mpv cli drm dvb dvd egl gbm libmpv opengl vaapi vdpau vulkan X xv zlib -raspberry-pi
