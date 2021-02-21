@@ -41,8 +41,7 @@ else
 		# Building Folder Structure
 		mkdir -p ~/Documents/PDF ~/Documents/Markdown ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games/WINEPREFIX ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Source ~/.config/git ~/.config/gnupg ~/.config/wallpaper ~/.config/X11 ~/Mount
 
-		touch ~/.config/X11/Xauthority
-		touch ~/.xprofile
+		touch ~/.config/X11/Xauthority ~/.xprofile ~/.config/mpd/database ~/.config/mpd/log ~/.config/mpd/pid  ~/.config/mpd/state ~/.config/mpd/sticker.sql
 		doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
 		chsh -s /bin/zsh
 

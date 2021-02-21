@@ -17,8 +17,8 @@ alias grep='grep --color=auto -i' \
 	mkdiff='diff -u' \
 	del='rm -rf' \
 	copy='cp -rf' \
-	encrypt='openssl aes-256-cbc -a -salt' \
-	decrypt='openssl aes-256-cbc -d -a' \
+	encrypt='openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -in' \
+	decrypt='openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -d -in' \
 	clip='xclip -selection clipboard' \
 	webget='wget --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla' \
 	trim='convert -trim' \

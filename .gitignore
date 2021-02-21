@@ -32,6 +32,7 @@ qutebrowser/.config/qutebrowser/*
 
 # MPD Configs
 !mpd/.config/mpd/mpd.conf
+!mpd/.config/playlists/molho
 mpd/.config/mpd
 
 # NCMPCPP Configs
