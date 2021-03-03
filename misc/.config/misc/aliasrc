@@ -30,4 +30,5 @@ alias grep='grep --color=auto -i' \
 	stow='stow --target=$HOME' \
 	g='sxiv -t *' \
 	format='clang-format -i -style=GNU' \
-	fm='$FILE'
+	fm='$FILE' \
+	dl='curl -LO'

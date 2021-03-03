@@ -28,6 +28,7 @@ export WINEPREFIX="$HOME"/Games/WINEPREFIX
 # Default Vars
 export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
 export QT_QPA_PLATFORMTHEME=qt5ct
+export $(dbus-launch)
 
 #Session Selection
 export SESSION=dwm
