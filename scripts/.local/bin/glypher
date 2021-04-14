@@ -1,4 +1,4 @@
 #!/bin/bash
 
 #A menu that selects emojis/glyphs and copies them to the clipboard
-grep -vi "^##" "$HOME"/.config/misc/glyphsrc | dmenu -i -c -l 20 | awk '{print $1}' | xargs -I {} printf {} | xclip -selection clipboard
+grep -vi "^##" "$HOME"/.config/misc/glyphsrc | dmenu -i -l 20 | awk '{print $1}' | xargs -I {} printf {} | xclip -selection clipboard

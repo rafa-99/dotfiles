@@ -8,8 +8,8 @@ if [ ! -x $(command -v ueberzug >/dev/null 2>&1) ]; then
 fi
 
 function cleanup {
-    rm "$FIFO_UEBERZUG" 2>/dev/null
-    pkill -P $$ 2>/dev/null
+	rm "$FIFO_UEBERZUG" 2>/dev/null
+	pkill -P $$ 2>/dev/null
 }
 pkill -P $$ 2>/dev/null
 rm "$FIFO_UEBERZUG" 2>/dev/null

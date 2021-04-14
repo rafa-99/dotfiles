@@ -1,6 +1,6 @@
 #!/bin/sh
 
-OPERATION=$(printf "Reboot\nShutdown\nSuspend" | dmenu -i -c -l 15 -p "Power Menu:")
+OPERATION=$(printf "Reboot\nShutdown\nSuspend" | dmenu -i -p "Power Menu:")
 
 case $OPERATION in
 	Reboot)

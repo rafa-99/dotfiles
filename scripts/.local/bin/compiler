@@ -8,7 +8,7 @@ BASE=$(basename "$FILE" ."$EXTENSION")
 # Filter to compile other types of files
 case $EXTENSION in
 	md|rmd)
-		FORMAT=$(printf "PDF\nHTML\nBeamer\nODT\nDOCX\nPPTX\n" | dmenu -c -l 15 -i -p "Format:")
+		FORMAT=$(printf "PDF\nHTML\nBeamer\nODT\nDOCX\nPPTX\n" | dmenu -i -p "Format:")
 		case "$FORMAT" in
 			PDF)
 				pandoc "$FILE" --to latex --from markdown+autolink_bare_uris+tex_math_single_backslash \
