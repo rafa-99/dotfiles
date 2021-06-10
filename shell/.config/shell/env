@@ -2,7 +2,7 @@
 
 # Profile file. Runs on login. Environmental variables are set here.
 # Adds ~/.local/bin to $PATH
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:"$HOME"/.local/share/android-sdk:$PATH"
 
 # Default programs
 export EDITOR="nvim"
@@ -24,6 +24,9 @@ export ATOM_HOME="$XDG_CONFIG_HOME"/Atom
 export XAUTHORITY="$XDG_CONFIG_HOME"/X11/Xauthority
 export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
 export WINEPREFIX="$HOME"/Games/WINEPREFIX
+export ANDROID_SDK_ROOT="$HOME"/.local/share/android-sdk
+export ANDROID_HOME="$HOME"/.local/share/android-sdk
+export JAVA_HOME=/usr/lib/jvm/default
 
 # Default Vars
 export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
@@ -32,8 +35,3 @@ export $(dbus-launch)
 
 #Session Selection
 export SESSION=dwm
-
-# Fixing Broken PulseAudio
-# [ -x /usr/bin/pulseaudio ] &&
-# 	! pidof pulseaudio >/dev/null &&
-# 	setsid -f pulseaudio --start >/dev/null 2>&1
