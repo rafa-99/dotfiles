@@ -1,0 +1,11 @@
+name: Among Us
+game_slug: among-us
+version: Wine Version
+slug: among-us-runner
+runner: wine
+
+script:
+        game:
+                exe: $GAMEDIR/Among Us.exe
+                prefix: $GAMEDIR/WINEPREFIX
+                working_dir: $GAMEDIR
