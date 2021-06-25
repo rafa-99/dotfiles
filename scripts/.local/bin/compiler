@@ -12,8 +12,8 @@ case $EXTENSION in
 		case "$FORMAT" in
 			PDF)
 				pandoc "$FILE" --to latex --from markdown+autolink_bare_uris+tex_math_single_backslash \
-					--output "$BASE".pdf --self-contained --highlight-style tango --pdf-engine pdflatex \
-					--variable graphics --variable 'geometry:margin=1in'
+					--output "$BASE".pdf --self-contained --highlight-style tango --pdf-engine xelatex \
+					--variable graphics --variable 'geometry:margin=1in' -V 'mathfont:Symbola'
 				;;
 			HTML)
 				pandoc "$FILE" --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash \

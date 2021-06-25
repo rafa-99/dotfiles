@@ -34,6 +34,7 @@ https://github.com/VSCodium/vscodium/commits/master.atom "~vscodium"
 
 " - Tech"
 https://distrowatch.com/news/dw.xml "~DistroWatch"
+https://e.foundation/feed/ "~E Foundation"
 https://www.gadgethacks.com/rss.xml "~Gadget Hacks"
 https://www.getmonero.org/feed.xml "~Monero"
 https://null-byte.wonderhowto.com/rss.xml "~Null Byte"
