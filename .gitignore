@@ -5,6 +5,9 @@ X11/.config/X11
 neovim/.config/nvim/*
 !neovim/.config/nvim/init.vim
 
+# Path Folder
+scripts/.local/bin/vim
+
 # Suckless Software
 suckless/.local/src/suck/*
 !suckless/.local/src/suck/sucklessUpdate

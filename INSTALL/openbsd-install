@@ -20,7 +20,7 @@ sudo cp -rf ROOT/doas/doas.conf /etc
 doas pkg_add neovim git neofetch firefox gimp zsh newsboat zathura ffmpeg maim xwallpaper xclip redshift mpv ncmpcpp ImageMagick gdb valgrind doxygen unoconv sxiv mpc ccache ntp htop zip numlockx shellcheck unzip mc node automake m4 go
 
 # Building Folder Structure
-mkdir -p ~/Documents/PDF ~/Documents/Markdown ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Source ~/.config/git ~/.config/gnupg ~/.config/wallpaper ~/.config/X11 ~/Mount
+mkdir -p ~/Documents/PDF ~/Documents/Markdown ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Code ~/.config/git ~/.config/gnupg ~/.config/wallpaper ~/.config/X11 ~/Mount
 
 rm -rf ~/.Xauthority && touch ~/.config/X11/Xauthority && touch ~/.xprofile
 doas sh -c 'echo "/usr/local/bin/startxfce4" >/etc/X11/xenodm/Xsession'
