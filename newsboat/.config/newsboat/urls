@@ -43,7 +43,9 @@ https://www.pine64.org/feed/ "~Pine64"
 https://suckless.org/atom.xml "~Suckless"
 https://feeds.feedburner.com/TheHackersNews "~The Hacker News"
 
-" - People"
+"爵 - Web"
+https://based.cooking/rss.xml "~Based Cooking"
+https://landchad.net/rss.xml "~LandChad"
 https://lukesmith.xyz/rss.xml "~Luke Smith"
 
 "  - Media & News"
@@ -54,9 +56,6 @@ https://www.si.ips.pt/ests_si/noticias_web.rss?p_grupo_noticias=119 "~IPS ESTS L
 https://www.nba.com/rss.xml "~NBA"
 https://www.rtp.pt/noticias/rss "~RTP"
 http://feeds.urbandictionary.com/UrbanWordOfTheDay "~Urban Dictionary"
-
-" Sauce"
-"https://github.com/alexmpc98/Engenharia-Informatica-IPS/commits/master.atom" "~Sauce 1"
 
 "  - Reddit"
 https://www.reddit.com/r/cybersecurity.rss "~CyberSecurity"
@@ -72,7 +71,7 @@ https://gitlab.com/dutchmans.atom "~Dutchmans"
 https://gitlab.com/LukeSmithxyz.atom "~Luke Smith"
 https://gitlab.com/sandromss.atom "~SandroMSS"
 
-"  - Youtube/Twitch/Peertube"
+"  - Youtube/Twitch/Peertube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCagHkTCCSbohFMJln7JYqMQ "~Ally Law"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCHbiUpzIxPw27XGwHzc-usw "~Balderdash"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~Brodie Robertson"
