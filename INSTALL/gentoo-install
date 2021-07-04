@@ -29,9 +29,9 @@ if [ "$(id -u)" = "0" ]; then
 		emerge --ask --quiet sxiv mpv newsboat youtube-dl ncmpcpp media-sound/mpc mpd redshift numlockx pandoc android-tools shellcheck app-admin/system-config-printer texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs libreoffice-bin unoconv dev-util/ctags gimp imagemagick net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer go sys-apps/net-tools && poweroff
 	fi
 
-	printf "Do you want to install Extra Packages? [Y/n]" && read -r USERPACKAGES
+	printf "Do you want to install User Packages? [Y/n]" && read -r USERPACKAGES
 	if [ "$USERPACKAGES" != "N" ] && [ "$USERPACKAGES" != "n" ]; then
-		emerge --ask --quiet app-emulation/libvirt app-emulation/qemu app-emulation/virt-manager neofetch dev-python/pip app-emulation/wine-mono app-emulation/wine-staging games-util/lutris lxde-base/lxappearance media-sound/pavucontrol x11-misc/pcmanfm x11-themes/arc-theme x11-themes/papirus-icon-theme x11-misc/qt5ct breeze ffmpegthumbnailer
+		emerge --ask --quiet app-emulation/libvirt app-emulation/qemu app-emulation/virt-manager neofetch dev-python/pip app-emulation/wine-mono app-emulation/wine-staging games-util/lutris lxde-base/lxappearance media-sound/pavucontrol x11-misc/pcmanfm x11-themes/arc-theme x11-themes/papirus-icon-theme x11-misc/qt5ct breeze ffmpegthumbnailer app-admin/keepassxc
 	fi
 else
 	{

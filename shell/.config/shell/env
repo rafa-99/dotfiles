@@ -11,7 +11,6 @@ export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="vifmrun"
 export NEWS="st -e newsboat"
-export CHAT="st -e cordless"
 
 # Home directory clean-up
 export SUCK="$HOME"/.local/src/suck
@@ -29,6 +28,7 @@ export ANDROID_HOME="$HOME"/.local/share/android-sdk
 export JAVA_HOME=/usr/lib/jvm/default
 
 # Default Vars
+export PASSWORDS="$XDG_DATA_HOME"/pass/Passwords.kdbx
 export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
 export QT_QPA_PLATFORMTHEME=qt5ct
 export $(dbus-launch)
