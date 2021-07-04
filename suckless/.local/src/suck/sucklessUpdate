@@ -13,7 +13,6 @@ SUCK=$(pwd)
 git clone https://gitlab.com/rafa_99/dmenu
 git clone https://gitlab.com/rafa_99/dwm
 git clone https://gitlab.com/rafa_99/farbfeld
-git clone https://gitlab.com/rafa_99/neovimb
 git clone https://gitlab.com/rafa_99/pkg
 git clone https://gitlab.com/rafa_99/sent
 git clone https://gitlab.com/rafa_99/slock
@@ -23,7 +22,6 @@ git clone https://gitlab.com/rafa_99/tabbed
 cd "$SUCK"/dmenu && git pull ;
 cd "$SUCK"/dwm && git pull ;
 cd "$SUCK"/farbfeld && git pull ;
-cd "$SUCK"/neovimb && git pull ;
 cd "$SUCK"/pkg && git pull ;
 cd "$SUCK"/sent && git pull ;
 cd "$SUCK"/slock && git pull ;
@@ -38,7 +36,6 @@ cd "$SUCK"/tabbed && git pull
 cd "$SUCK"/dwm && git pull ; doas make clean install ; make clean
 cd "$SUCK"/dmenu && git pull ; doas make clean install ; make clean
 cd "$SUCK"/farbfeld && git pull ; doas make clean install ; make clean
-cd "$SUCK"/neovimb && git pull ; doas make clean install ; make clean
 cd "$SUCK"/pkg && git pull ; doas make clean install ; make clean
 cd "$SUCK"/sent && git pull ; doas make clean install ; make clean
 cd "$SUCK"/slock && git pull ; doas make clean install ; make clean

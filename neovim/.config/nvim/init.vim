@@ -6,7 +6,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'luochen1990/rainbow'
 Plug 'airblade/vim-gitgutter'
 Plug 'RRethy/vim-hexokinase'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-scripts/taglist.vim'
 Plug 'scrooloose/nerdtree'
 call plug#end()
