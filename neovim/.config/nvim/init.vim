@@ -90,6 +90,8 @@ map <C-n> :NERDTreeToggle<CR>
 " LSP Configuration
 lua << EOF
 require'lspconfig'.clangd.setup{}
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.tsserver.setup{}
 EOF
 
 "" LSP Autocomplete

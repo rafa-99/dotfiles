@@ -47,7 +47,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ## Installing Plugins
 nvim -c PlugInstall
 cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
-doas npm -g install clangd
+npm -g install clangd pyright typescript typescript-language-server --prefix ~/.local/share/npm
 
 # Setup Git account
 printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
