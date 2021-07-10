@@ -19,7 +19,7 @@ sudo cp -rf ROOT/issue/issue /etc
 sudo cp -rf ROOT/hosts/hosts /etc
 
 # Install Required Programs
-sudo pacman --needed -Syu stow opendoas pamixer zsh youtube-dl engrampa ncmpcpp xwallpaper newsboat vifm zathura maim texlive-most ffmpeg pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal pandoc automake lzop zip curl make bc android-tools gimp kdenlive frei0r-plugins inkscape unzip unarchiver arandr shellcheck arc-gtk-theme ctags unoconv nodejs yarn p7zip gzip tar xz papirus-icon-theme valgrind doxygen gdb light pulsemixer pavucontrol xorg-server xorg-xinit go qt5ct ncurses gtk3 gst-plugins-base-libs hplip simple-scan cups-openrc system-config-printer gst-plugins-good grc gst-libav avahi-openrc clang breeze net-tools ueberzug ffmpegthumbnailer webkit2gtk torbrowser-launcher neofetch cmatrix asciiquarium
+sudo pacman --needed -Syu stow opendoas pamixer zsh youtube-dl engrampa ncmpcpp xwallpaper newsboat vifm zathura maim texlive-most ffmpeg pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal pandoc automake lzop zip curl make bc android-tools gimp kdenlive frei0r-plugins inkscape unzip unarchiver arandr shellcheck arc-gtk-theme ctags unoconv nodejs yarn p7zip gzip tar xz papirus-icon-theme valgrind doxygen gdb light pulsemixer pavucontrol xorg-server xorg-xinit go qt5ct ncurses gtk3 gst-plugins-base-libs hplip simple-scan cups-openrc system-config-printer gst-plugins-good grc gst-libav avahi-openrc clang breeze net-tools ueberzug ffmpegthumbnailer webkit2gtk torbrowser-launcher neofetch cmatrix asciiquarium npm
 
 # Adding System default init services
 doas rc-update add cupsd default
@@ -50,6 +50,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ## Installing Plugins
 nvim -c PlugInstall
 cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
+doas npm -g install clangd
 
 # Setup Git account
 printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
