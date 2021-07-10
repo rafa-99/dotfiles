@@ -28,7 +28,7 @@ export ANDROID_HOME="$HOME"/.local/share/android-sdk
 export JAVA_HOME=/usr/lib/jvm/default
 
 # Default Vars
-export PASSWORDS="$XDG_DATA_HOME"/pass/Passwords.kdbx
+export PASSWORDS="$HOME"/.local/share/pass/Passwords.kdbx
 export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
 export QT_QPA_PLATFORMTHEME=qt5ct
 export $(dbus-launch)
