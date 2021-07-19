@@ -10,15 +10,11 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'vim-scripts/DoxygenToolkit.vim'
 call plug#end()
 
-" Unused Plugins
-" Plug 'vim-scripts/DoxygenToolkit.vim'
-" Plug 'vim-scripts/taglist.vim'
-" Plug 'scrooloose/nerdtree'
-
 " Keybinds Index
-" F4 -> Checks shellcode "bashisms"
+" F4 -> Checks shellcode
 " F5 -> Compile current program with compiler script
 " Control + P -> Runs portuguese spelling check
 " Control + E -> Runs english spelling check
@@ -86,6 +82,8 @@ let g:Hexokinase_highlighters = ['backgroundfull']
 map <C-t> :TlistToggle<CR>
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
+" DoxygenToolkit
+map <C-c> :Dox<CR>
 
 " LSP Configuration
 lua << EOF
