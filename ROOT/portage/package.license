@@ -1,7 +1,3 @@
-app-arch/unrar unRAR
-dev-util/idea-community codehaus-classworlds
-games-util/steam-launcher ValveSteamLicense
 media-fonts/font-bh-ttf bh-luxi
 media-fonts/font-bh-type1 bh-luxi
 sys-kernel/linux-firmware linux-fw-redistributable no-source-code
-x11-libs/agg free-noncomm
