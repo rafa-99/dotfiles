@@ -1,0 +1,75 @@
+#!/bin/sh
+
+#
+# Void dots install
+#
+
+cd .. || exit
+CURDIR=$(pwd)
+
+echo "######################"
+echo "# dotfiles Installer #"
+echo "######################"
+echo "|     Void Linux     |"
+echo "**********************"
+
+if [ "$(id -u)" = "0" ]; then
+	## Reading Desired Username
+	printf "Select your Username (Use only lowercase letters and numbers)\n-> " && read -r USERNAME
+	clear
+
+	## Reading Desired Hostname
+	printf "Select your Hostname (You can use Uppercase and lowercase letters, numbers and hypens)\n-> " && read -r HOSTNAME
+	clear
+
+	## Managing Users and Passwords
+	useradd -m -g users -G wheel,users,audio,video,network,scanner "$USERNAME"
+	echo "Enter a password for $USERNAME"
+	passwd "$USERNAME"
+	clear
+
+	echo "Enter a new password for root account"
+	passwd root
+	clear
+
+	echo $HOSTNAME > /etc/hostname
+	sed -i s:'# %wheel ALL=(ALL) ALL':'%wheel ALL=(ALL) ALL':g /etc/sudoers
+	echo "permit $USERNAME has root" > /etc/doas.conf
+	clear
+
+	# Updating packages and system
+	xbps-install -Su
+	xbps-install -u xbps
+	xbps-install -Su xorg git neovim opendoas ncmpcpp neofetch zsh pkg-config xwallpaper picom NetworkManager ImageMagick kdenlive gimp lxappearance ffmpeg mpv vifm make gcc libXft-devel libXinerama-devel libX11-devel webkit2gtk webkit2gtk-devel engrampa zathura zathura-pdf-poppler ctags maim unoconv neomutt isync nodejs curl wget pywal android-tools openjdk8 xz papirus-icon-theme unzip unar p7zip arc-theme numlockx alsa-lib shellcheck light redshift ntfs-3g git sxiv mpc mpd tar texlive-bin xclip psmisc void-repo-nonfree pavucontrol pulsemixer grc pulseaudio gst-libav gst-plugins-good1 go newsboat openssh hostapd
+	clear
+
+	# Adding Services to boot
+	ln -s /etc/sv/NetworkManager /var/service/
+	ln -s /etc/sv/dbus /var/service
+fi
+
+if [ "$(id -u)" != "0" ]; then
+	# Deploying System
+	stow --target="$HOME" fonts gtk misc mpd ncmpcpp newsboat neovim qt shell scripts suckless sxiv vifm X11 zathura zsh
+	touch ~/.config/X11/Xauthority ~/.xprofile ~/.config/mpd/database ~/.config/mpd/log ~/.config/mpd/pid  ~/.config/mpd/state ~/.config/mpd/sticker.sql
+	cd ~/.local/src/suck && sh sucklessUpdate && cd "$CURDIR" || exit
+
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+	nvim -c PlugInstall
+	cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
+	npm -g install clangd pyright typescript typescript-language-server --prefix ~/.local/share/npm
+
+	# Setup Git account
+	printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
+	if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
+		printf "Username: " && read -r USER
+		printf "Email: " && read -r EMAIL
+		git config --global user.name "$USER"
+		git config --global user.email "$EMAIL"
+		git config pull.rebase false
+		mv ~/.gitconfig ~/.config/git/config
+		git config --global pull.rebase false
+	fi
+fi
