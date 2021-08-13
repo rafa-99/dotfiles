@@ -1,6 +1,6 @@
 " Call plugins folder
 call plug#begin('~/.config/nvim/plugged')
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'luochen1990/rainbow'
