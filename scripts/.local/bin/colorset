@@ -16,11 +16,11 @@ fi
 convert "$1" "$SUCK"/colors/wallpaper.png
 
 # Setting the new colorscheme based on the wallpaper and making some color tweaks
-cp ~/.cache/wal/colors-wal-dmenu.h "$SUCK"/colors/dmenu/colors.h
-cp ~/.cache/wal/colors-wal-st.h "$SUCK"/colors/st/colors.h
+cp -rf ~/.cache/wal/colors-wal-dmenu.h "$SUCK"/colors/dmenu/colors.h
+cp -rf ~/.cache/wal/colors-wal-st.h "$SUCK"/colors/st/colors.h
 head -7 ~/.cache/wal/colors-wal-dwm.h > "$SUCK"/colors/dwm/colors.h
 sed -i s/"$(grep norm_border "$SUCK"/colors/dwm/colors.h | cut -d# -f 2 | cut -d\" -f 1)"/"$(grep black "$SUCK"/colors/st/colors.h | head -1 | cut -d# -f 2 | cut -d\" -f 1)"/g "$SUCK"/colors/dwm/colors.h
-cp ~/.cache/wal/colors-wal-tabbed.h "$SUCK"/colors/tabbed/colors.h
+cp -rf ~/.cache/wal/colors-wal-tabbed.h "$SUCK"/colors/tabbed/colors.h
 
 # Recompiling Suckless Programs with new colorscheme
 cp -rf "$SUCK"/colors/* "$SUCK"

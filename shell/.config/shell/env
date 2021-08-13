@@ -3,15 +3,16 @@
 # Profile file. Runs on login. Environmental variables are set here.
 # Adds ~/.local/bin to $PATH
 export XDG_DATA_HOME="$HOME"/.local/share
-export PATH="$HOME/.local/bin:"$HOME"/.local/share/android-sdk:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/share/android-sdk:$PATH"
 
 # Default programs
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="qutebrowser"
+export BROWSER="firefox"
 export READER="zathura"
 export FILE="vifmrun"
-export NEWS="st -e newsboat"
+export NEWS="newsboat"
+export DOCS="man -l $HOME/.local/man/dots.1"
 
 # Home directory clean-up
 export SUCK="$HOME"/.local/src/suck
@@ -33,7 +34,7 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export PASSWORDS="$XDG_DATA_HOME"/pass/Passwords.kdbx
 export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
 export QT_QPA_PLATFORMTHEME=qt5ct
-export $(dbus-launch)
+export "$(dbus-launch)"
 
 #Session Selection
 export SESSION=dwm

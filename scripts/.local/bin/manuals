@@ -3,4 +3,4 @@
 # without the requiring a cronjob to run mandb
 MANPATH=/usr/share/man
 
-find "$MANPATH" -type f -name "*.bz2" -printf '%f\n' |  sed s:'.bz2'::g | sort | uniq | dmenu -i -p "Manual: "| xargs -I {} "$TERMINAL" -e man {}
+find "$MANPATH" -type f -printf '%f\n' | sed 's:.bz2::g;s:.gz::g' | sort | uniq | dmenu -i -p "Manual: "| xargs -I {} "$TERMINAL" -e man {}
