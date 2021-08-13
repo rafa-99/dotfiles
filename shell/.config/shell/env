@@ -37,6 +37,11 @@ export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
 export QT_QPA_PLATFORMTHEME=qt5ct
 export "$(dbus-launch)"
 
-# Initializing Session
+# Initializing Session if Xorg not Running Already
 export SESSION=dwm
-exec startx "$XINITRC"
+
+if ! pgrep Xorg > /dev/null
+then
+	exec startx "$XINITRC"
+fi
+
