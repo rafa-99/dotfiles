@@ -1,0 +1,11 @@
+#!/bin/sh
+
+SEARCH=$(echo "<-"| dmenu -i -p "Search: ")
+
+case $BROWSER in
+	firefox)
+		"$BROWSER" --search "$SEARCH"
+		;;
+	*)
+		"$BROWSER" "$SEARCH"
+esac
