@@ -1,5 +1,5 @@
 # X Session Files
-X11/.config/X11
+X11/.config/X11/Xauthority
 
 # Nvim Plugins
 neovim/.config/nvim/*

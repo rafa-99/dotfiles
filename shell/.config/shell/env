@@ -29,6 +29,7 @@ export ANDROID_SDK_ROOT="$XDG_DATA_HOME"/android-sdk
 export ANDROID_HOME="$XDG_DATA_HOME"/android-sdk
 export JAVA_HOME=/usr/lib/jvm/default
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
 # Default Vars
 export PASSWORDS="$XDG_DATA_HOME"/pass/Passwords.kdbx
@@ -36,5 +37,6 @@ export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
 export QT_QPA_PLATFORMTHEME=qt5ct
 export "$(dbus-launch)"
 
-#Session Selection
+# Initializing Session
 export SESSION=dwm
+exec startx "$XINITRC"
