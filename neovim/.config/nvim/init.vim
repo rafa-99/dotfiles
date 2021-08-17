@@ -88,7 +88,7 @@ map <C-c> :Dox<CR>
 " LSP Configuration
 lua << EOF
 require'lspconfig'.clangd.setup{}
-require'lspconfig'.pyright.setup{}
+require'lspconfig'.pylsp.setup{}
 require'lspconfig'.tsserver.setup{}
 EOF
 

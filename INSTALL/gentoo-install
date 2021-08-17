@@ -44,7 +44,7 @@ else
 		chsh -s /bin/zsh
 
 		# Installing pywal and ueberzug
-		pip install --user ueberzug pywal
+		pip install --user 'python-lsp-server[all]' pywal ueberzug
 
 		# Deploy Dots
 		stow --target="$HOME" fonts gtk misc mpd ncmpcpp newsboat neovim qt shell scripts suckless sxiv vifm X11 zathura zsh
@@ -63,7 +63,7 @@ else
 		## Installing Plugins
 		nvim -c PlugInstall
 		cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
-		npm -g install clangd pyright typescript typescript-language-server --prefix ~/.local/share/npm
+		npm -g install clangd typescript typescript-language-server --prefix ~/.local/share/npm
 
 
 		# Setup Git account

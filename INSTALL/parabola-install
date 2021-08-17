@@ -19,7 +19,7 @@ sudo cp -rf ROOT/issue/issue /etc
 sudo cp -rf ROOT/hosts/hosts /etc
 
 # Install Required Programs
-sudo pacman --needed -Syu stow opendoas pamixer zsh youtube-dl engrampa ncmpcpp xwallpaper newsboat vifm zathura maim texlive-most ffmpeg pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps python-pywal pandoc automake lzop zip curl make bc android-tools gimp kdenlive frei0r-plugins inkscape unzip unarchiver arandr shellcheck arc-gtk-theme ctags unoconv nodejs yarn p7zip gzip tar xz papirus-icon-theme valgrind doxygen gdb light pulsemixer pavucontrol xorg-server xorg-xinit go qt5ct ncurses gtk3 gst-plugins-base-libs hplip simple-scan cups-openrc system-config-printer gst-plugins-good grc gst-libav avahi-openrc clang breeze net-tools ueberzug ffmpegthumbnailer webkit2gtk torbrowser-launcher neofetch cmatrix asciiquarium npm unclutter
+sudo pacman --needed -Syu stow opendoas pamixer zsh youtube-dl engrampa ncmpcpp xwallpaper newsboat vifm zathura maim texlive-most ffmpeg pcmanfm lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps pandoc automake lzop zip curl make bc android-tools gimp kdenlive frei0r-plugins inkscape unzip unarchiver arandr shellcheck arc-gtk-theme ctags unoconv nodejs yarn p7zip gzip tar xz papirus-icon-theme valgrind doxygen gdb light pulsemixer pavucontrol xorg-server xorg-xinit go qt5ct ncurses gtk3 gst-plugins-base-libs hplip simple-scan cups-openrc system-config-printer gst-plugins-good grc gst-libav avahi-openrc clang breeze net-tools ffmpegthumbnailer webkit2gtk torbrowser-launcher neofetch cmatrix asciiquarium npm unclutter python python-pip
 
 # Adding System default init services
 doas rc-update add cupsd default
@@ -48,10 +48,11 @@ ln -s /usr/bin/iceweasel ~/.local/bin/firefox
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-## Installing Plugins
+## Installing Modules
 nvim -c PlugInstall
 cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
-npm -g install clangd pyright typescript typescript-language-server --prefix ~/.local/share/npm
+npm -g install clangd typescript typescript-language-server --prefix ~/.local/share/npm
+pip install --user 'python-lsp-server[all]' pywal ueberzug
 
 # Setup Git account
 printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
