@@ -2,10 +2,12 @@
 
 SEARCH=$(echo "<-"| dmenu -i -p "Search: ")
 
-case $BROWSER in
-	firefox)
-		"$BROWSER" --search "$SEARCH"
-		;;
-	*)
-		"$BROWSER" "$SEARCH"
-esac
+if [ "$SEARCH" != "" ]; then
+	case $BROWSER in
+		firefox)
+			"$BROWSER" --search "$SEARCH"
+			;;
+		*)
+			"$BROWSER" "$SEARCH"
+	esac
+fi
