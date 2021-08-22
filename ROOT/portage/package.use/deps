@@ -1,0 +1,32 @@
+app-text/ghostscript-gpl cups
+app-text/poppler cairo
+app-text/xmlto text
+dev-cpp/gtkmm X
+dev-java/swt opengl cairo
+dev-lang/ghc -elfutils -ghcbootstrap -ghcmakebinary -binary
+dev-lang/python sqlite
+dev-libs/boost icu
+dev-libs/glib dbus
+dev-libs/xmlsec nss
+dev-qt/qtcore icu
+dev-qt/qtdeclarative widgets
+dev-qt/qtgui egl dbus
+gnustep-base/gnustep-make native-exceptions
+kde-frameworks/kitemmodels qml
+kde-frameworks/kwindowsystem X
+media-libs/freetype harfbuzz
+media-libs/gegl cairo
+media-libs/gst-plugins-base egl
+media-libs/harfbuzz icu
+media-libs/libepoxy egl
+media-libs/libglvnd X
+media-libs/mesa egl wayland
+media-libs/vulkan-loader X layers
+net-dns/dnsmasq dbus script
+net-misc/spice-gtk usbredir
+net-wireless/wpa_supplicant dbus
+sys-apps/dbus dnsmasq X
+sys-libs/zlib minizip
+x11-libs/cairo X
+x11-libs/libva X
+x11-libs/libxkbcommon X

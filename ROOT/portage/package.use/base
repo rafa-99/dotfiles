@@ -1,0 +1,24 @@
+app-crypt/pinentry gtk
+app-emulation/virt-manager gtk -policykit -sasl
+app-emulation/wine-staging vulkan dos gecko mono netapi run-exes staging vkd3d
+dev-java/openjdk gentoo-vm javafx
+dev-libs/light udev
+dev-vcs/git -emacs
+games-emulation/mgba ffmpeg gles3 opengl qt5 -discord -gles2 -sdl -sqlite
+media-gfx/gimp aalib heif mng openexr-alsa unwind webp wmf xpm -gnome -javascript -lua -postscript -python -udev -vala
+media-sound/ncmpcpp visualizer clock -outputs -taglib
+media-video/ffmpeg X bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opengl opus oss sdl speex svg theora threads truetype v4l vaapi vdpau vorbis wavpack webp x264 xvid zlib
+media-video/mpv cli drm dvb dvd egl gbm libmpv opengl vaapi vdpau vulkan X xv zlib -raspberry-pi
+net-libs/nodejs icu inspector npm snapshot system-icu system-tap system-ssl
+net-libs/webkit-gtk egl -examples -gamepad -geolocation -gamepad
+net-misc/networkmanager connection-sharing iptables -ppp -vala -teamd -ofono -dhcpcd -modemmanager
+net-print/cups dbus X
+net-print/hplip hpcups scanner snmp X -fax -hpijs -parport
+sys-boot/grub device-mapper mount -freetype -libzfs -themes
+sys-devel/clang xml
+sys-devel/gcc cxx graphite lto objc valgrind
+sys-devel/gdb -python -server -xml
+sys-devel/llvm -exegesis -ncurses -z3 -xml
+www-client/firefox clang eme-free hwaccel openh264 system-av1 system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-webp -geckodriver -gmp-autoupdate -lto -pgo -wifi
+x11-base/xorg-server dmx xorg xvfb -suid -xephyr -xnest -wayland
+x11-misc/xwallpaper jpeg png
