@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if pgrep screenkey$
+then
+	killall screenkey
+else
+	screenkey -M --font-size small
+fi
