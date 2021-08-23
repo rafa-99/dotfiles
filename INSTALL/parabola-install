@@ -41,8 +41,8 @@ cd ~/.local/src/suck && sh sucklessUpdate && cd "$CURDIR" || exit
 
 # Setting up Neovim
 ## Linking Neovim to Vim
-ln -s /usr/bin/nvim ~/.local/bin/vim
-ln -s /usr/bin/icecat ~/.local/bin/firefox
+ln -s /usr/bin/nvim "$HOME"/.local/bin/vim
+ln -s /usr/bin/iceweasel "$HOME"/.local/bin/firefox
 
 ## Installing Neovim Plugin Manager (Vim Plug)
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
