@@ -32,7 +32,6 @@ http://git.suckless.org/slock/atom.xml "~slock"
 http://git.suckless.org/slstatus/atom.xml "~slstatus"
 http://git.suckless.org/st/atom.xml "~st"
 http://git.suckless.org/surf/atom.xml "~surf"
-http://git.suckless.org/tabbed/atom.xml "~tabbed"
 https://github.com/fanglingsu/vimb/commits/master.atom "~vimb"
 https://github.com/VSCodium/vscodium/commits/master.atom "~vscodium"
 

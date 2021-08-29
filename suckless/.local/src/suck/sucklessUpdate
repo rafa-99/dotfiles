@@ -18,7 +18,6 @@ git clone https://gitlab.com/rafa_99/sent
 git clone https://gitlab.com/rafa_99/slock
 git clone https://gitlab.com/rafa_99/slstatus
 git clone https://gitlab.com/rafa_99/st
-git clone https://gitlab.com/rafa_99/tabbed
 cd "$SUCK"/dmenu && git pull ;
 cd "$SUCK"/dwm && git pull ;
 cd "$SUCK"/farbfeld && git pull ;
@@ -27,7 +26,6 @@ cd "$SUCK"/sent && git pull ;
 cd "$SUCK"/slock && git pull ;
 cd "$SUCK"/slstatus && git pull ;
 cd "$SUCK"/st && git pull ;
-cd "$SUCK"/tabbed && git pull
 
 ########################
 # Recompiling Programs #
@@ -41,4 +39,3 @@ cd "$SUCK"/sent && git pull ; doas make clean install ; make clean
 cd "$SUCK"/slock && git pull ; doas make clean install ; make clean
 cd "$SUCK"/slstatus && git pull ; doas make clean install ; make clean
 cd "$SUCK"/st && git pull ; doas make clean install ; make clean
-cd "$SUCK"/tabbed && git pull ; doas make clean install ; make clean
