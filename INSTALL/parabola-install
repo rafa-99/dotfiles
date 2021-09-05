@@ -34,7 +34,7 @@ doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
 chsh -s /bin/zsh
 
 # Deploy Dots
-stow --target="$HOME" fonts gtk misc mpd ncmpcpp newsboat neovim qt shell scripts suckless sxiv vifm X11 zathura zsh
+stow --target="$HOME" fonts gtk man misc mpd ncmpcpp newsboat neovim qt shell scripts suckless sxiv vifm X11 zathura zsh
 touch ~/.config/X11/Xauthority ~/.xprofile ~/.config/mpd/database ~/.config/mpd/log ~/.config/mpd/pid  ~/.config/mpd/state ~/.config/mpd/sticker.sql
 
 cd ~/.local/src/suck && sh sucklessUpdate && cd "$CURDIR" || exit
