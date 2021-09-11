@@ -1,3 +1,7 @@
 #!/bin/sh
 
-echo "<-" | dmenu -p "Youtube:" | xargs -I {} queryt -s "{}" | sed "s:\t:     :g" | dmenu -l 10 -p "Video: " | awk '{print $1}' | xargs -I {} mpv --ytdl-format=22 "https://youtube.com/watch?v={}"
+VIDEO="https://www.youtube.com/watch?v=$(echo "<-" | dmenu -p "Youtube:" | xargs -I {} queryt -s "{}" | sed "s:\t:     :g" | dmenu -l 10 -p "Video: " | awk '{print $1}')"
+
+if [ "$VIDEO" != "" ]; then
+	mpv --ytdl-format=22 "$VIDEO"
+fi
