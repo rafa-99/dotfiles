@@ -43,5 +43,12 @@ export SESSION=dwm
 
 if ! pgrep Xorg > /dev/null
 then
+	printf "Initializing Xorg\nPress Ctrl + C to stop the initialization process\n"
+	for ((i = 5; i >= 1; i--))
+	do
+		sleep 1
+		echo -n "$i "
+	done
+	echo ""
 	exec startx "$XINITRC"
 fi
