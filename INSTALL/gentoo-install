@@ -63,7 +63,7 @@ else
 		## Installing Plugins
 		nvim -c PlugInstall
 		cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
-		npm -g install clangd typescript typescript-language-server --prefix ~/.local/share/npm
+		npm -g install clangd typescript typescript-language-server vscode-langservers-extracted --prefix ~/.local/share/npm
 
 
 		# Setup Git account

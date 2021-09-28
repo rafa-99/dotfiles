@@ -90,6 +90,8 @@ lua << EOF
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.pylsp.setup{}
 require'lspconfig'.tsserver.setup{}
+require'lspconfig'.html.setup{}
+require'lspconfig'.cssls.setup{}
 EOF
 
 "" LSP Autocomplete

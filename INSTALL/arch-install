@@ -47,7 +47,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ## Installing Modules
 nvim -c PlugInstall
 cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
-npm -g install clangd typescript typescript-language-server --prefix ~/.local/share/npm
+npm -g install clangd typescript typescript-language-server vscode-langservers-extracted --prefix ~/.local/share/npm
 pip install --user 'python-lsp-server[all]' pywal ueberzug
 
 # Setup Git account
