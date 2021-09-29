@@ -34,6 +34,7 @@ export GOPATH="$XDG_DATA_HOME"/go
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 
 # Default Vars
+export SUDO_ASKPASS="$HOME"/.local/bin/askpass
 export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
 export QT_QPA_PLATFORMTHEME=qt5ct
 export "$(dbus-launch)"
