@@ -9,6 +9,7 @@ fi
 # Checking for non-existant dirs
 ! [ -f "$SUCK"/colors/dmenu ] && mkdir -p "$SUCK"/colors/dmenu
 ! [ -f "$SUCK"/colors/dwm ] && mkdir -p "$SUCK"/colors/dwm
+! [ -f "$SUCK"/colors/neovimb/src ] && mkdir -p "$SUCK"/colors/neovimb/src
 ! [ -f "$SUCK"/colors/st ] && mkdir -p "$SUCK"/colors/st
 
 # Purging previous colorscheme files
@@ -19,6 +20,10 @@ cp -rf ~/.cache/wal/colors-wal-dmenu.h "$SUCK"/colors/dmenu/colors.h
 cp -rf ~/.cache/wal/colors-wal-st.h "$SUCK"/colors/st/colors.h
 head -7 ~/.cache/wal/colors-wal-dwm.h > "$SUCK"/colors/dwm/colors.h
 sed -i s/"$(grep norm_border "$SUCK"/colors/dwm/colors.h | cut -d# -f 2 | cut -d\" -f 1)"/"$(grep black "$SUCK"/colors/st/colors.h | head -1 | cut -d# -f 2 | cut -d\" -f 1)"/g "$SUCK"/colors/dwm/colors.h
+cp -rf "$XDG_CONFIG_HOME"/neovimb/config.h "$SUCK"/colors/neovimb/src/
+OLDSTRING=$(grep SETTING_INPUT_CSS "$SUCK"/colors/neovimb/src/config.h)
+NEWSTRING="#define SETTING_INPUT_CSS                     \"background-color:$(head -2 "$SUCK"/colors/dwm/colors.h | grep bg | cut -d\" -f2);color:$(head -2 "$SUCK"/colors/dwm/colors.h | grep fg | cut -d\" -f2);font:\" SETTING_GUI_FONT_NORMAL"
+sed -i s."$OLDSTRING"."$NEWSTRING".g "$SUCK"/colors/neovimb/src/config.h
 
 # Recompiling Suckless Programs with new colorscheme
 cp -rf "$SUCK"/colors/* "$SUCK"
@@ -27,4 +32,5 @@ cp -rf "$SUCK"/colors/wallpaper.png ~/.config/wallpaper
 xwallpaper --stretch "$WALLPAPER"
 cd "$SUCK"/dwm && git pull ; doas make clean install ; make clean
 cd "$SUCK"/dmenu && git pull ; doas make clean install ; make clean
+cd "$SUCK"/neovimb && git pull ; doas make clean install ; make clean
 cd "$SUCK"/st && git pull ; doas make clean install ; make clean

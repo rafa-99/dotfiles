@@ -39,6 +39,9 @@ touch ~/.config/X11/Xauthority ~/.xprofile ~/.config/mpd/database ~/.config/mpd/
 
 cd ~/.local/src/suck && sh sucklessUpdate && cd "$CURDIR" || exit
 
+## Neovimb Setup
+cp -rf "$(pwd)"/../neovimb "$XDG_CONFIG_HOME"
+
 # Setting up Neovim
 ## Linking Neovim to Vim
 ln -s /usr/bin/nvim "$HOME"/.local/bin/vim
