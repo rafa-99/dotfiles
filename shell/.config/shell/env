@@ -7,7 +7,7 @@ export PATH="$HOME/.local/bin:$HOME/.local/share/android-sdk:$PATH"
 # Default programs
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="firefox"
+export BROWSER="neovimb"
 export READER="zathura"
 export FILE="vifmrun"
 export NEWS="newsboat"
