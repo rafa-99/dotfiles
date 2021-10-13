@@ -37,6 +37,7 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export SUDO_ASKPASS="$HOME"/.local/bin/askpass
 export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
 export QT_QPA_PLATFORMTHEME=qt5ct
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export "$(dbus-launch)"
 
 # Initializing Session if Xorg not Running Already
