@@ -53,10 +53,10 @@
 #define SETTING_COMPLETION_CSS                "color:#ffffff;background-color:#656565;font:" SETTING_GUI_FONT_NORMAL
 #define SETTING_COMPLETION_HOVER_CSS          "background-color:#777777;"
 #define SETTING_COMPLETION_SELECTED_CSS       "color:#ffffff;background-color:#888888;"
-#define SETTING_INPUT_CSS                     "background-color:#ffffff;color:#000000;font:" SETTING_GUI_FONT_NORMAL
+#define SETTING_INPUT_CSS                     "background-color:#121b1c;color:#b1b9be;font:" SETTING_GUI_FONT_NORMAL
 #define SETTING_INPUT_ERROR_CSS               "background-color:#ff7777;font:" SETTING_GUI_FONT_EMPH
-#define SETTING_STATUS_CSS                    "color:#ffffff;background-color:#000000;font:" SETTING_GUI_FONT_EMPH
-#define SETTING_STATUS_SSL_CSS                "background-color:#000000;color:#ffffff;"
+#define SETTING_STATUS_CSS                    "color:#b1b9be;background-color:#7B807F;font:" SETTING_GUI_FONT_EMPH
+#define SETTING_STATUS_SSL_CSS                "background-color:#7B807F;color:#b1b9be;"
 #define SETTING_STATUS_SSL_INVLID_CSS         "background-color:#ff7777;color:#000000;"
 
 /* hide input bar automatically */
@@ -90,3 +90,29 @@
 #define SETTING_DOWNLOAD_COMMAND "/bin/sh -c \"curl -sLJOC - -e '$neovimb_URI' %s\""
 
 #define SETTING_HINT_KEYS "0123456789"
+
+/* This status indicator is only shown if "status-bar-show-settings" is
+ * enabled.
+ * The CHAR_MAP(value, internalValue, outputValue, valueIfNotMapped) is a
+ * little workaround to translate internal used string value like for
+ * GET_CHAR(c, "cookie-accept") which is one of "always", "origin" or "never"
+ * to those values that should be shown on statusbar.
+ * The STATUS_VARAIBLE_SHOW is used as argument for a printf like function. So
+ * the first argument is the output pattern. */
+/*
+#define STATUS_VARAIBLE_SHOW "js: %s, cookies: %s, hint-timeout: %d", \
+    GET_BOOL(c, "scripts") ? "on" : "off", \
+    GET_CHAR(c, "cookie-accept"), \
+    GET_INT(c, "hint-timeout")
+*/
+#define COOKIE GET_CHAR(c, "cookie-accept")
+#define CHAR_MAP(v, i, m, d) (strcmp(v, i) == 0 ? m : (d))
+#define STATUS_VARAIBLE_SHOW "%c%c%c%c%c%c%c%c", \
+    CHAR_MAP(COOKIE, "always", 'A', CHAR_MAP(COOKIE, "origin", '@', 'a')), \
+    GET_BOOL(c, "dark-mode") ? 'D' : 'd', \
+    vb.incognito ? 'E' : 'e', \
+    GET_BOOL(c, "images") ? 'I' : 'i', \
+    GET_BOOL(c, "html5-local-storage") ? 'L' : 'l', \
+    GET_BOOL(c, "stylesheet") ? 'M' : 'm', \
+    GET_BOOL(c, "scripts") ? 'S' : 's', \
+    GET_BOOL(c, "strict-ssl") ? 'T' : 't'
