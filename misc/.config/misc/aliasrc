@@ -10,24 +10,18 @@ alias grep='grep --color=auto -i' \
 	revert='git revert' \
 	cherry='git cherry-pick' \
 	push='git push origin' \
-	ytmp3='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0' \
-	ytmp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"' \
-	ytv='mpv --ytdl-format=22' \
-	yta='mpv --no-video' \
+	ytmp3='yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0' \
+	ytmp4='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"' \
 	patchd='patch -p1 <' \
 	mkdiff='diff -u' \
 	del='rm -rf' \
 	copy='cp -rf' \
-	encrypt='openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -in' \
-	decrypt='openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -d -in' \
 	clip='xclip -selection clipboard' \
 	trim='convert -trim' \
 	trans='convert -transparent -fuzz' \
 	synclock='doas ntpdate pt.pool.ntp.org && doas hwclock --systohc' \
-	wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"' \
 	x='extract' \
 	e='$EDITOR' \
-	stow='stow --target=$HOME' \
 	g='sxiv -t *' \
 	format='clang-format -i -style=GNU' \
 	fm='$FILE' \

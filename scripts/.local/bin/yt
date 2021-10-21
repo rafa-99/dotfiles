@@ -3,8 +3,5 @@
 VIDEO="https://www.youtube.com/watch?v=$(echo "<-" | dmenu -p "Youtube:" | xargs -I {} queryt -s "{}" | sed "s:\t:     :g" | dmenu -l 10 -p "Video: " | awk '{print $1}')"
 
 if [ "$VIDEO" != "" ]; then
-	mpv --ytdl-format=22 "$VIDEO"
-	if [ $? -ne 0 ]; then
-		mpv "$VIDEO"
-	fi
+	mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-level=all=no,ytdl_hook=trace "$VIDEO"
 fi
