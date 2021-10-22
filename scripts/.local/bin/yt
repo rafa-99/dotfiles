@@ -1,7 +1,9 @@
 #!/bin/sh
 
-VIDEO="https://www.youtube.com/watch?v=$(echo "<-" | dmenu -p "Youtube:" | xargs -I {} queryt -s "{}" | sed "s:\t:     :g" | dmenu -l 10 -p "Video: " | awk '{print $1}')"
-
-if [ "$VIDEO" != "" ]; then
-	mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-level=all=no,ytdl_hook=trace "$VIDEO"
+QUERY=$(: | dmenu -p "Search:")
+if [ "$QUERY" != "" ]; then
+	VIDEO=$(queryt -s "$QUERY" -f "i     t" | dmenu -l 10 -p "Video:" | awk '{print $1}')
+	if [ "$VIDEO" != "" ]; then
+		mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-level=all=no,ytdl_hook=trace "https://www.youtube.com/watch?v=$VIDEO"
+	fi
 fi
