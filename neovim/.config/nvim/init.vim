@@ -92,6 +92,7 @@ require'lspconfig'.pylsp.setup{}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.html.setup{}
 require'lspconfig'.cssls.setup{}
+require'lspconfig'.omnisharp.setup{ cmd = { (os.getenv("XDG_DATA_HOME")) .. "/omnisharp/run", "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) }}
 EOF
 
 "" LSP Autocomplete

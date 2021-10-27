@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SEARCH=$(echo "<-"| dmenu -i -p "Search: ")
+SEARCH=$( : | dmenu -i -p "Search: ")
 
 if [ "$SEARCH" != "" ]; then
 	case $BROWSER in
