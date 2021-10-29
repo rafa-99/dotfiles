@@ -2,7 +2,7 @@
 
 slstatus &
 xwallpaper --stretch "$WALLPAPER" &
-setxkbmap pt &
+setxkbmap -option caps:super
 numlockx on &
 unclutter --timeout 2 &
 exec "$SESSION"
