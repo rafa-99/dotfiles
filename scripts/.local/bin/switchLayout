@@ -1,0 +1,11 @@
+#!/bin/sh
+
+CURRENTLAYOUT=$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}')
+
+case "$CURRENTLAYOUT" in
+	pt)
+		setxkbmap us
+		;;
+	us)
+		setxkbmap pt
+esac

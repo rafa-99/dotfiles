@@ -25,4 +25,5 @@ alias grep='grep --color=auto -i' \
 	g='sxiv -t *' \
 	format='clang-format -i -style=GNU' \
 	fm='$FILE' \
-	dl='curl -LO'
+	dl='curl -LO' \
+	mpv='mpv script-opts=ytdl_hook-ytdl_path=yt-dlp'
