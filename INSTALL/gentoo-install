@@ -20,7 +20,7 @@ if [ "$(id -u)" = "0" ]; then
 
 	printf "Do you want to install Base Packages? [Y/n]" && read -r BASE
 	if [ "$BASE" != "N" ] && [ "$BASE" != "n" ]; then
-		emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler make bc xorg-x11 xinit zsh doas sys-fs/dosfstools app-editors/neovim pulsemixer pulseaudio light gentoolkit stow app-admin/pass app-arch/p7zip && poweroff
+		emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler make bc xorg-x11 xinit zsh doas sys-fs/dosfstools app-editors/neovim pulsemixer pipewire light gentoolkit stow app-admin/pass app-arch/p7zip && poweroff
 	fi
 
 	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA

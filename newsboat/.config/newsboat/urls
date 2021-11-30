@@ -13,6 +13,7 @@ https://voidlinux.org/atom.xml "~Void"
 
 " - Programs"
 https://github.com/brunomnsilva/AbstractDataTypesInC/commits/master.atom "~AbstractDataTypesInC"
+https://github.com/alexmpc98/Engenharia-Informatica-IPS/commits/master.atom "~Engenharia-Informatica-IPS"
 https://github.com/bettercap/bettercap/commits/master.atom "~bettercap"
 http://git.suckless.org/dmenu/atom.xml "~dmenu"
 http://git.suckless.org/dwm/atom.xml "~dwm"
