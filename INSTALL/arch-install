@@ -19,7 +19,7 @@ sudo cp -rf ROOT/issue/issue /etc
 sudo cp -rf ROOT/hosts/hosts /etc
 
 # Install Required Programs
-sudo pacman --needed -Syu stow opendoas pamixer zsh ncmpcpp xwallpaper newsboat vifm zathura maim texlive-most ffmpeg lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps pandoc automake curl make bc android-tools gimp kdenlive frei0r-plugins inkscape arandr shellcheck arc-gtk-theme ctags unoconv nodejs yarn p7zip papirus-icon-theme valgrind gdb light pulsemixer pavucontrol xorg-server xorg-xinit go qt5ct ncurses gtk3 gst-plugins-base-libs hplip simple-scan system-config-printer gst-plugins-good grc gst-libav clang breeze net-tools ffmpegthumbnailer webkit2gtk torbrowser-launcher neofetch cmatrix asciiquarium npm unclutter python python-pip pass screenkey pipewire-pulse
+sudo pacman --needed -Syu stow opendoas pamixer zsh ncmpcpp xwallpaper newsboat vifm zathura maim texlive-most ffmpeg lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps pandoc automake curl make bc android-tools gimp kdenlive frei0r-plugins inkscape arandr shellcheck arc-gtk-theme ctags unoconv nodejs yarn p7zip papirus-icon-theme valgrind gdb light pulsemixer pavucontrol xorg-server xorg-xinit go qt5ct ncurses gtk3 gst-plugins-base-libs hplip simple-scan system-config-printer gst-plugins-good grc gst-libav clang breeze net-tools ffmpegthumbnailer webkit2gtk torbrowser-launcher neofetch cmatrix asciiquarium npm unclutter python python-pip pass screenkey pipewire-pulse ueberzug yt-dlp python-pywal
 
 # Computer Science Programs
 # bluej netbeans jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench octave android-studio android-sdk pycharm-community-edition unity ssms nodejs adobexd
@@ -51,7 +51,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 nvim -c PlugInstall
 cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
 npm -g install clangd typescript typescript-language-server vscode-langservers-extracted --prefix ~/.local/share/npm
-pip install --user 'python-lsp-server[all]' pywal ueberzug yt-dlp
+# pip install --user 'python-lsp-server[all]' pywal ueberzug yt-dlp
 
 # Setup Git account
 printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
