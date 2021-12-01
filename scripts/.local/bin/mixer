@@ -3,34 +3,14 @@
 # Pulseaudio or Alsa audio binds
 case $1 in
 	"+")
-		if [ -f /usr/bin/pulsemixer ]; then
-			pulsemixer --change-volume +1
-		elif
-			[ -f /usr/bin/amixer ]; then
-			amixer set Master 1%+
-		fi
+		amixer set Master 1%+
 		;;
 	"-")
-		if [ -f /usr/bin/pulsemixer ]; then
-			pulsemixer --change-volume -1
-		elif
-			[ -f /usr/bin/amixer ]; then
-			amixer set Master 1%-
-		fi
+		amixer set Master 1%-
 		;;
 	t)
-		if [ -f /usr/bin/pulsemixer ]; then
-			pulsemixer --toggle-mute
-		elif
-			[ -f /usr/bin/amixer ]; then
-			amixer set Master toggle
-		fi
+		amixer set Master toggle
 		;;
 	m)
-		if [ -f /usr/bin/pacmd ]; then
-			pacmd list-sources | grep -oP 'index: \d+' | awk '{ print $2 }' | xargs -I {} pactl set-source-mute {} toggle
-		elif
-			[ -f /usr/bin/amixer ]; then
-			amixer set Capture toggle
-		fi
+		amixer set Capture toggle
 esac
