@@ -1,24 +1,34 @@
+app-admin/pass dmenu
+app-arch/p7zip -rar
 app-crypt/pinentry gtk
+app-editors/neovim lto tui -nvimpager
+app-emulation/libvirt libvirtd qemu virt-network -apparmor -dtrace -firewalld -libssh -nfs -virtualbox
+app-emulation/qemu aio -accessibility
 app-emulation/virt-manager gtk -policykit -sasl
-app-emulation/wine-staging vulkan dos gecko mono netapi run-exes staging vkd3d
+app-emulation/wine-staging dos gecko mono netapi run-exes staging vkd3d vulkan
+app-misc/vifm developer extended-keys gtk vim
+dev-lang/rust system-bootstrap system-llvm -clippy -miri -nightly -rls -rustfmt -wasm
 dev-java/openjdk gentoo-vm javafx
-dev-libs/light udev
-dev-vcs/git -emacs
+dev-util/ctags json -yaml
+dev-vcs/git blksha1 curl gpg -cgi -emacs -highlight -mediawiki -mediawiki-experimental -perforce -ppcsha1 -tk
 games-emulation/mgba ffmpeg gles3 opengl qt5 -discord -gles2 -sdl -sqlite
-media-gfx/gimp aalib heif mng openexr-alsa unwind webp wmf xpm -gnome -javascript -lua -postscript -python -udev -vala
-media-sound/ncmpcpp visualizer clock -outputs -taglib
-media-video/ffmpeg X bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opengl opus oss sdl speex svg theora threads truetype v4l vaapi vdpau vorbis wavpack webp x264 xvid zlib
-media-video/mpv cli drm dvb dvd egl gbm libmpv opengl vaapi vdpau vulkan X xv zlib -raspberry-pi
-net-libs/nodejs icu inspector npm snapshot system-icu system-tap system-ssl
-net-libs/webkit-gtk egl -examples -gamepad -geolocation -gamepad
-net-misc/networkmanager connection-sharing iptables -ppp -vala -teamd -ofono -dhcpcd -modemmanager
-net-print/cups dbus X
-net-print/hplip hpcups scanner snmp X -fax -hpijs -parport
-sys-boot/grub device-mapper mount -freetype -libzfs -themes
+media-gfx/gimp aalib heif mng webp wmf xpm -javascript -lua -postscript -python -udev
+media-sound/ncmpcpp visualizer clock -outputs
+media-video/ffmpeg bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opengl opus oss sdl speex svg theora truetype vorbis wavpack webp x264 xvid zlib
+media-video/mpv cli drm egl gbm libmpv opengl vulkan -cuda -gamepad -raspberry-pi
+media-video/pipewire echo-cancel extra -jack-client -jack-sdk -pipewire-alsa
+net-libs/nodejs npm snapshot system-icu system-tap system-ssl -inspector
+net-libs/webkit-gtk avif egl jumbo-build -examples -gamepad -geolocation
+net-misc/connman ethernet iwd openvpn wireguard -l2tp -ofono -openconnect -pptp -tools -vpnc -wispr
+net-misc/curl progress-meter -gopher -pop3 -telnet -winssl
+net-misc/ntp -samba
+net-print/cups dbus
+net-print/hplip hpcups scanner snmp -fax -hpijs -libnotify -libusb0 -parport
+sys-boot/grub device-mapper mount -efiemu -libzfs -themes
 sys-devel/clang xml
-sys-devel/gcc cxx graphite lto objc valgrind
-sys-devel/gdb -python -server -xml
-sys-devel/llvm -exegesis -ncurses -z3 -xml
-www-client/firefox clang eme-free hwaccel openh264 system-av1 system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-webp -geckodriver -gmp-autoupdate -lto -pgo -wifi
-x11-base/xorg-server dmx xorg xvfb -suid -xephyr -xnest -wayland
-x11-misc/xwallpaper jpeg png
+sys-devel/gcc cxx graphite lto nptl pgo objc sanitize ssp valgrind vtv -go -ada -d -cet
+sys-devel/gdb xxhash -cet -python -server
+sys-devel/llvm z3 -doc -ncurses
+www-client/firefox clang eme-free hwaccel lto pgo openh264 system-av1 system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-webp -geckodriver -gmp-autoupdate -sndio -wifi
+x11-apps/xinit -twm
+x11-base/xorg-server elogind xcsecurity xorg xvfb -xephyr -xnest -wayland
