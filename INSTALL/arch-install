@@ -25,7 +25,7 @@ sudo pacman --needed -Syu stow opendoas pamixer zsh ncmpcpp xwallpaper newsboat 
 # bluej netbeans jdk11-openjdk java11-openjfx intellij-idea-community-edition valgrind doxygen gdb mysql-workbench octave android-studio android-sdk pycharm-community-edition unity ssms nodejs adobexd
 
 # Building Folder Structure
-mkdir -p ~/Documents/PDF ~/Documents/Markdown ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games/WINEPREFIX ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Code ~/.config/git ~/.config/wallpaper ~/Mount ~/.local/share/gnupg ~/.local/share/pass
+mkdir -p ~/Documents/PDF ~/Documents/Text ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games/WINEPREFIX ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Code ~/.config/git ~/.config/wallpaper ~/Mount ~/.local/share/gnupg ~/.local/share/pass
 
 doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
 chsh -s /bin/zsh
@@ -50,8 +50,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ## Installing Modules
 nvim -c PlugInstall
 cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
-npm -g install clangd typescript typescript-language-server vscode-langservers-extracted --prefix ~/.local/share/npm
-# pip install --user 'python-lsp-server[all]' pywal ueberzug yt-dlp
+npm -g install clangd pyright typescript typescript-language-server vscode-langservers-extracted --prefix ~/.local/share/npm
 
 # Setup Git account
 printf "Do yo want to setup Git account? [Y/n]" && read -r GIT

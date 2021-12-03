@@ -38,13 +38,10 @@ else
 		doas rc-update add cupsd default
 
 		# Building Folder Structure
-		mkdir -p ~/Documents/PDF ~/Documents/Markdown ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games/WINEPREFIX ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Code ~/.config/git ~/.config/wallpaper ~/Mount ~/.local/share/gnupg ~/.local/share/pass
+		mkdir -p ~/Documents/PDF ~/Documents/Text ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games/WINEPREFIX ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Code ~/.config/git ~/.config/wallpaper ~/Mount ~/.local/share/gnupg ~/.local/share/pass
 
 		doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
 		chsh -s /bin/zsh
-
-		# Installing pywal and ueberzug
-		pip install --user 'python-lsp-server[all]' pywal ueberzug yt-dlp
 
 		# Deploy Dots
 		stow --target="$HOME" fonts gtk man misc mpd ncmpcpp newsboat neovim npm qt shell scripts suckless sxiv vifm X11 zathura zsh
@@ -66,8 +63,7 @@ else
 		## Installing Plugins
 		nvim -c PlugInstall
 		cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
-		npm -g install clangd typescript typescript-language-server vscode-langservers-extracted --prefix ~/.local/share/npm
-
+		npm -g install clangd pyright typescript typescript-language-server vscode-langservers-extracted --prefix ~/.local/share/npm
 
 		# Setup Git account
 		printf "Do yo want to setup Git account? [Y/n]" && read -r GIT

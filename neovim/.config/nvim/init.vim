@@ -22,7 +22,7 @@ call plug#end()
 " Alt + H,J,K,L -> Movement between splits
 " Control + T -> Opens up NERDTree
 " Control + Z -> Toggles Tag List from current program
-" :Dox -> Runs doxygen documentation program
+" Control + C -> Runs doxygen documentation program
 "
 
 " Custom Settings
@@ -87,10 +87,15 @@ map <C-c> :Dox<CR>
 
 " LSP Configuration
 lua << EOF
+
+-- Setup module settings before setting up modules
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 require'lspconfig'.clangd.setup{}
-require'lspconfig'.pylsp.setup{}
+require'lspconfig'.pyright.setup{}
 require'lspconfig'.tsserver.setup{}
-require'lspconfig'.html.setup{}
+require'lspconfig'.html.setup{ capabilities = capabilities }
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.omnisharp.setup{ cmd = { (os.getenv("XDG_DATA_HOME")) .. "/omnisharp/run", "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) }}
 EOF
