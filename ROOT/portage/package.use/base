@@ -1,6 +1,6 @@
 app-admin/pass dmenu
 app-arch/p7zip -rar
-app-crypt/pinentry gtk
+app-crypt/pinentry qt5
 app-editors/neovim lto tui -nvimpager
 app-emulation/libvirt libvirtd qemu virt-network -apparmor -dtrace -firewalld -libssh -nfs -virtualbox
 app-emulation/qemu aio -accessibility
@@ -13,6 +13,7 @@ dev-util/ctags json -yaml
 dev-vcs/git blksha1 curl gpg -cgi -emacs -highlight -mediawiki -mediawiki-experimental -perforce -ppcsha1 -tk
 games-emulation/mgba ffmpeg gles3 opengl qt5 -discord -gles2 -sdl -sqlite
 media-gfx/gimp aalib heif mng webp wmf xpm -javascript -lua -postscript -python -udev
+media-gfx/imagemagick xml
 media-sound/ncmpcpp visualizer clock -outputs
 media-video/ffmpeg bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opengl opus oss sdl speex svg theora truetype vorbis wavpack webp x264 xvid zlib
 media-video/mpv cli drm egl gbm libmpv opengl vulkan -cuda -gamepad -raspberry-pi
@@ -29,6 +30,6 @@ sys-devel/clang xml
 sys-devel/gcc cxx graphite lto nptl pgo objc sanitize ssp valgrind vtv -go -ada -d -cet
 sys-devel/gdb xxhash -cet -python -server
 sys-devel/llvm z3 -doc -ncurses
-www-client/firefox clang eme-free hwaccel lto pgo openh264 system-av1 system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-webp -geckodriver -gmp-autoupdate -sndio -wifi
+www-client/firefox clang hwaccel lto openh264 screencast system-av1 system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-png system-webp geckodriver gmp-autoupdate -sndio -wayland -wifi
 x11-apps/xinit -twm
 x11-base/xorg-server elogind xcsecurity xorg xvfb -xephyr -xnest -wayland

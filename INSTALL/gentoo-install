@@ -20,7 +20,7 @@ if [ "$(id -u)" = "0" ]; then
 
 	printf "Do you want to install Base Packages? [Y/n]" && read -r BASE
 	if [ "$BASE" != "N" ] && [ "$BASE" != "n" ]; then
-		emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler make bc xorg-x11 xinit zsh doas sys-fs/dosfstools app-editors/neovim pulsemixer pipewire gentoolkit stow app-admin/pass app-arch/p7zip && poweroff
+		emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler make bc xorg-x11 xinit zsh doas sys-fs/dosfstools app-editors/neovim pulsemixer pipewire gentoolkit stow app-admin/pass app-arch/p7zip
 	fi
 
 	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
@@ -30,7 +30,7 @@ if [ "$(id -u)" = "0" ]; then
 
 	printf "Do you want to install User Packages? [Y/n]" && read -r USERPACKAGES
 	if [ "$USERPACKAGES" != "N" ] && [ "$USERPACKAGES" != "n" ]; then
-		emerge --ask --quiet app-emulation/libvirt app-emulation/qemu app-emulation/virt-manager neofetch dev-python/pip media-sound/pavucontrol x11-themes/arc-theme x11-themes/papirus-icon-theme ffmpegthumbnailer x11-misc/unclutter-xfixes x11-misc/screenkey && poweroff
+		emerge --ask --quiet app-emulation/libvirt app-emulation/qemu app-emulation/virt-manager neofetch dev-python/pip x11-themes/arc-theme x11-themes/papirus-icon-theme ffmpegthumbnailer x11-misc/unclutter-xfixes x11-misc/screenkey && poweroff
 	fi
 else
 	{
@@ -53,7 +53,7 @@ else
 		cd ~/.local/src/suck && sh sucklessUpdate && cd "$CURDIR" || exit
 
 		## Neovimb Setup
-		cp -rf "$(pwd)"/../neovimb "$HOME"/.config
+		cp -rf "$(pwd)"/../neovimb "$HOME"/
 
 		# Setting up Neovim
 		## Linking Neovim to Vim
@@ -84,4 +84,3 @@ else
 		cd ~/Pictures && git clone https://gitlab.com/rafa_99/wallpapers
 	}
 fi
-

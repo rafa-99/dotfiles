@@ -57,7 +57,7 @@ VSCODE_PORTABLE="$XDG_DATA_HOME"/vscode
 export SUDO_ASKPASS="$HOME"/.local/bin/askpass
 export WALLPAPER="$XDG_CONFIG_HOME"/wallpaper/wallpaper.png
 export QT_QPA_PLATFORMTHEME=qt5ct
-export "$(dbus-launch)"
+#export "$(dbus-launch)"
 
 # $PATH update
 export PATH="$HOME/.local/bin:$XDG_DATA_HOME/android-sdk:$XDG_DATA_HOME/npm/bin:$PATH"

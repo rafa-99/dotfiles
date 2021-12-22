@@ -3,9 +3,4 @@ app-editors/neovim ~amd64
 app-text/pandoc ~amd64
 dev-haskell/* ~amd64
 dev-lang/ghc ~amd64
-dev-libs/light ~amd64
-dev-libs/nspr ~amd64
-dev-libs/nss ~amd64
 dev-util/shellcheck ~amd64
-lxde-base/lxappearance ~amd64
-www-client/firefox ~amd64
