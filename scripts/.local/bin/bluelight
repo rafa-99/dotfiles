@@ -1,12 +1,12 @@
 #!/bin/sh
 
+# Obtains the current coordinates
+COORDINATES=$(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}')
+
 #This is a script to turn on bluelight filter
 if pgrep redshift > /dev/null
 then
 	killall redshift
 else
-	LATITUDE=$(curl https://ipinfo.io/ip | xargs -I {} curl -s --get https://ipvigilante.com/{} | jq | grep latitude | awk '{print $2}' \
-		| sed s:'"'::g | sed s:','::g) && LONGITUDE=$(curl https://ipinfo.io/ip \
-		| xargs -I {} curl -s --get https://ipvigilante.com/{} | jq | grep longitude | awk '{print $2}' | sed s:'"'::g \
-		| sed s:','::g) && redshift -l "$LATITUDE":"$LONGITUDE" -m randr
+	redshift -l "$COORDINATES" -m randr
 fi
