@@ -3,9 +3,12 @@
 slstatus &
 xwallpaper --stretch "$WALLPAPER" &
 setxkbmap -option caps:super
+picom --config "$XDG_CONFIG_HOME"/picom/picom.conf &
 numlockx on &
 unclutter --timeout 2 &
 pipewire &
 pipewire-pulse &
 pipewire-media-session &
+xset s off
+xset -dpms
 exec "$SESSION"
