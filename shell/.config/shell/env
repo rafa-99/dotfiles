@@ -51,7 +51,7 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export KDEHOME="$XDG_CONFIG_HOME"/kde
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 export SPACEMACSDIR="$XDG_CONFIG_HOME"/spacemacs
-VSCODE_PORTABLE="$XDG_DATA_HOME"/vscode
+export VSCODE_PORTABLE="$XDG_DATA_HOME"/vscode
 
 # Default Vars
 export SUDO_ASKPASS="$HOME"/.local/bin/askpass

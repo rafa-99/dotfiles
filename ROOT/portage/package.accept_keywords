@@ -1,6 +1,7 @@
-app-admin/haskell-updater ~amd64
 app-editors/neovim ~amd64
-app-text/pandoc ~amd64
-dev-haskell/* ~amd64
-dev-lang/ghc ~amd64
-dev-util/shellcheck ~amd64
+app-emulation/wine-mono ~amd64
+app-emulation/wine-staging ~amd64
+games-util/lutris ~amd64
+media-libs/mesa ~amd64
+x11-misc/picom ~amd64
+x11-misc/screenkey ~amd64

@@ -20,22 +20,23 @@ if [ "$(id -u)" = "0" ]; then
 
 	printf "Do you want to install Base Packages? [Y/n]" && read -r BASE
 	if [ "$BASE" != "N" ] && [ "$BASE" != "n" ]; then
-		emerge --ask --quiet xwallpaper x11-misc/xclip vifm zathura zathura-pdf-poppler make bc xorg-x11 xinit zsh doas sys-fs/dosfstools app-editors/neovim pulsemixer pipewire gentoolkit stow app-admin/pass app-arch/p7zip
-	fi
-
-	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
-	if [ "$EXTRA" != "N" ] && [ "$EXTRA" != "n" ]; then
-		emerge --ask --quiet sxiv mpv newsboat ncmpcpp media-sound/mpc mpd redshift pandoc android-tools shellcheck app-admin/system-config-printer texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs libreoffice-bin unoconv dev-util/ctags gimp imagemagick net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer go sys-apps/net-tools && poweroff
+		emerge --ask --quiet vifm make bc xorg-x11 xinit zsh doas sys-fs/dosfstools app-editors/neovim pulsemixer pipewire gentoolkit stow app-admin/pass app-arch/p7zip
 	fi
 
 	printf "Do you want to install User Packages? [Y/n]" && read -r USERPACKAGES
 	if [ "$USERPACKAGES" != "N" ] && [ "$USERPACKAGES" != "n" ]; then
-		emerge --ask --quiet app-emulation/libvirt app-emulation/qemu app-emulation/virt-manager neofetch dev-python/pip x11-themes/arc-theme x11-themes/papirus-icon-theme ffmpegthumbnailer x11-misc/unclutter-xfixes x11-misc/screenkey && poweroff
+		emerge --ask --quiet zathura zathura-pdf-poppler xwallpaper x11-misc/xclip sxiv mpv newsboat ncmpcpp media-sound/mpc mpd redshift pandoc android-tools texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs libreoffice-bin unoconv dev-util/ctags gimp imagemagick net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer go sys-apps/net-tools app-emulation/libvirt app-emulation/qemu app-emulation/virt-manager neofetch dev-python/pip x11-themes/arc-theme x11-themes/papirus-icon-theme ffmpegthumbnailer x11-misc/unclutter-xfixes x11-misc/screenkey net-misc/yt-dlp net-p2p/transmission x11-misc/picom && poweroff
+	fi
+
+	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
+	if [ "$EXTRA" != "N" ] && [ "$EXTRA" != "n" ]; then
+		emerge --ask --quiet app-emulation/winetricks media-gfx/simple-scan dev-python/lxml games-util/lutris media-libs/vulkan-loader media-libs/vulkan-layers net-print/hplip net-print/cups app-emulation/wine-staging
+
+		# Adding System default init services
+		doas rc-update add cupsd default
 	fi
 else
 	{
-		# Adding System default init services
-		doas rc-update add cupsd default
 
 		# Building Folder Structure
 		mkdir -p ~/Documents/PDF ~/Documents/Text ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games/WINEPREFIX ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Code ~/.config/git ~/.config/wallpaper ~/Mount ~/.local/share/gnupg ~/.local/share/pass
@@ -53,7 +54,7 @@ else
 		cd ~/.local/src/suck && sh sucklessUpdate && cd "$CURDIR" || exit
 
 		## Neovimb Setup
-		cp -rf "$(pwd)"/../neovimb "$HOME"/
+		cd "$CURDIR" && cd .. && cp -rf neovimb "$HOME"/.config/ && cd "$CURDIR" || exit
 
 		# Setting up Neovim
 		## Linking Neovim to Vim
