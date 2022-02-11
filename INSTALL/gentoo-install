@@ -33,7 +33,7 @@ if [ "$(id -u)" = "0" ]; then
 		emerge --ask --quiet app-emulation/winetricks media-gfx/simple-scan dev-python/lxml games-util/lutris media-libs/vulkan-loader media-libs/vulkan-layers net-print/hplip net-print/cups app-emulation/wine-staging
 
 		# Adding System default init services
-		# go to https://localhost:631/ to configure the printer
+		# go to https://localhost:631/ to configure the printer or run hp-setup
 		doas rc-update add cupsd default
 
 		poweroff
