@@ -3,7 +3,7 @@ app-arch/p7zip -rar
 app-crypt/pinentry gtk -ncurses
 app-editors/neovim lto tui -nvimpager
 app-emulation/libvirt libvirtd qemu virt-network -apparmor -dtrace -firewalld -libssh -nfs -virtualbox
-app-emulation/qemu aio -accessibility
+app-emulation/qemu aio curl fdt fuse io-uring plugins sdl sdl-image slirp spice usb usbredir vhost-net vhost-user-fs virtfs -accessibility -glusterfs
 app-emulation/virt-manager gtk -policykit -sasl
 app-emulation/wine-staging capi dos gecko gssapi gstreamer mono netapi opencl osmesa pipelight prelink realtime run-exes samba sdl staging udev unwind usb vkd3d vulkan abi_x86_32
 app-emulation/winetricks gtk
@@ -17,7 +17,7 @@ games-emulation/mgba ffmpeg gles3 opengl qt5 -discord -gles2 -sdl -sqlite
 media-gfx/gimp aalib heif mng webp wmf xpm -javascript -lua -postscript -python -udev
 media-gfx/imagemagick xml
 media-gfx/simple-scan colord -webp
-media-libs/mesa egl wayland osmesa abi_x86_32 d3d9 gles2 vulkan vulkan-overlay
+media-libs/mesa wayland osmesa abi_x86_32 d3d9 gles2 vulkan vulkan-overlay
 media-libs/vulkan-loader X layers abi_x86_32
 media-sound/ncmpcpp visualizer clock -outputs
 media-video/ffmpeg bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opengl opus oss sdl speex svg theora truetype vorbis wavpack webp x264 xvid zlib
