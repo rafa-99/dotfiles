@@ -4,6 +4,7 @@ X11/.config/X11/Xauthority
 # Nvim Plugins
 neovim/.config/nvim/*
 !neovim/.config/nvim/init.vim
+!neovim/.config/nvim/confs
 
 # Path Folder
 scripts/.local/bin/vim
