@@ -1,4 +1,6 @@
 set updatetime=100
-map <C-l> :GitGutterLineHighlightsToggle<CR>
-map <C-h> :GitGutterPreviewHunk<CR>
-map <C-g> :GitGutterToggle<CR>
+let g:gitgutter_highlight_lines = 1
+
+map <leader>h :GitGutterLineHighlightsToggle<CR>
+map <leader>c :GitGutterPreviewHunk<CR>
+map <leader>g :GitGutterToggle<CR>

@@ -12,9 +12,6 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 " TreeSitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Trouble
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'folke/trouble.nvim'
 " GitGutter
 Plug 'airblade/vim-gitgutter'
 " GitMessenger
@@ -48,8 +45,8 @@ source ~/.config/nvim/confs/generic.vim
 source ~/.config/nvim/confs/completion.vim
 " LuaLine
 source ~/.config/nvim/confs/lualine.vim
-" Trouble
-source ~/.config/nvim/confs/trouble.vim
+" Treesitter
+source ~/.config/nvim/confs/treesitter.vim
 " GitGutter
 source ~/.config/nvim/confs/gitgutter.vim
 " GitMessenger
@@ -62,3 +59,5 @@ source ~/.config/nvim/confs/nvimtree.vim
 source ~/.config/nvim/confs/whichkey.vim
 " Bufferline
 source ~/.config/nvim/confs/bufferline.vim
+" Hexokinase
+source ~/.config/nvim/confs/hexokinase.vim
