@@ -16,7 +16,7 @@ set termguicolors
 set completeopt=menuone,noselect
 
 " Leader Key
-let mapleader=","
+let mapleader="/"
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e

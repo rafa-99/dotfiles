@@ -27,5 +27,6 @@ lua << EOF
 	}
 EOF
 
-nnoremap <silent>[b :BufferLineCycleNext<CR>
-nnoremap <silent>b] :BufferLineCyclePrev<CR>
+nnoremap <leader>. :BufferLineCycleNext<CR>
+nnoremap <leader>, :BufferLineCyclePrev<CR>
+nnoremap <leader>w :bd<CR>

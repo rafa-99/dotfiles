@@ -35,6 +35,8 @@ Plug 'RRethy/vim-illuminate'
 Plug 'RRethy/vim-hexokinase'
 " AutoPairs
 Plug 'jiangmiao/auto-pairs'
+" TagList
+Plug 'vim-scripts/taglist.vim'
 
 call plug#end()
 
@@ -61,3 +63,5 @@ source ~/.config/nvim/confs/whichkey.vim
 source ~/.config/nvim/confs/bufferline.vim
 " Hexokinase
 source ~/.config/nvim/confs/hexokinase.vim
+" Taglist
+source ~/.config/nvim/confs/taglist.vim
