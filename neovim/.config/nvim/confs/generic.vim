@@ -33,5 +33,5 @@ map <A-l> <C-w>l
 " Splits position
 set splitbelow splitright
 
-" Custom Maps
+" Auto Indent
 map <Tab> gg=G

@@ -1,7 +1,7 @@
 app-editors/neovim ~amd64
 app-emulation/wine-mono ~amd64
 app-emulation/wine-staging ~amd64
-games-util/legendary ~amd64
+dev-libs/libvterm ~amd64
 games-util/lutris ~amd64
 media-libs/mesa ~amd64
 x11-misc/picom ~amd64

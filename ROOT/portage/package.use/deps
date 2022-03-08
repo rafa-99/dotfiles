@@ -36,6 +36,8 @@ dev-libs/openssl abi_x86_32
 dev-libs/popt abi_x86_32
 dev-libs/wayland abi_x86_32
 dev-libs/xmlsec nss
+dev-lua/lpeg lua_targets_luajit
+dev-lua/mpack lua_targets_luajit
 dev-python/pillow tiff truetype
 dev-util/cmocka abi_x86_32
 dev-util/glslang abi_x86_32
