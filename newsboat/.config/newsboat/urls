@@ -26,6 +26,7 @@ http://git.suckless.org/st/atom.xml "~st"
 http://git.suckless.org/surf/atom.xml "~surf"
 https://github.com/fanglingsu/vimb/commits/master.atom "~vimb"
 https://github.com/VSCodium/vscodium/commits/master.atom "~vscodium"
+https://github.com/jbensmann/xmouseless/commits/master.atom "~xmouseless"
 https://gitlab.com/dutchmans.atom "~Dutchmans"
 https://gitlab.com/LukeSmithxyz.atom "~Luke Smith"
 
