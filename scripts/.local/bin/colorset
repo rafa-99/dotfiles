@@ -41,4 +41,4 @@ cp -rf "$SRC"/colors/* "$SRC"
 cp -rf "$SRC"/colors/wallpaper.png ~/.config/wallpaper
 
 xwallpaper --stretch "$WALLPAPER"
-"$SRC"/compileSource
+cd "$SRC" && ./compileSource
