@@ -11,8 +11,8 @@ scripts/.local/bin/vim
 scripts/.local/bin/firefox
 
 # Suckless Software
-suckless/.local/src/suck/*
-!suckless/.local/src/suck/sucklessUpdate
+suckless/.local/src
+!suckless/.local/src/compileSource
 
 # Vifm Files
 vifm/.config/vifm/*
