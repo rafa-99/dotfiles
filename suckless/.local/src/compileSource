@@ -1,0 +1,59 @@
+#!/bin/sh
+
+###################
+# Setting Up Vars #
+###################
+
+SRC=$(pwd)
+
+#################################
+# Cloning and Cleaning Programs #
+#################################
+
+git clone https://gitlab.com/rafa_99/dmenu
+git clone https://gitlab.com/rafa_99/dwm
+git clone https://gitlab.com/rafa_99/farbfeld
+git clone https://gitlab.com/rafa_99/neovimb
+git clone https://gitlab.com/rafa_99/pkg
+git clone https://gitlab.com/rafa_99/queryt
+git clone https://gitlab.com/rafa_99/sent
+git clone https://gitlab.com/rafa_99/slock
+git clone https://gitlab.com/rafa_99/slstatus
+git clone https://gitlab.com/rafa_99/st
+cd "$SRC"/dmenu && git pull ;
+cd "$SRC"/dwm && git pull ;
+cd "$SRC"/farbfeld && git pull ;
+cd "$SRC"/neovimb && git pull ;
+cd "$SRC"/pkg && git pull ;
+cd "$SRC"/queryt && git pull ;
+cd "$SRC"/sent && git pull ;
+cd "$SRC"/slock && git pull ;
+cd "$SRC"/slstatus && git pull ;
+cd "$SRC"/st && git pull ;
+
+##########################
+# Setting Configurations #
+##########################
+
+[ ! -f "$SRC"/dmenu/config.h ] && cp -rf "$HOME"/.config/suckless/dmenu/config.h "$SRC"/dmenu/ ;
+[ ! -f "$SRC"/dwm/config.h ] && cp -rf "$HOME"/.config/suckless/dwm/config.h "$SRC"/dwm/ ;
+[ ! -f "$SRC"/neovimb/src/config.h ] && cp -rf "$HOME"/.config/suckless/neovimb/config.h "$SRC"/neovimb/src ;
+[ ! -f "$SRC"/sent/config.h ] && cp -rf "$HOME"/.config/suckless/sent/config.h "$SRC"/sent/ ;
+[ ! -f "$SRC"/slock/config.h ] && cp -rf "$HOME"/.config/suckless/slock/config.h "$SRC"/slock/ ;
+[ ! -f "$SRC"/slstatus/config.h ] && cp -rf "$HOME"/.config/suckless/slstatus/config.h "$SRC"/slstatus/ ;
+[ ! -f "$SRC"/st/config.h ] && cp -rf "$HOME"/.config/suckless/st/config.h "$SRC"/st/ ;
+
+########################
+# Recompiling Programs #
+########################
+
+cd "$SRC"/dwm && git pull ; doas make clean install ; make clean
+cd "$SRC"/dmenu && git pull ; doas make clean install ; make clean
+cd "$SRC"/farbfeld && git pull ; doas make clean install ; make clean
+cd "$SRC"/neovimb && git pull ; doas make clean install ; make clean
+cd "$SRC"/pkg && git pull ; doas make clean install ; make clean
+cd "$SRC"/queryt && git pull ; doas make clean install ; make clean
+cd "$SRC"/sent && git pull ; doas make clean install ; make clean
+cd "$SRC"/slock && git pull ; doas make clean install ; make clean
+cd "$SRC"/slstatus && git pull ; doas make clean install ; make clean
+cd "$SRC"/st && git pull ; doas make clean install ; make clean
