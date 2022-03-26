@@ -31,8 +31,8 @@ static ClickBinding click_bindings[] = {
     /* key         button */
     { XK_space,    1 },
     { XK_u,        1 },
-    { XK_o,        2 },
-    { XK_i,        3 },
+    { XK_i,        2 },
+    { XK_o,        3 },
 };
 
 /* scrolls up, down, left and right
