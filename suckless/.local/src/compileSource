@@ -20,6 +20,7 @@ git clone https://gitlab.com/rafa_99/sent
 git clone https://gitlab.com/rafa_99/slock
 git clone https://gitlab.com/rafa_99/slstatus
 git clone https://gitlab.com/rafa_99/st
+git clone https://gitlab.com/rafa_99/xmouseless
 cd "$SRC"/dmenu && git pull ;
 cd "$SRC"/dwm && git pull ;
 cd "$SRC"/farbfeld && git pull ;
@@ -30,6 +31,7 @@ cd "$SRC"/sent && git pull ;
 cd "$SRC"/slock && git pull ;
 cd "$SRC"/slstatus && git pull ;
 cd "$SRC"/st && git pull ;
+cd "$SRC"/xmouseless && git pull ;
 
 ##########################
 # Setting Configurations #
@@ -42,6 +44,7 @@ cd "$SRC"/st && git pull ;
 [ ! -f "$SRC"/slock/config.h ] && cp -rf "$HOME"/.config/suckless/slock/config.h "$SRC"/slock/ ;
 [ ! -f "$SRC"/slstatus/config.h ] && cp -rf "$HOME"/.config/suckless/slstatus/config.h "$SRC"/slstatus/ ;
 [ ! -f "$SRC"/st/config.h ] && cp -rf "$HOME"/.config/suckless/st/config.h "$SRC"/st/ ;
+[ ! -f "$SRC"/xmouseless/config.h ] && cp -rf "$HOME"/.config/suckless/xmouseless/config.h "$SRC"/xmouseless/ ;
 
 ########################
 # Recompiling Programs #
@@ -57,3 +60,4 @@ cd "$SRC"/sent && git pull ; doas make clean install ; make clean
 cd "$SRC"/slock && git pull ; doas make clean install ; make clean
 cd "$SRC"/slstatus && git pull ; doas make clean install ; make clean
 cd "$SRC"/st && git pull ; doas make clean install ; make clean
+cd "$SRC"/xmouseless && git pull ; doas make clean install ; make clean
