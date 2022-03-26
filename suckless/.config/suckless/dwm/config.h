@@ -141,6 +141,7 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_s,      spawn,          SHCMD("screenkeys") },//Enable Screenkeys
 	{ MODKEY,                       XK_v,      spawn,          SHCMD("yt") },//Youtube
 	{ MODKEY,                       XK_t,      spawn,          SHCMD("switchLayout") },//Switches Between Keyboard Layouts
+	{ MODKEY,                       XK_x,      spawn,          SHCMD("xmouseless") },//Initializes virtual mouse
 
 	/* Quick Actions */
 	{ MODKEY,                       XK_F1,     spawn,          SHCMD("mixer t") },//Toggle Mute
