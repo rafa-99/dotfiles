@@ -6,7 +6,19 @@ EXTENSION=$(echo "$FILE" | awk -F . '{if (NF>1) {print $NF}}')
 BASE=$(basename "$FILE" ."$EXTENSION")
 
 # Filter to compile other types of files
-case $EXTENSION in
+if [ "$#" -eq 2 ] && { [ -e "$2/Makefile" ] || [ -e "$2/makefile" ]; }; then
+	make
+else
+	case $EXTENSION in
+	c|h)
+		cc -o "$BASE" ./*.c
+		;;
+	cpp)
+		c++ -o "$BASE" ./*.cpp
+		;;
+	java)
+		javac "$FILE" ./*.java
+		;;
 	md|rmd)
 		FORMAT=$(printf "PDF\nHTML\nBeamer\nODT\nDOCX\nPPTX\n" | dmenu -i -p "Format:")
 		case "$FORMAT" in
@@ -39,9 +51,7 @@ case $EXTENSION in
 	ms)
 		groff -k -T pdf -m -ms "$FILE" > "$BASE.pdf"
 		;;
-	java)
-		java "$FILE"
-		;;
-	c|h)
-		cc -o "$BASE" ./*.c
-esac
+	tex)
+		pdflatex "$FILE"
+	esac
+fi

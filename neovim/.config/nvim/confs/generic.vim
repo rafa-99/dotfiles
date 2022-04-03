@@ -31,7 +31,15 @@ map <A-k> <C-w>k
 map <A-l> <C-w>l
 
 " Splits position
-set splitbelow splitright
 
 " Auto Indent
 map <Tab> gg=G
+
+" Check Spelling
+map <leader>lp :set spell spelllang=pt_pt <CR>
+map <leader>le :set spell spelllang=en_us <CR>
+map <leader>ls :set nospell <CR>
+
+" Custom Scripts
+map <F5> :!compiler '%' $(pwd) <CR>
+map <F4> :!clear && shellcheck % <CR>

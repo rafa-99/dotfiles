@@ -25,7 +25,7 @@ if [ "$(id -u)" = "0" ]; then
 
 	printf "Do you want to install User Packages? [Y/n]" && read -r USERPACKAGES
 	if [ "$USERPACKAGES" != "N" ] && [ "$USERPACKAGES" != "n" ]; then
-		emerge --ask --quiet zathura zathura-pdf-poppler xwallpaper x11-misc/xclip sxiv mpv newsboat ncmpcpp media-sound/mpc mpd redshift pandoc android-tools texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs libreoffice-bin unoconv dev-util/ctags gimp imagemagick net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer go sys-apps/net-tools app-emulation/libvirt app-emulation/qemu app-emulation/virt-manager neofetch dev-python/pip x11-themes/arc-theme x11-themes/papirus-icon-theme ffmpegthumbnailer x11-misc/unclutter-xfixes x11-misc/screenkey net-misc/yt-dlp net-p2p/transmission x11-misc/picom && poweroff
+		emerge --ask --quiet zathura zathura-pdf-poppler xwallpaper x11-misc/xclip sxiv mpv newsboat ncmpcpp media-sound/mpc mpd redshift pandoc android-tools texlive-latex texlive-latexextra texlive-latexrecommended net-libs/nodejs libreoffice-bin unoconv dev-util/ctags gimp imagemagick net-misc/ntp maim net-libs/webkit-gtk media-libs/gst-plugins-good media-plugins/gst-plugins-libav latex-beamer go sys-apps/net-tools app-emulation/libvirt app-emulation/qemu app-emulation/virt-manager neofetch dev-python/pip x11-themes/arc-theme x11-themes/papirus-icon-theme ffmpegthumbnailer x11-misc/screenkey net-misc/yt-dlp net-p2p/transmission x11-misc/picom && poweroff
 	fi
 
 	printf "Do you want to install Extra Packages? [Y/n]" && read -r EXTRA
