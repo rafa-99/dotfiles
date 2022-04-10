@@ -86,6 +86,14 @@ dmenu_ask() {
 	fi
 }
 
+dmenu_ask_pass() {
+	IFS= read -r "$2" < <(: | dmenu -P -p "$1")
+	if [[ ! "${!2}" ]]; then
+		dmenu_notify "invalid $2"
+		exit 1
+	fi
+}
+
 if (( EUID != 0 )); then
 	dmenu_notify 'please run it as root'
 	exit 1
@@ -100,7 +108,7 @@ if [[ "$index" == setup ]] ; then
 	name="${name// /_}"
 	dmenu_ask 'please provide VPN domain' domain
 	dmenu_ask 'please provide identity' identity
-	dmenu_ask 'please provide password' password
+	dmenu_ask_pass 'please provide password' password
 	cat > "$VPN_STORAGE_PATH/$name.config" <<-EOF
 	[provider_$name]
 	Type = PPTP
@@ -134,7 +142,7 @@ if [[ "$security" =~ ^(ieee8021x|psk|wep)$ ]]; then
 	if [[ -f "$config_file" && no != "$(echo -e 'yes\nno' | dmenu -p 'use previous profile?')" ]]; then
 		echo "use old profile: $config_file"
 	else
-		dmenu_ask 'please provide password' password
+		dmenu_ask_pass 'please provide password' password
 		case "$security" in
 			ieee8021x)
 				dmenu_ask 'please provide identity' identity
