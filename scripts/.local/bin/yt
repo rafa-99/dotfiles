@@ -1,6 +1,6 @@
 #!/bin/sh
 
-QUERY=$(: | dmenu -p "Search:")
+QUERY=$(: | dmenu -i -p "Search:")
 if [ "$QUERY" != "" ]; then
 	VIDEO=$(queryt -s "$QUERY" -f "i     t" | dmenu -l 10 -p "Video:" | awk '{print $1}')
 	if [ "$VIDEO" != "" ]; then
