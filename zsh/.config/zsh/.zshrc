@@ -29,5 +29,5 @@ bindkey '^e' edit-command-line
 
 ## Source Files
 [ -f "$HOME"/.config/zsh/prompt/default.zsh-theme ] && source "$HOME"/.config/zsh/prompt/default.zsh-theme
-[ -f "$HOME"/.config/zsh/zsh-syntax-highlighting.zsh ] && source "$HOME"/.config/zsh/zsh-syntax-highlighting.zsh
+# [ -f "$HOME"/.config/zsh/zsh-syntax-highlighting.zsh ] && source "$HOME"/.config/zsh/zsh-syntax-highlighting.zsh
 [ -f "$HOME"/.config/misc/aliasrc ] && source "$HOME"/.config/misc/aliasrc
