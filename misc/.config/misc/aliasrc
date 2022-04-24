@@ -9,7 +9,7 @@ alias grep='grep --color=auto -i' \
 	commit='git commit -m' \
 	revert='git revert' \
 	cherry='git cherry-pick' \
-	push='git push origin' \
+	push='git remote | xargs -L1 git push --all' \
 	ytmp3='yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0' \
 	ytmp4='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"' \
 	patchd='patch -p1 <' \
