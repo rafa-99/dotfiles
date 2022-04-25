@@ -77,7 +77,7 @@
 /* home page */
 #define SETTING_HOME_PAGE "https://rafa_99.gitlab.io"
 /* search engine */
-#define SETTING_SEARCH_ENGINE "https://searx.tuxcloud.net/?preferences=eJx1VU2P2zYQ_TXVRXCRJoeedChSFAkQYIOs0ysxIkcSI5KjDCl72V_foS3Jsjd7sAEOOfPevPmQhoQ9scXY9BiQwVUOQj9Djw2Gw_fnypEGVw4VzIk0-clhwsbMeiy_nirr5bWamF5yc-QZK49pINN8fXo-VhE6jAish-ZdlQb02FDUwBVjnF2KioIKeFYJ2uYfcBErQ1bJJbkTckMgx9-J--ridYgpCxlHvdVk8HQwwGMF5gRBo1EL0BLHRmidWDH0NkiCYfJK2fTb-4-Mxtik1JLyzhJJW3C1R2NBzB0j1pG6dAbG2lhGnYjzEiZDMPiyD5NozJQoDjRCUOpkDVIU-x_y6iJTOQzQMpS_JcyZXMfgwU0DCANtUZLZcRJ5iltrUyuCY1rcfPbohUydGEJ0Ukizp1KUsCesbdxbe5sctEsETETu7vpsR_tzpoR3kXQfaVaqs-7C_yFJP0erL6F70RtiegwodYw25VdmyqVvdlZkOlvzK-gVI2SAnawxAafpIUppjBa5X5KcQ5yE1bArQO57qSJjSLekAgjNO6WIeoe1-Oba00kmZAd85bGyurZdwa3L3wL8INMKhCl7Ck46co8mIyPk7gh4-oE43qkxjbW3zLR2Dk0YGCeKt_AR_wvg916dYSqqri-clfaTtikv4n137IVZkzsRvJ6LtS6bpKWgpU-3buW5zT36uDA1s8Gwh_p5hpDe0humaZfSdTiE9arsir6Vo2MbRgv6nlCyFIDzWwlu3hkGosfuFADW-GZDFHFuGtkAr5pjY7KO8WbopazJely1ub5fsy3gLdF4K0yF4X6Raa0P6bRDnBA5zS3uTKPVI8SdipthJb0Zblvqw4c_X9bzbX9Obhbc2Pxr_cHZEdVAacRcPJ7Rdepz6Ig9FLmL7UmaUv2lNUrsv58-yy4_s024ZbGG-3Q8fn1eb8XvUxnS66Wcjgyy61h9__ZF3sgAIotVoGyQ57IlmZy7MCizV74i-vopy_IVcLKmK5k_FJj_Aek2mSM=&q=$0"
+#define SETTING_SEARCH_ENGINE "https://raspberrypi/searx/search?q=$0"
 /* user agent */
 #define SETTING_USER_AGENT "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Safari/605.1.15 "
 /* geolocation-accept allowed values always, ask, never */
