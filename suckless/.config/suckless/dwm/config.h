@@ -14,7 +14,7 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int focusonwheel       = 0;
-static const char *fonts[]          = { "CaskaydiaCove Nerd Font:pixelsize=14" };
+static const char *fonts[]          = { "CaskaydiaCove Nerd Font:pixelsize=16" };
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { norm_fg, norm_bg, norm_border }, // Unfocused Windows
@@ -142,6 +142,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_v,      spawn,          SHCMD("yt") },//Youtube
 	{ MODKEY,                       XK_t,      spawn,          SHCMD("switchLayout") },//Switches Between Keyboard Layouts
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("xmouseless") },//Initializes virtual mouse
+	{ MODKEY|SHIFTKEY,              XK_w,      spawn,          SHCMD("$TERMINAL -e weather") },//Shows the weather state
 
 	/* Quick Actions */
 	{ MODKEY,                       XK_F1,     spawn,          SHCMD("mixer t") },//Toggle Mute

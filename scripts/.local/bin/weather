@@ -1,0 +1,3 @@
+#!/bin/sh
+
+less -R <<< $(curl -q wttr.in | grep -vi "Follow")
