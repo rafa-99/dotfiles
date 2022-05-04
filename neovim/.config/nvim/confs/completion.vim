@@ -13,6 +13,13 @@ for _, lsp in ipairs(servers) do
 		}
 end
 
+-- local pid = vim.fn.getpid()
+-- local omnisharp_bin = "/home/rafael/.local/share/omnisharp/run"
+--
+-- require'lspconfig'.omnisharp.setup{
+-- 	cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
+-- }
+
 -- luasnip setup
 local luasnip = require 'luasnip'
 
