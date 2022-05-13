@@ -8,7 +8,7 @@ numlockx on &
 # unclutter --timeout 2 &
 pipewire &
 pipewire-pulse &
-pipewire-media-session &
+wireplumber &
 xset s off
 xset -dpms
 exec "$SESSION"
