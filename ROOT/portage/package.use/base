@@ -3,13 +3,13 @@ app-admin/pass dmenu
 app-arch/p7zip -rar
 app-crypt/pinentry gtk -ncurses
 app-editors/neovim lto tui -nvimpager
-app-emulation/libvirt libvirtd qemu virt-network -apparmor -dtrace -firewalld -libssh -nfs -virtualbox
-app-emulation/qemu aio curl fdt fuse io-uring plugins sdl sdl-image slirp spice usb usbredir vhost-net vhost-user-fs virtfs -accessibility -glusterfs
+app-emulation/libvirt isci isci-direct libvirtd lvm lxc numa openvz parted qemu virt-network xen -apparmor -dtrace -firewalld -glusterfs -libssh -libssh2 -nfs -virtualbox
+app-emulation/qemu aio capstone curl fdt fuse iscsi io-uring jemalloc opengl plugins sdl sdl-image slirp spice usb usbredir vhost-net vhost-user-fs virtfs xattr xen -accessibility -glusterfs
 app-emulation/virt-manager gtk -policykit -sasl
 app-emulation/wine-staging abi_x86_32 capi dos gecko gssapi gstreamer mono netapi opencl osmesa pipelight prelink pulseaudio realtime run-exes samba sdl staging udev unwind usb vkd3d vulkan
 app-emulation/winetricks gtk
 app-misc/vifm developer extended-keys vim vim-syntax
-dev-java/openjdk gentoo-vm javafx
+dev-java/openjdk gentoo-vm
 dev-lang/python xml
 dev-lang/rust system-bootstrap system-llvm -clippy -miri -nightly -rls -rustfmt -wasm
 dev-util/ctags json -yaml
@@ -21,8 +21,8 @@ media-gfx/simple-scan colord -webp
 media-libs/mesa wayland osmesa abi_x86_32 d3d9 gles2 vulkan vulkan-overlay
 media-libs/vulkan-loader X layers abi_x86_32
 media-sound/ncmpcpp visualizer clock -outputs
-media-video/ffmpeg bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opencl opengl openh264 opus oss sdl speex svg theora truetype vorbis wavpack webp x264 xvid zlib
-media-video/mpv cli drm egl gbm libmpv opengl vulkan -cuda -gamepad -raspberry-pi
+media-video/ffmpeg bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opencl opengl openh264 opus oss sdl speex svg theora truetype vaapi vorbis wavpack webp x264 xvid zlib X
+media-video/mpv archive cli drm egl gbm libmpv openal opengl vulkan vaapi xv zlib -gamepad -raspberry-pi
 media-video/pipewire echo-cancel extra -jack-client -jack-sdk -pipewire-alsa
 net-libs/nodejs npm snapshot system-icu system-tap system-ssl -inspector
 net-libs/webkit-gtk avif egl jumbo-build -examples -gamepad -geolocation
@@ -37,7 +37,7 @@ sys-devel/clang xml
 sys-devel/gcc cxx graphite lto nptl pgo objc sanitize ssp valgrind vtv -go -ada -d -cet
 sys-devel/gdb xxhash -cet -python -server
 sys-devel/llvm z3 abi_x86_32 -doc -ncurses
-www-client/firefox clang dbus eme-free hwaccel lto openh264 screencast system-av1 system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-png system-webp wayland -geckodriver -gmp-autoupdate -sndio -wifi
+www-client/firefox dbus eme-free hwaccel lto openh264 pulseaudio screencast system-av1 system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-png system-webp wayland -clang -geckodriver -gmp-autoupdate -sndio -wifi
 x11-apps/xinit -twm
 x11-base/xorg-server elogind xcsecurity xorg xvfb -xephyr -xnest -wayland
 x11-misc/picom config-file opengl doc -drm
