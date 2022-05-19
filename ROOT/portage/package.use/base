@@ -3,8 +3,8 @@ app-admin/pass dmenu
 app-arch/p7zip -rar
 app-crypt/pinentry gtk -ncurses
 app-editors/neovim lto tui -nvimpager
-app-emulation/libvirt isci isci-direct libvirtd lvm lxc numa openvz parted qemu virt-network xen -apparmor -dtrace -firewalld -glusterfs -libssh -libssh2 -nfs -virtualbox
-app-emulation/qemu aio capstone curl fdt fuse iscsi io-uring jemalloc opengl plugins sdl sdl-image slirp spice usb usbredir vhost-net vhost-user-fs virtfs xattr xen -accessibility -glusterfs
+app-emulation/libvirt fuse isci isci-direct libvirtd lvm lxc numa openvz parted qemu virt-network -apparmor -dtrace -firewalld -glusterfs -libssh -libssh2 -nfs -virtualbox -xen
+app-emulation/qemu aio capstone curl fdt fuse iscsi io-uring jemalloc opengl plugins sdl sdl-image slirp spice usb usbredir vhost-net vhost-user-fs virtfs xattr -accessibility -glusterfs -xen
 app-emulation/virt-manager gtk -policykit -sasl
 app-emulation/wine-staging abi_x86_32 capi dos gecko gssapi gstreamer mono netapi opencl osmesa pipelight prelink pulseaudio realtime run-exes samba sdl staging udev unwind usb vkd3d vulkan
 app-emulation/winetricks gtk
