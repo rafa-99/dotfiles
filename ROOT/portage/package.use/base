@@ -4,8 +4,8 @@ app-arch/p7zip -rar
 app-crypt/pinentry gtk -ncurses
 app-editors/neovim lto tui -nvimpager
 app-emulation/libvirt fuse isci isci-direct libvirtd lvm lxc numa openvz parted qemu virt-network -apparmor -dtrace -firewalld -glusterfs -libssh -libssh2 -nfs -virtualbox -xen
-app-emulation/qemu aio capstone curl fdt fuse iscsi io-uring jemalloc opengl plugins sdl sdl-image slirp spice usb usbredir vhost-net vhost-user-fs virtfs xattr -accessibility -glusterfs -xen
-app-emulation/virt-manager gtk -policykit -sasl
+app-emulation/qemu aio caps capstone curl fdt filecaps fuse iscsi io-uring jemalloc opengl plugins pulseaudio sdl sdl-image slirp spice udev usb usbredir vhost-net vhost-user-fs virtfs xattr -accessibility -glusterfs -xen
+app-emulation/virt-manager gtk policykit -sasl
 app-emulation/wine-staging abi_x86_32 capi dos gecko gssapi gstreamer mono netapi opencl osmesa pipelight prelink pulseaudio realtime run-exes samba sdl staging udev unwind usb vkd3d vulkan
 app-emulation/winetricks gtk
 app-misc/vifm developer extended-keys vim vim-syntax
@@ -15,6 +15,7 @@ dev-lang/rust system-bootstrap system-llvm -clippy -miri -nightly -rls -rustfmt 
 dev-util/ctags json -yaml
 dev-vcs/git blksha1 curl gpg -cgi -emacs -highlight -mediawiki -mediawiki-experimental -perforce -ppcsha1 -tk
 games-emulation/mgba ffmpeg gles3 opengl qt5 -discord -gles2 -sdl -sqlite
+media-fonts/noto-emoji X -buildfont
 media-gfx/gimp aalib heif mng webp wmf xpm -javascript -lua -postscript -python -udev
 media-gfx/imagemagick xml
 media-gfx/simple-scan colord -webp
@@ -22,13 +23,14 @@ media-libs/mesa wayland osmesa abi_x86_32 d3d9 gles2 vulkan vulkan-overlay
 media-libs/vulkan-loader X layers abi_x86_32
 media-sound/ncmpcpp visualizer clock -outputs
 media-video/ffmpeg bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opencl opengl openh264 opus oss sdl speex svg theora truetype vaapi vorbis wavpack webp x264 xvid zlib X
-media-video/mpv archive cli drm egl gbm libmpv openal opengl vulkan vaapi xv zlib -gamepad -raspberry-pi
+media-video/mpv archive cli drm egl gbm libmpv lua openal opengl pulseaudio vaapi vdpau vulkan xv zimg zlib -gamepad -raspberry-pi
 media-video/pipewire echo-cancel extra -jack-client -jack-sdk -pipewire-alsa
 net-libs/nodejs npm snapshot system-icu system-tap system-ssl -inspector
 net-libs/webkit-gtk avif egl jumbo-build -examples -gamepad -geolocation
 net-misc/connman ethernet iwd openvpn wireguard -l2tp -ofono -openconnect -pptp -tools -vpnc -wispr
 net-misc/curl progress-meter -gopher -pop3 -telnet -winssl
 net-misc/ntp -samba
+net-misc/spice-gtk policykit usbredir
 net-p2p/transmission gtk
 net-print/cups dbus
 net-print/hplip hpcups scanner snmp -fax -hpijs -libnotify -libusb0 -parport
