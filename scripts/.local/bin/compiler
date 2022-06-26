@@ -28,10 +28,7 @@ else
 					--variable graphics --variable 'geometry:margin=1in' -V 'mathfont:Symbola'
 				;;
 			HTML)
-				pandoc "$FILE" --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash \
-					--output "$BASE".html --email-obfuscation none --self-contained --standalone --section-divs \
-					--template ~/.local/src/templates/default.html --no-highlight --variable highlightjs=1 \
-					--variable 'theme:bootstrap' --mathjax
+				pandoc "$FILE" --to html --output "$BASE".html
 				;;
 			Beamer)
 				pandoc "$FILE" --to beamer --from markdown+autolink_bare_uris+tex_math_single_backslash --output "$BASE".pdf \

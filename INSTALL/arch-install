@@ -23,6 +23,7 @@ sudo pacman --needed -Syu stow opendoas pamixer zsh ncmpcpp xwallpaper newsboat 
 mkdir -p ~/Documents/PDF ~/Documents/Text ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Games/WINEPREFIX ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Code ~/.config/git ~/.config/wallpaper ~/.local/share/gnupg ~/.local/share/pass
 
 # Setting folder permissions
+chmod 600 ~/.local/share/gnupg/*
 chmod 700 ~/.local/share/gnupg
 
 doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'

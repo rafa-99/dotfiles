@@ -4,6 +4,6 @@ QUERY=$(: | dmenu -i -p "Search:")
 if [ "$QUERY" != "" ]; then
 	VIDEO=$(queryt -s "$QUERY" -f "i     t" | dmenu -i -l 10 -p "Video:" | awk '{print $1}')
 	if [ "$VIDEO" != "" ]; then
-		mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-level=all=no,ytdl_hook=trace "https://www.youtube.com/watch?v=$VIDEO"
+		mpv --no-config --ytdl-format=best[height"<="1080] --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-level=all=no,ytdl_hook=trace "https://www.youtube.com/watch?v=$VIDEO"
 	fi
 fi
