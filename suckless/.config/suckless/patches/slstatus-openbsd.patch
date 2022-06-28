@@ -1,0 +1,11 @@
+--- config.mk	2022-06-27 09:41:45.345768261 +0100
++++ config.mk	2022-06-27 09:47:03.549097605 +0100
+@@ -16,7 +16,7 @@
+ LDFLAGS  = -L$(X11LIB) -s
+ # OpenBSD: add -lsndio
+ # FreeBSD: add -lkvm
+-LDLIBS   = -lX11
++LDLIBS   = -lX11 -lsndio
+
+ # compiler and linker
+ CC = cc

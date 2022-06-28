@@ -7,9 +7,9 @@ case $OPERATION in
 		doas reboot
 		;;
 	Shutdown)
-		doas poweroff
+		(doas poweroff || doas shutdown -p now)
 		;;
 	Suspend)
 		slock &
-		(loginctl suspend || systemctl suspend)
+		(loginctl suspend || systemctl suspend || zzz)
 esac

@@ -1,5 +1,5 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.config/zsh/.zsh_history
+HISTFILE="$HOME"/.config/zsh/.zsh_history
 HISTSIZE=1000
 SAVEHIST=0
 setopt prompt_subst autocd
@@ -9,7 +9,7 @@ setopt prompt_subst autocd
 autoload -Uz compinit promptinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
+compinit -d "$HOME"/.config/zsh/.zcompdump
 promptinit
 _comp_options+=(globdots)		# Include hidden files.
 

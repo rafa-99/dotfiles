@@ -1,0 +1,11 @@
+--- config.mk	2022-06-27 09:41:42.422434962 +0100
++++ config.mk	2022-06-27 09:44:42.385766005 +0100
+@@ -14,7 +14,7 @@
+ INCS = -I. -I/usr/include -I/usr/include/freetype2 -I${X11INC}
+ LIBS = -L/usr/lib -lc -lm -L${X11LIB} -lXft -lfontconfig -lX11
+ # OpenBSD (uncomment)
+-#INCS = -I. -I${X11INC} -I${X11INC}/freetype2
++INCS = -I. -I${X11INC} -I${X11INC}/freetype2
+ # FreeBSD (uncomment)
+ #INCS = -I. -I/usr/local/include -I/usr/local/include/freetype2 -I${X11INC}
+ #LIBS = -L/usr/local/lib -lc -lm -L${X11LIB} -lXft -lfontconfig -lX11
