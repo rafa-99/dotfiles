@@ -1,0 +1,65 @@
+#!/bin/sh
+
+#
+# OpenBSD based dots install
+#
+
+cd .. || exit
+CURDIR=$(pwd)
+
+echo "######################"
+echo "# dotfiles Installer #"
+echo "######################"
+
+# Adding Root Files
+doas cp -rf ROOT/doas/doas.conf /etc
+doas cp -rf ROOT/hosts/hosts /etc
+
+# Install Required Programs
+doas pkg_add git neovim stow zsh ncmpcpp xwallpaper newsboat zathura maim texlive_base ntp ffmpeg redshift htop xclip imageMagick transmission-gtk mpv mpd mpc nsxiv zathura zathura-pdf-mupdf zathura-ps yt-dlp automake lzop curl gimp kdenlive inkscape arandr unoconv node p7zip valgrind gdb universal-ctags gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-libav hplip cups simple-scan system-config-printer clang ffmpegthumbnailer neofetch cmatrix py3-pip password-store screenkey qemu virt-manager picom firefox go farbfeld keepassxc lf
+
+doas rcctl enable xenodm
+doas rcctl enable apmd
+
+# Building Folder Structure
+mkdir -p ~/Documents/PDF ~/Documents/Text ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Code ~/.config/git ~/.config/wallpaper ~/.local/share/gnupg ~/.local/share/pass
+
+# Setting folder permissions
+# chmod 600 ~/.local/share/gnupg/*
+chmod 700 ~/.local/share/gnupg
+
+# Deploy Dots
+stow --target="$HOME" fonts man misc mpd ncmpcpp newsboat neovim npm picom shell scripts suckless sxiv X11 zathura zsh
+touch ~/.config/mpd/database ~/.config/mpd/log ~/.config/mpd/pid  ~/.config/mpd/state ~/.config/mpd/sticker.sql
+chsh -s /bin/zsh
+
+cd ~/.local/src && sh compileSource && cd "$CURDIR" || exit
+
+# Setting up Neovim
+## Linking Neovim to Vim
+ln -s /usr/bin/nvim ~/.local/bin/vim
+
+## Installing Neovim Plugin Manager (Vim Plug)
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+## Installing Modules
+pip3 install --user pywal
+nvim -c PlugInstall
+cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
+npm -g install clangd pyright typescript typescript-language-server vscode-langservers-extracted --prefix ~/.local/share/npm
+
+# Setup Git account
+printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
+if [ "$GIT" != "N" ] && [ "$GIT" != "n" ]; then
+	printf "Username: " && read -r USER
+	printf "Email: " && read -r EMAIL
+	git config --global user.name "$USER"
+	git config --global user.email "$EMAIL"
+	git config pull.rebase false
+	mv ~/.gitconfig ~/.config/git/config
+	git config --global pull.rebase false
+fi
+
+# Wallpapers
+cd ~/Pictures && git clone https://gitlab.com/rafa_99/wallpapers

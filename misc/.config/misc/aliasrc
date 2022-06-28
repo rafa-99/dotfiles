@@ -1,7 +1,6 @@
 #!bin/sh
 
-alias grep='grep --color=auto -i' \
-	ls='ls --color=auto' \
+alias grep='grep -i' \
 	clone='git clone' \
 	add='git add' \
 	stat='git status' \

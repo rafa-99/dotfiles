@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Controls backlighting of LCD
+case $1 in
+	"+")
+		(xbacklight -inc 5 || doas light -A 5)
+		;;
+	"-")
+		(xbacklight -dec 5 || doas light -U 5)
+esac
