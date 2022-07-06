@@ -3,7 +3,7 @@
 #include "colors.h"
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -15,7 +15,9 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
-static const int focusonwheel       = 0;
+static const double activeopacity   = 1.0f;     /* Window opacity when it's focused (0 <= opacity <= 1) */
+static const double inactiveopacity = 0.5f;     /* Window opacity when it's inactive (0 <= opacity <= 1) */
+static Bool bUseOpacity             = True;     /* Starts with opacity on any unfocused windows */
 static const char *fonts[]          = { "CaskaydiaCove Nerd Font:pixelsize=16" };
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -89,6 +91,7 @@ static Key keys[] = {
 	{ MODKEY|CTRLKEY,               XK_Up,     moveresize,     {.v = "0x 0y 0w -25h" } },
 	{ MODKEY|CTRLKEY,               XK_Right,  moveresize,     {.v = "0x 0y 25w 0h" } },
 	{ MODKEY|CTRLKEY,               XK_Left,   moveresize,     {.v = "0x 0y -25w 0h" } },
+	{ MODKEY,                       XK_a,      toggleopacity,  {0} },
 
 	/* Managing Gaps */
 	{ MODKEY|ALTKEY,                XK_period, incrgaps,       {.i = +1 } },
@@ -151,8 +154,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F2,     spawn,          SHCMD("mixer -") },//Decrease Volume by 5%
 	{ MODKEY,                       XK_F3,     spawn,          SHCMD("mixer +") },//Increase Volume by 5%
 	{ MODKEY,                       XK_F4,     spawn,          SHCMD("mixer m") },//Toggle Mic Mute
-	{ MODKEY,                       XK_F5,     spawn,          SHCMD("backlightctl -") },//Decrease Brightness by 5%
-	{ MODKEY,                       XK_F6,     spawn,          SHCMD("backlightctl +") },//Increase Brightness by 5%
+	{ MODKEY,                       XK_F5,     spawn,          SHCMD("doas light -U 5") },//Decrease Brightness by 5%
+	{ MODKEY,                       XK_F6,     spawn,          SHCMD("doas light -A 5") },//Increase Brightness by 5%
 	{ MODKEY,                       XK_F7,     spawn,          SHCMD("bluelight") },//Toggle Bluelight Filter
 	{ MODKEY,                       XK_F8,     spawn,          SHCMD("screenrecord") },//Screen Recording Script
 	{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
