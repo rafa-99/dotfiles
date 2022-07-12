@@ -1,5 +1,6 @@
 app-admin/keepassxc -network
 app-admin/pass dmenu
+app-admin/testdisk ntfs
 app-arch/p7zip -rar
 app-crypt/pinentry gtk -ncurses
 app-editors/neovim lto tui -nvimpager
@@ -15,7 +16,7 @@ dev-lang/python xml
 dev-lang/rust system-bootstrap system-llvm -clippy -miri -nightly -rls -rustfmt -wasm
 dev-util/ctags json -yaml
 dev-vcs/git blksha1 curl gpg -cgi -emacs -highlight -mediawiki -mediawiki-experimental -perforce -ppcsha1 -tk
-games-emulation/mgba ffmpeg gles3 opengl qt5 -discord -gles2 -sdl -sqlite
+games-emulation/mgba ffmpeg gles3 gui opengl qt5 -discord -gles2 -sdl -sqlite
 media-fonts/noto-emoji X -buildfont
 media-gfx/gimp aalib heif mng webp wmf xpm -javascript -lua -postscript -python -udev
 media-gfx/imagemagick xml
