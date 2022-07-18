@@ -64,15 +64,4 @@ export PATH="$HOME/.local/bin:$XDG_DATA_HOME/android-sdk:$XDG_DATA_HOME/npm/bin:
 
 # Initializing Session if Xorg not Running Already
 export SESSION=dwm
-
-if ! pgrep Xorg > /dev/null
-then
-	printf "Initializing Xorg\nPress Ctrl + C to stop the initialization process\n"
-	for ((i = 5; i >= 1; i--))
-	do
-		sleep 1
-		echo -n "$i "
-	done
-	echo ""
-	exec startx "$XINITRC"
-fi
+exec startx "$XINITRC"
