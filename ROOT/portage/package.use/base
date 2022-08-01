@@ -26,7 +26,7 @@ media-libs/vulkan-loader X layers abi_x86_32
 media-sound/ncmpcpp visualizer clock -outputs
 media-video/ffmpeg bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opencl opengl openh264 opus oss sdl speex svg theora truetype vaapi vorbis wavpack webp x264 xvid zlib X
 media-video/mpv archive cli drm egl gbm libmpv lua openal opengl pulseaudio vaapi vdpau vulkan xv zimg zlib -gamepad -raspberry-pi
-media-video/pipewire echo-cancel extra -jack-client -jack-sdk -pipewire-alsa
+media-video/pipewire echo-cancel extra pipewire-alsa sound-server -jack-client -jack-sdk
 net-libs/nodejs npm snapshot system-icu system-tap system-ssl -inspector
 net-libs/webkit-gtk avif egl jumbo-build -examples -gamepad -geolocation
 net-misc/connman ethernet iwd openvpn wireguard -l2tp -ofono -openconnect -pptp -tools -vpnc -wispr
