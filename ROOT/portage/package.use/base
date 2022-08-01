@@ -1,4 +1,4 @@
-app-admin/keepassxc -network
+app-admin/keepassxc network
 app-admin/pass dmenu
 app-admin/testdisk ntfs
 app-arch/p7zip -rar
