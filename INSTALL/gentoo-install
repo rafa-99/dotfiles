@@ -24,6 +24,9 @@ if [ "$(id -u)" = "0" ]; then
 
 		# Adding System default init services
 		# go to https://localhost:631/ to configure the printer or run hp-setup
+		USER=$(getent passwd | cut -d: -f6 | grep ^\/home | cut -d/ -f3 | head -1)
+		gpasswd -a "$USER" lp
+		gpasswd -a "$USER" lpadmin
 		rc-update add cupsd default
 	fi
 
