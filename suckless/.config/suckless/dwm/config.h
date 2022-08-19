@@ -64,7 +64,7 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-static Key keys[] = {
+static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	/* Managing Windows */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -160,7 +160,7 @@ static Key keys[] = {
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
-static Button buttons[] = {
+static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
