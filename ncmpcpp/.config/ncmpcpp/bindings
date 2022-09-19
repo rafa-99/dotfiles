@@ -340,9 +340,9 @@ def_key "x"
 #def_key "y"
 #  start_searching
 #
-#def_key "y"
-#  toggle_single
-#
+def_key "L"
+  toggle_single
+
 #def_key "R"
 #  toggle_consume
 #
