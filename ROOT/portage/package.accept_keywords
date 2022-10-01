@@ -1,8 +1,11 @@
 app-editors/neovim ~amd64
+app-editors/vscodium ~amd64
 app-emulation/wine-mono ~amd64
 app-emulation/wine-staging ~amd64
+app-emulation/wine-gecko ~amd64
 dev-libs/libvterm ~amd64
 dev-util/idea-community ~amd64
+dev-util/pycharm-community ~amd64
 games-emulation/mgba ~amd64
 games-util/lutris ~amd64
 media-libs/mesa ~amd64

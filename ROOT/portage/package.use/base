@@ -23,6 +23,7 @@ media-gfx/imagemagick xml
 media-gfx/simple-scan colord -webp
 media-libs/mesa wayland osmesa abi_x86_32 d3d9 gles2 vulkan vulkan-overlay
 media-libs/vulkan-loader X layers abi_x86_32
+media-sound/mpd pulseaudio
 media-sound/ncmpcpp visualizer clock -outputs
 media-video/ffmpeg bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opencl opengl openh264 opus oss sdl speex svg theora truetype vaapi vorbis wavpack webp x264 xvid zlib X
 media-video/mpv archive cli drm egl gbm libmpv lua openal opengl pulseaudio vaapi vdpau vulkan xv zimg zlib -gamepad -raspberry-pi

@@ -10,5 +10,5 @@ map r reload
 map R rotate
 map c recolor
 map P print
-map p search forward
-map n search backward
+map p search backward
+map n search forward
