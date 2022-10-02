@@ -7,7 +7,11 @@ lua << EOF
 			always_show_bufferline = false,
 			show_close_icon = false,
 			diagnostics = "nvim_lsp",
-	      		indicator_icon = "",
+			indicator =
+			{
+					style = 'icon',
+					icon = "|"
+			},
 
 			offsets =
 			{
