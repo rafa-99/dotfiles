@@ -77,8 +77,5 @@ else
 			mv ~/.gitconfig ~/.config/git/config
 			git config --global pull.rebase false
 		fi
-
-		# Wallpapers
-		cd ~/Pictures && git clone https://gitlab.com/rafa_99/wallpapers
 	}
 fi

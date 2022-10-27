@@ -13,6 +13,7 @@ set incsearch
 set wildmode=longest,list,full
 set relativenumber
 set termguicolors
+set complete=.,w,b,u,t
 set completeopt=menuone,noselect
 
 " Leader Key

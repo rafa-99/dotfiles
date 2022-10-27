@@ -10,17 +10,17 @@ SRC=$(pwd)
 # Cloning and Cleaning Programs #
 #################################
 
-git clone https://gitlab.com/rafa_99/dmenu
-git clone https://gitlab.com/rafa_99/dwm
-git clone https://gitlab.com/rafa_99/farbfeld
-git clone https://gitlab.com/rafa_99/neovimb
-git clone https://gitlab.com/rafa_99/pkg
-git clone https://gitlab.com/rafa_99/queryt
-git clone https://gitlab.com/rafa_99/sent
-git clone https://gitlab.com/rafa_99/slock
-git clone https://gitlab.com/rafa_99/slstatus
-git clone https://gitlab.com/rafa_99/st
-git clone https://gitlab.com/rafa_99/xmouseless
+git clone git@github.com:rafa-99/dmenu.git
+git clone git@github.com:rafa-99/dwm.git
+git clone git@github.com:rafa-99/farbfeld.git
+git clone git@github.com:rafa-99/neovimb.git
+git clone git@github.com:rafa-99/pkg.git
+git clone git@github.com:rafa-99/queryt.git
+git clone git@github.com:rafa-99/sent.git
+git clone git@github.com:rafa-99/slock.git
+git clone git@github.com:rafa-99/slstatus.git
+git clone git@github.com:rafa-99/st.git
+git clone git@github.com:rafa-99/xmouseless.git
 cd "$SRC"/dmenu && git pull ;
 cd "$SRC"/dwm && git pull ;
 cd "$SRC"/farbfeld && git pull ;

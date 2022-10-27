@@ -1,6 +1,6 @@
 lua << EOF
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
 
@@ -10,60 +10,45 @@ for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
 		-- on_attach = my_custom_on_attach,
 		capabilities = capabilities,
-		}
-end
+	}
+	end
 
--- local pid = vim.fn.getpid()
--- local omnisharp_bin = "/home/rafael/.local/share/omnisharp/run"
---
--- require'lspconfig'.omnisharp.setup{
--- 	cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
--- }
+	-- local pid = vim.fn.getpid()
+	-- local omnisharp_bin = "/home/rafael/.local/share/omnisharp/run"
+	--
+	-- require'lspconfig'.omnisharp.setup{
+	-- 	cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
+	-- }
 
--- luasnip setup
-local luasnip = require 'luasnip'
-
--- nvim-cmp setup
-local cmp = require 'cmp'
-cmp.setup {
+	-- nvim-cmp setup
+	local cmp = require 'cmp'
+	cmp.setup({
 	snippet = {
 		expand = function(args)
-		require('luasnip').lsp_expand(args.body)
-	end,
+		vim.fn["vsnip#anonymous"](args.body)
+		end,
 	},
-mapping = {
-	['<C-p>'] = cmp.mapping.select_prev_item(),
-	['<C-n>'] = cmp.mapping.select_next_item(),
-	['<C-d>'] = cmp.mapping.scroll_docs(-4),
+	mapping = cmp.mapping.preset.insert({
+	['<C-b>'] = cmp.mapping.scroll_docs(-4),
 	['<C-f>'] = cmp.mapping.scroll_docs(4),
 	['<C-Space>'] = cmp.mapping.complete(),
-	['<C-e>'] = cmp.mapping.close(),
-	['<CR>'] = cmp.mapping.confirm {
-		behavior = cmp.ConfirmBehavior.Replace,
-		select = true,
-		},
-	['<Tab>'] = function(fallback)
-	if cmp.visible() then
-		cmp.select_next_item()
-	elseif luasnip.expand_or_jumpable() then
-		luasnip.expand_or_jump()
-	else
-		fallback()
-	end
-end,
-['<S-Tab>'] = function(fallback)
-if cmp.visible() then
-	cmp.select_prev_item()
-elseif luasnip.jumpable(-1) then
-	luasnip.jump(-1)
-else
-	fallback()
-end
-    end,
-    },
-  sources = {
-	  { name = 'nvim_lsp' },
-	  { name = 'luasnip' },
-	  },
-  }
+	['<C-e>'] = cmp.mapping.abort(),
+	['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+	}),
+	sources = {
+		{ name = 'nvim_lsp' },
+		{ name = 'vsnip' },
+	}, {
+		{ name = 'buffer' },
+	}
+	})
+
+	cmp.setup.cmdline(':', {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = cmp.config.sources({
+		{ name = 'path' }
+		}, {
+			{ name = 'cmdline' }
+		})
+		})
 EOF

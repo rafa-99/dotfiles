@@ -3,10 +3,14 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Completion
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+" Snippets
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 " LuaLine
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -24,9 +28,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 " WhichKey
 Plug 'folke/which-key.nvim'
-" BufferLine
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'akinsho/bufferline.nvim'
 " VimSneak
 Plug 'justinmk/vim-sneak'
 " VimIlluminate
@@ -59,8 +60,6 @@ source ~/.config/nvim/confs/telescope.vim
 source ~/.config/nvim/confs/nvimtree.vim
 " WhichKey
 source ~/.config/nvim/confs/whichkey.vim
-" Bufferline
-source ~/.config/nvim/confs/bufferline.vim
 " Hexokinase
 source ~/.config/nvim/confs/hexokinase.vim
 " Taglist

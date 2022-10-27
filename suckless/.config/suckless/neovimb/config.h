@@ -75,7 +75,7 @@
 /* download folder */
 #define SETTING_DOWNLOAD_PATH "~/Downloads"
 /* home page */
-#define SETTING_HOME_PAGE "https://rafa_99.gitlab.io"
+#define SETTING_HOME_PAGE "https://rafa-99.github.io"
 /* search engine */
 #define SETTING_SEARCH_ENGINE "https://raspberrypi/searxng/search?q=$0"
 /* user agent */
