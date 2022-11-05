@@ -62,6 +62,11 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 # $PATH update
 export PATH="$HOME/.local/bin:$XDG_DATA_HOME/android-sdk:$XDG_DATA_HOME/npm/bin:$PATH"
 
+# Shell daemons
+pipewire &
+pipewire-pulse &
+tor -f "$XDG_CONFIG_HOME"/tor/torrc &
+
 # Initializing Session if Xorg not Running Already
 export SESSION=dwm
 exec startx "$XINITRC"
