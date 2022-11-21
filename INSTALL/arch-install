@@ -19,7 +19,7 @@ sudo cp -rf ROOT/issue/issue /etc
 sudo cp -rf ROOT/hosts/hosts /etc
 
 # Install Required Programs
-sudo pacman --needed -Syu stow opendoas pamixer zsh ncmpcpp xwallpaper newsboat vifm zathura maim texlive-most ffmpeg lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps automake lzop curl make bc android-tools gimp kdenlive frei0r-plugins inkscape arandr shellcheck arc-gtk-theme ctags unoconv nodejs yarn p7zip papirus-icon-theme valgrind gdb light pulsemixer pavucontrol xorg-server xorg-xinit go qt5ct ncurses gtk3 gst-plugins-base-libs hplip simple-scan system-config-printer gst-plugins-good grc gst-libav clang breeze net-tools ffmpegthumbnailer webkit2gtk torbrowser-launcher neofetch cmatrix asciiquarium npm python python-pip pass screenkey pipewire-pulse ueberzug yt-dlp python-pywal alsa-utils picom virt-manager qemu-desktop wireplumber foremost testdisk swtpm lxsession linux-hardened-headers v4l2loopback-dkms obs-studio tor-openrc firefox keepassxc
+sudo pacman --needed -Syu stow opendoas pamixer zsh ncmpcpp xwallpaper newsboat vifm zathura maim texlive-most ffmpeg lxappearance ntp redshift numlockx htop xclip imagemagick transmission-gtk neovim mpv mpd mpc sxiv zathura-pdf-mupdf zathura-ps automake curl make bc android-tools gimp kdenlive inkscape arandr shellcheck arc-gtk-theme ctags unoconv nodejs p7zip papirus-icon-theme valgrind gdb light pulsemixer pavucontrol xorg-server xorg-xinit go gtk3 gst-plugins-base-libs hplip simple-scan system-config-printer gst-plugins-good grc gst-libav clang breeze net-tools ffmpegthumbnailer webkit2gtk torbrowser-launcher neofetch cmatrix asciiquarium npm python python-pip pass screenkey pipewire-pulse ueberzug yt-dlp python-pywal alsa-utils picom virt-manager qemu-desktop wireplumber foremost testdisk swtpm lxsession linux-hardened-headers v4l2loopback-dkms obs-studio firefox keepassxc
 
 # Adding user to groups
 doas usermod -aG tor,video "$USER"
@@ -46,8 +46,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 ## Installing Modules
 nvim -c PlugInstall
-cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
-npm -g install clangd pyright typescript typescript-language-server vscode-langservers-extracted --prefix ~/.local/share/npm
+nvim -c CocInstall coc-marketplace coc-tsserver coc-pyright coc-java coc-html coc-css coc-clangd
 
 # Setup Git account
 printf "Do yo want to setup Git account? [Y/n]" && read -r GIT

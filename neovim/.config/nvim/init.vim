@@ -1,39 +1,19 @@
 " Plugin Imports
 call plug#begin('~/.config/nvim/plugged')
 
-" Completion
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-" Snippets
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
-" LuaLine
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-" TreeSitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" CoC
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " GitGutter
 Plug 'airblade/vim-gitgutter'
 " GitMessenger
 Plug 'rhysd/git-messenger.vim'
-" Telescope
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 " NVimTree
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 " WhichKey
 Plug 'folke/which-key.nvim'
-" VimSneak
-Plug 'justinmk/vim-sneak'
-" VimIlluminate
-Plug 'RRethy/vim-illuminate'
 " Hexokinase
-Plug 'RRethy/vim-hexokinase'
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " AutoPairs
 Plug 'jiangmiao/auto-pairs'
 " TagList
@@ -44,18 +24,12 @@ call plug#end()
 " Configurations
 " Generic
 source ~/.config/nvim/confs/generic.vim
-" Completion
-source ~/.config/nvim/confs/completion.vim
-" LuaLine
-source ~/.config/nvim/confs/lualine.vim
-" Treesitter
-source ~/.config/nvim/confs/treesitter.vim
+" CoC
+source ~/.config/nvim/confs/coc.vim
 " GitGutter
 source ~/.config/nvim/confs/gitgutter.vim
 " GitMessenger
 source ~/.config/nvim/confs/gitmessenger.vim
-" Telescope
-source ~/.config/nvim/confs/telescope.vim
 " NVimTree
 source ~/.config/nvim/confs/nvimtree.vim
 " WhichKey

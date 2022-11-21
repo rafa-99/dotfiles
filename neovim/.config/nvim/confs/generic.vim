@@ -15,6 +15,7 @@ set relativenumber
 set termguicolors
 set complete=.,w,b,u,t
 set completeopt=menuone,noselect
+set laststatus=1
 
 " Leader Key
 let mapleader="/"
