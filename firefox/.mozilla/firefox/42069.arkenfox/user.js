@@ -113,13 +113,6 @@ user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("geo.provider.use_corelocation", false); // [MAC]
 user_pref("geo.provider.use_gpsd", false); // [LINUX]
 user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
-/* 0203: disable region updates
- * [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html ***/
-user_pref("browser.region.network.url", ""); // [FF78+]
-user_pref("browser.region.update.enabled", false); // [FF79+]
-/* 0204: set search region
- * [NOTE] May not be hidden if Firefox has changed your settings due to your region (0203) ***/
-   // user_pref("browser.search.region", "US"); // [HIDDEN PREF]
 /* 0210: set preferred language for displaying pages
  * [SETTING] General>Language and Appearance>Language>Choose your preferred language...
  * [TEST] https://addons.mozilla.org/about ***/
@@ -271,6 +264,7 @@ user_pref("_user.js.parrot", "0700 syntax error: the parrot's given up the ghost
 /* 0701: disable IPv6
  * IPv6 can be abused, especially with MAC addresses, and can leak with VPNs: assuming
  * your ISP and/or router and/or website is IPv6 capable. Most sites will fall back to IPv4
+ * [SETUP-WEB] PR_CONNECT_RESET_ERROR: this pref *might* be the cause
  * [STATS] Firefox telemetry (Sept 2022) shows ~8% of successful connections are IPv6
  * [NOTE] This is an application level fallback. Disabling IPv6 is best done at an
  * OS/network level, and/or configured properly in VPN setups. If you are not masking your IP,
@@ -487,7 +481,7 @@ user_pref("security.OCSP.require", true);
 user_pref("security.family_safety.mode", 0);
 /* 1223: enable strict PKP (Public Key Pinning)
  * 0=disabled, 1=allow user MiTM (default; such as your antivirus), 2=strict
- * [SETUP-WEB] MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE: If you rely on an AV (antivirus) to protect
+ * [SETUP-WEB] MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE
  * your web browsing by inspecting ALL your web traffic, then override to current default ***/
 user_pref("security.cert_pinning.enforcement_level", 2);
 /* 1224: enable CRLite [FF73+]
@@ -626,7 +620,7 @@ user_pref("dom.disable_window_move_resize", true);
 /* 2403: block popup windows
  * [SETTING] Privacy & Security>Permissions>Block pop-up windows ***/
 user_pref("dom.disable_open_during_load", true);
-/* 2404: limit events that can cause a popup [SETUP-WEB] ***/
+/* 2404: limit events that can cause a pop-up [SETUP-WEB] ***/
 user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 
 /*** [SECTION 2600]: MISCELLANEOUS ***/
@@ -720,6 +714,7 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 /* 2662: disable webextension restrictions on certain mozilla domains (you also need 4503) [FF60+]
  * [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988 ***/
    // user_pref("extensions.webextensions.restrictedDomains", "");
+user_pref("extensions.unifiedExtensions.enabled", false);
 
 /*** [SECTION 2700]: ETP (ENHANCED TRACKING PROTECTION) ***/
 user_pref("_user.js.parrot", "2700 syntax error: the parrot's joined the bleedin' choir invisible!");
@@ -860,6 +855,7 @@ user_pref("privacy.sanitize.timeSpan", 0);
     531915 - use fdlibm's sin, cos and tan in jsmath (FF93, ESR91.1)
    1756280 - enforce navigator.pdfViewerEnabled as true and plugins/mimeTypes as hard-coded values (FF100)
    1692609 - reduce JS timing precision to 16.67ms (previously FF55+ was capped at 100ms) (FF102)
+   1422237 - return "srgb" with color-gamut (FF110)
 ***/
 user_pref("_user.js.parrot", "4500 syntax error: the parrot's popped 'is clogs");
 /* 4501: enable privacy.resistFingerprinting [FF41+]
@@ -1065,8 +1061,7 @@ user_pref("privacy.firstparty.isolate", false); // [DEFAULT: false]
  * In FF96+ these are listed in about:compat
  * [1] https://blog.mozilla.org/security/2021/03/23/introducing-smartblock/ ***/
 user_pref("extensions.webcompat.enable_shims", true); // [DEFAULT: true]
-/* 6010: enforce/reset TLS 1.0/1.1 downgrades to session only
- * [NOTE] In FF97+ the TLS 1.0/1.1 downgrade UX was removed
+/* 6010: enforce no TLS 1.0/1.1 downgrades
  * [TEST] https://tls-v1-1.badssl.com:1010/ ***/
 user_pref("security.tls.version.enable-deprecated", false); // [DEFAULT: false]
 /* 6011: enforce disabling of Web Compatibility Reporter [FF56+]
@@ -1290,6 +1285,9 @@ user_pref("browser.startup.homepage_override.mstone", "ignore"); // master switc
    // user_pref("view_source.tab", false); // view "page/selection source" in a new window [FF68+]
 /* UX FEATURES ***/
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's New toolbar icon [FF69+]
+/* 9004: disable seach terms [FF110+]
+ * [SETTING] Search > SearchBar > Use the address bar for search and navigation > Show search terms instead of URL... ***/
+user_pref("browser.urlbar.showSearchTerms.enabled", false);
    // user_pref("extensions.pocket.enabled", false); // Pocket Account [FF46+]
    // user_pref("extensions.screenshots.disabled", true); // [FF55+]
    // user_pref("identity.fxaccounts.enabled", false); // Firefox Accounts & Sync [FF60+] [RESTART]

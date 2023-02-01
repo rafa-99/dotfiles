@@ -48,6 +48,9 @@ else
 	ms)
 		groff -k -T pdf -m -ms "$FILE" > "$BASE.pdf"
 		;;
+	js)
+		node "$FILE"
+		;;
 	tex)
 		pdflatex "$FILE"
 	esac
