@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Screen Layout in Case of Multi Monitor Setup Required
+[ -f "$XDG_CONFIG_HOME"/X11/layout ] && . "$XDG_CONFIG_HOME"/X11/layout
+
 slstatus &
 xwallpaper --stretch "$WALLPAPER" &
 picom --config "$XDG_CONFIG_HOME"/picom/picom.conf &
