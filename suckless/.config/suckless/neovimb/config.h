@@ -75,9 +75,9 @@
 /* download folder */
 #define SETTING_DOWNLOAD_PATH "~/Downloads"
 /* home page */
-#define SETTING_HOME_PAGE "https://rafa-99.github.io"
+#define SETTING_HOME_PAGE "https://rafaelmarcalo.xyz"
 /* search engine */
-#define SETTING_SEARCH_ENGINE "https://raspberrypi/searxng/search?q=$0"
+#define SETTING_SEARCH_ENGINE "https://searxng.rafaelmarcalo.xyz/searxng/search?q=$0"
 /* user agent */
 #define SETTING_USER_AGENT "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Safari/605.1.15 "
 /* geolocation-accept allowed values always, ask, never */
