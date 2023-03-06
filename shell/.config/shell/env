@@ -65,7 +65,7 @@ export PATH="$HOME/.local/bin:$XDG_DATA_HOME/android-sdk:$XDG_DATA_HOME/npm/bin:
 # Shell daemons
 pipewire &
 pipewire-pulse &
-tor -f "$XDG_CONFIG_HOME"/tor/torrc &
+# tor -f "$XDG_CONFIG_HOME"/tor/torrc &
 
 # Initializing Session if Xorg not Running Already
 export SESSION=dwm
