@@ -18,7 +18,7 @@ set completeopt=menuone,noselect
 set laststatus=1
 
 " Leader Key
-let mapleader="/"
+let mapleader="."
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
