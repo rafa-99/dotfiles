@@ -1044,7 +1044,7 @@ user_pref("_user.js.parrot", "7000 syntax error: the parrot's pushing up daisies
  * Location-Aware Browsing, Full Screen, offline cache (appCache)
  * [WHY] The API state is easily fingerprintable. Geo is behind a prompt (7002).
  * appCache storage capability was removed in FF90. Full screen requires user interaction ***/
-   // user_pref("geo.enabled", false);
+user_pref("geo.enabled", false);
    // user_pref("full-screen-api.enabled", false);
    // user_pref("browser.cache.offline.enable", false);
 /* 7002: set default permissions
@@ -1084,7 +1084,7 @@ user_pref("_user.js.parrot", "7000 syntax error: the parrot's pushing up daisies
    // user_pref("network.http.referer.hideOnionSource", true); // 1305144
 /* 7007: referers
  * [WHY] Only cross-origin referers (1600s) need control ***/
-   // user_pref("network.http.sendRefererHeader", 2);
+user_pref("network.http.sendRefererHeader", 0);
    // user_pref("network.http.referer.trimmingPolicy", 0);
 /* 7008: set the default Referrer Policy [FF59+]
  * 0=no-referer, 1=same-origin, 2=strict-origin-when-cross-origin, 3=no-referrer-when-downgrade
