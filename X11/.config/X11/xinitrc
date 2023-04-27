@@ -7,9 +7,9 @@ slstatus &
 xwallpaper --stretch "$WALLPAPER" &
 picom --config "$XDG_CONFIG_HOME"/picom/picom.conf &
 numlockx on &
-setxkbmap -option caps:super
 lxsession &
 xset s off
 xset -dpms
 wireplumber &
+xkbcomp "$KBCONFIG" "$DISPLAY"
 exec "$SESSION"
