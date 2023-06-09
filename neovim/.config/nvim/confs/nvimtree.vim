@@ -1,5 +1,5 @@
 lua << EOF
-	require'nvim-tree'.setup()
+	require('nvim-tree').setup()
 EOF
 
 " vimrc
@@ -32,29 +32,26 @@ let g:nvim_tree_icons = {
 			\ 'default': '',
 			\ 'symlink': '',
 			\ 'git': {
-				\   'unstaged': "✗",
-				\   'staged': "✓",
-				\   'unmerged': "",
-				\   'renamed': "➜",
-				\   'untracked': "★",
-				\   'deleted': "",
-				\   'ignored': "◌"
-				\   },
-				\ 'folder': {
-					\   'arrow_open': "",
-					\   'arrow_closed': "",
-					\   'default': "",
-					\   'open': "",
-					\   'empty': "",
-					\   'empty_open': "",
-					\   'symlink': "",
-					\   'symlink_open': "",
-					\   }
-					\ }
+			\   'unstaged': "✗",
+			\   'staged': "✓",
+			\   'unmerged': "",
+			\   'renamed': "➜",
+			\   'untracked': "★",
+			\   'deleted': "",
+			\   'ignored': "◌"
+			\   },
+			\ 'folder': {
+			\   'arrow_open': "",
+			\   'arrow_closed': "",
+			\   'default': "",
+			\   'open': "",
+			\   'empty': "",
+			\   'empty_open': "",
+			\   'symlink': "",
+			\   'symlink_open': "",
+			\   }
+			\ }
 
-nnoremap <leader>n :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>f :NvimTreeFindFile<CR>
 " More available functions:
 " NvimTreeOpen
 " NvimTreeClose

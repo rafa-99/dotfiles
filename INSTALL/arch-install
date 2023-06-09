@@ -50,7 +50,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 ## Installing Modules
 nvim -c PlugInstall
-nvim -c CocInstall coc-marketplace coc-tsserver coc-pyright coc-java coc-html coc-css coc-clangd
 
 # Setup Git account
 printf "Do yo want to setup Git account? [Y/n]" && read -r GIT

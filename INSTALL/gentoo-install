@@ -63,8 +63,6 @@ else
 
 		## Installing Plugins
 		nvim -c PlugInstall
-		cd ~/.config/nvim/plugged/vim-hexokinase && make hexokinase
-		npm -g install clangd pyright typescript typescript-language-server vscode-langservers-extracted --prefix ~/.local/share/npm
 
 		# Setup Git account
 		printf "Do yo want to setup Git account? [Y/n]" && read -r GIT
