@@ -11,5 +11,5 @@ lxsession &
 xset s off
 xset -dpms
 wireplumber &
-xkbcomp "$KBCONFIG" "$DISPLAY"
+setxkbmap -option caps:super
 exec "$SESSION"
