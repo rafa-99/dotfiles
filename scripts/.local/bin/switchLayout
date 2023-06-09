@@ -9,3 +9,5 @@ case "$CURRENTLAYOUT" in
 	us)
 		setxkbmap pt
 esac
+
+setxkbmap -option caps:super
