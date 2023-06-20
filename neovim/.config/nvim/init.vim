@@ -2,13 +2,13 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " NVimTree
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
 " AutoPairs
 Plug 'jiangmiao/auto-pairs'
 " TeleScope
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.*' }
 " NvimLSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -22,7 +22,10 @@ Plug 'onsails/lspkind.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 " Hover
 Plug 'lewis6991/hover.nvim'
-
+" LuaLine
+Plug 'nvim-lualine/lualine.nvim'
+" Bufferline
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 call plug#end()
 
 " Configurations

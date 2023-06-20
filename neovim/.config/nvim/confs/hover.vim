@@ -1,4 +1,4 @@
-lua<<EOF
+lua << EOF
 require("hover").setup {
 	init = function()
 	-- Require providers

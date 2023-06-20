@@ -1,5 +1,5 @@
 " Leader Key
-let mapleader="."
+let mapleader=" "
 
 " Limiter Column Color
 " https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bdc48fa11e46f867ea4d75fa59ee87a7f48be144
@@ -27,17 +27,18 @@ map <F4> :!clear && shellcheck % <CR>
 map <leader>c :Gitsigns preview_hunk_inline<CR>
 
 " NvimTree
-nnoremap <leader>n :NvimTreeToggle<CR>
+nnoremap <leader>f :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>f :NvimTreeFindFile<CR>
 
 " TeleScope
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>t <cmd>Telescope find_files<cr>
 
-lua <<EOF
+" Move between buffers
+map <C-l> :bnext<CR>
+map <C-h> :bprev<CR>
+map <C-w> :bdel<CR>
+
+lua << EOF
 	-- Documentation view on hover
 	vim.keymap.set("n", "K", require("hover").hover, {desc = "hover.nvim"})
 

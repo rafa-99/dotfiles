@@ -1,4 +1,4 @@
-lua <<EOF
+lua << EOF
 require('gitsigns').setup {
 	signs = {
 		add          = { text = '+' },
