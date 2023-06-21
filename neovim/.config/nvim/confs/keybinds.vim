@@ -3,28 +3,28 @@ let mapleader=" "
 
 " Limiter Column Color
 " https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bdc48fa11e46f867ea4d75fa59ee87a7f48be144
-map <leader>cc :set colorcolumn=100 <CR>
+nnoremap <leader>cc :set colorcolumn=100 <CR>
 
 " Move between splits
-map <A-h> <C-w>h
-map <A-j> <C-w>j
-map <A-k> <C-w>k
-map <A-l> <C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 " Auto Indent
-map <Tab> gg=G
+nnoremap <Tab> gg=G
 
 " Check Spelling
-map <leader>lp :set spell spelllang=pt_pt <CR>
-map <leader>le :set spell spelllang=en_us <CR>
-map <leader>ls :set nospell <CR>
+nnoremap <leader>lp :set spell spelllang=pt_pt <CR>
+nnoremap <leader>le :set spell spelllang=en_us <CR>
+nnoremap <leader>ls :set nospell <CR>
 
 " Custom Scripts
-map <F5> :!compiler '%' $(pwd) <CR>
-map <F4> :!clear && shellcheck % <CR>
+nnoremap <F5> :!compiler '%' $(pwd) <CR>
+nnoremap <F4> :!clear && shellcheck % <CR>
 
 " Git Hunk Preview
-map <leader>c :Gitsigns preview_hunk_inline<CR>
+nnoremap <leader>c :Gitsigns preview_hunk_inline<CR>
 
 " NvimTree
 nnoremap <leader>f :NvimTreeToggle<CR>
@@ -34,9 +34,9 @@ nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>t <cmd>Telescope find_files<cr>
 
 " Move between buffers
-map <C-l> :bnext<CR>
-map <C-h> :bprev<CR>
-map <C-w> :bdel<CR>
+nnoremap <C-l> :bnext<CR>
+nnoremap <C-h> :bprev<CR>
+nnoremap <C-w> :bdel<CR>
 
 lua << EOF
 	-- Documentation view on hover
