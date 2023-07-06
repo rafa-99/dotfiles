@@ -29,7 +29,6 @@ Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 call plug#end()
 
 " Configurations
-for f in split(glob('confs/*.vim'), '\n')
+for f in split(glob('~/.config/nvim/confs/*.vim'), '\n')
 	exe 'source' f
 endfor
-
