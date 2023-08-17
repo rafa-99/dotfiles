@@ -24,7 +24,7 @@ else
 		case "$FORMAT" in
 			PDF)
 				pandoc "$FILE" --to latex --from markdown+autolink_bare_uris+tex_math_single_backslash \
-					--output "$BASE".pdf --self-contained --highlight-style tango --pdf-engine xelatex \
+					--output "$BASE".pdf --embed-resources --standalone --highlight-style tango --pdf-engine xelatex \
 					--variable graphics --variable 'geometry:margin=1in' -V 'mathfont:Symbola'
 				;;
 			HTML)
