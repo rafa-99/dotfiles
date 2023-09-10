@@ -6,6 +6,7 @@
 
 cd .. || exit
 CURDIR=$(pwd)
+USERNAME=$(whoami)
 
 echo "######################"
 echo "# dotfiles Installer #"
@@ -15,8 +16,13 @@ echo "######################"
 doas cp -rf ROOT/doas/doas.conf /etc
 doas cp -rf ROOT/hosts/hosts /etc
 
+# Root Configurations
+doas fw_update
+doas syspatch
+doas usermod -G operator,staff "$USERNAME"
+
 # Install Required Programs
-doas pkg_add git neovim stow zsh ncmpcpp xwallpaper newsboat zathura maim texlive_base ntp ffmpeg redshift htop xclip imageMagick transmission-gtk mpv mpd mpc nsxiv zathura zathura-pdf-mupdf zathura-ps yt-dlp automake lzop curl gimp kdenlive inkscape arandr unoconv node p7zip valgrind gdb universal-ctags gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-libav hplip cups simple-scan system-config-printer clang ffmpegthumbnailer neofetch cmatrix py3-pip password-store screenkey qemu virt-manager picom firefox go farbfeld keepassxc lf
+doas pkg_add git neovim stow zsh ncmpcpp xwallpaper newsboat zathura maim texlive_base ntp ffmpeg redshift htop xclip imageMagick transmission-gtk mpv mpd mpc nsxiv zathura zathura-pdf-mupdf zathura-ps yt-dlp automake lzop curl gimp kdenlive inkscape arandr unoconv node p7zip gdb universal-ctags gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-libav hplip cups simple-scan system-config-printer ffmpegthumbnailer neofetch cmatrix py3-pip password-store screenkey qemu virt-manager picom firefox go farbfeld keepassxc vifm
 
 doas rcctl enable xenodm
 doas rcctl enable apmd
@@ -25,9 +31,9 @@ doas rcctl enable apmd
 mkdir -p ~/Documents/PDF ~/Documents/Text ~/Documents/Disks ~/Documents/Archives ~/Documents/VMs ~/Downloads ~/Pictures/Screenshots ~/Pictures/GIMP ~/Videos/Recordings ~/Code ~/.config/git ~/.config/wallpaper ~/.local/share/gnupg ~/.local/share/pass
 
 # Deploy Dots
-stow --target="$HOME" fonts man misc mpd ncmpcpp newsboat neovim npm picom shell scripts suckless sxiv X11 zathura zsh
+stow --target="$HOME" fonts man misc mpd ncmpcpp newsboat neovim npm picom shell scripts suckless sxiv xenodm zathura zsh
 touch ~/.config/mpd/database ~/.config/mpd/log ~/.config/mpd/pid  ~/.config/mpd/state ~/.config/mpd/sticker.sql
-chsh -s /bin/zsh
+chsh -s /usr/local/bin/zsh
 
 cd ~/.local/src && sh compileSource && cd "$CURDIR" || exit
 
