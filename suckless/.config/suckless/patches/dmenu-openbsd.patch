@@ -1,0 +1,13 @@
+--- config.mk	2022-06-27 09:41:31.952435090 +0100
++++ config.mk	2022-06-27 09:42:10.032434607 +0100
+@@ -16,8 +16,8 @@
+ FREETYPELIBS = -lfontconfig -lXft
+ FREETYPEINC = /usr/include/freetype2
+ # OpenBSD (uncomment)
+-#FREETYPEINC = $(X11INC)/freetype2
+-#MANPREFIX = ${PREFIX}/man
++FREETYPEINC = $(X11INC)/freetype2
++MANPREFIX = ${PREFIX}/man
+
+ # includes and libs
+ INCS = -I$(X11INC) -I$(FREETYPEINC)
