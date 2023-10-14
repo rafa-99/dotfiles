@@ -156,6 +156,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
 	{ MODKEY,                       XK_F11,    spawn,          SHCMD("mpc prev") },//Music Previous
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("mpc next") },//Music Next
+	{ MODKEY,                       XF86XK_AudioLowerVolume,   spawn,          SHCMD("mixer -") },//Decrease Volume by 5%
+	{ MODKEY,                       XF86XK_AudioRaiseVolume,   spawn,          SHCMD("mixer +") },//Increase Volume by 5%
+	{ MODKEY,                       XF86XK_AudioMute,          spawn,          SHCMD("mixer m") },//Increase Volume by 5%
 };
 
 /* button definitions */
