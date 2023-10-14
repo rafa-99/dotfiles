@@ -1,7 +1,7 @@
 #!/bin/sh
 
 USER=$(ls /home/)
-SESSION=$(grep = /home/$USER/.dmrc | cut -d= -f2)
+SESSION=$(grep '=' /home/"$USER"/.dmrc | cut -d= -f2)
 
 # Removing Unecessary software
 ## khmer
@@ -28,9 +28,6 @@ sh -c "apt list --installed | grep mozc | cut -d"/" -f1 | xargs -I {} apt autore
 ## uim
 sh -c "apt list --installed | grep uim | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
 
-## ibus
-sh -c "apt list --installed | grep ibus | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
-
 ## thai terminal
 sh -c "apt list --installed | grep xiterm+thai | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
 
@@ -43,6 +40,23 @@ sh -c "apt list --installed | grep exfalso | cut -d"/" -f1 | xargs -I {} apt aut
 ## quite weak archiver
 sh -c "apt list --installed | grep xarchiver | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
 
+## hdate
+sh -c "apt list --installed | grep hdate | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## gnome-games
+sh -c "apt list --installed | grep gnome-games | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## debian reference
+sh -c "apt list --installed | grep debian-reference | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+## synaptic
+sh -c "apt list --installed | grep synaptic | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+
+if ! test -f /usr/bin/gnome-session; then
+	## ibus
+	sh -c "apt list --installed | grep ibus | cut -d"/" -f1 | xargs -I {} apt autoremove --purge -y {}"
+fi
+
 # Adding Extra Repos
 sed -i s:main:'main contrib non-free':g /etc/apt/sources.list
 
@@ -53,10 +67,10 @@ apt update
 apt upgrade -y
 
 # Adding All Firmware
-apt install -y alsa-firmware-loaders bladerf-firmware-fx3 dahdi-firmware-nonfree dns323-firmware-tools expeyes-firmware-dev firmware-adi firmware-amd-graphics firmware-ath9k-htc firmware-ath9k-htc-dbgsym firmware-atheros firmware-b43-installer firmware-b43legacy-installer firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-intel-sound firmware-intelwimax firmware-ipw2x00 firmware-ivtv firmware-iwlwifi firmware-libertas firmware-linux firmware-linux-free firmware-linux-nonfree firmware-microbit-micropython firmware-misc-nonfree firmware-myricom firmware-netronome firmware-netxen firmware-qcom-media firmware-qlogic firmware-ralink firmware-realtek firmware-samsung firmware-siano firmware-ti-connectivity firmware-zd1211 grub-firmware-qemu isight-firmware-tools sigrok-firmware-fx2lafw ubertooth-firmware-source
+sh -c "apt list | grep firmware | grep -vi installed | cut -d"/" -f1 | xargs -I {} apt install -y {}"
 
 # Adding Software Store
-apt install -y flatpak flatpak-builder gnome-packagekit-session gnome-software gnome-software-common gnome-software-dev gnome-software-plugin-flatpak
+apt install -y flatpak flatpak-builder gnome-software gnome-software-common gnome-software-dev gnome-software-plugin-flatpak # gnome-packagekit
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Printer
@@ -64,15 +78,9 @@ apt install cups system-config-printer system-config-printer-udev system-config-
 systemctl enable cups
 
 # Adding Extra Important Software
-apt install -y engrampa vlc unar arc-theme papirus-icon-theme transmission-gtk
-
-## Retroarch
-apt install -y retroarch
-sh -c "apt search libretro | grep stable | cut -d"/" -f1 | xargs -I {} apt install -y {}"
-
+# apt install -y engrampa vlc unar arc-theme papirus-icon-theme transmission-gtk
 
 if test -f /usr/bin/xfwm4-settings; then
-
 	# Enabling Power Settings
 	apt install -y xfce4-power-manager
 
