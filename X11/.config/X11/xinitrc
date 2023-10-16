@@ -5,6 +5,7 @@ if [ "$KERNEL" = "Linux" ]; then
 	# Shell daemons
 	pipewire &
 	pipewire-pulse &
+	wireplumber &
 fi
 
 # Screen Layout in Case of Multi Monitor Setup Required
