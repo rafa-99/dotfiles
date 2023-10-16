@@ -18,6 +18,5 @@ numlockx on &
 lxsession &
 xset s off
 xset -dpms
-wireplumber &
 setxkbmap -option caps:super
 exec "$SESSION"
