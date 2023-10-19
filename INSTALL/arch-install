@@ -35,7 +35,7 @@ doas sh -c 'echo "export _JAVA_AWT_WM_NONREPARENTING=1" >>/etc/profile.d/jre.sh'
 chsh -s /bin/zsh
 
 # Deploy Dots
-stow --target="$HOME" fonts gtk man misc mpd ncmpcpp newsboat neovim npm picom qt shell scripts suckless sxiv tor vifm X11 zathura zsh
+stow --target="$HOME" fonts gtk keepass man misc mpd ncmpcpp newsboat neovim npm picom pipewire qt shell scripts suckless sxiv tor vifm X11 zathura zeal zsh
 touch ~/.config/X11/Xauthority ~/.config/mpd/database ~/.config/mpd/log ~/.config/mpd/pid  ~/.config/mpd/state ~/.config/mpd/sticker.sql
 
 cd ~/.local/src && sh compileSource && cd "$CURDIR" || exit
