@@ -45,3 +45,9 @@ ncmpcpp/.config/ncmpcpp
 # Fonts
 fonts/.local/share/fonts/.uuid
 fonts/.local/share/fonts/Windows/.uuid
+
+# Keepass
+keepass/.config/keepassxc/keepassxc.ini
+
+# Zeal
+zeal/.config/Zeal/Zeal.conf
