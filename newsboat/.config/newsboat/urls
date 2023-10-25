@@ -14,6 +14,7 @@ https://wiki.ameliorated.info/feed.php?ns= "~Windows 10 AME"
 
 " Programs"
 https://github.com/brunomnsilva/AbstractDataTypesInC/commits/master.atom "~AbstractDataTypesInC"
+https://github.com/arkenfox/user.js/commits/master.atom "~arkenfox"
 https://github.com/bettercap/bettercap/commits/master.atom "~bettercap"
 http://git.suckless.org/dmenu/atom.xml "~dmenu"
 http://git.suckless.org/dwm/atom.xml "~dwm"
