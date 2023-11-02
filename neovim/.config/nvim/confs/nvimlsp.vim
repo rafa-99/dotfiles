@@ -60,7 +60,15 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local masonlsp = require("mason-lspconfig")
 
 masonlsp.setup {
-	ensure_installed = { 'clangd', 'tsserver'},
+	ensure_installed = {
+		-- https://github.com/williamboman/mason-lspconfig.nvim - Server List
+		'clangd',
+		'gopls',
+		'tsserver',
+		'cssls',
+		'html',
+		'pyright'
+		},
 	automatic_installation = true,
 	handlers =  {
 		function (server_name)

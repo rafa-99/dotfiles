@@ -8,22 +8,22 @@ else
 	INPUT=$(printf "Video Only\nVideo and Audio\nVideo and Voice\nAudio Only\nVoice Only" | dmenu -i -p "Record: ")
 	case "$INPUT" in
 		"Video Only")
-			ffmpeg -y -f x11grab -framerate 60 -s $(xdpyinfo | grep dimensions | awk '{print $2}') -i :0.0 ~/Videos/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".mkv
+			ffmpeg -y -f gdigrab -framerate 60 -i :0.0 ~/Videos/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".mkv
 			;;
 		"Video and Audio")
-			SOURCE=$(pamixer --list-sources | grep -vi "Sources:" | awk '{print $2}' | grep output | sed s:\"::g)
+			SOURCE=$(pamixer --list-sources | grep -vi "Sources:" | grep "Running" | awk '{print $2}' | grep output | sed s:\"::g)
 			ffmpeg -y -f x11grab -framerate 60 -s $(xdpyinfo | grep dimensions | awk '{print $2}') -i :0.0 -f pulse -i $SOURCE -c:v libx264rgb -preset superfast -c:a flac ~/Videos/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".mkv
 			;;
 		"Video and Voice")
-			SOURCE=$(pamixer --list-sources | grep -vi "Sources:" | awk '{print $2}' | grep input | sed s:\"::g)
+			SOURCE=$(pamixer --list-sources | grep -vi "Sources:" | grep "Running" | awk '{print $2}' | grep output | sed s:\"::g)
 			ffmpeg -y -f x11grab -framerate 60 -s $(xdpyinfo | grep dimensions | awk '{print $2}') -i :0.0 -f pulse -i $SOURCE -c:v libx264rgb -preset superfast -r 30 -c:a flac ~/Videos/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".mkv
 			;;
 		"Audio Only")
-			SOURCE=$(pamixer --list-sources | grep -vi "Sources:" | awk '{print $2}' | grep output | sed s:\"::g)
+			SOURCE=$(pamixer --list-sources | grep -vi "Sources:" | grep "Running" | awk '{print $2}' | grep output | sed s:\"::g)
 			ffmpeg -y -f pulse -i $SOURCE -c:v libx264rgb -preset superfast -c:a flac ~/Music/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".flac
 			;;
 		"Voice Only")
-			SOURCE=$(pamixer --list-sources | grep -vi "Sources:" | awk '{print $2}' | grep input | sed s:\"::g)
+			SOURCE=$(pamixer --list-sources | grep -vi "Sources:" | grep "Running" | awk '{print $2}' | grep output | sed s:\"::g)
 			ffmpeg -y -f pulse -i $SOURCE -c:v libx264rgb -preset superfast -c:a flac ~/Music/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".flac
 	esac
 fi
