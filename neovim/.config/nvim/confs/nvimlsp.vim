@@ -63,11 +63,12 @@ masonlsp.setup {
 	ensure_installed = {
 		-- https://github.com/williamboman/mason-lspconfig.nvim - Server List
 		'clangd',
-		'gopls',
-		'tsserver',
 		'cssls',
+		'gopls',
 		'html',
-		'pyright'
+		'pyright',
+		'texlab',
+		'tsserver'
 		},
 	automatic_installation = true,
 	handlers =  {

@@ -52,6 +52,6 @@ else
 		node "$FILE"
 		;;
 	tex)
-		pdflatex "$FILE"
+		xelatex "$FILE" && xelatex "$FILE"
 	esac
 fi
