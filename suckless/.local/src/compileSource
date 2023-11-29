@@ -17,6 +17,7 @@ git clone git@github.com:rafa-99/pkg.git
 git clone git@github.com:rafa-99/queryt.git
 git clone git@github.com:rafa-99/slock.git
 git clone git@github.com:rafa-99/st.git
+git clone git@github.com:rafa-99/surf.git
 
 if [ "$KERNEL" = "Linux" ]; then
 	git clone git@github.com:rafa-99/farbfeld.git
@@ -32,6 +33,7 @@ cd "$SRC"/pkg && git pull ;
 cd "$SRC"/queryt && git pull ;
 cd "$SRC"/slock && git pull ;
 cd "$SRC"/st && git pull ;
+cd "$SRC"/surf && git pull ;
 
 if [ "$KERNEL" = "Linux" ]; then
 	cd "$SRC"/farbfeld && git pull ;
@@ -49,6 +51,7 @@ fi
 [ ! -f "$SRC"/dwm/config.h ] && cp -rf "$HOME"/.config/suckless/dwm/config.h "$SRC"/dwm/ ;
 [ ! -f "$SRC"/slock/config.h ] && cp -rf "$HOME"/.config/suckless/slock/config.h "$SRC"/slock/ ;
 [ ! -f "$SRC"/st/config.h ] && cp -rf "$HOME"/.config/suckless/st/config.h "$SRC"/st/ ;
+[ ! -f "$SRC"/surf/config.h ] && cp -rf "$HOME"/.config/suckless/surf/config.h "$SRC"/surf/ ;
 
 if [ "$KERNEL" = "Linux" ]; then
 	[ ! -f "$SRC"/surf/src/config.h ] && cp -rf "$HOME"/.config/suckless/surf/config.h "$SRC"/surf/src ;
@@ -77,6 +80,7 @@ cd "$SRC"/pkg && git pull ; doas make clean install ; make clean
 cd "$SRC"/queryt && git pull ; doas make clean install ; make clean
 cd "$SRC"/slock && git pull ; doas make clean install ; make clean
 cd "$SRC"/st && git pull ; doas make clean install ; make clean
+cd "$SRC"/surf && git pull ; doas make clean install ; make clean
 
 if [ "$KERNEL" = "Linux" ]; then
 	cd "$SRC"/farbfeld && git pull ; doas make clean install ; make clean
