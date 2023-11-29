@@ -51,7 +51,7 @@ fi
 [ ! -f "$SRC"/st/config.h ] && cp -rf "$HOME"/.config/suckless/st/config.h "$SRC"/st/ ;
 
 if [ "$KERNEL" = "Linux" ]; then
-	[ ! -f "$SRC"/surf/src/config.h ] && cp -rf "$HOME"/.config/suckless/surf/config.h "$SRC"/surf/src ;
+	[ ! -f "$SRC"/surf/src/config.h ] && cp -rf "$HOME"/.config/suckless/surf/config.h "$SRC"/surf/ ;
 	[ ! -f "$SRC"/sent/config.h ] && cp -rf "$HOME"/.config/suckless/sent/config.h "$SRC"/sent/ ;
 	[ ! -f "$SRC"/slstatus/config.h ] && cp -rf "$HOME"/.config/suckless/slstatus/config.h "$SRC"/slstatus/ ;
 	[ ! -f "$SRC"/xmouseless/config.h ] && cp -rf "$HOME"/.config/suckless/xmouseless/config.h "$SRC"/xmouseless/ ;

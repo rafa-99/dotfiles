@@ -9,7 +9,6 @@ fi
 # Checking for non-existant dirs
 ! [ -f "$SRC"/colors/dmenu ] && mkdir -p "$SRC"/colors/dmenu
 ! [ -f "$SRC"/colors/dwm ] && mkdir -p "$SRC"/colors/dwm
-! [ -f "$SRC"/colors/neovimb/src ] && mkdir -p "$SRC"/colors/neovimb/src
 ! [ -f "$SRC"/colors/st ] && mkdir -p "$SRC"/colors/st
 
 # Purging previous colorscheme files
@@ -20,21 +19,6 @@ cp -rf ~/.cache/wal/colors-wal-dmenu.h "$SRC"/colors/dmenu/colors.h
 cp -rf ~/.cache/wal/colors-wal-st.h "$SRC"/colors/st/colors.h
 head -7 ~/.cache/wal/colors-wal-dwm.h > "$SRC"/colors/dwm/colors.h
 sed -i s/"$(grep norm_border "$SRC"/colors/dwm/colors.h | cut -d# -f 2 | cut -d\" -f 1)"/"$(grep black "$SRC"/colors/st/colors.h | head -1 | cut -d# -f 2 | cut -d\" -f 1)"/g "$SRC"/colors/dwm/colors.h
-
-###
-cp -rf "$XDG_CONFIG_HOME"/suckless/neovimb/config.h "$SRC"/colors/neovimb/src/
-###
-OLDSTRING=$(grep SETTING_INPUT_CSS "$SRC"/colors/neovimb/src/config.h)
-NEWSTRING="#define SETTING_INPUT_CSS                     \"background-color:$(head -2 "$SRC"/colors/dwm/colors.h | grep bg | cut -d\" -f2);color:$(head -2 "$SRC"/colors/dwm/colors.h | grep fg | cut -d\" -f2);font:\" SETTING_GUI_FONT_NORMAL"
-sed -i s."$OLDSTRING"."$NEWSTRING".g "$SRC"/colors/neovimb/src/config.h
-###
-OLDSTRING=$(grep SETTING_STATUS_CSS "$SRC"/colors/neovimb/src/config.h)
-NEWSTRING="#define SETTING_STATUS_CSS                    \"color:$(tail -3 "$SRC"/colors/dwm/colors.h | grep fg | cut -d\" -f2);background-color:$(tail -3 "$SRC"/colors/dwm/colors.h | grep bg | cut -d\" -f2);font:\" SETTING_GUI_FONT_EMPH"
-sed -i s."$OLDSTRING"."$NEWSTRING".g "$SRC"/colors/neovimb/src/config.h
-###
-OLDSTRING=$(grep SETTING_STATUS_SSL_CSS "$SRC"/colors/neovimb/src/config.h)
-NEWSTRING="#define SETTING_STATUS_SSL_CSS                \"background-color:$(tail -3 "$SRC"/colors/dwm/colors.h | grep bg | cut -d\" -f2);color:$(tail -3 "$SRC"/colors/dwm/colors.h | grep fg | cut -d\" -f2);\""
-sed -i s."$OLDSTRING"."$NEWSTRING".g "$SRC"/colors/neovimb/src/config.h
 
 # Recompiling Suckless Programs with new colorscheme
 cp -rf "$SRC"/colors/* "$SRC"
