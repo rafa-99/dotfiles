@@ -20,7 +20,7 @@ git clone git@github.com:rafa-99/st.git
 
 if [ "$KERNEL" = "Linux" ]; then
 	git clone git@github.com:rafa-99/farbfeld.git
-	git clone git@github.com:rafa-99/neovimb.git
+	git clone git@github.com:rafa-99/surf.git
 	git clone git@github.com:rafa-99/sent.git
 	git clone git@github.com:rafa-99/slstatus.git
 	git clone git@github.com:rafa-99/xmouseless.git
@@ -35,7 +35,7 @@ cd "$SRC"/st && git pull ;
 
 if [ "$KERNEL" = "Linux" ]; then
 	cd "$SRC"/farbfeld && git pull ;
-	cd "$SRC"/neovimb && git pull ;
+	cd "$SRC"/surf && git pull ;
 	cd "$SRC"/sent && git pull ;
 	cd "$SRC"/slstatus && git pull ;
 	cd "$SRC"/xmouseless && git pull ;
@@ -51,7 +51,7 @@ fi
 [ ! -f "$SRC"/st/config.h ] && cp -rf "$HOME"/.config/suckless/st/config.h "$SRC"/st/ ;
 
 if [ "$KERNEL" = "Linux" ]; then
-	[ ! -f "$SRC"/neovimb/src/config.h ] && cp -rf "$HOME"/.config/suckless/neovimb/config.h "$SRC"/neovimb/src ;
+	[ ! -f "$SRC"/surf/src/config.h ] && cp -rf "$HOME"/.config/suckless/surf/config.h "$SRC"/surf/src ;
 	[ ! -f "$SRC"/sent/config.h ] && cp -rf "$HOME"/.config/suckless/sent/config.h "$SRC"/sent/ ;
 	[ ! -f "$SRC"/slstatus/config.h ] && cp -rf "$HOME"/.config/suckless/slstatus/config.h "$SRC"/slstatus/ ;
 	[ ! -f "$SRC"/xmouseless/config.h ] && cp -rf "$HOME"/.config/suckless/xmouseless/config.h "$SRC"/xmouseless/ ;
@@ -80,7 +80,7 @@ cd "$SRC"/st && git pull ; doas make clean install ; make clean
 
 if [ "$KERNEL" = "Linux" ]; then
 	cd "$SRC"/farbfeld && git pull ; doas make clean install ; make clean
-	cd "$SRC"/neovimb && git pull ; doas make clean install ; make clean
+	cd "$SRC"/surf && git pull ; doas make clean install ; make clean
 	cd "$SRC"/sent && git pull ; doas make clean install ; make clean
 	cd "$SRC"/slstatus && git pull ; doas make clean install ; make clean
 	cd "$SRC"/xmouseless && git pull ; doas make clean install ; make clean
