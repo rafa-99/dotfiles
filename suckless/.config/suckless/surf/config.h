@@ -6,6 +6,7 @@ static char *homepage       = "rafaelmarcalo.xyz";
 static char *styledir       = "~/.config/surf/styles/";
 static char *certdir        = "~/.local/share/certificates/";
 static char *cachedir       = "~/.cache/surf";
+static char *downloaddir    = "~/Downloads/";
 static char *cookiefile     = "~/.local/share/surf/cookies.txt";
 static char *searchurl      = "https://searxng.rafaelmarcalo.xyz/searxng/search?q=%s";
 static char *scriptfiles[]  = {
@@ -86,9 +87,10 @@ static WebKitFindOptions findopts = WEBKIT_FIND_OPTIONS_CASE_INSENSITIVE |
 /* DOWNLOAD(URI, referer) */
 #define DOWNLOAD(u, r) { \
         .v = (const char *[]){ "st", "-e", "/bin/sh", "-c",\
+             "eval cd \"$5\" && " \
              "curl -g -L -J -O -A \"$1\" -b \"$2\" -c \"$2\"" \
              " -e \"$3\" \"$4\"; read", \
-             "surf-download", useragent, cookiefile, r, u, NULL \
+             "surf-download", useragent, cookiefile, r, u, downloaddir, NULL \
         } \
 }
 
