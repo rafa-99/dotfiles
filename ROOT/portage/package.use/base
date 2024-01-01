@@ -1,48 +1,47 @@
-app-admin/keepassxc network
+app-admin/doas persist
+app-admin/keepassxc autotype network -keeshare -yubikey
 app-admin/pass dmenu
-app-admin/testdisk ntfs
 app-arch/p7zip -rar
 app-crypt/pinentry gtk -ncurses
 app-editors/neovim lto tui -nvimpager
 app-emulation/libvirt fuse isci isci-direct libvirtd lvm lxc numa openvz parted qemu virt-network -apparmor -dtrace -firewalld -glusterfs -libssh -libssh2 -nfs -virtualbox -xen
-app-emulation/qemu aio caps capstone curl fdt filecaps fuse iscsi io-uring jemalloc opengl plugins pulseaudio sdl sdl-image slirp spice udev usb usbredir vhost-net vhost-user-fs virtfs xattr -accessibility -glusterfs -xen
-app-emulation/virt-manager gtk policykit -sasl
-app-emulation/wine-staging abi_x86_32 capi dos gecko gssapi gstreamer mono netapi opencl osmesa pipelight prelink pulseaudio realtime run-exes samba sdl staging udev unwind usb vkd3d vulkan
+app-emulation/qemu aio bzip2 capstone curl fdt filecaps fuse gnutls gtk infiniband io-uring iscsi jemalloc lzo nls numa opengl plugins python sdl sdl-image seccomp slirp spice systemtap udev usb usbredir vhost-net virgl virtfs xattr zstd -accessibility -glusterfs -xen
+app-emulation/virt-manager gui policykit -sasl
+app-emulation/wine-staging abi_x86_32 capi dos gecko gstreamer mono netapi opencl osmesa pulseaudio samba sdl unwind usb wow64
 app-emulation/winetricks gtk
-app-misc/vifm developer extended-keys vim vim-syntax
+app-misc/vifm extended-keys magic vim vim-syntax -gtk
+app-text/texlive context extra graphics science xetex -games -luatex -pstricks -publishers -xml
 app-text/zathura-meta djvu pdf postscript -cb
-dev-java/openjdk gentoo-vm
-dev-lang/python xml
-dev-lang/rust system-bootstrap system-llvm -clippy -miri -nightly -rls -rustfmt -wasm
+dev-java/openjdk system-bootstrap systemtap
+dev-lang/rust system-bootstrap system-llvm -clippy -miri -nightly -rustfmt -wasm
 dev-util/ctags json -yaml
-dev-vcs/git blksha1 curl gpg -cgi -emacs -highlight -mediawiki -mediawiki-experimental -perforce -ppcsha1 -tk
-games-emulation/mgba ffmpeg gles3 gui opengl qt5 -discord -gles2 -sdl -sqlite
-media-fonts/noto-emoji X -buildfont
-media-gfx/gimp aalib heif mng webp wmf xpm -javascript -lua -postscript -python -udev
+dev-vcs/git -cgi -highlight
+media-fonts/noto-emoji icons
+media-gfx/gimp aalib heif mng wmf xpm -javascript -lua -postscript -python -udev
 media-gfx/imagemagick xml
 media-gfx/simple-scan colord -webp
-media-libs/mesa wayland osmesa abi_x86_32 d3d9 gles2 vulkan vulkan-overlay
-media-libs/vulkan-loader X layers abi_x86_32
-media-sound/mpd pulseaudio
-media-sound/ncmpcpp visualizer clock -outputs
-media-video/ffmpeg bzip2 encode fontconfig gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opencl opengl openh264 opus oss sdl speex svg theora truetype vaapi vorbis wavpack webp x264 xvid zlib X
-media-video/mpv archive cli drm egl gbm libmpv lua openal opengl pulseaudio vaapi vdpau vulkan xv zimg zlib -gamepad -raspberry-pi
+media-libs/mesa d3d9 gles2 osmesa vulkan-overlay
+media-libs/vulkan-loader layers
+media-sound/ncmpcpp clock lto visualizer -outputs -taglib
+media-video/ffmpeg bzip2 encode fontconfig frei0r gmp gnutls gsm iconv ieee1394 ladspa libass libcaca lzma modplug mp3 openal opencl opengl openh264 opus oss pulseaudio sdl speex svg svt-av1 theora truetype vorbis wavpack xvid zlib
+media-video/mpv archive cli drm egl libmpv libcaca lua openal opengl pipewire xv zimg zlib -gamepad -raspberry-pi
 media-video/pipewire echo-cancel extra pipewire-alsa sound-server -jack-client -jack-sdk
-net-libs/nodejs npm snapshot system-icu system-tap system-ssl -inspector
-net-libs/webkit-gtk avif egl jumbo-build -examples -gamepad -geolocation
-net-misc/connman ethernet iwd openvpn wireguard -l2tp -ofono -openconnect -pptp -tools -vpnc -wispr
+media-video/wireplumber lua_single_target_lua5-4
+net-libs/nodejs lto npm snapshot system-icu system-ssl -inspector
+net-libs/webkit-gtk avif -examples -gamepad
 net-misc/curl progress-meter -gopher -pop3 -telnet -winssl
 net-misc/ntp -samba
 net-misc/spice-gtk policykit usbredir
 net-p2p/transmission gtk
 net-print/cups dbus
 net-print/hplip hpcups scanner snmp -fax -hpijs -libnotify -libusb0 -parport
+net-vpn/tor caps scrypt seccomp tor-hardening -server
 sys-boot/grub device-mapper mount -efiemu -libzfs -themes
 sys-devel/clang xml
-sys-devel/gcc cxx graphite lto nptl pgo objc sanitize ssp valgrind vtv -go -ada -d -cet
+sys-devel/gcc cxx fortran graphite lto nptl pgo sanitize ssp valgrind vtv -ada -d -cet -go -objc -rust
 sys-devel/gdb xxhash -cet -python -server
-sys-devel/llvm z3 abi_x86_32 -doc -ncurses
-www-client/firefox dbus eme-free hwaccel lto openh264 pulseaudio screencast system-av1 system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-png system-webp wayland -clang -geckodriver -gmp-autoupdate -sndio -wifi
+sys-devel/llvm z3 -doc -ncurses
+www-client/firefox dbus eme-free hwaccel lto openh264 pulseaudio screencast system-av1 system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-png system-webp -clang -geckodriver -gmp-autoupdate -sndio -valgrind -wifi
 x11-apps/xinit -twm
-x11-base/xorg-server elogind xcsecurity xorg xvfb -xephyr -xnest -wayland
-x11-misc/picom config-file opengl doc -drm
+x11-base/xorg-server elogind xcsecurity xorg xvfb -xephyr -xnest
+x11-misc/picom config-file opengl -drm
