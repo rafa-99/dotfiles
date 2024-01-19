@@ -425,6 +425,7 @@ nnoremap gl :!sxiv -t *<cr>
 
 " Set Wallpaper
 nnoremap wp :!colorset %d/%c<cr>
+nnoremap ws :!walset %d/%c<cr>
 
 " Start shell in current directory
 nnoremap s :shell<cr>

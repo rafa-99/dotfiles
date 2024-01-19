@@ -1,0 +1,5 @@
+#!/bin/sh
+
+convert "$1" "$SRC"/colors/wallpaper.png
+cp -rf "$SRC"/colors/wallpaper.png ~/.config/wallpaper
+xwallpaper --stretch "$WALLPAPER"

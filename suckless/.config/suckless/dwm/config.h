@@ -135,6 +135,7 @@ static const Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
 	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
 	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
+	{ MODKEY,                       XK_c,      spawn,          SHCMD("colorpick") },//Color Picker
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("screenshot") },//Screenshot Tool Script
 	{ MODKEY|SHIFTKEY,              XK_p,      spawn,          SHCMD("passmenu") },//Opens PassMenu Password Manager
 	{ MODKEY|SHIFTKEY,              XK_s,      spawn,          SHCMD("screenkeys") },//Enable Screenkeys

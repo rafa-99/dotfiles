@@ -12,7 +12,7 @@ set inccommand=split
 set incsearch
 set wildmode=longest,list,full
 set relativenumber
-set termguicolors
+" set termguicolors
 set complete=.,w,b,u,t
 set completeopt=menu,menuone,noselect
 set laststatus=1

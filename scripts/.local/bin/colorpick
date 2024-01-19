@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xcolor -S 6 -s clipboard
