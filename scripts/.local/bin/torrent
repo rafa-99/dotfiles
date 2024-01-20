@@ -1,0 +1,4 @@
+#!/bin/sh
+
+transmission-daemon &
+transmission-remote-gtk
