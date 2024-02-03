@@ -3,8 +3,8 @@
 # Controls backlighting of LCD
 case $1 in
 	"+")
-		(xbacklight -inc 5 || doas light -A 5)
+		(xbacklight -inc 5 || brightnessctl s +5%)
 		;;
 	"-")
-		(xbacklight -dec 5 || doas light -U 5)
+		(xbacklight -dec 5 || brightnessctl s 5%-)
 esac

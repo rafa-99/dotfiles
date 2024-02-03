@@ -11,19 +11,19 @@ KERNEL=$(uname)
 # Cloning and Cleaning Programs #
 #################################
 
-git clone git@github.com:rafa-99/dmenu.git
-git clone git@github.com:rafa-99/dwm.git
-git clone git@github.com:rafa-99/pkg.git
-git clone git@github.com:rafa-99/queryt.git
-git clone git@github.com:rafa-99/slock.git
-git clone git@github.com:rafa-99/st.git
+git clone https://github.com/rafa-99/dmenu.git
+git clone https://github.com/rafa-99/dwm.git
+git clone https://github.com/rafa-99/pkg.git
+git clone https://github.com/rafa-99/queryt.git
+git clone https://github.com/rafa-99/slock.git
+git clone https://github.com/rafa-99/st.git
 
 if [ "$KERNEL" = "Linux" ]; then
-	git clone git@github.com:rafa-99/farbfeld.git
-	git clone git@github.com:rafa-99/surf.git
-	git clone git@github.com:rafa-99/sent.git
-	git clone git@github.com:rafa-99/slstatus.git
-	git clone git@github.com:rafa-99/xmouseless.git
+	git clone https://github.com/rafa-99/farbfeld.git
+	git clone https://github.com/rafa-99/surf.git
+	git clone https://github.com/rafa-99/sent.git
+	git clone https://github.com/rafa-99/slstatus.git
+	git clone https://github.com/rafa-99/xmouseless.git
 fi
 
 cd "$SRC"/dmenu && git pull ;
