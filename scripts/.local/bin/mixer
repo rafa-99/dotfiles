@@ -3,14 +3,14 @@
 # Pulseaudio or Alsa audio binds
 case $1 in
 	"+")
-		amixer set Master 1%+
+		pamixer -i 1
 		;;
 	"-")
-		amixer set Master 1%-
+		pamixer -d 1
 		;;
 	t)
-		amixer set Master toggle
+		pamixer -t
 		;;
 	m)
-		amixer set Capture toggle
+		pamixer --default-source -t
 esac
