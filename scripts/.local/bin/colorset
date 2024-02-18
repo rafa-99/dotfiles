@@ -14,7 +14,7 @@ fi
 
 # Setting the new colorscheme based on the wallpaper and making some color tweaks
 cp -rf ~/.cache/wal/colors-wal-dmenu.h "$SRC"/colors/dmenu/colors.h
-cp -rf ~/.cache/wal/colors-wal-st.h "$SRC"/colors/st/colors.h
+sed s:"= 0":"= 256":g ~/.cache/wal/colors-wal-st.h > "$SRC"/colors/st/colors.h
 head -7 ~/.cache/wal/colors-wal-dwm.h > "$SRC"/colors/dwm/colors.h
 sed -i s/"$(grep norm_border "$SRC"/colors/dwm/colors.h | cut -d# -f 2 | cut -d\" -f 1)"/"$(grep black "$SRC"/colors/st/colors.h | head -1 | cut -d# -f 2 | cut -d\" -f 1)"/g "$SRC"/colors/dwm/colors.h
 
