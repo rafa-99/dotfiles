@@ -27,4 +27,5 @@ alias grep='grep -i' \
 	dl='curl -LO' \
 	m='udisksctl mount -b' \
 	u='udisksctl unmount -b' \
-	fixpg='find "$GNUPGHOME" -type f | xargs -I {} chmod 600 {} && find "$GNUPGHOME" -type d | xargs -I {} chmod 700 {}'
+	fixpg='find "$GNUPGHOME" -type f | xargs -I {} chmod 600 {} && find "$GNUPGHOME" -type d | xargs -I {} chmod 700 {}' \
+	pyenv='. activateVenv'
