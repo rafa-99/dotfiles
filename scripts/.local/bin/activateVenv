@@ -1,6 +1,0 @@
-#!/bin/sh
-
-ENVFOLDER=venv
-
-python -m venv "$ENVFOLDER"
-. "$ENVFOLDER"/bin/activate

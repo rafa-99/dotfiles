@@ -48,6 +48,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export TEXMFHOME="$XDG_DATA_HOME"/texmf
 export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
 export TEXMFCONFIG="$XDG_CONFIG_HOME"/texlive/texmf-config
+export PYENV=".venv"
 
 # Others
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
