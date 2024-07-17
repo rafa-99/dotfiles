@@ -1,7 +1,7 @@
 "🐡 OS"
 https://www.archlinux.org/feeds/news/ "~Arch"
 https://artixlinux.org/feed.php "~Artix"
-https://www.debian.org/News/news "~Debian"
+https://micronews.debian.org/feeds/atom.xml "~Debian"
 https://e.foundation/feed/ "~E Foundation"
 https://www.gentoo.org/feeds/news.xml "~Gentoo"
 https://www.lineageos.org/feed.xml "~LineageOS"
