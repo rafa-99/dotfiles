@@ -7,11 +7,10 @@ export KERNEL=$(uname)
 # Default programs
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="firefox"
+export BROWSER="librewolf"
 export READER="zathura"
 export FILE="vifmrun"
 export NEWS="newsboat"
-export DOCS="man -l $HOME/.local/man/dots.1"
 
 # Home directory clean-up
 export XDG_CONFIG_HOME="$HOME"/.config
@@ -49,7 +48,6 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export TEXMFHOME="$XDG_DATA_HOME"/texmf
 export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
 export TEXMFCONFIG="$XDG_CONFIG_HOME"/texlive/texmf-config
-export PYENV=".venv"
 
 # Others
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
