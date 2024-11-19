@@ -1,0 +1,190 @@
+---
+- name: Setup and configure the user's environment with dotfiles
+  hosts: debian
+  become: true  # We still need to become root to install packages
+
+  vars:
+    # List of dotfile directories to be deployed using stow
+    dotfiles_dirs:
+      - fonts
+      - keepass
+      - misc
+      - mpd
+      - ncmpcpp
+      - newsboat
+      - neovim
+      - npm
+      - picom
+      - shell
+      - scripts
+      - suckless
+      - sxiv
+      - vifm
+      - wal
+      - X11
+      - zathura
+      - zeal
+      - zsh
+
+    # List of packages to install
+    packages:
+      - aircrack-ng
+      - android-sdk-platform-tools
+      - arandr
+      - bettercap
+      - build-essential
+      - bully
+      - cmatrix
+      - extrepo
+      - ffmpeg
+      - ffmpegthumbnailer
+      - fonts-noto
+      - git
+      - git-lfs
+      - gimp
+      - htop
+      - imagemagick
+      - iw
+      - keepassxc
+      - kdenlive
+      - libx11-dev
+      - libxft-dev
+      - libxinerama-dev
+      - maim
+      - mdk4
+      - mpc
+      - mpd
+      - mpv
+      - neofetch
+      - neovim
+      - newsboat
+      - net-tools
+      - nodejs
+      - npm
+      - ncmpcpp
+      - obs-studio
+      - p7zip
+      - picom
+      - pixiewps
+      - redshift
+      - reaver
+      - shellcheck
+      - swtpm
+      - sxiv
+      - texlive-lang-portuguese
+      - texlive-xetex
+      - transmission
+      - ueberzug
+      - unoconv
+      - vifm
+      - virt-manager
+      - wpasupplicant
+      - xclip
+      - xdg-user-dirs
+      - xserver-xorg
+      - xwallpaper
+      - yt-dlp
+      - zathura
+      - zeal
+      - zsh
+
+    # List of custom directories to create under user's home directory
+    custom_directories:
+      - Documents/PDF
+      - Documents/Text
+      - Documents/Disks
+      - Documents/Archives
+      - Documents/VMs
+      - Games/WINEPREFIX
+      - Pictures/Screenshots
+      - Pictures/GIMP
+      - Videos/Recordings
+      - Code
+      - .config/git
+      - .config/wallpaper
+
+    # List of files to create under ~/.config/mpd/ and other directories
+    touch_files:
+      - .config/mpd/database
+      - .config/mpd/log
+      - .config/mpd/pid
+      - .config/mpd/state
+      - .config/mpd/sticker.sql
+      - .config/X11/Xauthority
+
+    # Git configuration variables
+    git_user: "user"  # Replace with the actual user name
+    git_email: "user@example.com"  # Replace with the actual user email
+
+  tasks:
+    # Install necessary packages (run as root)
+    - name: Install necessary packages
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ packages }}"
+      become: true  # Use root to install these packages
+
+    # Ensure necessary custom directories exist for user (run as user)
+    - name: Ensure custom directories exist for user
+      file:
+        path: "{{ ansible_env.HOME }}/{{ item }}"
+        state: directory
+        mode: '0755'
+      with_items: "{{ custom_directories }}"
+
+    # Ensure necessary directories exist for stow (run as user)
+    - name: Ensure necessary directories exist for stow
+      file:
+        path: "{{ ansible_env.HOME }}/{{ item }}"
+        state: directory
+        mode: '0755'
+      with_items: "{{ dotfiles_dirs }}"
+
+    # Deploy dotfiles using stow (run as user)
+    - name: Deploy dotfiles using stow
+      shell: stow -t {{ ansible_env.HOME }} {{ item }}
+      with_items: "{{ dotfiles_dirs }}"
+
+    # Set zsh as default shell for user (run as user)
+    - name: Set zsh as default shell for user
+      shell: chsh -s /usr/bin/zsh
+
+    # Configure git-lfs for user (run as user)
+    - name: Configure git-lfs for user
+      command: git lfs install
+
+    # Ensure specified files are created (touch them if they do not exist)
+    - name: Ensure specified files are created
+      file:
+        path: "{{ ansible_env.HOME }}/{{ item }}"
+        state: touch
+        mode: '0644'
+      with_items: "{{ touch_files }}"
+
+    # Run the compileSource script from ~/.local/src (requires root permissions)
+    - name: Run compileSource script from ~/.local/src
+      shell: "{{ ansible_env.HOME }}/.local/src/compileSource"
+      args:
+        chdir: "{{ ansible_env.HOME }}/.local/src"  # Make sure to run the script from the correct directory
+      become: true  # This ensures that the script is run with root privileges, if needed
+
+    # Install neovim plug plugin manager (run as user)
+    - name: Install Neovim plugin manager (vim-plug)
+      shell: |
+        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+    # Install Neovim plugins (run as user)
+    - name: Install Neovim plugins
+      shell: |
+        nvim --headless +PlugInstall +qall
+
+    # Git configuration task
+    - name: Configure git user and email for user
+      shell: |
+        git config --global user.name "{{ git_user }}"
+        git config --global user.email "{{ git_email }}"
+        git config --global pull.rebase false
+        mv {{ ansible_env.HOME }}/.gitconfig {{ ansible_env.HOME }}/.config/git/config
+        git config --global pull.rebase false
