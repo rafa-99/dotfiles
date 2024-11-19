@@ -71,17 +71,17 @@ fi
 # Recompiling Programs #
 ########################
 
-cd "$SRC"/dwm && git pull ; doas make clean install ; make clean
-cd "$SRC"/dmenu && git pull ; doas make clean install ; make clean
-cd "$SRC"/pkg && git pull ; doas make clean install ; make clean
-cd "$SRC"/queryt && git pull ; doas make clean install ; make clean
-cd "$SRC"/slock && git pull ; doas make clean install ; make clean
-cd "$SRC"/st && git pull ; doas make clean install ; make clean
+cd "$SRC"/dwm && git pull ; sudo make clean install ; make clean
+cd "$SRC"/dmenu && git pull ; sudo make clean install ; make clean
+cd "$SRC"/pkg && git pull ; sudo make clean install ; make clean
+cd "$SRC"/queryt && git pull ; sudo make clean install ; make clean
+cd "$SRC"/slock && git pull ; sudo make clean install ; make clean
+cd "$SRC"/st && git pull ; sudo make clean install ; make clean
 
 if [ "$KERNEL" = "Linux" ]; then
-	cd "$SRC"/farbfeld && git pull ; doas make clean install ; make clean
-	cd "$SRC"/surf && git pull ; doas make clean install ; make clean
-	cd "$SRC"/sent && git pull ; doas make clean install ; make clean
-	cd "$SRC"/slstatus && git pull ; doas make clean install ; make clean
-	cd "$SRC"/xmouseless && git pull ; doas make clean install ; make clean
+	cd "$SRC"/farbfeld && git pull ; sudo make clean install ; make clean
+	cd "$SRC"/surf && git pull ; sudo make clean install ; make clean
+	cd "$SRC"/sent && git pull ; sudo make clean install ; make clean
+	cd "$SRC"/slstatus && git pull ; sudo make clean install ; make clean
+	cd "$SRC"/xmouseless && git pull ; sudo make clean install ; make clean
 fi

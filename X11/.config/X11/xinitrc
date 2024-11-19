@@ -13,7 +13,6 @@ fi
 slstatus &
 xwallpaper --stretch "$WALLPAPER" &
 picom --config "$XDG_CONFIG_HOME"/picom/picom.conf &
-numlockx on &
 lxsession &
 xset s off
 xset -dpms
