@@ -51,6 +51,7 @@
       - libxft-dev
       - libxinerama-dev
       - maim
+      - man
       - mdk4
       - mpc
       - mpd
@@ -127,6 +128,10 @@
       loop: "{{ packages }}"
       become: true  # Use root to install these packages
 
+    # Ensure the XDG user directories are created
+    - name: Update XDG user directories
+      shell: xdg-user-dirs-update
+
     # Ensure necessary custom directories exist for user (run as user)
     - name: Ensure custom directories exist for user
       file:
@@ -183,3 +188,12 @@
         git config --global pull.rebase false
         mv {{ ansible_env.HOME }}/.gitconfig {{ ansible_env.HOME }}/.config/git/config
         git config --global pull.rebase false
+        
+    # Remove the .sudo_as_admin_successful file from the $HOME directory
+    - name: Disable ~/.sudo_as_admin_successful file
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers
+        line: 'Defaults!admin_flag'
+        validate: '/usr/sbin/visudo -cf %s'
+        state: present
+      become: yes
