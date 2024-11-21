@@ -114,6 +114,12 @@
       - .config/mpd/state
       - .config/mpd/sticker.sql
       - .config/X11/Xauthority
+      
+    # List of files to remove
+    remove_files:
+      - ".profile"
+      - ".bash*"
+      - ".sudo_as_admin_successful"
 
     # Git configuration variables
     git_user: "user"  # Replace with the actual user name
@@ -138,12 +144,12 @@
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: directory
         mode: '0755'
-      with_items: "{{ custom_directories }}"
+      loop: "{{ custom_directories }}"
 
     # Deploy dotfiles using stow (run as user)
     - name: Deploy dotfiles using stow
       shell: stow -t {{ ansible_env.HOME }} {{ item }}
-      with_items: "{{ dotfiles_dirs }}"
+      loop: "{{ dotfiles_dirs }}"
 
     # Set zsh as default shell for user (run as user)
     - name: Set zsh as default shell for user
@@ -160,7 +166,7 @@
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: touch
         mode: '0644'
-      with_items: "{{ touch_files }}"
+      loop: "{{ touch_files }}"
 
     # Run the compileSource script from ~/.local/src (requires root permissions)
     - name: Run compileSource script from ~/.local/src
@@ -197,3 +203,10 @@
         validate: '/usr/sbin/visudo -cf %s'
         state: present
       become: yes
+      
+    # Remove unnecessary files
+    - name: Remove unnecessary files
+      file:
+        path: "{{ ansible_env.HOME }}/{{ item }}"
+        state: absent
+      with_fileglob: "{{ remove_files }}"
