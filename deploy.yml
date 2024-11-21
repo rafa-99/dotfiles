@@ -1,7 +1,6 @@
 ---
 - name: Setup and configure the user's environment with dotfiles
   hosts: debian
-  become: true  # We still need to become root to install packages
 
   vars:
     # List of dotfile directories to be deployed using stow
@@ -35,6 +34,7 @@
       - build-essential
       - bully
       - cmatrix
+      - curl
       - extrepo
       - ffmpeg
       - ffmpegthumbnailer
@@ -69,6 +69,7 @@
       - redshift
       - reaver
       - shellcheck
+      - stow
       - swtpm
       - sxiv
       - texlive-lang-portuguese
@@ -81,6 +82,7 @@
       - wpasupplicant
       - xclip
       - xdg-user-dirs
+      - xinit
       - xserver-xorg
       - xwallpaper
       - yt-dlp
@@ -133,14 +135,6 @@
         mode: '0755'
       with_items: "{{ custom_directories }}"
 
-    # Ensure necessary directories exist for stow (run as user)
-    - name: Ensure necessary directories exist for stow
-      file:
-        path: "{{ ansible_env.HOME }}/{{ item }}"
-        state: directory
-        mode: '0755'
-      with_items: "{{ dotfiles_dirs }}"
-
     # Deploy dotfiles using stow (run as user)
     - name: Deploy dotfiles using stow
       shell: stow -t {{ ansible_env.HOME }} {{ item }}
@@ -148,7 +142,8 @@
 
     # Set zsh as default shell for user (run as user)
     - name: Set zsh as default shell for user
-      shell: chsh -s /usr/bin/zsh
+      shell: chsh -s /usr/bin/zsh {{ ansible_user }}
+      become: true  # Use root to install these packages
 
     # Configure git-lfs for user (run as user)
     - name: Configure git-lfs for user
