@@ -163,6 +163,14 @@
     # Configure git-lfs for user (run as user)
     - name: Configure git-lfs for user
       command: git lfs install
+      
+    # Git configuration task
+    - name: Configure git user and email for user
+      shell: |
+        git config --global user.name "{{ git_user }}"
+        git config --global user.email "{{ git_email }}"
+        git config --global pull.rebase false
+        mv {{ ansible_env.HOME }}/.gitconfig {{ ansible_env.HOME }}/.config/git/config
 
     # Ensure specified files are created (touch them if they do not exist)
     - name: Ensure specified files are created
@@ -189,15 +197,6 @@
     - name: Install Neovim plugins
       shell: |
         nvim --headless +PlugInstall +qall
-
-    # Git configuration task
-    - name: Configure git user and email for user
-      shell: |
-        git config --global user.name "{{ git_user }}"
-        git config --global user.email "{{ git_email }}"
-        git config --global pull.rebase false
-        mv {{ ansible_env.HOME }}/.gitconfig {{ ansible_env.HOME }}/.config/git/config
-        git config --global pull.rebase false
         
     # Remove the .sudo_as_admin_successful file from the $HOME directory
     - name: Disable ~/.sudo_as_admin_successful file
@@ -215,8 +214,9 @@
         state: absent
       loop: "{{ remove_files }}"
       
-    # Computer reboot to apply changes
-    - name: Reboot the computer
-      reboot:
-        msg: "Rebooting the system"
+    # Reboot Schedule
+    - name: Schedule reboot in 5 seconds
+      shell: "sleep 5 && reboot"
+      async: 1
+      poll: 0
       become: yes
