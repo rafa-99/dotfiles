@@ -15,25 +15,19 @@ git clone https://github.com/rafa-99/dmenu.git
 git clone https://github.com/rafa-99/dwm.git
 git clone https://github.com/rafa-99/slock.git
 git clone https://github.com/rafa-99/st.git
-
-if [ "$KERNEL" = "Linux" ]; then
-	git clone https://github.com/rafa-99/farbfeld.git
-	git clone https://github.com/rafa-99/sent.git
-	git clone https://github.com/rafa-99/slstatus.git
-	git clone https://github.com/rafa-99/xmouseless.git
-fi
+# git clone https://github.com/rafa-99/farbfeld.git
+# git clone https://github.com/rafa-99/sent.git
+# git clone https://github.com/rafa-99/slstatus.git
+# git clone https://github.com/rafa-99/xmouseless.git
 
 cd "$SRC"/dmenu && git pull ;
 cd "$SRC"/dwm && git pull ;
 cd "$SRC"/slock && git pull ;
 cd "$SRC"/st && git pull ;
-
-if [ "$KERNEL" = "Linux" ]; then
-	cd "$SRC"/farbfeld && git pull ;
-	cd "$SRC"/sent && git pull ;
-	cd "$SRC"/slstatus && git pull ;
-	cd "$SRC"/xmouseless && git pull ;
-fi
+# cd "$SRC"/farbfeld && git pull ;
+# cd "$SRC"/sent && git pull ;
+# cd "$SRC"/slstatus && git pull ;
+# cd "$SRC"/xmouseless && git pull ;
 
 ##########################
 # Setting Configurations #
@@ -67,10 +61,7 @@ cd "$SRC"/dwm && git pull ; sudo make clean install ; make clean
 cd "$SRC"/dmenu && git pull ; sudo make clean install ; make clean
 cd "$SRC"/slock && git pull ; sudo make clean install ; make clean
 cd "$SRC"/st && git pull ; sudo make clean install ; make clean
-
-if [ "$KERNEL" = "Linux" ]; then
-	cd "$SRC"/farbfeld && git pull ; sudo make clean install ; make clean
-	cd "$SRC"/sent && git pull ; sudo make clean install ; make clean
-	cd "$SRC"/slstatus && git pull ; sudo make clean install ; make clean
-	cd "$SRC"/xmouseless && git pull ; sudo make clean install ; make clean
-fi
+# cd "$SRC"/farbfeld && git pull ; sudo make clean install ; make clean
+# cd "$SRC"/sent && git pull ; sudo make clean install ; make clean
+# cd "$SRC"/slstatus && git pull ; sudo make clean install ; make clean
+# cd "$SRC"/xmouseless && git pull ; sudo make clean install ; make clean

@@ -56,13 +56,14 @@
       - mpc
       - mpd
       - mpv
+      - ncmpcpp
       - neofetch
       - neovim
       - newsboat
       - net-tools
       - nodejs
       - npm
-      - ncmpcpp
+      - nsxiv
       - obs-studio
       - p7zip
       - pavucontrol
@@ -75,7 +76,6 @@
       - shellcheck
       - stow
       - swtpm
-      - sxiv
       - texlive-lang-portuguese
       - texlive-xetex
       - transmission

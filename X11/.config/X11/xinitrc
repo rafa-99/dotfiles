@@ -1,12 +1,5 @@
 #!/bin/sh
 
-# Loading Pipewire if running linux
-if [ "$KERNEL" = "Linux" ]; then
-	# Shell daemons
-	pipewire &
-	pipewire-pulse &
-fi
-
 # Screen Layout in Case of Multi Monitor Setup Required
 [ -f "$XDG_CONFIG_HOME"/X11/layout ] && . "$XDG_CONFIG_HOME"/X11/layout
 
