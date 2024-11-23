@@ -69,6 +69,7 @@
       - picom
       - pipewire-audio
       - pixiewps
+      - qemu-system
       - redshift
       - reaver
       - shellcheck
@@ -161,6 +162,13 @@
     - name: Set zsh as default shell for user
       shell: chsh -s /usr/bin/zsh {{ ansible_user }}
       become: true  # Use root to install these packages
+      
+    - name: Add user to libvirt group
+      user:
+        name: "{{ ansible_user }}"
+        groups: libvirt
+        append: true
+      become: true
 
     # Configure git-lfs for user (run as user)
     - name: Configure git-lfs for user
