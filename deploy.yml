@@ -65,7 +65,9 @@
       - ncmpcpp
       - obs-studio
       - p7zip
+      - pavucontrol
       - picom
+      - pipewire-audio
       - pixiewps
       - redshift
       - reaver
@@ -205,7 +207,7 @@
         line: "Defaults !admin_flag"
         validate: '/usr/sbin/visudo -cf %s'
         state: present
-      become: yes
+      become: true  # Use root to change sudoers file
       
     # Remove unnecessary files
     - name: Remove unnecessary files
@@ -213,6 +215,14 @@
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: absent
       loop: "{{ remove_files }}"
+      
+    # Disable unnecessary services
+    - name: Disable the bettercap system service
+      systemd:
+        name: bettercap
+        enabled: false
+        state: stopped
+      become: true  # Use root to disable bettercap service
       
     # Reboot Schedule
     - name: Schedule reboot in 5 seconds
