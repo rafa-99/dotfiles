@@ -17,7 +17,6 @@
       - shell
       - scripts
       - suckless
-      - sxiv
       - vifm
       - wal
       - X11

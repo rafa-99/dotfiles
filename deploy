@@ -1,3 +1,4 @@
 #!/bin/sh
 
-ansible-playbook -i ansible/inventory.ini ansible/dotfiles.yml
+. shell/.config/shell/env
+ansible-playbook -i inventory.ini dotfiles.yml
