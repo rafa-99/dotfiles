@@ -166,7 +166,7 @@
       become: true
 
     # Install ext packages (run as root)
-    - name: Install necessary packages
+    - name: Install external packages
       apt:
         clean: true
         name: "{{ ext_packages }}"
