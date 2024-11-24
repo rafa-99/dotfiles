@@ -1,7 +1,8 @@
 ---
 - name: Setup and configure the user's environment with dotfiles
-  hosts: debian
-  
+  hosts: localhost
+  connection: local
+
   vars:
     # List of packages to install
     packages:
@@ -75,11 +76,11 @@
       - zathura
       - zeal
       - zsh
-      
+
     # List of packages to install using pipx
     pipx_packages:
       - pywal
-      
+
     # List of dotfile directories to be deployed using stow
     dotfiles_dirs:
       - fonts
@@ -100,7 +101,7 @@
       - zathura
       - zeal
       - zsh
-      
+
     # List of custom directories to create under user's home directory
     custom_directories:
       - Documents/PDF
@@ -124,7 +125,7 @@
       - .config/mpd/state
       - .config/mpd/sticker.sql
       - .config/X11/Xauthority
-      
+
     # List of files to remove
     remove_files:
       - ".ansible"
@@ -143,11 +144,10 @@
     # Install necessary packages (run as root)
     - name: Install necessary packages
       apt:
-        name: "{{ item }}"
+        name: "{{ packages }}"
         state: present
-      loop: "{{ packages }}"
       become: true  # Use root to install these packages
-      
+
     # Install python packages
     - name: Install Python packages using pipx
       command:
@@ -164,36 +164,7 @@
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: directory
         mode: '0755'
-      loop: "{{ custom_directories }}"
-
-    # Deploy dotfiles using stow (run as user)
-    - name: Deploy dotfiles using stow
-      shell: stow -t {{ ansible_env.HOME }} {{ item }}
-      loop: "{{ dotfiles_dirs }}"
-
-    # Set zsh as default shell for user (run as user)
-    - name: Set zsh as default shell for user
-      shell: chsh -s /usr/bin/zsh {{ ansible_user }}
-      become: true  # Use root to install these packages
-      
-    - name: Add user to libvirt group
-      user:
-        name: "{{ ansible_user }}"
-        groups: libvirt
-        append: true
-      become: true
-
-    # Configure git-lfs for user (run as user)
-    - name: Configure git-lfs for user
-      command: git lfs install
-      
-    # Git configuration task
-    - name: Configure git user and email for user
-      shell: |
-        git config --global user.name "{{ git_user }}"
-        git config --global user.email "{{ git_email }}"
-        git config --global pull.rebase false
-        mv {{ ansible_env.HOME }}/.gitconfig {{ ansible_env.HOME }}/.config/git/config
+      with_items: "{{ custom_directories }}"
 
     # Ensure specified files are created (touch them if they do not exist)
     - name: Ensure specified files are created
@@ -201,7 +172,35 @@
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: touch
         mode: '0644'
-      loop: "{{ touch_files }}"
+      with_items: "{{ touch_files }}"
+
+    # Deploy dotfiles using stow (run as user)
+    - name: Deploy dotfiles using stow
+      shell: stow -t {{ ansible_env.HOME }} {{ dotfiles_dirs | join(' ') }}
+
+    # Set zsh as default shell for user (run as user)
+    - name: Set zsh as default shell for user
+      shell: chsh -s /usr/bin/zsh {{ ansible_env.USER }}
+      become: true  # Use root to install these packages
+
+    - name: Add user to libvirt group
+      user:
+        name: "{{ ansible_env.USER }}"
+        groups: libvirt
+        append: true
+      become: true
+
+    # Configure git-lfs for user (run as user)
+    - name: Configure git-lfs for user
+      command: git lfs install
+
+    # Git configuration task
+    - name: Configure git user and email for user
+      shell: |
+        git config --global user.name "{{ git_user }}"
+        git config --global user.email "{{ git_email }}"
+        git config --global pull.rebase false
+        mv {{ ansible_env.HOME }}/.gitconfig {{ ansible_env.HOME }}/.config/git/config
 
     # Run the compileSource script from ~/.local/src (requires root permissions)
     - name: Run compileSource script from ~/.local/src
@@ -219,7 +218,7 @@
     - name: Install Neovim plugins
       shell: |
         nvim --headless +PlugInstall +qall
-        
+
     # Remove the .sudo_as_admin_successful file from the $HOME directory
     - name: Disable ~/.sudo_as_admin_successful file
       lineinfile:
@@ -228,14 +227,14 @@
         validate: '/usr/sbin/visudo -cf %s'
         state: present
       become: true  # Use root to change sudoers file
-      
+
     # Remove unnecessary files
     - name: Remove unnecessary files
       file:
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: absent
-      loop: "{{ remove_files }}"
-      
+      with_items: "{{ remove_files }}"
+
     # Disable unnecessary services
     - name: Disable the bettercap system service
       systemd:
@@ -243,7 +242,7 @@
         enabled: false
         state: stopped
       become: true  # Use root to disable bettercap service
-      
+
     # Reboot Schedule
     - name: Schedule reboot in 5 seconds
       shell: "sleep 5 && reboot"
