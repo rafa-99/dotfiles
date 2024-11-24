@@ -206,16 +206,6 @@
       shell: "{{ ansible_env.HOME }}/.local/src/compileSource"
       args:
         chdir: "{{ ansible_env.HOME }}/.local/src"  # Make sure to run the script from the correct directory
-      become: true  # This ensures that the script is run with root privileges, if needed
-      
-    # Setting file ownership recursively
-    - name: Change ownership recursively back to the user
-      file:
-        path: "{{ ansible_env.HOME }}/.local/src"
-        owner: "{{ ansible_user }}"
-        recurse: true
-        state: directory
-      become: true
 
     # Install neovim plug plugin manager (run as user)
     - name: Install Neovim plugin manager (vim-plug)

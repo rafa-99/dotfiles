@@ -1,7 +1,8 @@
 # dotfiles
 My personal system configuration, deployed by Ansible and Managed using GNU Stow
 
-## Requirements
+## Requirements & Dependencies
+* User in the sudo group
 * ansible
 
 ## Deployment
