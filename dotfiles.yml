@@ -3,27 +3,6 @@
   hosts: debian
 
   vars:
-    # List of dotfile directories to be deployed using stow
-    dotfiles_dirs:
-      - fonts
-      - keepass
-      - misc
-      - mpd
-      - ncmpcpp
-      - newsboat
-      - neovim
-      - npm
-      - picom
-      - shell
-      - scripts
-      - suckless
-      - vifm
-      - wal
-      - X11
-      - zathura
-      - zeal
-      - zsh
-
     # List of packages to install
     packages:
       - aircrack-ng
@@ -60,6 +39,7 @@
       - neovim
       - newsboat
       - net-tools
+      - network-manager
       - nodejs
       - npm
       - nsxiv
@@ -68,6 +48,7 @@
       - pavucontrol
       - picom
       - pipewire-audio
+      - pipx
       - pixiewps
       - qemu-system
       - redshift
@@ -92,7 +73,32 @@
       - zathura
       - zeal
       - zsh
-
+      
+    # List of packages to install using pipx
+    pipx_packages:
+      - pywal
+      
+    # List of dotfile directories to be deployed using stow
+    dotfiles_dirs:
+      - fonts
+      - keepass
+      - misc
+      - mpd
+      - ncmpcpp
+      - newsboat
+      - neovim
+      - npm
+      - picom
+      - shell
+      - scripts
+      - suckless
+      - vifm
+      - wal
+      - X11
+      - zathura
+      - zeal
+      - zsh
+      
     # List of custom directories to create under user's home directory
     custom_directories:
       - Documents/PDF
@@ -139,6 +145,12 @@
         state: present
       loop: "{{ packages }}"
       become: true  # Use root to install these packages
+      
+    # Install python packages
+    - name: Install Python packages using pipx
+      command:
+        cmd: pipx install "{{ item }}"
+      loop: "{{ pipx_packages }}"
 
     # Ensure the XDG user directories are created
     - name: Update XDG user directories
@@ -195,6 +207,14 @@
       args:
         chdir: "{{ ansible_env.HOME }}/.local/src"  # Make sure to run the script from the correct directory
       become: true  # This ensures that the script is run with root privileges, if needed
+      
+    # Setting file ownership recursively
+    - name: Change ownership recursively back to the user
+      file:
+        path: "{{ ansible_env.HOME }}/.local/src"
+        owner: "{{ ansible_user }}"
+        recurse: true
+      become: true
 
     # Install neovim plug plugin manager (run as user)
     - name: Install Neovim plugin manager (vim-plug)

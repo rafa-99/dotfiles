@@ -8,6 +8,7 @@ export BROWSER="librewolf"
 export READER="zathura"
 export FILE="vifmrun"
 export NEWS="newsboat"
+export LAUNCHER="dmenu_run"
 
 # Home directory clean-up
 export XDG_CONFIG_HOME="$HOME"/.config

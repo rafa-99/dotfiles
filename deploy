@@ -1,4 +1,3 @@
 #!/bin/sh
 
-. shell/.config/shell/env
 ansible-playbook -i inventory.ini dotfiles.yml
