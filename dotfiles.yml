@@ -4,6 +4,10 @@
   connection: local
 
   vars:
+    # Git configuration variables
+    git_user: "user"  # Replace with the actual user name
+    git_email: "user@example.com"  # Replace with the actual user email
+
     # List of packages to install
     packages:
       - aircrack-ng
@@ -77,9 +81,19 @@
       - zeal
       - zsh
 
+    # List of external packages to install
+    ext_packages:
+      - codium
+      - librewolf
+
     # List of packages to install using pipx
     pipx_packages:
       - pywal
+
+    # List of external repos to enable
+    ext_repos:
+      - vscodium
+      - librewolf
 
     # List of dotfile directories to be deployed using stow
     dotfiles_dirs:
@@ -136,10 +150,6 @@
       - ".profile"
       - ".sudo_as_admin_successful"
 
-    # Git configuration variables
-    git_user: "user"  # Replace with the actual user name
-    git_email: "user@example.com"  # Replace with the actual user email
-
   tasks:
     # Install necessary packages (run as root)
     - name: Install necessary packages
@@ -148,11 +158,27 @@
         state: present
       become: true  # Use root to install these packages
 
+    # Enable extrepos
+    - name: Enable extrepos
+      command: 
+        cmd: extrepo enable "{{ item }}"
+      with_items: "{{ ext_repos }}"
+      become: true
+
+    # Install ext packages (run as root)
+    - name: Install necessary packages
+      apt:
+        clean: true
+        name: "{{ ext_packages }}"
+        state: present
+        update_cache: true
+      become: true  # Use root to install these packages
+
     # Install python packages
     - name: Install Python packages using pipx
       command:
         cmd: pipx install "{{ item }}"
-      loop: "{{ pipx_packages }}"
+      with_items: "{{ pipx_packages }}"
 
     # Ensure the XDG user directories are created
     - name: Update XDG user directories
@@ -248,4 +274,4 @@
       shell: "sleep 5 && reboot"
       async: 1
       poll: 0
-      become: yes
+      become: true
