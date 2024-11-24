@@ -1,19 +1,13 @@
 /* See LICENSE file for copyright and license details. */
-
 #include "colors.h"
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappih    = 5;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 5;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 5;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 5;       /* vert outer gap between windows and screen edge */
-static int smartgaps                = 0;        /* 1 means no outer gap when there is only one window */
-static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "CaskaydiaCove Nerd Font:pixelsize=16" };
+static const char *fonts[]          = { "monospace:size=14" };
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { norm_fg, norm_bg, norm_border }, // Unfocused Windows
@@ -28,10 +22,8 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   isterminal  noswallow  monitor */
-	{ NULL,       NULL,       NULL,       0,            False,       0,          0,         -1 },
-	{ "st",       NULL,       NULL,       0,            False,       1,          -1,        -1 },
-
+	/* class      instance    title       tags mask     isfloating   monitor */
+	{ NULL,       NULL,       NULL,       0,            0,           -1 },
 };
 
 /* layout(s) */
@@ -39,9 +31,6 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
-
-//#define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
-#include "vanitygaps.c"
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -51,9 +40,6 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define ALTKEY Mod1Mask
-#define CTRLKEY ControlMask
-#define SHIFTKEY ShiftMask
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -64,47 +50,39 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+/* commands */
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	/* Managing Windows */
+
+	/* Window Management */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY|CTRLKEY,               XK_p,      incnmaster,     {.i = +1 } },
-	{ MODKEY|CTRLKEY,               XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY|CTRLKEY,               XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY|CTRLKEY,               XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY|ControlMask,           XK_p,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ControlMask,           XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ControlMask,           XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY|ControlMask,           XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_space,  zoom,           {0} },
-	{ MODKEY|SHIFTKEY,              XK_q,      killclient,     {0} },
-	{ MODKEY|SHIFTKEY,              XK_x,      quit,           {0} },
-	{ MODKEY|SHIFTKEY,              XK_r,      quit,           {1} },
-	{ MODKEY,                       XK_Down,   moveresize,     {.v = "0x 25y 0w 0h" } },
-	{ MODKEY,                       XK_Up,     moveresize,     {.v = "0x -25y 0w 0h" } },
-	{ MODKEY,                       XK_Right,  moveresize,     {.v = "25x 0y 0w 0h" } },
-	{ MODKEY,                       XK_Left,   moveresize,     {.v = "-25x 0y 0w 0h" } },
-	{ MODKEY|CTRLKEY,               XK_Down,   moveresize,     {.v = "0x 0y 0w 25h" } },
-	{ MODKEY|CTRLKEY,               XK_Up,     moveresize,     {.v = "0x 0y 0w -25h" } },
-	{ MODKEY|CTRLKEY,               XK_Right,  moveresize,     {.v = "0x 0y 25w 0h" } },
-	{ MODKEY|CTRLKEY,               XK_Left,   moveresize,     {.v = "0x 0y -25w 0h" } },
-
-	/* Managing Gaps */
-	{ MODKEY|ALTKEY,                XK_period, incrgaps,       {.i = +1 } },
-	{ MODKEY|ALTKEY,                XK_comma,  incrgaps,       {.i = -1 } },
-	{ MODKEY|ALTKEY,                XK_t,      togglegaps,     {0} },
-	{ MODKEY|ALTKEY,                XK_d,      defaultgaps,    {0} },
-
-	/* Managing Tags and Status Bar */
-	{ MODKEY,                       XK_h,      viewtoleft,     {0} },
-	{ MODKEY,                       XK_l,      viewtoright,    {0} },
+	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|SHIFTKEY,              XK_h,      tagtoleft,      {0} },
-	{ MODKEY|SHIFTKEY,              XK_l,      tagtoright,     {0} },
-	{ MODKEY|SHIFTKEY,              XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|SHIFTKEY,              XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_x,      quit,           {0} },
+	{ MODKEY,                       XK_h,      viewtoleft,     {0} },
+	{ MODKEY,                       XK_l,      viewtoright,    {0} },
+	{ MODKEY|ShiftMask,             XK_h,      tagtoleft,      {0} },
+	{ MODKEY|ShiftMask,             XK_l,      tagtoright,     {0} },
+
+	/* Bar Management */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY|Mod1Mask,              XK_1,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|Mod1Mask,              XK_2,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|Mod1Mask,              XK_3,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|Mod1Mask,                       XK_space,  togglefloating, {0} },
+	{ MODKEY|Mod1Mask,              XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|SHIFTKEY,              XK_0,      tag,            {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -115,51 +93,12 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 
-	/* Managing Layouts */
-	{ MODKEY|ALTKEY,                XK_1,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY|ALTKEY,                XK_2,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY|ALTKEY,                XK_3,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY|ALTKEY,                XK_space,  togglefloating, {0} },
-
-	/* Regular Apps */
-	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_run -i") },//dmenu
-	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
-	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },//Web-Browser
-	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e $FILE") },//File Manager
-	{ MODKEY,                       XK_n,      spawn,          SHCMD("$TERMINAL -e $NEWS") },//News Manager
-	{ MODKEY|SHIFTKEY,              XK_d,      spawn,          SHCMD("$TERMINAL -e $DOCS") },//Dotfiles Documentation
-
-	/* Scripts */
-	{ MODKEY,                       XK_s,      spawn,          SHCMD("search") },//Quick Web Search
-	{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
-	{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
-	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
-	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
-	{ MODKEY,                       XK_c,      spawn,          SHCMD("colorpick") },//Color Picker
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("screenshot") },//Screenshot Tool Script
-	{ MODKEY|SHIFTKEY,              XK_p,      spawn,          SHCMD("passmenu") },//Opens PassMenu Password Manager
-	{ MODKEY|SHIFTKEY,              XK_s,      spawn,          SHCMD("screenkeys") },//Enable Screenkeys
-	{ MODKEY,                       XK_v,      spawn,          SHCMD("yt") },//Youtube
-	{ MODKEY,                       XK_t,      spawn,          SHCMD("switchLayout") },//Switches Between Keyboard Layouts
-	{ MODKEY,                       XK_x,      spawn,          SHCMD("xmouseless") },//Initializes virtual mouse
-	{ MODKEY|SHIFTKEY,              XK_w,      spawn,          SHCMD("$TERMINAL -e weather") },//Shows the weather state
-
-	/* Quick Actions */
-	{ MODKEY,                       XK_F1,     spawn,          SHCMD("mixer t") },//Toggle Mute
-	{ MODKEY,                       XK_F2,     spawn,          SHCMD("mixer -") },//Decrease Volume by 5%
-	{ MODKEY,                       XK_F3,     spawn,          SHCMD("mixer +") },//Increase Volume by 5%
-	{ MODKEY,                       XK_F4,     spawn,          SHCMD("mixer m") },//Toggle Mic Mute
-	{ MODKEY,                       XK_F5,     spawn,          SHCMD("backlightctl -") },//Decrease Brightness by 5%
-	{ MODKEY,                       XK_F6,     spawn,          SHCMD("backlightctl +") },//Increase Brightness by 5%
-	{ MODKEY,                       XK_F7,     spawn,          SHCMD("bluelight") },//Toggle Bluelight Filter
-	{ MODKEY,                       XK_F8,     spawn,          SHCMD("screenrecord") },//Screen Recording Script
-	{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
-	{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
-	{ MODKEY,                       XK_F11,    spawn,          SHCMD("mpc prev") },//Music Previous
-	{ MODKEY,                       XK_F12,    spawn,          SHCMD("mpc next") },//Music Next
-	{ 0,                            XF86XK_AudioLowerVolume,   spawn,          SHCMD("mixer -") },//Decrease Volume by 5%
-	{ 0,                            XF86XK_AudioRaiseVolume,   spawn,          SHCMD("mixer +") },//Increase Volume by 5%
-	{ 0,                            XF86XK_AudioMute,          spawn,          SHCMD("mixer t") },//Toggle Mute
+	/* Program Management */
+	{ MODKEY,                       XK_d,      spawn,          SHCMD("$LAUNCHER") },
+	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },
+	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e $FILE") },
+	{ MODKEY,                       XK_n,      spawn,          SHCMD("$TERMINAL -e $NEWS") },
 };
 
 /* button definitions */
@@ -167,6 +106,7 @@ static const Key keys[] = {
 static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+	{ ClkStatusText,        0,              Button2,        spawn,          SHCMD("$TERMINAL") },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },

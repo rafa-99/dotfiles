@@ -34,7 +34,7 @@ cd "$SRC"/st && git pull ;
 ##########################
 
 # [ ! -f "$SRC"/dmenu/config.h ] && cp -rf "$HOME"/.config/suckless/dmenu/config.h "$SRC"/dmenu/ ;
-# [ ! -f "$SRC"/dwm/config.h ] && cp -rf "$HOME"/.config/suckless/dwm/config.h "$SRC"/dwm/ ;
+[ ! -f "$SRC"/dwm/config.h ] && cp -rf "$HOME"/.config/suckless/dwm/config.h "$SRC"/dwm/ ;
 # [ ! -f "$SRC"/slock/config.h ] && cp -rf "$HOME"/.config/suckless/slock/config.h "$SRC"/slock/ ;
 # [ ! -f "$SRC"/st/config.h ] && cp -rf "$HOME"/.config/suckless/st/config.h "$SRC"/st/ ;
 # 
