@@ -59,6 +59,7 @@
       - texlive-lang-portuguese
       - texlive-xetex
       - transmission
+      - udisks2
       - ueberzug
       - unoconv
       - vifm
