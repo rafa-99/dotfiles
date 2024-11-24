@@ -1,7 +1,7 @@
 ---
 - name: Setup and configure the user's environment with dotfiles
   hosts: debian
-
+  
   vars:
     # List of packages to install
     packages:
@@ -28,6 +28,7 @@
       - libx11-dev
       - libxft-dev
       - libxinerama-dev
+      - libxrandr-dev
       - maim
       - man
       - mdk4
@@ -51,13 +52,13 @@
       - pipx
       - pixiewps
       - qemu-system
-      - redshift
       - reaver
+      - redshift
       - shellcheck
       - stow
       - swtpm
-      - texlive-lang-portuguese
       - texlive-xetex
+      - texlive-lang-portuguese
       - transmission
       - udisks2
       - ueberzug
