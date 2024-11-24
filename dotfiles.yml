@@ -214,6 +214,7 @@
         path: "{{ ansible_env.HOME }}/.local/src"
         owner: "{{ ansible_user }}"
         recurse: true
+        state: directory
       become: true
 
     # Install neovim plug plugin manager (run as user)
