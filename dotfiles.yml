@@ -67,7 +67,6 @@
       - texlive-xetex
       - texlive-lang-portuguese
       - transmission
-      - ttf-mscorefonts-installer
       - udisks2
       - ueberzug
       - unoconv
