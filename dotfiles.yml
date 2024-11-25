@@ -40,6 +40,7 @@
       - libxft-dev
       - libxinerama-dev
       - libxrandr-dev
+      - libxtst-dev
       - maim
       - man
       - mdk4
