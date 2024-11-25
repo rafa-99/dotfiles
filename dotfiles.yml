@@ -25,6 +25,7 @@
       - git
       - git-lfs
       - gimp
+      - gource
       - htop
       - imagemagick
       - iw
