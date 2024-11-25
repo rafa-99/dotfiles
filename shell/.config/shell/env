@@ -58,7 +58,7 @@ export KDEHOME="$XDG_CONFIG_HOME"/kde
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 export SPACEMACSDIR="$XDG_CONFIG_HOME"/spacemacs
 export VSCODE_PORTABLE="$XDG_DATA_HOME"/vscode
-export WAL_THEME="$XDG_CONFIG_HOME"/wal/one_dark.json
+export WAL_THEME="$XDG_CONFIG_HOME"/wal/tokyonight_storm.json
 
 # Default Vars
 export SUDO_ASKPASS="$HOME"/.local/bin/askpass

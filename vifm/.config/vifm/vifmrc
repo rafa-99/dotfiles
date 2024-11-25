@@ -240,7 +240,7 @@ fileviewer *.[1-8] man ./%c | col -b
 " Images
 
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.webp,*.xpm
-        \ sxiv %f
+        \ nsxiv %f
 
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.webp,*.xpm
         \ vifmimg draw %px %py %pw %ph %c
@@ -421,7 +421,7 @@ set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.pp
 " Sample mappings
 
 " Gallery Mode
-nnoremap gl :!sxiv -t *<cr>
+nnoremap gl :!nsxiv -t *<cr>
 
 " Set Wallpaper
 nnoremap wp :!colorset %d/%c<cr>

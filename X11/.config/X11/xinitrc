@@ -5,8 +5,7 @@
 
 slstatus &
 xwallpaper --stretch "$WALLPAPER" &
-picom --config "$XDG_CONFIG_HOME"/picom/picom.conf &
-lxsession &
+picom &
 xset s off
 xset -dpms
 setxkbmap -option caps:super
