@@ -5,7 +5,6 @@
 ###################
 
 SRC=$(pwd)
-KERNEL=$(uname)
 
 #################################
 # Cloning and Cleaning Programs #
@@ -14,11 +13,13 @@ KERNEL=$(uname)
 git clone https://github.com/rafa-99/dmenu.git
 git clone https://github.com/rafa-99/dwm.git
 git clone https://github.com/rafa-99/st.git
+git clone https://github.com/rafa-99/slstatus.git
 git clone https://github.com/rafa-99/xmouseless.git
 
 cd "$SRC"/dmenu && git pull ;
 cd "$SRC"/dwm && git pull ;
 cd "$SRC"/st && git pull ;
+cd "$SRC"/slstatus && git pull ;
 cd "$SRC"/xmouseless && git pull ;
 
 ##########################
@@ -37,4 +38,5 @@ cd "$SRC"/xmouseless && git pull ;
 cd "$SRC"/dwm && git pull ; sudo make clean install ; make clean
 cd "$SRC"/dmenu && git pull ; sudo make clean install ; make clean
 cd "$SRC"/st && git pull ; sudo make clean install ; make clean
+cd "$SRC"/slstatus && git pull ; sudo make clean install ; make clean
 cd "$SRC"/xmouseless && git pull ; sudo make clean install ; make clean
