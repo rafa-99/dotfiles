@@ -7,10 +7,6 @@ neovim/.config/nvim/*
 !neovim/.config/nvim/init.vim
 !neovim/.config/nvim/confs
 
-# Path Folder
-scripts/.local/bin/vim
-scripts/.local/bin/firefox
-
 # Suckless Software
 suckless/.local/src
 !suckless/.local/src/compileSource
@@ -28,10 +24,6 @@ gtk/.config/gtk-3.0/*
 # ZSH Files
 zsh/.config/zsh/.zcompdump
 
-# Qutebrowser
-qutebrowser/.config/qutebrowser/*
-!qutebrowser/.config/qutebrowser/autoconfig.yml
-
 # MPD Configs
 !mpd/.config/mpd/mpd.conf
 !mpd/.config/playlists/molho
@@ -41,13 +33,6 @@ mpd/.config/mpd
 ncmpcpp/.config/ncmpcpp
 !ncmpcpp/.config/ncmpcpp/bindings
 !ncmpcpp/.config/ncmpcpp/config
-
-# Fonts
-fonts/.local/share/fonts/.uuid
-fonts/.local/share/fonts/Windows/.uuid
-
-# Keepass
-keepass/.config/keepassxc/keepassxc.ini
 
 # Zeal
 zeal/.config/Zeal/Zeal.conf

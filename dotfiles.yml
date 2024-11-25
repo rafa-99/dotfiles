@@ -78,6 +78,7 @@
       - vifm
       - virt-manager
       - wpasupplicant
+      - xbacklight
       - xclip
       - xdg-user-dirs
       - xinit
@@ -174,7 +175,7 @@
 
     # Enable extrepos
     - name: Enable extrepos
-      command: 
+      command:
         cmd: extrepo enable "{{ item }}"
       with_items: "{{ ext_repos }}"
       become: true
@@ -216,7 +217,7 @@
     # Deploy dotfiles using stow (run as user)
     - name: Deploy dotfiles using stow
       shell: stow -t {{ ansible_env.HOME }} {{ dotfiles_dirs | join(' ') }}
-      
+
     # Ensure specified files are created (touch them if they do not exist)
     - name: Ensure specified files are created
       file:
