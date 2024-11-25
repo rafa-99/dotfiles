@@ -20,7 +20,6 @@ set laststatus=1
 " Highlight Colors
 highlight Pmenu ctermbg=none guibg=none
 highlight ColorColumn ctermbg=gray guibg=gray
-highlight GitSignsCurrentLineBlame ctermfg=lightgray guifg=lightgray
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e

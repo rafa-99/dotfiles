@@ -39,9 +39,6 @@ nnoremap <C-h> :bprev<CR>
 nnoremap <C-w> :bdel<CR>
 
 lua << EOF
-	-- Documentation view on hover
-	vim.keymap.set("n", "K", require("hover").hover, {desc = "hover.nvim"})
-
 	-- Rename Symbol
 	vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
 EOF
