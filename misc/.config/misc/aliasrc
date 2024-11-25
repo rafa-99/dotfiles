@@ -13,19 +13,14 @@ alias grep='grep -i' \
 	ytmp4='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"' \
 	patchd='patch -p1 <' \
 	mkdiff='diff -u' \
-	del='rm -rf' \
-	copy='cp -rf' \
 	clip='xclip -selection clipboard' \
 	trim='convert -trim' \
 	trans='convert -transparent -fuzz' \
-	synclock='doas ntpdate pt.pool.ntp.org && doas hwclock --systohc' \
 	x='7z x' \
 	e='$EDITOR' \
 	g='sxiv -t *' \
-	format='clang-format -i -style=GNU' \
 	fm='$FILE' \
 	dl='curl -LO' \
 	m='udisksctl mount -b' \
 	u='udisksctl unmount -b' \
-	fixpg='find "$GNUPGHOME" -type f | xargs -I {} chmod 600 {} && find "$GNUPGHOME" -type d | xargs -I {} chmod 700 {}' \
 	pyenv='python -m venv $PYENV && . "$PYENV"/bin/activate'

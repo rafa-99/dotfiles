@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ansible-playbook dotfiles.yml --ask-become-pass

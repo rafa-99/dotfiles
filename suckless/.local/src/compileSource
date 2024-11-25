@@ -13,33 +13,13 @@ KERNEL=$(uname)
 
 git clone https://github.com/rafa-99/dmenu.git
 git clone https://github.com/rafa-99/dwm.git
-git clone https://github.com/rafa-99/pkg.git
-git clone https://github.com/rafa-99/queryt.git
-git clone https://github.com/rafa-99/slock.git
 git clone https://github.com/rafa-99/st.git
-
-if [ "$KERNEL" = "Linux" ]; then
-	git clone https://github.com/rafa-99/farbfeld.git
-	git clone https://github.com/rafa-99/surf.git
-	git clone https://github.com/rafa-99/sent.git
-	git clone https://github.com/rafa-99/slstatus.git
-	git clone https://github.com/rafa-99/xmouseless.git
-fi
+git clone https://github.com/rafa-99/xmouseless.git
 
 cd "$SRC"/dmenu && git pull ;
 cd "$SRC"/dwm && git pull ;
-cd "$SRC"/pkg && git pull ;
-cd "$SRC"/queryt && git pull ;
-cd "$SRC"/slock && git pull ;
 cd "$SRC"/st && git pull ;
-
-if [ "$KERNEL" = "Linux" ]; then
-	cd "$SRC"/farbfeld && git pull ;
-	cd "$SRC"/surf && git pull ;
-	cd "$SRC"/sent && git pull ;
-	cd "$SRC"/slstatus && git pull ;
-	cd "$SRC"/xmouseless && git pull ;
-fi
+cd "$SRC"/xmouseless && git pull ;
 
 ##########################
 # Setting Configurations #
@@ -47,41 +27,14 @@ fi
 
 [ ! -f "$SRC"/dmenu/config.h ] && cp -rf "$HOME"/.config/suckless/dmenu/config.h "$SRC"/dmenu/ ;
 [ ! -f "$SRC"/dwm/config.h ] && cp -rf "$HOME"/.config/suckless/dwm/config.h "$SRC"/dwm/ ;
-[ ! -f "$SRC"/slock/config.h ] && cp -rf "$HOME"/.config/suckless/slock/config.h "$SRC"/slock/ ;
 [ ! -f "$SRC"/st/config.h ] && cp -rf "$HOME"/.config/suckless/st/config.h "$SRC"/st/ ;
-
-if [ "$KERNEL" = "Linux" ]; then
-	[ ! -f "$SRC"/surf/src/config.h ] && cp -rf "$HOME"/.config/suckless/surf/config.h "$SRC"/surf/ ;
-	[ ! -f "$SRC"/sent/config.h ] && cp -rf "$HOME"/.config/suckless/sent/config.h "$SRC"/sent/ ;
-	[ ! -f "$SRC"/slstatus/config.h ] && cp -rf "$HOME"/.config/suckless/slstatus/config.h "$SRC"/slstatus/ ;
-	[ ! -f "$SRC"/xmouseless/config.h ] && cp -rf "$HOME"/.config/suckless/xmouseless/config.h "$SRC"/xmouseless/ ;
-else
-	#################
-	# Apply Patches #
-	#################
-
-	cd "$SRC"/dwm && cat "$HOME"/.config/suckless/patches/dwm-openbsd.patch | patch -p1
-	cd "$SRC"/dmenu && cat "$HOME"/.config/suckless/patches/dmenu-openbsd.patch | patch -p1
-	cd "$SRC"/queryt && cat "$HOME"/.config/suckless/patches/queryt-openbsd.patch | patch -p1
-	cd "$SRC"/slock && cat "$HOME"/.config/suckless/patches/slock-openbsd.patch | patch -p1
-	cd "$SRC"/st && cat "$HOME"/.config/suckless/patches/st-openbsd.patch | patch -p1
-fi
+[ ! -f "$SRC"/xmouseless/config.h ] && cp -rf "$HOME"/.config/suckless/xmouseless/config.h "$SRC"/xmouseless/ ;
 
 ########################
 # Recompiling Programs #
 ########################
 
-cd "$SRC"/dwm && git pull ; doas make clean install ; make clean
-cd "$SRC"/dmenu && git pull ; doas make clean install ; make clean
-cd "$SRC"/pkg && git pull ; doas make clean install ; make clean
-cd "$SRC"/queryt && git pull ; doas make clean install ; make clean
-cd "$SRC"/slock && git pull ; doas make clean install ; make clean
-cd "$SRC"/st && git pull ; doas make clean install ; make clean
-
-if [ "$KERNEL" = "Linux" ]; then
-	cd "$SRC"/farbfeld && git pull ; doas make clean install ; make clean
-	cd "$SRC"/surf && git pull ; doas make clean install ; make clean
-	cd "$SRC"/sent && git pull ; doas make clean install ; make clean
-	cd "$SRC"/slstatus && git pull ; doas make clean install ; make clean
-	cd "$SRC"/xmouseless && git pull ; doas make clean install ; make clean
-fi
+cd "$SRC"/dwm && git pull ; sudo make clean install ; make clean
+cd "$SRC"/dmenu && git pull ; sudo make clean install ; make clean
+cd "$SRC"/st && git pull ; sudo make clean install ; make clean
+cd "$SRC"/xmouseless && git pull ; sudo make clean install ; make clean
