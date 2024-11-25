@@ -8,6 +8,10 @@
     git_user: "user"  # Replace with the actual user name
     git_email: "user@example.com"  # Replace with the actual user email
 
+    # List of packages to purge
+    remove_packages:
+      - ifupdown
+
     # List of packages to install
     packages:
       - aircrack-ng
@@ -151,6 +155,15 @@
       - ".sudo_as_admin_successful"
 
   tasks:
+
+    # Purge unnecessary packages (run as root)
+    - name: Purge packages
+      apt:
+        name: "{{ remove_packages }}"
+        state: absent
+        purge: true
+      become: true
+
     # Install necessary packages (run as root)
     - name: Install necessary packages
       apt:
@@ -168,11 +181,18 @@
     # Install ext packages (run as root)
     - name: Install external packages
       apt:
-        clean: true
         name: "{{ ext_packages }}"
         state: present
         update_cache: true
       become: true  # Use root to install these packages
+
+    # Clean and remove unnecessary packages
+    - name: Package Maintenance
+      apt:
+        autoremove: true
+        clean: true
+        purge: true
+      become: true
 
     # Install python packages
     - name: Install Python packages using pipx
@@ -268,6 +288,14 @@
         enabled: false
         state: stopped
       become: true  # Use root to disable bettercap service
+
+    # Allow NetworkManager to manage all interfaces
+    - name: Enable NetworkManager to manage all interfaces
+      lineinfile:
+        path: /etc/NetworkManager/NetworkManager.conf
+        regexp: '^#?managed=false'
+        line: 'managed=true'
+      become: true
 
     # Reboot Schedule
     - name: Schedule reboot in 5 seconds
