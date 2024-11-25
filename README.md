@@ -7,4 +7,4 @@ My personal system configuration, deployed by Ansible and Managed using GNU Stow
 
 ## Deployment
 1. Configure your git user inside of the `dotfiles.yml` file
-2. Run `./deploy`
+2. Run `./deploy` (if it asks for BECOME password it's your sudo password)
