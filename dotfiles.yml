@@ -106,6 +106,8 @@
 
     # List of dotfile directories to be deployed using stow
     dotfiles_dirs:
+      - fonts
+      - gtk
       - keepass
       - misc
       - mpd
@@ -117,7 +119,6 @@
       - scripts
       - suckless
       - vifm
-      - wal
       - X11
       - zathura
       - zeal
