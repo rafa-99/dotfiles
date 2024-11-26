@@ -38,6 +38,7 @@
       - iw
       - keepassxc
       - kdenlive
+      - libimlib2-dev
       - libx11-dev
       - libxft-dev
       - libxinerama-dev

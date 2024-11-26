@@ -12,12 +12,14 @@ SRC=$(pwd)
 
 git clone https://github.com/rafa-99/dmenu.git
 git clone https://github.com/rafa-99/dwm.git
+git clone https://github.com/rafa-99/slock.git
 git clone https://github.com/rafa-99/slstatus.git
 git clone https://github.com/rafa-99/st.git
 git clone https://github.com/rafa-99/xmouseless.git
 
 cd "$SRC"/dmenu && git pull ;
 cd "$SRC"/dwm && git pull ;
+cd "$SRC"/slock && git pull ;
 cd "$SRC"/slstatus && git pull ;
 cd "$SRC"/st && git pull ;
 cd "$SRC"/xmouseless && git pull ;
@@ -28,6 +30,7 @@ cd "$SRC"/xmouseless && git pull ;
 
 [ ! -f "$SRC"/dmenu/config.h ] && cp -rf "$HOME"/.config/suckless/dmenu/config.h "$SRC"/dmenu/ ;
 [ ! -f "$SRC"/dwm/config.h ] && cp -rf "$HOME"/.config/suckless/dwm/config.h "$SRC"/dwm/ ;
+[ ! -f "$SRC"/slock/config.h ] && cp -rf "$HOME"/.config/suckless/slock/config.h "$SRC"/slock/ ;
 [ ! -f "$SRC"/slstatus/config.h ] && cp -rf "$HOME"/.config/suckless/slstatus/config.h "$SRC"/slstatus/ ;
 [ ! -f "$SRC"/st/config.h ] && cp -rf "$HOME"/.config/suckless/st/config.h "$SRC"/st/ ;
 [ ! -f "$SRC"/xmouseless/config.h ] && cp -rf "$HOME"/.config/suckless/xmouseless/config.h "$SRC"/xmouseless/ ;
@@ -38,6 +41,7 @@ cd "$SRC"/xmouseless && git pull ;
 
 cd "$SRC"/dwm && git pull ; sudo make clean install ; make clean
 cd "$SRC"/dmenu && git pull ; sudo make clean install ; make clean
+cd "$SRC"/slock && git pull ; sudo make clean install ; make clean
 cd "$SRC"/slstatus && git pull ; sudo make clean install ; make clean
 cd "$SRC"/st && git pull ; sudo make clean install ; make clean
 cd "$SRC"/xmouseless && git pull ; sudo make clean install ; make clean
