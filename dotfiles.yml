@@ -175,13 +175,14 @@
       become: true
 
     # Enabling contrib repos
-    - name: Ensure contrib is added to apt repositories
+    - name: Add contrib to active repositories in sources.list
       lineinfile:
-        path: /etc/apt/sources.list
-        regexp: '^deb (.+) (main|non-free-firmware)( .*)?$'
-        line: 'deb \1 \2 contrib\3'
-        backrefs: yes
-        state: present
+      	path: /etc/apt/sources.list
+      	regexp: '^deb .+ (main|non-free|non-free-firmware)( .*)?$'
+      	line: '{{ item | regex_replace("^(deb .+ (main|non-free|non-free-firmware))", "\\1 contrib") }}'
+      	backrefs: true
+      with_lines: cat /etc/apt/sources.list
+      when: item.startswith('deb') and 'contrib' not in item
       become: true
 
     # Install necessary packages (run as root)
