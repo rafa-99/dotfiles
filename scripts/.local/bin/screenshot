@@ -8,11 +8,11 @@ if [ "$1" = "q" ] || [ "$1" = "quick" ]; then
 	}
 else
 	{
-		INPUT=$(printf "Screen\nSelection" | dmenu -i -p "Screenshot: ")
+		INPUT=$(printf "Screen\nSelection" | dmenu -p "Screenshot: ")
 
 		case "$INPUT" in
 			Screen)
-				SAVE=$(printf "Clipboard\nNote\nPictures Folder" | dmenu -i -p "Save to: ")
+				SAVE=$(printf "Clipboard\nNote\nPictures Folder" | dmenu -p "Save to: ")
 				case "$SAVE" in
 					"Clipboard")
 						maim -u -q -d 1 -m 10 | xclip -selection clipboard -t image/png
@@ -27,7 +27,7 @@ else
 				esac
 				;;
 			Selection)
-				SAVE=$(printf "Clipboard\nNote\nPictures Folder" | dmenu -i -p "Save to: ")
+				SAVE=$(printf "Clipboard\nNote\nPictures Folder" | dmenu -p "Save to: ")
 				case "$SAVE" in
 					"Clipboard")
 						maim -s -u -m 10 | xclip -selection clipboard -t image/png

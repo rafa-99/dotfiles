@@ -20,7 +20,7 @@ else
 		javac "$FILE" ./*.java
 		;;
 	md|rmd)
-		FORMAT=$(printf "PDF\nHTML\nBeamer\nODT\nDOCX\nPPTX\n" | dmenu -i -p "Format:")
+		FORMAT=$(printf "PDF\nHTML\nBeamer\nODT\nDOCX\nPPTX\n" | dmenu -p "Format:")
 		case "$FORMAT" in
 			PDF)
 				pandoc "$FILE" --to latex --from markdown+autolink_bare_uris+tex_math_single_backslash \

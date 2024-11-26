@@ -5,7 +5,7 @@ then
 	killall ffmpeg
 else
 	#FFMPEG Grabs X11 Screen Puts it into a file inside Videos Folder
-	INPUT=$(printf "Video Only\nVideo and Audio\nVideo and Voice\nAudio Only\nVoice Only" | dmenu -i -p "Record: ")
+	INPUT=$(printf "Video Only\nVideo and Audio\nVideo and Voice\nAudio Only\nVoice Only" | dmenu -p "Record: ")
 	case "$INPUT" in
 		"Video Only")
 			ffmpeg -y -f gdigrab -framerate 60 -i :0.0 ~/Videos/Recordings/recording-"$(date '+%Y%m%d_%H%M%S')".mkv

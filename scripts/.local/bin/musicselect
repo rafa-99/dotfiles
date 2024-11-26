@@ -7,4 +7,4 @@ then
 	mpd
 fi
 
-mpc playlist | nl | sed 's:\t:     :g' | dmenu -i -l 20 | awk '{print $1}' | xargs -I {} mpc play "{}"
+mpc playlist | nl | sed 's:\t:     :g' | dmenu -l 20 | awk '{print $1}' | xargs -I {} mpc play "{}"
