@@ -99,15 +99,15 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },// Web Browser
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e $FILE") }, // File Manager
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("$TERMINAL -e $NEWS") }, //RSS Reader
-	{ MODKEY|SHIFTKEY,              XK_w,      spawn,          SHCMD("$TERMINAL -e weather") },//Weather Forecast
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$TERMINAL -e weather") },//Weather Forecast
 	{ MODKEY,                       XK_s,      spawn,          SHCMD("search") },//Quick Web Search
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
-	{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
+	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
 	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
-	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
+	{ MODKEY|ShiftMask,             XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("colorpick") },//Color Picker
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("screenshot") },//Screenshot Tool Script
-	{ MODKEY|SHIFTKEY,              XK_s,      spawn,          SHCMD("screenkeys") },//Enable Screenkeys
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("screenkeys") },//Enable Screenkeys
 	{ MODKEY,                       XK_t,      spawn,          SHCMD("switchLayout") },//Switches Between Keyboard Layouts
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("xmouseless") },//Virtual Mouse
 	
