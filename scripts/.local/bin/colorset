@@ -1,11 +1,6 @@
 #!/bin/sh
 
-if [ $# -eq 0 ]; then
-	wal -f "$WAL_THEME"
-else
-	wal -i "$1"
-fi
-
+wal -i "$1"
 
 # Checking for non-existant dirs
 ! [ -f "$SRC"/colors/dmenu ] && mkdir -p "$SRC"/colors/dmenu
@@ -21,8 +16,6 @@ sed -i s/"$(grep norm_border "$SRC"/colors/dwm/colors.h | cut -d# -f 2 | cut -d\
 # Recompiling Suckless Programs with new colorscheme
 cp -rf "$SRC"/colors/* "$SRC"
 
-if [ $# -gt 0 ]; then
-	walset "$1"
-fi
+walset "$1"
 
 cd "$SRC" && ./compileSource

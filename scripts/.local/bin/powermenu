@@ -4,10 +4,10 @@ OPERATION=$(printf "Reboot\nShutdown\nSuspend" | dmenu -i -p "Power Menu:")
 
 case $OPERATION in
 	Reboot)
-		sudo reboot
+		systemctl reboot
 		;;
 	Shutdown)
-		sudo poweroff
+		systemctl poweroff
 		;;
 	Suspend)
 		slock &

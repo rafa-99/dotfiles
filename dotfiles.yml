@@ -28,6 +28,7 @@
       - ffmpegthumbnailer
       - fonts-noto
       - fonts-symbola
+      - gdebi
       - git
       - git-lfs
       - gimp
@@ -59,19 +60,24 @@
       - nsxiv
       - obs-studio
       - p7zip
+      - pamixer
       - pavucontrol
       - picom
       - pipewire-audio
       - pipx
       - pixiewps
+      - pulsemixer
       - qemu-system
       - reaver
       - redshift
       - shellcheck
+      - screenkey
       - stow
       - swtpm
       - texlive-xetex
       - texlive-lang-portuguese
+      - ttf-mscorefonts-installer
+      - torbrowser-launcher
       - transmission
       - udisks2
       - ueberzug
@@ -168,11 +174,22 @@
         purge: true
       become: true
 
+    # Enabling contrib repos
+    - name: Ensure contrib is added to apt repositories
+      lineinfile:
+        path: /etc/apt/sources.list
+        regexp: '^deb (.+) (main|non-free-firmware)( .*)?$'
+        line: 'deb \1 \2 contrib\3'
+        backrefs: yes
+        state: present
+      become: true
+
     # Install necessary packages (run as root)
     - name: Install necessary packages
       apt:
         name: "{{ packages }}"
         state: present
+        update_cache: true
       become: true  # Use root to install these packages
 
     # Enable extrepos

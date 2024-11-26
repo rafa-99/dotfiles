@@ -1,3 +1,3 @@
 #!/bin/sh
 
-less -R <<< $(curl --silent wttr.in | grep -vi "Follow")
+curl --silent wttr.in | grep -vi "Follow" | less -R
