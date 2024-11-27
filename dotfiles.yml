@@ -179,9 +179,9 @@
     # Enabling contrib repos
     - name: Replace main with main contrib repositories in sources.list
       replace:
-      	path: /etc/apt/sources.list
-      	regexp: ' main '
-      	replace: ' main contrib '
+        path: /etc/apt/sources.list
+        regexp: ' main '
+        replace: ' main contrib '
       become: true
 
     # Install necessary packages (run as root)
