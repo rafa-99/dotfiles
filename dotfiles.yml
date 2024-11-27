@@ -19,6 +19,7 @@
       - arandr
       - arc-theme
       - bettercap
+      - brightnessctl
       - build-essential
       - bully
       - cmatrix
@@ -86,7 +87,6 @@
       - vifm
       - virt-manager
       - wpasupplicant
-      - xbacklight
       - xclip
       - xdg-user-dirs
       - xinit
