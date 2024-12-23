@@ -61,7 +61,7 @@
       - npm
       - nsxiv
       - obs-studio
-      - p7zip
+      - p7zip-full
       - pamixer
       - pavucontrol
       - picom
@@ -78,6 +78,7 @@
       - swtpm
       - texlive-xetex
       - texlive-lang-portuguese
+      - thunderbird
       - ttf-mscorefonts-installer
       - torbrowser-launcher
       - transmission
