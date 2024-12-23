@@ -1,12 +1,14 @@
 #!/bin/sh
 
 # Obtains the current coordinates
-COORDINATES=$(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}')
+COORDINATES=$(curl -s https://ipinfo.io/loc)
+LATITUDE=$(echo $COORDINATES | cut -d',' -f1)
+LONGITUDE=$(echo $COORDINATES | cut -d',' -f2)
 
 #This is a script to turn on bluelight filter
 if pgrep redshift > /dev/null
 then
 	killall redshift
 else
-	redshift -l "$COORDINATES" -m randr
+	redshift -l "$LATITUDE:$LONGITUDE" -m randr
 fi
