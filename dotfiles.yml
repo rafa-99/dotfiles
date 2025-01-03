@@ -39,6 +39,7 @@
       - iw
       - keepassxc
       - kdenlive
+      - latexmk
       - libimlib2-dev
       - libx11-dev
       - libxft-dev
