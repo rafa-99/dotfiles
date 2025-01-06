@@ -75,6 +75,7 @@
       - redshift
       - shellcheck
       - screenkey
+      - spice-vdagent
       - stow
       - swtpm
       - texlive-xetex
