@@ -69,6 +69,7 @@
       - pipewire-audio
       - pipx
       - pixiewps
+      - poppler-utils
       - pulsemixer
       - qemu-system
       - reaver
