@@ -22,7 +22,9 @@
       - brightnessctl
       - build-essential
       - bully
+      - calcurse
       - cmatrix
+      - cups # localhost:631
       - curl
       - extrepo
       - ffmpeg
@@ -34,6 +36,7 @@
       - git-lfs
       - gimp
       - gource
+      - hplip
       - htop
       - imagemagick
       - iw
@@ -76,6 +79,7 @@
       - redshift
       - shellcheck
       - screenkey
+      - simple-scan
       - spice-vdagent
       - stow
       - swtpm

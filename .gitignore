@@ -15,6 +15,7 @@ suckless/.local/src
 vifm/.config/vifm/*
 !vifm/.config/vifm/vifmrc
 !vifm/.config/vifm/scripts
+!vifm/.config/vifm/colors
 
 # ZSH Files
 zsh/.config/zsh/.zcompdump
