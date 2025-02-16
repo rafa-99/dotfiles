@@ -101,7 +101,6 @@
       - xinit
       - xserver-xorg
       - xwallpaper
-      - yt-dlp
       - zathura
       - zeal
       - zsh
@@ -114,6 +113,7 @@
     # List of packages to install using pipx
     pipx_packages:
       - pywal
+      - yt-dlp
 
     # List of external repos to enable
     ext_repos:
