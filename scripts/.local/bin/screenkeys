@@ -4,5 +4,5 @@ if pgrep screenkey$
 then
 	killall screenkey
 else
-	screenkey -M --font-size small
+	screenkey -M --font-size small --scr "$(xrandr --listmonitors | grep -vi Monitors | awk '{ print $1 $2 }' | dmenu -p 'Monitor:' | cut -d: -f1)"
 fi
