@@ -30,7 +30,6 @@
       - ffmpeg
       - ffmpegthumbnailer
       - fonts-noto
-      - fonts-symbola
       - gdebi
       - git
       - git-lfs

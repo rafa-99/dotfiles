@@ -7,7 +7,10 @@ static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "CaskaydiaCove Nerd Font Mono:pixelsize=18" };
+static const char *fonts[]          = {
+	"CaskaydiaCove Nerd Font Mono:pixelsize=18",
+	"Noto Color Emoji:pixelsize=18"
+};
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { norm_fg, norm_bg, norm_border }, // Unfocused Windows
@@ -101,7 +104,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("$TERMINAL -e $NEWS") }, //RSS Reader
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$TERMINAL -e weather") },//Weather Forecast
 	{ MODKEY,                       XK_s,      spawn,          SHCMD("search") },//Quick Web Search
-	{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("emojis") },//Emoji Selector
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
 	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
 	{ MODKEY|ShiftMask,             XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
@@ -110,7 +113,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("screenkeys") },//Enable Screenkeys
 	{ MODKEY,                       XK_t,      spawn,          SHCMD("switchLayout") },//Switches Between Keyboard Layouts
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("xmouseless") },//Virtual Mouse
-	
+
 	/* Quick Actions */
 	{ MODKEY,                       XK_F1,     spawn,          SHCMD("mixer t") },//Toggle Mute
 	{ MODKEY,                       XK_F2,     spawn,          SHCMD("mixer -") },//Decrease Volume by 5%
