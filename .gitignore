@@ -32,3 +32,8 @@ ncmpcpp/.config/ncmpcpp
 
 # Zeal
 zeal/.config/Zeal/Zeal.conf
+
+# surf
+surf/.config/surf
+!surf/.config/surf/scripts/
+!surf/.config/surf/bookmarks
