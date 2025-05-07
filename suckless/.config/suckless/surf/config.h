@@ -1,16 +1,15 @@
 /* modifier 0 means no modifier */
 static int surfuseragent    = 1;  /* Append Surf version to default WebKit user agent */
-static char *fulluseragent  = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"; /* Or override the whole user agent string */
-static char *scriptfile     = "~/.config/surf/script.js";
+static char *fulluseragent  = ""; /* Or override the whole user agent string */
 static char *styledir       = "~/.config/surf/styles/";
 static char *certdir        = "~/.config/surf/certificates/";
 static char *cachedir       = "~/.config/surf/cache/";
 static char *cookiefile     = "~/.config/surf/cookies.txt";
+static char *searchurl      = "https://searxng.rafaelmarcalo.xyz/searxng/search?q=%s";
+#define BMFILE                "~/.config/surf/bookmarks"
 static char *scriptfiles[]  = {
 	"~/.config/surf/scripts/hints.js",
 };
-#define BMFILE                "~/.config/surf/bookmarks"
-static char *searchurl      = "https://searxng.rafaelmarcalo.xyz/searxng/search?q=%s";
 
 /* Webkit default features */
 /* Highest priority value will be used.
