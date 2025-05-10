@@ -10,7 +10,6 @@ static char *scriptfiles[]  = {
 	"~/.config/surf/scripts/hints.js",
 };
 #define BMFILE                "~/.config/surf/bookmarks"
-#define HOMEPAGE              "https://rafaelmarcalo.xyz"
 
 /* Webkit default features */
 /* Highest priority value will be used.
