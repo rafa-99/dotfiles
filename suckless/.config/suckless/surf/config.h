@@ -6,10 +6,11 @@ static char *certdir        = "~/.config/surf/certificates/";
 static char *cachedir       = "~/.config/surf/cache/";
 static char *cookiefile     = "~/.config/surf/cookies.txt";
 static char *searchurl      = "https://searxng.rafaelmarcalo.xyz/searxng/search?q=%s";
-#define BMFILE                "~/.config/surf/bookmarks"
 static char *scriptfiles[]  = {
 	"~/.config/surf/scripts/hints.js",
 };
+#define BMFILE                "~/.config/surf/bookmarks"
+#define HOMEPAGE              "https://rafaelmarcalo.xyz"
 
 /* Webkit default features */
 /* Highest priority value will be used.
