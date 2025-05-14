@@ -4,11 +4,12 @@
 # Default programs
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="librewolf"
+export BROWSER="surf"
 export READER="zathura"
 export FILE="vifmrun"
 export NEWS="newsboat"
 export LAUNCHER="dmenu_run"
+export IMAGE="nsxiv"
 
 # Home directory clean-up
 export XDG_CONFIG_HOME="$HOME"/.config

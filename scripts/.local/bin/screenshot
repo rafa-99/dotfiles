@@ -23,7 +23,7 @@ else
 					"Note")
 						DATE=$(date '+%y%m%d%H%M%S%N')
 						maim -u -q -d 1 -m 10 /tmp/screenshot-"$DATE".png
-						sxiv /tmp/screenshot-"$DATE".png
+						"$IMAGE" /tmp/screenshot-"$DATE".png
 				esac
 				;;
 			Selection)
@@ -38,7 +38,7 @@ else
 					"Note")
 						DATE=$(date '+%y%m%d%H%M%S%N')
 						maim -s -u -m 10 /tmp/screenshot-"$DATE".png
-						sxiv /tmp/screenshot-"$DATE".png
+						"$IMAGE" /tmp/screenshot-"$DATE".png
 				esac
 				;;
 		esac
