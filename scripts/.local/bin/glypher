@@ -1,4 +1,0 @@
-#!/bin/bash
-
-#A menu that selects emojis/glyphs and copies them to the clipboard
-dmenu -l 20 < "$HOME/.config/misc/emojis"| cut -d"|" -f1 | xargs -I {} printf {} | xclip -selection clipboard

@@ -1,3 +1,0 @@
-#!/bin/sh
-
-curl --silent wttr.in | grep -vi "Follow" | less -R

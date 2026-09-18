@@ -4,143 +4,9 @@
   connection: local
 
   vars:
-    # Git configuration variables
-    git_user: "user"  # Replace with the actual user name
-    git_email: "user@example.com"  # Replace with the actual user email
-
-    # List of packages to purge
-    remove_packages:
-      - ifupdown
-
     # List of packages to install
     packages:
-      - aircrack-ng
-      - android-sdk-platform-tools
-      - arandr
-      - arc-theme
-      - bettercap
-      - brightnessctl
-      - build-essential
-      - bully
-      - calcurse
-      - cmatrix
-      - cups # localhost:631
-      - curl
-      - extrepo
-      - ffmpeg
-      - ffmpegthumbnailer
-      - fonts-noto
-      - gdebi
-      - git
-      - git-lfs
-      - gimp
-      - gimp-plugin-registry
-      - gource
-      - hplip
-      - htop
-      - imagemagick
-      - iw
-      - keepassxc
-      - kdenlive
-      - latexmk
-      - libgcr-3-dev
-      - libimlib2-dev
-      - libwebkit2gtk-4.1-dev
-      - libx11-dev
-      - libxft-dev
-      - libxinerama-dev
-      - libxrandr-dev
-      - libxtst-dev
-      - maim
-      - man
-      - mdk4
-      - mpc
-      - mpd
-      - mpv
-      - ncmpcpp
-      - neofetch
       - neovim
-      - newsboat
-      - net-tools
-      - network-manager
-      - nodejs
-      - npm
-      - nsxiv
-      - obs-studio
-      - p7zip-full
-      - pamixer
-      - pavucontrol
-      - picom
-      - pipewire-audio
-      - pipx
-      - pixiewps
-      - poppler-utils
-      - pulsemixer
-      - qemu-system
-      - reaver
-      - redshift
-      - shellcheck
-      - screenkey
-      - simple-scan
-      - spice-vdagent
-      - stow
-      - swtpm
-      - texlive-xetex
-      - texlive-lang-portuguese
-      - thunderbird
-      - ttf-mscorefonts-installer
-      - torbrowser-launcher
-      - transmission
-      - udisks2
-      - ueberzug
-      - unoconv
-      - vifm
-      - virt-manager
-      - wpasupplicant
-      - xclip
-      - xdg-user-dirs
-      - xinit
-      - xserver-xorg
-      - xwallpaper
-      - zathura
-      - zeal
-      - zsh
-
-    # List of external packages to install
-    ext_packages:
-      - codium
-      - librewolf
-
-    # List of packages to install using pipx
-    pipx_packages:
-      - pywal
-      - yt-dlp
-
-    # List of external repos to enable
-    ext_repos:
-      - vscodium
-      - librewolf
-
-    # List of dotfile directories to be deployed using stow
-    dotfiles_dirs:
-      - fonts
-      - gtk
-      - keepass
-      - misc
-      - mpd
-      - ncmpcpp
-      - newsboat
-      - neovim
-      - npm
-      - picom
-      - shell
-      - scripts
-      - suckless
-      - vifm
-      - X11
-      - zathura
-      - zeal
-      - zsh
 
     # List of custom directories to create under user's home directory
     custom_directories:
@@ -149,7 +15,6 @@
       - Documents/Disks
       - Documents/Archives
       - Documents/VMs
-      - Games/WINEPREFIX
       - Pictures/Screenshots
       - Pictures/GIMP
       - Videos/Recordings
@@ -164,76 +29,26 @@
       - .config/mpd/pid
       - .config/mpd/state
       - .config/mpd/sticker.sql
-      - .config/X11/Xauthority
-
-    # List of files to remove
-    remove_files:
-      - ".ansible"
-      - ".bashrc"
-      - ".bash_history"
-      - ".bash_logout"
-      - ".gitconfig"
-      - ".profile"
-      - ".sudo_as_admin_successful"
 
   tasks:
 
-    # Purge unnecessary packages (run as root)
-    - name: Purge packages
-      apt:
-        name: "{{ remove_packages }}"
-        state: absent
-        purge: true
+    # Update Firmware
+    - name: Update system's software
+      shell: fw_update
       become: true
 
-    # Enabling contrib repos
-    - name: Replace main with main contrib repositories in sources.list
-      replace:
-        path: /etc/apt/sources.list
-        regexp: ' main '
-        replace: ' main contrib '
+    # Patch System Firmware
+    - name: Applies system patches
+      shell: syspatch
       become: true
 
-    # Install necessary packages (run as root)
+    # Install necessary packages
     - name: Install necessary packages
-      apt:
+      community.general.openbsd_pkg:
         name: "{{ packages }}"
         state: present
-        update_cache: true
-      become: true  # Use root to install these packages
-
-    # Enable extrepos
-    - name: Enable extrepos
-      command:
-        cmd: extrepo enable "{{ item }}"
-      with_items: "{{ ext_repos }}"
-      become: true
-
-    # Install ext packages (run as root)
-    - name: Install external packages
-      apt:
-        name: "{{ ext_packages }}"
-        state: present
-        update_cache: true
-      become: true  # Use root to install these packages
-
-    # Clean and remove unnecessary packages
-    - name: Package Maintenance
-      apt:
         autoremove: true
-        clean: true
-        purge: true
       become: true
-
-    # Install python packages
-    - name: Install Python packages using pipx
-      command:
-        cmd: pipx install "{{ item }}"
-      with_items: "{{ pipx_packages }}"
-
-    # Ensure the XDG user directories are created
-    - name: Update XDG user directories
-      shell: xdg-user-dirs-update
 
     # Ensure necessary custom directories exist for user (run as user)
     - name: Ensure custom directories exist for user
@@ -260,13 +75,6 @@
       shell: chsh -s /usr/bin/zsh {{ ansible_env.USER }}
       become: true  # Use root to install these packages
 
-    - name: Add user to libvirt group
-      user:
-        name: "{{ ansible_env.USER }}"
-        groups: libvirt
-        append: true
-      become: true
-
     # Configure git-lfs for user (run as user)
     - name: Configure git-lfs for user
       command: git lfs install
@@ -285,48 +93,12 @@
       args:
         chdir: "{{ ansible_env.HOME }}/.local/src"  # Make sure to run the script from the correct directory
 
-    # Install neovim plug plugin manager (run as user)
-    - name: Install Neovim plugin manager (vim-plug)
-      shell: |
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-    # Install Neovim plugins (run as user)
-    - name: Install Neovim plugins
-      shell: |
-        nvim --headless +PlugInstall +qall
-
-    # Remove the .sudo_as_admin_successful file from the $HOME directory
-    - name: Disable ~/.sudo_as_admin_successful file
-      lineinfile:
-        path: /etc/sudoers
-        line: "Defaults !admin_flag"
-        validate: '/usr/sbin/visudo -cf %s'
-        state: present
-      become: true  # Use root to change sudoers file
-
     # Remove unnecessary files
     - name: Remove unnecessary files
       file:
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: absent
       with_items: "{{ remove_files }}"
-
-    # Disable unnecessary services
-    - name: Disable the bettercap system service
-      systemd:
-        name: bettercap
-        enabled: false
-        state: stopped
-      become: true  # Use root to disable bettercap service
-
-    # Allow NetworkManager to manage all interfaces
-    - name: Enable NetworkManager to manage all interfaces
-      lineinfile:
-        path: /etc/NetworkManager/NetworkManager.conf
-        regexp: '^#?managed=false'
-        line: 'managed=true'
-      become: true
 
     # Reboot Schedule
     - name: Schedule reboot in 5 seconds
