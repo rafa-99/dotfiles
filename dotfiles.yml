@@ -34,7 +34,6 @@
       - git
       - git-lfs
       - gimp
-      - gimp-plugin-registry
       - gource
       - hplip
       - htop
@@ -58,8 +57,8 @@
       - mpd
       - mpv
       - ncmpcpp
-      - neofetch
       - neovim
+      - neowofetch
       - newsboat
       - net-tools
       - network-manager
@@ -93,7 +92,6 @@
       - transmission
       - udisks2
       - ueberzug
-      - unoconv
       - vifm
       - virt-manager
       - wpasupplicant
@@ -303,7 +301,7 @@
         line: "Defaults !admin_flag"
         validate: '/usr/sbin/visudo -cf %s'
         state: present
-      become: true  # Use root to change sudoers file
+      become: true
 
     # Remove unnecessary files
     - name: Remove unnecessary files
@@ -311,14 +309,6 @@
         path: "{{ ansible_env.HOME }}/{{ item }}"
         state: absent
       with_items: "{{ remove_files }}"
-
-    # Disable unnecessary services
-    - name: Disable the bettercap system service
-      systemd:
-        name: bettercap
-        enabled: false
-        state: stopped
-      become: true  # Use root to disable bettercap service
 
     # Allow NetworkManager to manage all interfaces
     - name: Enable NetworkManager to manage all interfaces
