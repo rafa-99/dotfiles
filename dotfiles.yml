@@ -277,11 +277,24 @@
         git config --global pull.rebase false
         mv {{ ansible_env.HOME }}/.gitconfig {{ ansible_env.HOME }}/.config/git/config
 
-    # Run the compileSource script from ~/.local/src (requires root permissions)
-    - name: Run compileSource script from ~/.local/src
-      shell: "{{ ansible_env.HOME }}/.local/src/compileSource"
-      args:
-        chdir: "{{ ansible_env.HOME }}/.local/src"  # Make sure to run the script from the correct directory
+    # Suckless configuration
+    - name: Setup Suckless sources
+      ansible.builtin.command:
+        cmd: "{{ ansible_env.HOME }}/.local/src/compileSource setup"
+        chdir: "{{ ansible_env.HOME }}/.local/src"
+      become: false
+
+    - name: Compile Suckless programs
+      ansible.builtin.command:
+        cmd: "{{ ansible_env.HOME }}/.local/src/compileSource compile"
+        chdir: "{{ ansible_env.HOME }}/.local/src"
+      become: false
+
+    - name: Install Suckless programs
+      ansible.builtin.command:
+        cmd: "{{ ansible_env.HOME }}/.local/src/compileSource install"
+        chdir: "{{ ansible_env.HOME }}/.local/src"
+      become: true
 
     # Install neovim plug plugin manager (run as user)
     - name: Install Neovim plugin manager (vim-plug)
