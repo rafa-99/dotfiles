@@ -18,4 +18,4 @@ cp -rf "$SRC"/colors/* "$SRC"
 
 walset "$1"
 
-cd "$SRC" && ./compileSource
+cd "$SRC" && ./compileSource compile && sudo ./compileSource install
